@@ -8,6 +8,10 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+@class CBHeroCharacter;
+
 @interface CBMyScene : SKScene
+
+@property(nonatomic)CBHeroCharacter *hero;
 
 @end

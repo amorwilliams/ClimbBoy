@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		520AF5EA17C36823004A183B /* Hero_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5E817C36823004A183B /* Hero_Idle.atlas */; };
+		520AF5EB17C36823004A183B /* Hero_Run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5E917C36823004A183B /* Hero_Run.atlas */; };
+		523F65FA17C39CAE00C84F73 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F317C39CAE00C84F73 /* CBMyScene.m */; };
+		523F65FB17C39CAE00C84F73 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F317C39CAE00C84F73 /* CBMyScene.m */; };
+		523F65FC17C39CAE00C84F73 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F617C39CAE00C84F73 /* CBCharacter.m */; };
+		523F65FD17C39CAE00C84F73 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F617C39CAE00C84F73 /* CBCharacter.m */; };
+		523F65FE17C39CAE00C84F73 /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F917C39CAE00C84F73 /* CBGraphicsUtilities.m */; };
+		523F65FF17C39CAE00C84F73 /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F917C39CAE00C84F73 /* CBGraphicsUtilities.m */; };
+		523F660217C39CE100C84F73 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F660117C39CE100C84F73 /* CBHeroCharacter.m */; };
+		523F660317C39CE100C84F73 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F660117C39CE100C84F73 /* CBHeroCharacter.m */; };
+		523F660617C39D0D00C84F73 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F660517C39D0D00C84F73 /* CBRobot.m */; };
+		523F660717C39D0D00C84F73 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F660517C39D0D00C84F73 /* CBRobot.m */; };
 		5250928117C24A5D004C9BFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5250928017C24A5D004C9BFA /* Foundation.framework */; };
 		5250928317C24A5D004C9BFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5250928217C24A5D004C9BFA /* CoreGraphics.framework */; };
 		5250928517C24A5D004C9BFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5250928417C24A5D004C9BFA /* UIKit.framework */; };
@@ -17,7 +29,6 @@
 		5250929617C24A5D004C9BFA /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5250929417C24A5D004C9BFA /* Main_iPhone.storyboard */; };
 		5250929917C24A5D004C9BFA /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5250929717C24A5D004C9BFA /* Main_iPad.storyboard */; };
 		5250929C17C24A5D004C9BFA /* CBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5250929B17C24A5D004C9BFA /* CBViewController.m */; };
-		5250929F17C24A5D004C9BFA /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 5250929E17C24A5D004C9BFA /* CBMyScene.m */; };
 		525092A117C24A5D004C9BFA /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 525092A017C24A5D004C9BFA /* Spaceship.png */; };
 		525092A317C24A5D004C9BFA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 525092A217C24A5D004C9BFA /* Images.xcassets */; };
 		525092AA17C24A5D004C9BFA /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 525092A917C24A5D004C9BFA /* XCTest.framework */; };
@@ -38,6 +49,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		520AF5E817C36823004A183B /* Hero_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Idle.atlas; sourceTree = "<group>"; };
+		520AF5E917C36823004A183B /* Hero_Run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Run.atlas; sourceTree = "<group>"; };
+		523F65F217C39CAE00C84F73 /* CBMyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMyScene.h; sourceTree = "<group>"; };
+		523F65F317C39CAE00C84F73 /* CBMyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMyScene.m; sourceTree = "<group>"; };
+		523F65F517C39CAE00C84F73 /* CBCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacter.h; sourceTree = "<group>"; };
+		523F65F617C39CAE00C84F73 /* CBCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacter.m; sourceTree = "<group>"; };
+		523F65F817C39CAE00C84F73 /* CBGraphicsUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGraphicsUtilities.h; sourceTree = "<group>"; };
+		523F65F917C39CAE00C84F73 /* CBGraphicsUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBGraphicsUtilities.m; sourceTree = "<group>"; };
+		523F660017C39CE100C84F73 /* CBHeroCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter.h; sourceTree = "<group>"; };
+		523F660117C39CE100C84F73 /* CBHeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter.m; sourceTree = "<group>"; };
+		523F660417C39D0D00C84F73 /* CBRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRobot.h; sourceTree = "<group>"; };
+		523F660517C39D0D00C84F73 /* CBRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRobot.m; sourceTree = "<group>"; };
 		5250927D17C24A5D004C9BFA /* ClimbBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5250928017C24A5D004C9BFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5250928217C24A5D004C9BFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,8 +76,6 @@
 		5250929817C24A5D004C9BFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		5250929A17C24A5D004C9BFA /* CBViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBViewController.h; sourceTree = "<group>"; };
 		5250929B17C24A5D004C9BFA /* CBViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBViewController.m; sourceTree = "<group>"; };
-		5250929D17C24A5D004C9BFA /* CBMyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBMyScene.h; sourceTree = "<group>"; };
-		5250929E17C24A5D004C9BFA /* CBMyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBMyScene.m; sourceTree = "<group>"; };
 		525092A017C24A5D004C9BFA /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		525092A217C24A5D004C9BFA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		525092A817C24A5D004C9BFA /* ClimbBoyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ClimbBoyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,10 +110,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		520AF5E517C36823004A183B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				520AF5E617C36823004A183B /* Texture Atlases */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		520AF5E617C36823004A183B /* Texture Atlases */ = {
+			isa = PBXGroup;
+			children = (
+				520AF5E717C36823004A183B /* Hero */,
+			);
+			path = "Texture Atlases";
+			sourceTree = "<group>";
+		};
+		520AF5E717C36823004A183B /* Hero */ = {
+			isa = PBXGroup;
+			children = (
+				520AF5E817C36823004A183B /* Hero_Idle.atlas */,
+				520AF5E917C36823004A183B /* Hero_Run.atlas */,
+			);
+			path = Hero;
+			sourceTree = "<group>";
+		};
+		523F65F017C39CAE00C84F73 /* GameClasses */ = {
+			isa = PBXGroup;
+			children = (
+				523F65F117C39CAE00C84F73 /* Scenes */,
+				523F65F417C39CAE00C84F73 /* Sprites */,
+				523F65F717C39CAE00C84F73 /* Utilities */,
+			);
+			path = GameClasses;
+			sourceTree = "<group>";
+		};
+		523F65F117C39CAE00C84F73 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				523F65F217C39CAE00C84F73 /* CBMyScene.h */,
+				523F65F317C39CAE00C84F73 /* CBMyScene.m */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		523F65F417C39CAE00C84F73 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				523F65F517C39CAE00C84F73 /* CBCharacter.h */,
+				523F65F617C39CAE00C84F73 /* CBCharacter.m */,
+				523F660017C39CE100C84F73 /* CBHeroCharacter.h */,
+				523F660117C39CE100C84F73 /* CBHeroCharacter.m */,
+				523F660417C39D0D00C84F73 /* CBRobot.h */,
+				523F660517C39D0D00C84F73 /* CBRobot.m */,
+			);
+			path = Sprites;
+			sourceTree = "<group>";
+		};
+		523F65F717C39CAE00C84F73 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				523F65F817C39CAE00C84F73 /* CBGraphicsUtilities.h */,
+				523F65F917C39CAE00C84F73 /* CBGraphicsUtilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		5250927417C24A5D004C9BFA = {
 			isa = PBXGroup;
 			children = (
+				523F65F017C39CAE00C84F73 /* GameClasses */,
 				5250928817C24A5D004C9BFA /* ClimbBoy */,
+				520AF5E517C36823004A183B /* Assets */,
 				525092AF17C24A5D004C9BFA /* ClimbBoyTests */,
 				5250927F17C24A5D004C9BFA /* Frameworks */,
 				5250927E17C24A5D004C9BFA /* Products */,
@@ -129,8 +218,6 @@
 				5250929717C24A5D004C9BFA /* Main_iPad.storyboard */,
 				5250929A17C24A5D004C9BFA /* CBViewController.h */,
 				5250929B17C24A5D004C9BFA /* CBViewController.m */,
-				5250929D17C24A5D004C9BFA /* CBMyScene.h */,
-				5250929E17C24A5D004C9BFA /* CBMyScene.m */,
 				525092A017C24A5D004C9BFA /* Spaceship.png */,
 				525092A217C24A5D004C9BFA /* Images.xcassets */,
 				5250928917C24A5D004C9BFA /* Supporting Files */,
@@ -248,8 +335,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				525092A117C24A5D004C9BFA /* Spaceship.png in Resources */,
+				520AF5EA17C36823004A183B /* Hero_Idle.atlas in Resources */,
 				525092A317C24A5D004C9BFA /* Images.xcassets in Resources */,
 				5250929917C24A5D004C9BFA /* Main_iPad.storyboard in Resources */,
+				520AF5EB17C36823004A183B /* Hero_Run.atlas in Resources */,
 				5250929617C24A5D004C9BFA /* Main_iPhone.storyboard in Resources */,
 				5250928D17C24A5D004C9BFA /* InfoPlist.strings in Resources */,
 			);
@@ -270,10 +359,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				523F65FE17C39CAE00C84F73 /* CBGraphicsUtilities.m in Sources */,
 				5250928F17C24A5D004C9BFA /* main.m in Sources */,
+				523F65FC17C39CAE00C84F73 /* CBCharacter.m in Sources */,
+				523F660217C39CE100C84F73 /* CBHeroCharacter.m in Sources */,
 				5250929317C24A5D004C9BFA /* CBAppDelegate.m in Sources */,
 				5250929C17C24A5D004C9BFA /* CBViewController.m in Sources */,
-				5250929F17C24A5D004C9BFA /* CBMyScene.m in Sources */,
+				523F65FA17C39CAE00C84F73 /* CBMyScene.m in Sources */,
+				523F660617C39D0D00C84F73 /* CBRobot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,7 +374,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				523F65FD17C39CAE00C84F73 /* CBCharacter.m in Sources */,
 				525092B617C24A5D004C9BFA /* ClimbBoyTests.m in Sources */,
+				523F65FF17C39CAE00C84F73 /* CBGraphicsUtilities.m in Sources */,
+				523F660717C39D0D00C84F73 /* CBRobot.m in Sources */,
+				523F660317C39CE100C84F73 /* CBHeroCharacter.m in Sources */,
+				523F65FB17C39CAE00C84F73 /* CBMyScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +592,7 @@
 				525092BB17C24A5D004C9BFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		525092BC17C24A5D004C9BFA /* Build configuration list for PBXNativeTarget "ClimbBoyTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +601,7 @@
 				525092BE17C24A5D004C9BFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
