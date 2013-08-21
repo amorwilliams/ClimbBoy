@@ -7,6 +7,7 @@
 //
 
 #import "CBHeroCharacter.h"
+#import "SKNode+CBExtension.h"
 
 @implementation CBHeroCharacter
 
@@ -27,6 +28,28 @@
     }
     
     return self;
+}
+
+#pragma mark - Overridden Methods
+- (void)configurePhysicsBody {
+//    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:kCharacterCollisionRadius];
+    self.physicsBody = [self physicsBodyWithCircleOfRadius:kCharacterCollisionRadius];
+    self.physicsBody.allowsRotation = NO;
+    self.physicsBody.restitution = 0;
+    
+    // Our object type for collisions.
+//    self.physicsBody.categoryBitMask = APAColliderTypeHero;
+    
+    // Collides with these objects.
+//    self.physicsBody.collisionBitMask = APAColliderTypeGoblinOrBoss | APAColliderTypeHero | APAColliderTypeWall | APAColliderTypeCave;
+    
+    // We want notifications for colliding with these objects.
+//    self.physicsBody.contactTestBitMask = APAColliderTypeGoblinOrBoss;
+}
+
+-(void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval
+{
+    [super updateWithTimeSinceLastUpdate:interval];
 }
 
 @end

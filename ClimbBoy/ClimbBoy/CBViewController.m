@@ -8,6 +8,7 @@
 
 #import "CBViewController.h"
 #import "CBMyScene.h"
+#import "SKView+CBExtension.h"
 
 @implementation CBViewController
 
@@ -19,10 +20,11 @@
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
+//    skView.showsPhysicsShapes = YES;
     
     // Create and configure the scene.
-    SKScene * scene = [CBMyScene sceneWithSize:skView.bounds.size];
-    scene.scaleMode = SKSceneScaleModeAspectFill;
+    SKScene * scene = [CBMyScene sceneWithSize:self.view.bounds.size];
+    scene.scaleMode = SKSceneScaleModeResizeFill;
     
     // Present the scene.
     [skView presentScene:scene];

@@ -7,6 +7,7 @@
 //
 
 #import "CBCharacter.h"
+#import "SKSpriteNode+CBExtension.h"
 
 @implementation CBCharacter
 
@@ -26,11 +27,10 @@
     self.position = position;
     
     _health = 100.0f;
-    _movementSpeed = kMovementSpeed;
     _animated = YES;
     _animationSpeed = 1.0f/28.0f;
     
-//    [self configurePhysicsBody];
+    [self configurePhysicsBody];
 }
 
 - (void)reset {
@@ -71,6 +71,10 @@
     self.requestedAnimation = CBAnimationStateDeath;
 }
 
+- (void)onArrived{
+    //Called when moveTowards has arrived point (usually overidden)
+}
+
 #pragma mark - Loop Update
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval {
     // Shadow always follows our main sprite.
@@ -78,6 +82,17 @@
     
     if (self.isAnimated) {
         [self resolveRequestedAnimation];
+        
+        float currentSpeedX = self.physicsBody.velocity.dx;
+        if (currentSpeedX > 0.1) {
+            self.flipX = NO;
+            self.requestedAnimation = CBAnimationStateRun;
+        }else if (currentSpeedX < -0.1){
+            self.flipX = YES;
+            self.requestedAnimation = CBAnimationStateRun;
+        }else{
+            self.requestedAnimation = CBAnimationStateIdle;
+        }
     }
 }
 
@@ -135,6 +150,7 @@
         return; // we already have a running animation or there aren't any frames to animate
     }
     
+    [self removeActionForKey:self.activeAnimationKey];
     self.activeAnimationKey = key;
     [self runAction:[SKAction sequence:@[
                                          [SKAction animateWithTextures:frames timePerFrame:self.animationSpeed resize:YES restore:NO],
@@ -157,6 +173,55 @@
     
     self.activeAnimationKey = nil;
 }
+
+#pragma mark - Orientation and Movement
+- (void)move:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval {
+    [self move:direction bySpeed:kMovementSpeed withTimeInterval:timeInterval];
+}
+
+- (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed withTimeInterval:(NSTimeInterval)timeInterval{
+    float force = 0;
+    
+    float currentSpeedX = self.physicsBody.velocity.dx;
+    
+    switch (direction) {
+        case CBMoveDirectionRight:
+            force = self.physicsBody.mass * (speed - currentSpeedX) / timeInterval;
+            break;
+            
+        case CBMoveDirectionLeft:
+            force = self.physicsBody.mass * (-speed - currentSpeedX) / timeInterval;
+            break;
+    }
+    //    NSLog(@"%f", currentSpeedX);
+    
+    [self.physicsBody applyForce:CGVectorMake(force, 0)];
+}
+
+#define CLAMP(x, low, high)  (((x) > (high)) ? (high) : (((x) < (low)) ? (low) : (x)))
+-(void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval{
+    CGPoint curPosition = self.position;
+    CGFloat dx = position.x - curPosition.x;
+    
+    const float arrivalDistance = 10.0;
+    const float slowingDistance = 20.0;
+    CGFloat distX = fabsf(dx);
+    if (distX <= arrivalDistance) {
+        self.physicsBody.velocity = CGVectorMake(0, self.physicsBody.velocity.dy);
+    }else
+    {
+        CGFloat rampedSpeed = kMovementSpeed * (distX / slowingDistance);
+        CGFloat minSpeed = kMovementSpeed / 4.0;
+        CGFloat clippedSpeed = CLAMP(rampedSpeed, minSpeed, kMovementSpeed);
+        if (dx > 0) {
+            [self move:CBMoveDirectionRight bySpeed:clippedSpeed withTimeInterval:timeInterval];
+        }
+        else if (dx < 0){
+            [self move:CBMoveDirectionLeft bySpeed:clippedSpeed withTimeInterval:timeInterval];
+        }
+    }
+}
+
 
 #pragma mark - Shared Assets
 + (void)loadSharedAssets {

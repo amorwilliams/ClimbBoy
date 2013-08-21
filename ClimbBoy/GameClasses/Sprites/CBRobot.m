@@ -16,7 +16,11 @@
     SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"Hero_Idle"];
     SKTexture *texture = [atlas textureNamed:@"hero_idle_0001.png"];
     
-    return [super initWithTexture:texture atPosition:position];
+    if(self = [super initWithTexture:texture atPosition:position]){
+        [self setScale:0.5];
+    }
+    
+    return self;
 }
 
 #pragma mark - Shared Assets

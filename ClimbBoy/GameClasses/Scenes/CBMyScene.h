@@ -8,6 +8,8 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+#define kMinTimeInterval (1.0f / 60.0f)
+
 @class CBHeroCharacter;
 
 @interface CBMyScene : SKScene

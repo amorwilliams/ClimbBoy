@@ -6,6 +6,12 @@
 //  Copyright (c) 2013年 macbookpro. All rights reserved.
 //
 
+/* Used by the move: method to move a character in a given direction. */
+typedef enum : uint8_t {
+    CBMoveDirectionRight = 0,
+    CBMoveDirectionLeft,
+} CBMoveDirection;
+
 /* The different animation states of an animated character. */
 typedef enum : uint8_t {
     CBAnimationStateIdle = 0,
@@ -20,7 +26,7 @@ typedef enum : uint8_t {
 #define kMovementSpeed 200.0
 #define kRotationSpeed 0.06
 
-#define kCharacterCollisionRadius   40
+#define kCharacterCollisionRadius   26
 #define kProjectileCollisionRadius  15
 
 #define kDefaultNumberOfWalkFrames 28
@@ -35,7 +41,6 @@ typedef enum : uint8_t {
 @property (nonatomic) CGFloat health;
 @property (nonatomic, getter=isAnimated) BOOL animated;
 @property (nonatomic) CGFloat animationSpeed;
-@property (nonatomic) CGFloat movementSpeed;
 
 @property (nonatomic) NSString *activeAnimationKey;
 @property (nonatomic) CBAnimationState requestedAnimation;
@@ -67,5 +72,12 @@ typedef enum : uint8_t {
 
 /* Loop Update - called once per frame. */
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval;
+
+/* Orientation, Movement, and Attacking. */
+- (void)move:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval;
+- (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed withTimeInterval:(NSTimeInterval)timeInterval;
+//- (CGFloat)faceTo:(CGPoint)position;
+- (void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval;
+- (void)moveInDirection:(CGPoint)direction withTimeInterval:(NSTimeInterval)timeInterval;
 
 @end

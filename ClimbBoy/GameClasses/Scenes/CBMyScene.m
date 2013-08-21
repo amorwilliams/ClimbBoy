@@ -9,10 +9,17 @@
 #import "CBMyScene.h"
 #import "CBGraphicsUtilities.h"
 #import "CBRobot.h"
+#import "SKNode+CBExtension.h"
+#import "SKSpriteNode+CBExtension.h"
 
-@interface CBMyScene(){
-    SKLabelNode *myLabel;
-}
+#define VIEW_SIZE_WIDHT 568
+#define VIEW_SIZE_HEIGHT 320
+
+@interface CBMyScene()
+@property (nonatomic) SKLabelNode *myLabel;
+@property (nonatomic) CFTimeInterval lastUpdateTimeInterval;
+@property (nonatomic) CBMoveDirection heroMoveDirection;
+@property (nonatomic) CGPoint moveToPoint;
 @end
 
 @implementation CBMyScene
@@ -22,74 +29,98 @@
         /* Setup your scene here */
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
-        
-        myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-        
-        myLabel.text = @"Hello, World!";
-        myLabel.fontSize = 10;
-        myLabel.position = CGPointMake(CGRectGetMidX(self.frame),
-                                       CGRectGetMidY(self.frame) + 20);
-        
-        [self addChild:myLabel];
-        
-        
-//        NSArray *idleFrames = CBLoadFramesFromAtlas(@"Hero_Idle", @"hero_idle_");
-//        
-//        
-//        SKSpriteNode *hero = [SKSpriteNode spriteNodeWithTexture:[idleFrames firstObject]];
-//        hero.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame));
-//        [hero setScale:0.1];
-//        [self addChild:hero];
-//        
-//        const NSTimeInterval kHeroAnimSpeed = 1/30.0;
-//        SKAction *idleAnimAction = [SKAction repeatActionForever:[SKAction animateWithTextures:idleFrames
-//                                                                                  timePerFrame:kHeroAnimSpeed
-//                                                                                        resize:YES
-//                                                                                       restore:YES]];
-//        [hero runAction:idleAnimAction];
+        self.heroMoveDirection = CBMoveDirectionRight;
         
         [CBRobot loadSharedAssets];
-        self.hero = [[CBRobot alloc] initAtPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame))];
-        [self addChild:self.hero];
-        [self.hero setScale:0.1];
-        self.hero.animationSpeed = 1/50.0;
-//        self.hero.requestedAnimation = CBAnimationStateRun;
+        
         
     }
     return self;
 }
+
+-(void)didMoveToView:(SKView *)view
+{
+    NSLog(@"frame size: %f, %f, %f, %f",
+          view.frame.origin.x,
+          view.frame.origin.y,
+          view.bounds.size.width,
+          view.bounds.size.height);
+    
+    [self addPhysicsWall];
+    
+    self.myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    self.myLabel.text = @"Hello, World!";
+    self.myLabel.fontSize = 10;
+    self.myLabel.position = CGPointMake(VIEW_SIZE_WIDHT/2,
+                                   VIEW_SIZE_HEIGHT/2);
+    [self addChild:self.myLabel];
+    NSLog(@"%f, %f", self.myLabel.position.x, self.myLabel.position.y);
+    
+    self.hero = [[CBRobot alloc] initAtPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame))];
+    [self addChild:self.hero];
+    self.moveToPoint = self.hero.position;
+}
+
+-(void)addPhysicsWall{
+    SKNode *ground = [[SKNode alloc] init];
+    CGPathRef path = CGPathCreateWithRect(CGRectMake(0, 0, VIEW_SIZE_WIDHT, VIEW_SIZE_HEIGHT), nil);
+    ground.physicsBody = [ground physicsBodyWithEdgeLoopFromPath:path];
+//    ground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    ground.physicsBody.restitution = 0;
+//    ground.physicsBody.friction = 0.1;
+    
+    [self addChild:ground];
+}
+
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     
     for (UITouch *touch in touches) {
         CGPoint location = [touch locationInNode:self];
+        self.moveToPoint = location;
+        NSLog(@"%f, %f", location.x, location.y);
+
+//        if (self.hero.requestedAnimation == CBAnimationStateIdle) {
+//            self.hero.requestedAnimation = CBAnimationStateRun;
+//        }
+//        else{
+//            self.hero.requestedAnimation = CBAnimationStateIdle;
+//        }
         
-//        SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-//        
-//        sprite.position = location;
-//        
-//        SKAction *action = [SKAction rotateByAngle:M_PI duration:1];
-//        
-//        [sprite runAction:[SKAction repeatActionForever:action]];
-//        
-//        [self addChild:sprite];
-        
-        if (self.hero.requestedAnimation == CBAnimationStateIdle) {
-            self.hero.requestedAnimation = CBAnimationStateRun;
-        }
-        else{
-            self.hero.requestedAnimation = CBAnimationStateIdle;
-        }
+//        [self.hero.physicsBody applyImpulse:CGVectorMake(40, 40)];
+//        if (self.heroMoveDirection == CBMoveDirectionRight) {
+//            self.heroMoveDirection = CBMoveDirectionLeft;
+//        }else{
+//            self.heroMoveDirection = CBMoveDirectionRight;
+//        }
         
     }
 }
 
 -(void)update:(CFTimeInterval)currentTime {
-    /* Called before each frame is rendered */
-    [self.hero updateWithTimeSinceLastUpdate:currentTime];
+    // Handle time delta.
+    // If we drop below 60fps, we still want everything to move the same distance.
+    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
+    self.lastUpdateTimeInterval = currentTime;
+    if (timeSinceLast > 1) { // more than a second since last update
+        timeSinceLast = kMinTimeInterval;
+        self.lastUpdateTimeInterval = currentTime;
+//        self.worldMovedForUpdate = YES;
+    }
     
-    myLabel.text = [NSString stringWithFormat:@"%hhu", self.hero.requestedAnimation];
+    [self updateWithTimeSinceLastUpdate:timeSinceLast];
+    
+}
+
+- (void)updateWithTimeSinceLastUpdate:(NSTimeInterval)timeSinceLast {
+    // Overridden by subclasses.
+    [self.hero updateWithTimeSinceLastUpdate:timeSinceLast];
+//    [self.hero move:self.heroMoveDirection withTimeInterval:timeSinceLast];
+    [self.hero moveTowards:self.moveToPoint withTimeInterval:timeSinceLast];
+    
+    
+    self.myLabel.text = [NSString stringWithFormat:@"%hhu", self.hero.requestedAnimation];
 }
 
 @end
