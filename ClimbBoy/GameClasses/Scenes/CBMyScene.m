@@ -52,18 +52,18 @@
     self.myLabel.text = @"Hello, World!";
     self.myLabel.fontSize = 10;
     self.myLabel.position = CGPointMake(VIEW_SIZE_WIDHT/2,
-                                   VIEW_SIZE_HEIGHT/2);
+                                   VIEW_SIZE_HEIGHT/2 + 100);
     [self addChild:self.myLabel];
     NSLog(@"%f, %f", self.myLabel.position.x, self.myLabel.position.y);
     
-    self.hero = [[CBRobot alloc] initAtPosition:CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame))];
+    self.hero = [[CBRobot alloc] initAtPosition:CGPointMake(100,100)];
     [self addChild:self.hero];
     self.moveToPoint = self.hero.position;
 }
 
 -(void)addPhysicsWall{
     SKNode *ground = [[SKNode alloc] init];
-    CGPathRef path = CGPathCreateWithRect(CGRectMake(0, 0, VIEW_SIZE_WIDHT, VIEW_SIZE_HEIGHT), nil);
+    CGPathRef path = CGPathCreateWithRect(CGRectMake(0, 20, VIEW_SIZE_WIDHT, VIEW_SIZE_HEIGHT - 20), nil);
     ground.physicsBody = [ground physicsBodyWithEdgeLoopFromPath:path];
 //    ground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     ground.physicsBody.restitution = 0;
@@ -75,26 +75,30 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
+    UITouch *touch = [[event allTouches] anyObject];
     
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:self];
+    CGPoint location = [touch locationInNode:self];
+    NSLog(@"%f, %f", location.x, location.y);
+    
+    if ([touch tapCount] == 1) {
         self.moveToPoint = location;
-        NSLog(@"%f, %f", location.x, location.y);
+    }
+}
 
-//        if (self.hero.requestedAnimation == CBAnimationStateIdle) {
-//            self.hero.requestedAnimation = CBAnimationStateRun;
-//        }
-//        else{
-//            self.hero.requestedAnimation = CBAnimationStateIdle;
-//        }
-        
-//        [self.hero.physicsBody applyImpulse:CGVectorMake(40, 40)];
-//        if (self.heroMoveDirection == CBMoveDirectionRight) {
-//            self.heroMoveDirection = CBMoveDirectionLeft;
-//        }else{
-//            self.heroMoveDirection = CBMoveDirectionRight;
-//        }
-        
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+
+    CGPoint location = [touch locationInNode:self];
+    if (fabsf(self.hero.position.x - location.x) > 50) {
+        self.moveToPoint = location;
+    }
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    
+    if ([touch tapCount] == 2) {
+        [self.hero performJump];
     }
 }
 
@@ -113,6 +117,11 @@
     
 }
 
+-(void)didEvaluateActions{
+    [self.hero didEvaluateActions];
+//    NSLog(@"Hero grounded is %@", self.hero.isGrounded ? @"YES" : @"NO" );
+}
+
 - (void)updateWithTimeSinceLastUpdate:(NSTimeInterval)timeSinceLast {
     // Overridden by subclasses.
     [self.hero updateWithTimeSinceLastUpdate:timeSinceLast];
@@ -120,7 +129,7 @@
     [self.hero moveTowards:self.moveToPoint withTimeInterval:timeSinceLast];
     
     
-    self.myLabel.text = [NSString stringWithFormat:@"%hhu", self.hero.requestedAnimation];
+    self.myLabel.text = [NSString stringWithFormat:@"%@", self.hero.activeAnimationKey];
 }
 
 @end

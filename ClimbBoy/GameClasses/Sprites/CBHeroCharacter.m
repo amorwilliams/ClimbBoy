@@ -33,7 +33,7 @@
 #pragma mark - Overridden Methods
 - (void)configurePhysicsBody {
 //    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:kCharacterCollisionRadius];
-    self.physicsBody = [self physicsBodyWithCircleOfRadius:kCharacterCollisionRadius];
+    self.physicsBody = [self physicsBodyWithCircleOfRadius:self.collisionRadius];
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.restitution = 0;
     
@@ -50,6 +50,7 @@
 -(void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval
 {
     [super updateWithTimeSinceLastUpdate:interval];
+    
 }
 
 @end

@@ -13,15 +13,25 @@
 		52352B6417C471A900CD32F1 /* SKView+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52352B6317C471A900CD32F1 /* SKView+CBExtension.m */; };
 		52352B6A17C4949B00CD32F1 /* SKSpriteNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52352B6917C4949B00CD32F1 /* SKSpriteNode+CBExtension.m */; };
 		523F65FA17C39CAE00C84F73 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F317C39CAE00C84F73 /* CBMyScene.m */; };
-		523F65FB17C39CAE00C84F73 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F317C39CAE00C84F73 /* CBMyScene.m */; };
 		523F65FC17C39CAE00C84F73 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F617C39CAE00C84F73 /* CBCharacter.m */; };
-		523F65FD17C39CAE00C84F73 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F617C39CAE00C84F73 /* CBCharacter.m */; };
 		523F65FE17C39CAE00C84F73 /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F917C39CAE00C84F73 /* CBGraphicsUtilities.m */; };
 		523F65FF17C39CAE00C84F73 /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F917C39CAE00C84F73 /* CBGraphicsUtilities.m */; };
 		523F660217C39CE100C84F73 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F660117C39CE100C84F73 /* CBHeroCharacter.m */; };
 		523F660317C39CE100C84F73 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F660117C39CE100C84F73 /* CBHeroCharacter.m */; };
 		523F660617C39D0D00C84F73 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F660517C39D0D00C84F73 /* CBRobot.m */; };
 		523F660717C39D0D00C84F73 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F660517C39D0D00C84F73 /* CBRobot.m */; };
+		5245728D17C5CA3E0004A1FD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5245728C17C5CA3E0004A1FD /* libz.dylib */; };
+		5245728F17C5CA6E0004A1FD /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5245728E17C5CA6E0004A1FD /* OpenAL.framework */; };
+		524572A017C60F610004A1FD /* Hero_Climb_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729B17C60F610004A1FD /* Hero_Climb_Loop.atlas */; };
+		524572A117C60F610004A1FD /* Hero_Climb_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729B17C60F610004A1FD /* Hero_Climb_Loop.atlas */; };
+		524572A217C60F610004A1FD /* Hero_Jump_Land_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729C17C60F610004A1FD /* Hero_Jump_Land_Idle.atlas */; };
+		524572A317C60F610004A1FD /* Hero_Jump_Land_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729C17C60F610004A1FD /* Hero_Jump_Land_Idle.atlas */; };
+		524572A417C60F610004A1FD /* Hero_Jump_Land_Long.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729D17C60F610004A1FD /* Hero_Jump_Land_Long.atlas */; };
+		524572A517C60F610004A1FD /* Hero_Jump_Land_Long.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729D17C60F610004A1FD /* Hero_Jump_Land_Long.atlas */; };
+		524572A617C60F610004A1FD /* Hero_Jump_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729E17C60F610004A1FD /* Hero_Jump_Loop.atlas */; };
+		524572A717C60F610004A1FD /* Hero_Jump_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729E17C60F610004A1FD /* Hero_Jump_Loop.atlas */; };
+		524572A817C60F610004A1FD /* Hero_Jump_Start.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729F17C60F610004A1FD /* Hero_Jump_Start.atlas */; };
+		524572A917C60F610004A1FD /* Hero_Jump_Start.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5245729F17C60F610004A1FD /* Hero_Jump_Start.atlas */; };
 		5250928117C24A5D004C9BFA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5250928017C24A5D004C9BFA /* Foundation.framework */; };
 		5250928317C24A5D004C9BFA /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5250928217C24A5D004C9BFA /* CoreGraphics.framework */; };
 		5250928517C24A5D004C9BFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5250928417C24A5D004C9BFA /* UIKit.framework */; };
@@ -39,6 +49,8 @@
 		525092AC17C24A5D004C9BFA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5250928417C24A5D004C9BFA /* UIKit.framework */; };
 		525092B417C24A5D004C9BFA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 525092B217C24A5D004C9BFA /* InfoPlist.strings */; };
 		525092B617C24A5D004C9BFA /* ClimbBoyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 525092B517C24A5D004C9BFA /* ClimbBoyTests.m */; };
+		528DDD4C17C65131006082B2 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F617C39CAE00C84F73 /* CBCharacter.m */; };
+		528DDD4D17C65139006082B2 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 523F65F317C39CAE00C84F73 /* CBMyScene.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +82,13 @@
 		523F660117C39CE100C84F73 /* CBHeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter.m; sourceTree = "<group>"; };
 		523F660417C39D0D00C84F73 /* CBRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRobot.h; sourceTree = "<group>"; };
 		523F660517C39D0D00C84F73 /* CBRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRobot.m; sourceTree = "<group>"; };
+		5245728C17C5CA3E0004A1FD /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		5245728E17C5CA6E0004A1FD /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		5245729B17C60F610004A1FD /* Hero_Climb_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Climb_Loop.atlas; sourceTree = "<group>"; };
+		5245729C17C60F610004A1FD /* Hero_Jump_Land_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Idle.atlas; sourceTree = "<group>"; };
+		5245729D17C60F610004A1FD /* Hero_Jump_Land_Long.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Long.atlas; sourceTree = "<group>"; };
+		5245729E17C60F610004A1FD /* Hero_Jump_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Loop.atlas; sourceTree = "<group>"; };
+		5245729F17C60F610004A1FD /* Hero_Jump_Start.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Start.atlas; sourceTree = "<group>"; };
 		5250927D17C24A5D004C9BFA /* ClimbBoy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbBoy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5250928017C24A5D004C9BFA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5250928217C24A5D004C9BFA /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -99,6 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5245728F17C5CA6E0004A1FD /* OpenAL.framework in Frameworks */,
+				5245728D17C5CA3E0004A1FD /* libz.dylib in Frameworks */,
 				5250928317C24A5D004C9BFA /* CoreGraphics.framework in Frameworks */,
 				5250928517C24A5D004C9BFA /* UIKit.framework in Frameworks */,
 				5250928717C24A5D004C9BFA /* SpriteKit.framework in Frameworks */,
@@ -138,6 +159,11 @@
 		520AF5E717C36823004A183B /* Hero */ = {
 			isa = PBXGroup;
 			children = (
+				5245729B17C60F610004A1FD /* Hero_Climb_Loop.atlas */,
+				5245729C17C60F610004A1FD /* Hero_Jump_Land_Idle.atlas */,
+				5245729D17C60F610004A1FD /* Hero_Jump_Land_Long.atlas */,
+				5245729E17C60F610004A1FD /* Hero_Jump_Loop.atlas */,
+				5245729F17C60F610004A1FD /* Hero_Jump_Start.atlas */,
 				520AF5E817C36823004A183B /* Hero_Idle.atlas */,
 				520AF5E917C36823004A183B /* Hero_Run.atlas */,
 			);
@@ -231,6 +257,8 @@
 		5250927F17C24A5D004C9BFA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5245728E17C5CA6E0004A1FD /* OpenAL.framework */,
+				5245728C17C5CA3E0004A1FD /* libz.dylib */,
 				5250928017C24A5D004C9BFA /* Foundation.framework */,
 				5250928217C24A5D004C9BFA /* CoreGraphics.framework */,
 				5250928417C24A5D004C9BFA /* UIKit.framework */,
@@ -348,6 +376,7 @@
 			knownRegions = (
 				en,
 				Base,
+				English,
 			);
 			mainGroup = 5250927417C24A5D004C9BFA;
 			productRefGroup = 5250927E17C24A5D004C9BFA /* Products */;
@@ -366,10 +395,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				525092A117C24A5D004C9BFA /* Spaceship.png in Resources */,
+				524572A217C60F610004A1FD /* Hero_Jump_Land_Idle.atlas in Resources */,
+				524572A417C60F610004A1FD /* Hero_Jump_Land_Long.atlas in Resources */,
 				520AF5EA17C36823004A183B /* Hero_Idle.atlas in Resources */,
 				525092A317C24A5D004C9BFA /* Images.xcassets in Resources */,
 				5250929917C24A5D004C9BFA /* Main_iPad.storyboard in Resources */,
+				524572A817C60F610004A1FD /* Hero_Jump_Start.atlas in Resources */,
+				524572A617C60F610004A1FD /* Hero_Jump_Loop.atlas in Resources */,
 				520AF5EB17C36823004A183B /* Hero_Run.atlas in Resources */,
+				524572A017C60F610004A1FD /* Hero_Climb_Loop.atlas in Resources */,
 				5250929617C24A5D004C9BFA /* Main_iPhone.storyboard in Resources */,
 				5250928D17C24A5D004C9BFA /* InfoPlist.strings in Resources */,
 			);
@@ -379,7 +413,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				524572A917C60F610004A1FD /* Hero_Jump_Start.atlas in Resources */,
 				525092B417C24A5D004C9BFA /* InfoPlist.strings in Resources */,
+				524572A317C60F610004A1FD /* Hero_Jump_Land_Idle.atlas in Resources */,
+				524572A517C60F610004A1FD /* Hero_Jump_Land_Long.atlas in Resources */,
+				524572A117C60F610004A1FD /* Hero_Climb_Loop.atlas in Resources */,
+				524572A717C60F610004A1FD /* Hero_Jump_Loop.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,12 +447,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				523F65FD17C39CAE00C84F73 /* CBCharacter.m in Sources */,
+				528DDD4C17C65131006082B2 /* CBCharacter.m in Sources */,
 				525092B617C24A5D004C9BFA /* ClimbBoyTests.m in Sources */,
 				523F65FF17C39CAE00C84F73 /* CBGraphicsUtilities.m in Sources */,
+				528DDD4D17C65139006082B2 /* CBMyScene.m in Sources */,
 				523F660717C39D0D00C84F73 /* CBRobot.m in Sources */,
 				523F660317C39CE100C84F73 /* CBHeroCharacter.m in Sources */,
-				523F65FB17C39CAE00C84F73 /* CBMyScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,13 +575,24 @@
 		525092BA17C24A5D004C9BFA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClimbBoy/ClimbBoy-Prefix.pch";
 				INFOPLIST_FILE = "ClimbBoy/ClimbBoy-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ClimbBoy-ajkkbdstvctlqnewyjfsmdhuajye/Build/Products/Release-iphoneos",
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy/ClimbBoy,
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -553,13 +603,24 @@
 		525092BB17C24A5D004C9BFA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClimbBoy/ClimbBoy-Prefix.pch";
 				INFOPLIST_FILE = "ClimbBoy/ClimbBoy-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ClimbBoy-ajkkbdstvctlqnewyjfsmdhuajye/Build/Products/Release-iphoneos",
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy/ClimbBoy,
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
@@ -575,6 +636,7 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClimbBoy/ClimbBoy-Prefix.pch";
@@ -583,6 +645,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "ClimbBoyTests/ClimbBoyTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ClimbBoy-ajkkbdstvctlqnewyjfsmdhuajye/Build/Products/Release-iphoneos",
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy/ClimbBoy,
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -597,10 +665,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ClimbBoy/ClimbBoy-Prefix.pch";
 				INFOPLIST_FILE = "ClimbBoyTests/ClimbBoyTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ClimbBoy-ajkkbdstvctlqnewyjfsmdhuajye/Build/Products/Release-iphoneos",
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy/ClimbBoy,
+					/Users/macbookpro/SKProjects/ClimbBoy/ClimbBoy,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
