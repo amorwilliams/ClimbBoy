@@ -18,20 +18,17 @@
     
     if(self = [super initWithTexture:texture atPosition:position]){
         self.name = @"hero";
-        [self setScale:0.5];
+        self.characterSprite.anchorPoint = CGPointMake(0.5, 0.5);
+        [self.characterSprite setScale:0.4];
     }
     
     return self;
 }
 
-- (void)performJump{
-    [super performJump];
-    [self.physicsBody applyImpulse:CGVectorMake(0, 80)];
-}
-
--(void)onGrounded{
-    [super onGrounded];
-    NSLog(@"onGrounded");
+- (void)collidedWith:(SKPhysicsBody *)other {
+    [super collidedWith:other];
+//    NSLog(@"%u", other.categoryBitMask);
+    
 }
 
 #pragma mark - Shared Assets

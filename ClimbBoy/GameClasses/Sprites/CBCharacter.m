@@ -7,7 +7,6 @@
 //
 
 #import "CBCharacter.h"
-#import "SKSpriteNode+CBExtension.h"
 
 @interface CBCharacter ()
 
@@ -20,9 +19,8 @@
 
 #pragma mark - Initialization
 - (id)initWithTexture:(SKTexture *)texture atPosition:(CGPoint)position {
-    self = [super initWithTexture:texture];
-    
-    if (self) {
+    if (self = [super init]) {
+        [self sharedInitCharaterSprite:texture];
         [self sharedInitAtPosition:position];
     }
     
@@ -33,12 +31,18 @@
     
     self.position = position;
     
-    _collisionRadius = kCharacterCollisionRadius;
+    _collisionCapsule = CBCapsuleMake(kCharacterCollisionRadius, kCharacterCollisionHeight);
     _health = 100.0f;
     _animated = YES;
     _animationSpeed = 1.0f/30.0f;
     
     [self configurePhysicsBody];
+}
+
+- (void)sharedInitCharaterSprite:(SKTexture *)texture {
+    self.characterSprite = [SKSpriteNode spriteNodeWithTexture:texture];
+    [self addChild:self.characterSprite];
+    [self.characterSprite didMoveToParent];
 }
 
 - (void)reset {
@@ -47,12 +51,15 @@
     self.dying = NO;
     self.jumping = NO;
     self.climbing = NO;
+    self.wallJumping = NO;
+    self.touchSide = NO;
     self.animated = YES;
     self.requestedAnimation = CBAnimationStateIdle;
     
     self.startJump = NO;
     self.startLand = NO;
 }
+
 
 #pragma mark - Overridden Methods
 - (void)configurePhysicsBody {
@@ -66,13 +73,16 @@
 
 - (void)collidedWith:(SKPhysicsBody *)other {
     // Handle a collision with another character, projectile, wall, etc (usually overidden).
+    [self testTouchSide];
+    if (self.isTouchSide && !self.isGrounded) {
+        self.climbing = YES;
+    }
+    
+    NSLog(@"touchSide : %@", self.isTouchSide ? @"YES" : @"NO");
+
 }
 
 - (void)performJump {
-    if (self.isJumping) {
-        return;
-    }
-    
     self.jumping = YES;
     self.startJump = YES;
     self.startLand = NO;
@@ -90,8 +100,10 @@
 }
 
 - (void)onGrounded{
-    if (self.isJumping) {
+    if (self.isJumping || self.isClimbing) {
         self.jumping = NO;
+        self.climbing = NO;
+        self.wallJumping = NO;
         self.startLand = YES;
         self.requestedAnimation = CBAnimationStateIdle;
     }
@@ -105,15 +117,22 @@
     
     float currentSpeedX = self.physicsBody.velocity.dx;
     if (currentSpeedX > 1) {
-        self.flipX = NO;
+        self.characterSprite.flipX = NO;
     }else if (currentSpeedX < -1){
-        self.flipX = YES;
+        self.characterSprite.flipX = YES;
     }
 }
 
--(void) didEvaluateActions
-{
+-(void) didEvaluateActions {
 	[self testIsGrounded];
+    [self testTouchSide];
+    
+//    NSLog(@"climbing : %@", self.isClimbing ? @"YES" : @"NO");
+//    NSLog(@"%f, %f", self.physicsBody.velocity.dx, self.physicsBody.velocity.dy);
+}
+
+- (void) didSimulatePhysics {
+    
 }
 
 #pragma mark - Animation
@@ -183,6 +202,8 @@
     
     if (self.dying) {
         self.requestedAnimation = CBAnimationStateDeath;
+    }else if (self.isClimbing) {
+        self.requestedAnimation = CBAnimationStateClimb;
     }else if (self.isJumping){
         self.requestedAnimation = CBAnimationStateJump;
     }else{
@@ -195,15 +216,15 @@
 }
 
 - (void)fireAnimationForState:(CBAnimationState)animationState usingTextures:(NSArray *)frames withKey:(NSString *)key {
-    SKAction *animAction = [self actionForKey:key];
+    SKAction *animAction = [self.characterSprite actionForKey:key];
     if (animAction || [frames count] < 1) {
         return; // we already have a running animation or there aren't any frames to animate
     }
     
-    [self removeActionForKey:self.activeAnimationKey];
+    [self.characterSprite removeActionForKey:self.activeAnimationKey];
     self.activeAnimationKey = key;
     
-    [self runAction:[SKAction sequence:@[
+    [self.characterSprite runAction:[SKAction sequence:@[
                                          [SKAction animateWithTextures:frames timePerFrame:self.animationSpeed resize:YES restore:NO],
                                          [SKAction runBlock:^{
         [self animationHasCompleted:animationState];
@@ -213,7 +234,6 @@
 - (void)animationHasCompleted:(CBAnimationState)animationState {
     if (self.dying) {
         self.animated = NO;
-//        [self.shadowBlob runAction:[SKAction fadeOutWithDuration:1.5f]];
     }
 
     if (self.startJump) {
@@ -229,12 +249,12 @@
     self.activeAnimationKey = nil;
 }
 
-#pragma mark - Orientation and Movement
+#pragma mark -  Movement
 - (void)move:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval {
     [self move:direction bySpeed:kMovementSpeed withTimeInterval:timeInterval];
 }
 
-- (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed withTimeInterval:(NSTimeInterval)timeInterval{
+- (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed withTimeInterval:(NSTimeInterval)timeInterval {
     if (!self.isGrounded) {
         return;
     }
@@ -244,26 +264,24 @@
         return;
     }
     
-    float force = 0;
-    
+    CGVector force = CGVectorZero;
     float currentSpeedX = self.physicsBody.velocity.dx;
-    
     switch (direction) {
         case CBMoveDirectionRight:
-            force = self.physicsBody.mass * (speed - currentSpeedX) / timeInterval;
+            force = CGVectorMake(self.physicsBody.mass * (speed - currentSpeedX) / timeInterval, 0);
             break;
             
         case CBMoveDirectionLeft:
-            force = self.physicsBody.mass * (-speed - currentSpeedX) / timeInterval;
+            force = CGVectorMake(self.physicsBody.mass * (-speed - currentSpeedX) / timeInterval, 0);
             break;
     }
-    //    NSLog(@"%f", currentSpeedX);
     
-    [self.physicsBody applyForce:CGVectorMake(force, 0)];
+    [self.physicsBody applyForce:force];
+//    NSLog(@"%f, %f", force.dx, force.dy);
+
 }
 
-#define CLAMP(x, low, high)  (((x) > (high)) ? (high) : (((x) < (low)) ? (low) : (x)))
--(void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval{
+- (void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval {
     if (!self.isGrounded) {
         return;
     }
@@ -275,9 +293,10 @@
     const float slowingDistance = 20.0;
     CGFloat distX = fabsf(dx);
     if (distX <= arrivalDistance) {
-        self.physicsBody.velocity = CGVectorMake(0, self.physicsBody.velocity.dy);
-    }else
-    {
+        if (self.isGrounded) {
+            self.physicsBody.velocity = CGVectorMake(0, self.physicsBody.velocity.dy);
+        }
+    }else{
         CGFloat rampedSpeed = kMovementSpeed * (distX / slowingDistance);
         CGFloat minSpeed = kMovementSpeed / 4.0;
         CGFloat clippedSpeed = CLAMP(rampedSpeed, minSpeed, kMovementSpeed);
@@ -290,20 +309,25 @@
     }
 }
 
--(void)moveInDirection:(CGPoint)direction withTimeInterval:(NSTimeInterval)timeInterval{
+- (void)moveInDirection:(CGPoint)direction withTimeInterval:(NSTimeInterval)timeInterval {
     
 }
 
--(void)testIsGrounded{
+- (void)climb:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval {
+    self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, MAX(-100, self.physicsBody.velocity.dy)) ;
+}
+
+#pragma mark - Physics Test
+- (void)testIsGrounded {
     __block BOOL temp = NO;
     CGPoint rayStart = self.position;
-	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y - (self.collisionRadius + 2));
+	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y - (self.collisionCapsule.height/2 + 2));
 
     // find body below player
 	SKPhysicsWorld* physicsWorld = self.scene.physicsWorld;
 	[physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
 		if (body.contactTestBitMask <= 1){
-            if (!self.grounded) {
+            if (!self.isGrounded) {
                 [self onGrounded];
             }
 			temp = YES;
@@ -311,6 +335,40 @@
 		}
 	}];
     self.grounded = temp;
+}
+
+- (void)testTouchSide {
+    __block BOOL temp = NO;
+    self.touchSideNormal = CGVectorZero;
+    CGPoint rayStart = self.position;
+	CGPoint rayEnd = CGPointMake(self.position.x + self.collisionCapsule.radius + 15, self.position.y);
+    
+    // find body below player
+	SKPhysicsWorld* physicsWorld = self.scene.physicsWorld;
+	[physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
+		if (body.contactTestBitMask <= 1){
+//            if (!self.isTouchSide) {
+//                [self onBeginClimb];
+//            }
+            temp = YES;
+            *stop = YES;
+            self.touchSideNormal = normal;
+		}
+	}];
+    
+    rayEnd = CGPointMake(self.position.x - self.collisionCapsule.radius - 15, self.position.y);
+    [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
+		if (body.contactTestBitMask <= 1){
+            //            if (!self.isTouchSide) {
+            //                [self onBeginClimb];
+            //            }
+            temp = YES;
+            *stop = YES;
+            self.touchSideNormal = normal;
+		}
+	}];
+    
+    self.touchSide = temp;
 }
 
 
@@ -368,10 +426,18 @@
 }
 
 #pragma mark - Getter and Setter
-- (void)setJumping:(BOOL)b{
+- (void)setJumping:(BOOL)b {
     _jumping = b;
     if (!b) {
         self.startJump = NO;
+        self.wallJumping = NO;
+    }
+}
+
+- (void)setClimbing:(BOOL)b {
+    _climbing = b;
+    if (b) {
+        self.jumping = NO;
     }
 }
 

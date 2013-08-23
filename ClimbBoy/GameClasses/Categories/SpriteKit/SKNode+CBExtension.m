@@ -7,7 +7,6 @@
 //
 
 #import "SKNode+CBExtension.h"
-#import "SKView+CBExtension.h"
 
 @implementation SKNode (CBExtension)
 @dynamic tag;
@@ -62,6 +61,51 @@
     
 }
 
+#pragma mark Node Tree
+
+-(void) didMoveToParent
+{
+	// to be overridden by subclasses
+    
+	if ([SKView showsNodeFrames])
+	{
+		SKShapeNode* shape = [SKShapeNode node];
+		CGPathRef path = CGPathCreateWithRect(self.frame, nil);
+		shape.path = path;
+		CGPathRelease(path);
+		shape.antialiased = NO;
+		shape.lineWidth = 1.0;
+		shape.strokeColor = [SKColor orangeColor];
+		[self addChild:shape];
+	}
+	if ([SKView showsNodeAnchorPoints])
+	{
+		SKShapeNode* shape = [SKShapeNode node];
+		CGRect center = CGRectMake(-1, -1, 2, 2);
+		CGPathRef path = CGPathCreateWithRect(center, nil);
+		shape.path = path;
+		CGPathRelease(path);
+		/*
+         CGMutablePathRef path = CGPathCreateMutable();
+         CGPathMoveToPoint(path, nil, self.position.x, self.position.y);
+         CGPathAddLineToPoint(path, nil, self.position.x, self.position.y+1);
+         shape.path = path;
+		 */
+		shape.antialiased = NO;
+		shape.lineWidth = 1.0;
+		[self addChild:shape];
+		
+		id sequence = [SKAction sequence:@[[SKAction runBlock:^{
+			shape.strokeColor = [SKColor colorWithRed:CBRANDOM_0_1() green:CBRANDOM_0_1() blue:CBRANDOM_0_1() alpha:1.0];
+		}], [SKAction waitForDuration:0.2]]];
+		[shape runAction:[SKAction repeatActionForever:sequence]];
+	}
+}
+
+- (void)willMoveFromParent {
+    
+}
+
 #pragma mark Physics
 
 -(void) addPhysicsBodyDrawNodeWithPath:(CGPathRef)path
@@ -109,6 +153,8 @@
 	SKPhysicsBody* physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
 	self.physicsBody = physicsBody;
 	CGPathRef path = CGPathCreateWithRect(CGRectMake(-(size.width * 0.5), -(size.height * 0.5), size.width, size.height), nil);
+    physicsBody.dynamic = NO;
+    self.physicsBody = physicsBody;
 	[self addPhysicsBodyDrawNodeWithPath:path];
 	CGPathRelease(path);
 	return physicsBody;
@@ -119,10 +165,35 @@
     SKPhysicsBody* physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:radius];
 	self.physicsBody = physicsBody;
 	CGMutablePathRef path = CGPathCreateMutable();
-    CGPathAddArc(path, NULL, 0, 0, radius, 0, M_PI * 360, NO);
+    CGPathAddArc(path, NULL, 0, 0, radius, 0, M_PI * 2, NO);
+    physicsBody.dynamic = YES;
+    self.physicsBody = physicsBody;
 	[self addPhysicsBodyDrawNodeWithPath:path];
 	CGPathRelease(path);
 	return physicsBody;
 }
 
+-(SKPhysicsBody *)physicsBodyWithCapsule:(CBCapsule)capsule
+{
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddArc(path, NULL, 0, capsule.height/2-capsule.radius, capsule.radius, 0, M_PI, NO);
+    CGPathAddLineToPoint(path, NULL, -capsule.radius, -capsule.height + capsule.radius*3);
+    CGPathAddArc(path, NULL, 0, -capsule.height/2 + capsule.radius, capsule.radius, -M_PI, 0, NO);
+    CGPathCloseSubpath(path);
+    SKPhysicsBody *physicsBody = [SKPhysicsBody bodyWithPolygonFromPath:path];
+    physicsBody.dynamic = YES;
+    self.physicsBody = physicsBody;
+    [self addPhysicsBodyDrawNodeWithPath:path];
+    CGPathRelease(path);
+    return physicsBody;
+}
+
 @end
+
+
+
+
+
+
+
+

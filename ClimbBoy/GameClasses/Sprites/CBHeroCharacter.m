@@ -7,7 +7,6 @@
 //
 
 #import "CBHeroCharacter.h"
-#import "SKNode+CBExtension.h"
 
 @implementation CBHeroCharacter
 
@@ -32,25 +31,73 @@
 
 #pragma mark - Overridden Methods
 - (void)configurePhysicsBody {
-//    self.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:kCharacterCollisionRadius];
-    self.physicsBody = [self physicsBodyWithCircleOfRadius:self.collisionRadius];
+//    self.physicsBody = [self physicsBodyWithCircleOfRadius:self.collisionRadius];
+//    self.physicsBody = [self physicsBodyWithRectangleOfSize:CGSizeMake(30, 38)];
+    self.physicsBody = [self physicsBodyWithCapsule:self.collisionCapsule];
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.restitution = 0;
-    
+    self.physicsBody.mass = 0.05;
+//    self.physicsBody.usesPreciseCollisionDetection = YES;
+//    self.physicsBody.friction = 1;
+
     // Our object type for collisions.
-//    self.physicsBody.categoryBitMask = APAColliderTypeHero;
+    self.physicsBody.categoryBitMask = CBColliderTypeHero;
     
     // Collides with these objects.
-//    self.physicsBody.collisionBitMask = APAColliderTypeGoblinOrBoss | APAColliderTypeHero | APAColliderTypeWall | APAColliderTypeCave;
+    self.physicsBody.collisionBitMask = CBColliderTypeGoblinOrBoss | CBColliderTypeHero | CBColliderTypeWall | CBColliderTypeCave;
     
     // We want notifications for colliding with these objects.
-//    self.physicsBody.contactTestBitMask = APAColliderTypeGoblinOrBoss;
+    self.physicsBody.contactTestBitMask = CBColliderTypeGoblinOrBoss | CBColliderTypeWall;
 }
 
--(void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval
-{
+- (void)performJump{
+    if (self.isJumping) {
+        return;
+    }
+    
+    if (self.isClimbing) {
+        self.climbing = NO;
+        self.wallJumping = YES;
+        CGVector dir = ccvNormalize(self.touchSideNormal);
+        NSLog(@"%f, %f", self.touchSideNormal.dx, self.touchSideNormal.dy);
+        [self.physicsBody applyImpulse:CGVectorMake(dir.dx * 30, 40)];
+    }else{
+        [self.physicsBody applyImpulse:CGVectorMake(0, 40)];
+    }
+    
+    [super performJump];
+
+}
+
+- (void)collidedWith:(SKPhysicsBody *)other {
+    [super collidedWith:other];
+}
+
+- (void)onGrounded{
+    [super onGrounded];
+    NSLog(@"onGrounded");
+}
+
+- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval{
     [super updateWithTimeSinceLastUpdate:interval];
     
+}
+
+
+- (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed withTimeInterval:(NSTimeInterval)timeInterval{
+    if (self.isClimbing) {
+        [self climb:direction withTimeInterval:timeInterval];
+    }else{
+        [super move:direction bySpeed:speed withTimeInterval:timeInterval];
+    }
+}
+
+- (void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval {
+    if (self.isClimbing) {
+        [self climb:CBMoveDirectionRight withTimeInterval:timeInterval];
+    }else{
+        [super moveTowards:position withTimeInterval:timeInterval];
+    }
 }
 
 @end

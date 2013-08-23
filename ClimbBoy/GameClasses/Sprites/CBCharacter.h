@@ -25,9 +25,19 @@ typedef enum : uint8_t {
     kAnimationStateCount
 } CBAnimationState;
 
-#define kMovementSpeed 200.0
+/* Bitmask for the different entities with physics bodies. */
+typedef enum : uint8_t {
+    CBColliderTypeHero             = 1,
+    CBColliderTypeGoblinOrBoss     = 2,
+    CBColliderTypeProjectile       = 4,
+    CBColliderTypeWall             = 8,
+    CBColliderTypeCave             = 16
+} CBColliderType;
 
-#define kCharacterCollisionRadius   26
+#define kMovementSpeed 300.0
+
+#define kCharacterCollisionRadius   15
+#define kCharacterCollisionHeight   40
 #define kProjectileCollisionRadius  15
 
 #define kDefaultNumberOfWalkFrames 28
@@ -35,13 +45,19 @@ typedef enum : uint8_t {
 
 #import <SpriteKit/SpriteKit.h>
 
-@interface CBCharacter : SKSpriteNode
+@interface CBCharacter : SKNode
 
-@property (nonatomic) CGFloat collisionRadius;
+/* 保存角色的贴图 */
+@property (nonatomic, retain) SKSpriteNode *characterSprite;
+/* 角色碰撞的半径 */
+@property (nonatomic) CBCapsule collisionCapsule;
 
 @property (nonatomic, getter = isDying) BOOL dying;
 @property (nonatomic, getter = isJumping) BOOL jumping;
 @property (nonatomic, getter = isClimbing) BOOL climbing;
+@property (nonatomic, getter = isWallJumping) BOOL wallJumping;
+@property (nonatomic, getter = isTouchSide) BOOL touchSide;
+@property (nonatomic) CGVector touchSideNormal;
 @property (nonatomic) CGFloat health;
 @property (nonatomic, getter = isAnimated) BOOL animated;
 @property (nonatomic) CGFloat animationSpeed;
@@ -86,6 +102,7 @@ typedef enum : uint8_t {
 /* Loop Update - called once per frame. */
 - (void) updateWithTimeSinceLastUpdate:(CFTimeInterval)interval;
 - (void) didEvaluateActions;
+- (void) didSimulatePhysics;
 
 /* Orientation, Movement, and Attacking. */
 - (void)move:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval;
@@ -93,5 +110,6 @@ typedef enum : uint8_t {
 //- (CGFloat)faceTo:(CGPoint)position;
 - (void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval;
 - (void)moveInDirection:(CGPoint)direction withTimeInterval:(NSTimeInterval)timeInterval;
+- (void)climb:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval;
 
 @end

@@ -20,7 +20,9 @@
     SKView * skView = (SKView *)self.view;
     skView.showsFPS = YES;
     skView.showsNodeCount = YES;
-//    skView.showsPhysicsShapes = YES;
+    skView.showsPhysicsShapes = YES;
+//    skView.showsNodeFrames = YES;
+//    skView.showsNodeAnchorPoints = YES;
     
     // Create and configure the scene.
     SKScene * scene = [CBMyScene sceneWithSize:self.view.bounds.size];

@@ -14,4 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <SpriteKit/SpriteKit.h>
+    #import "CBMacros.h"
+    #import "CBCategories.h"
+    #import "CBExternals.h"
 #endif

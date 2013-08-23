@@ -9,13 +9,11 @@
 #import "CBMyScene.h"
 #import "CBGraphicsUtilities.h"
 #import "CBRobot.h"
-#import "SKNode+CBExtension.h"
-#import "SKSpriteNode+CBExtension.h"
 
 #define VIEW_SIZE_WIDHT 568
 #define VIEW_SIZE_HEIGHT 320
 
-@interface CBMyScene()
+@interface CBMyScene()<SKPhysicsContactDelegate>
 @property (nonatomic) SKLabelNode *myLabel;
 @property (nonatomic) CFTimeInterval lastUpdateTimeInterval;
 @property (nonatomic) CBMoveDirection heroMoveDirection;
@@ -33,47 +31,67 @@
         
         [CBRobot loadSharedAssets];
         
-        
+        [self buildWorld];
     }
     return self;
 }
 
 -(void)didMoveToView:(SKView *)view
 {
-    NSLog(@"frame size: %f, %f, %f, %f",
-          view.frame.origin.x,
-          view.frame.origin.y,
-          view.bounds.size.width,
-          view.bounds.size.height);
+    [self addTitle];
+    [self addHero];
+}
+
+- (void)buildWorld {
+    NSLog(@"Building the world");
+
+//    self.physicsWorld.gravity = CGPointZero;
+    self.physicsWorld.contactDelegate = self;
+    [self addCollisionWalls];
+}
+
+- (void)addCollisionWalls {
+    [self addCollisionWallAtWorldPoint:ccp(0, 20) withWidth:VIEW_SIZE_WIDHT height:20];
+    [self addCollisionWallAtWorldPoint:ccp(0, VIEW_SIZE_HEIGHT) withWidth:VIEW_SIZE_WIDHT height:20];
+    [self addCollisionWallAtWorldPoint:ccp(0, VIEW_SIZE_HEIGHT) withWidth:20 height:VIEW_SIZE_HEIGHT];
+    [self addCollisionWallAtWorldPoint:ccp(VIEW_SIZE_WIDHT-20, VIEW_SIZE_HEIGHT) withWidth:20 height:VIEW_SIZE_HEIGHT];
     
-    [self addPhysicsWall];
+    [self addCollisionWallAtWorldPoint:ccp(VIEW_SIZE_WIDHT/2, VIEW_SIZE_HEIGHT/2) withWidth:20 height:VIEW_SIZE_HEIGHT/2];
+
+}
+
+- (void)addCollisionWallAtWorldPoint:(CGPoint)worldPoint withWidth:(CGFloat)width height:(CGFloat)height {
+    CGRect rect = CGRectMake(0, 0, width, height);
     
+    SKNode *wallNode = [SKNode node];
+    wallNode.position = CGPointMake(worldPoint.x + rect.size.width * 0.5, worldPoint.y - rect.size.height * 0.5);
+    wallNode.physicsBody = [wallNode physicsBodyWithRectangleOfSize:rect.size];
+    wallNode.physicsBody.dynamic = NO;
+    wallNode.physicsBody.restitution = 0;
+    wallNode.physicsBody.categoryBitMask = CBColliderTypeWall;
+    wallNode.physicsBody.collisionBitMask = 0;
+    
+    [self addChild:wallNode];
+}
+
+- (void)addTitle {
     self.myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     self.myLabel.text = @"Hello, World!";
     self.myLabel.fontSize = 10;
     self.myLabel.position = CGPointMake(VIEW_SIZE_WIDHT/2,
-                                   VIEW_SIZE_HEIGHT/2 + 100);
+                                        VIEW_SIZE_HEIGHT/2 + 100);
     [self addChild:self.myLabel];
     NSLog(@"%f, %f", self.myLabel.position.x, self.myLabel.position.y);
-    
+}
+
+- (void)addHero {
     self.hero = [[CBRobot alloc] initAtPosition:CGPointMake(100,100)];
     [self addChild:self.hero];
     self.moveToPoint = self.hero.position;
 }
 
--(void)addPhysicsWall{
-    SKNode *ground = [[SKNode alloc] init];
-    CGPathRef path = CGPathCreateWithRect(CGRectMake(0, 20, VIEW_SIZE_WIDHT, VIEW_SIZE_HEIGHT - 20), nil);
-    ground.physicsBody = [ground physicsBodyWithEdgeLoopFromPath:path];
-//    ground.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    ground.physicsBody.restitution = 0;
-//    ground.physicsBody.friction = 0.1;
-    
-    [self addChild:ground];
-}
-
-
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+#pragma mark - Touches
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
     /* Called when a touch begins */
     UITouch *touch = [[event allTouches] anyObject];
     
@@ -82,6 +100,11 @@
     
     if ([touch tapCount] == 1) {
         self.moveToPoint = location;
+        if (location.x > self.hero.position.x) {
+            self.heroMoveDirection = CBMoveDirectionRight;
+        }else{
+            self.heroMoveDirection = CBMoveDirectionLeft;
+        }
     }
 }
 
@@ -102,6 +125,7 @@
     }
 }
 
+#pragma mark - Loop Update
 -(void)update:(CFTimeInterval)currentTime {
     // Handle time delta.
     // If we drop below 60fps, we still want everything to move the same distance.
@@ -118,8 +142,11 @@
 }
 
 -(void)didEvaluateActions{
+    
+}
+
+- (void)didSimulatePhysics {
     [self.hero didEvaluateActions];
-//    NSLog(@"Hero grounded is %@", self.hero.isGrounded ? @"YES" : @"NO" );
 }
 
 - (void)updateWithTimeSinceLastUpdate:(NSTimeInterval)timeSinceLast {
@@ -132,4 +159,18 @@
     self.myLabel.text = [NSString stringWithFormat:@"%@", self.hero.activeAnimationKey];
 }
 
+#pragma mark - Physics Delegate
+- (void)didBeginContact:(SKPhysicsContact *)contact{
+    // Either bodyA or bodyB in the collision could be a character.
+    SKNode *node = contact.bodyA.node;
+    if ([node isKindOfClass:[CBCharacter class]]) {
+        [(CBCharacter *)node collidedWith:contact.bodyB];
+    }
+    
+    // Check bodyB too.
+    node = contact.bodyB.node;
+    if ([node isKindOfClass:[CBCharacter class]]) {
+        [(CBCharacter *)node collidedWith:contact.bodyA];
+    }
+}
 @end

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		520AF5EA17C36823004A183B /* Hero_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5E817C36823004A183B /* Hero_Idle.atlas */; };
 		520AF5EB17C36823004A183B /* Hero_Run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 520AF5E917C36823004A183B /* Hero_Run.atlas */; };
+		5233D6E717C719590070CA29 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5233D4C917C719570070CA29 /* CGPointExtension.m */; };
+		5233D6E817C719590070CA29 /* CGPointExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5233D4C917C719570070CA29 /* CGPointExtension.m */; };
+		5233D6E917C719590070CA29 /* CGVectorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5233D4CB17C719570070CA29 /* CGVectorExtension.m */; };
+		5233D6EA17C719590070CA29 /* CGVectorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5233D4CB17C719570070CA29 /* CGVectorExtension.m */; };
 		52352B6117C46AE600CD32F1 /* SKNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52352B6017C46AE600CD32F1 /* SKNode+CBExtension.m */; };
 		52352B6417C471A900CD32F1 /* SKView+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52352B6317C471A900CD32F1 /* SKView+CBExtension.m */; };
 		52352B6A17C4949B00CD32F1 /* SKSpriteNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52352B6917C4949B00CD32F1 /* SKSpriteNode+CBExtension.m */; };
@@ -66,6 +70,13 @@
 /* Begin PBXFileReference section */
 		520AF5E817C36823004A183B /* Hero_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Idle.atlas; sourceTree = "<group>"; };
 		520AF5E917C36823004A183B /* Hero_Run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Run.atlas; sourceTree = "<group>"; };
+		5233D4C417C7099E0070CA29 /* CBMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMacros.h; sourceTree = "<group>"; };
+		5233D4C517C70AA20070CA29 /* CBCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCategories.h; sourceTree = "<group>"; };
+		5233D4C817C719570070CA29 /* CGPointExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGPointExtension.h; sourceTree = "<group>"; };
+		5233D4C917C719570070CA29 /* CGPointExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGPointExtension.m; sourceTree = "<group>"; };
+		5233D4CA17C719570070CA29 /* CGVectorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGVectorExtension.h; sourceTree = "<group>"; };
+		5233D4CB17C719570070CA29 /* CGVectorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGVectorExtension.m; sourceTree = "<group>"; };
+		5233D4D317C719570070CA29 /* CBExternals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBExternals.h; sourceTree = "<group>"; };
 		52352B5F17C46AE600CD32F1 /* SKNode+CBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+CBExtension.h"; sourceTree = "<group>"; };
 		52352B6017C46AE600CD32F1 /* SKNode+CBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+CBExtension.m"; sourceTree = "<group>"; };
 		52352B6217C471A900CD32F1 /* SKView+CBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKView+CBExtension.h"; sourceTree = "<group>"; };
@@ -170,9 +181,30 @@
 			path = Hero;
 			sourceTree = "<group>";
 		};
+		5233D4C617C719570070CA29 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				5233D4D317C719570070CA29 /* CBExternals.h */,
+				5233D4C717C719570070CA29 /* CGPointExtension */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		5233D4C717C719570070CA29 /* CGPointExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5233D4C817C719570070CA29 /* CGPointExtension.h */,
+				5233D4C917C719570070CA29 /* CGPointExtension.m */,
+				5233D4CA17C719570070CA29 /* CGVectorExtension.h */,
+				5233D4CB17C719570070CA29 /* CGVectorExtension.m */,
+			);
+			path = CGPointExtension;
+			sourceTree = "<group>";
+		};
 		52352B5D17C46AE600CD32F1 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				5233D4C517C70AA20070CA29 /* CBCategories.h */,
 				52352B5E17C46AE600CD32F1 /* SpriteKit */,
 			);
 			path = Categories;
@@ -198,6 +230,7 @@
 				523F65F117C39CAE00C84F73 /* Scenes */,
 				523F65F417C39CAE00C84F73 /* Sprites */,
 				523F65F717C39CAE00C84F73 /* Utilities */,
+				5233D4C417C7099E0070CA29 /* CBMacros.h */,
 			);
 			path = GameClasses;
 			sourceTree = "<group>";
@@ -237,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				523F65F017C39CAE00C84F73 /* GameClasses */,
+				5233D4C617C719570070CA29 /* External */,
 				5250928817C24A5D004C9BFA /* ClimbBoy */,
 				520AF5E517C36823004A183B /* Assets */,
 				525092AF17C24A5D004C9BFA /* ClimbBoyTests */,
@@ -435,6 +469,8 @@
 				523F65FC17C39CAE00C84F73 /* CBCharacter.m in Sources */,
 				523F660217C39CE100C84F73 /* CBHeroCharacter.m in Sources */,
 				52352B6417C471A900CD32F1 /* SKView+CBExtension.m in Sources */,
+				5233D6E917C719590070CA29 /* CGVectorExtension.m in Sources */,
+				5233D6E717C719590070CA29 /* CGPointExtension.m in Sources */,
 				5250929317C24A5D004C9BFA /* CBAppDelegate.m in Sources */,
 				5250929C17C24A5D004C9BFA /* CBViewController.m in Sources */,
 				523F65FA17C39CAE00C84F73 /* CBMyScene.m in Sources */,
@@ -447,12 +483,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5233D6EA17C719590070CA29 /* CGVectorExtension.m in Sources */,
 				528DDD4C17C65131006082B2 /* CBCharacter.m in Sources */,
 				525092B617C24A5D004C9BFA /* ClimbBoyTests.m in Sources */,
 				523F65FF17C39CAE00C84F73 /* CBGraphicsUtilities.m in Sources */,
 				528DDD4D17C65139006082B2 /* CBMyScene.m in Sources */,
 				523F660717C39D0D00C84F73 /* CBRobot.m in Sources */,
 				523F660317C39CE100C84F73 /* CBHeroCharacter.m in Sources */,
+				5233D6E817C719590070CA29 /* CGPointExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
