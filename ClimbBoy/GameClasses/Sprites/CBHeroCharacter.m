@@ -8,6 +8,12 @@
 
 #import "CBHeroCharacter.h"
 
+@interface CBHeroCharacter ()
+@property (nonatomic) CGPoint moveToPoint;
+@property (nonatomic) CBMoveDirection heroMoveDirection;
+
+@end
+
 @implementation CBHeroCharacter
 
 #pragma mark - Initialization
@@ -27,6 +33,13 @@
     }
     
     return self;
+}
+
+- (void)didMoveToParent {
+    [super didMoveToParent];
+    [self observeInputEvents];
+    self.moveToPoint = self.position;
+    self.heroMoveDirection = CBMoveDirectionRight;
 }
 
 #pragma mark - Overridden Methods
@@ -69,10 +82,6 @@
 
 }
 
-- (void)collidedWith:(SKPhysicsBody *)other {
-    [super collidedWith:other];
-}
-
 - (void)onGrounded{
     [super onGrounded];
     NSLog(@"onGrounded");
@@ -81,8 +90,8 @@
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval{
     [super updateWithTimeSinceLastUpdate:interval];
     
+    [self moveTowards:self.moveToPoint withTimeInterval:interval];
 }
-
 
 - (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed withTimeInterval:(NSTimeInterval)timeInterval{
     if (self.isClimbing) {
@@ -99,5 +108,42 @@
         [super moveTowards:position withTimeInterval:timeInterval];
     }
 }
+
+#pragma mark - Input Observer
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    
+    CGPoint location = [touch locationInNode:self];
+    NSLog(@"%f, %f", location.x, location.y);
+    
+    if ([touch tapCount] == 1) {
+        self.moveToPoint = [self convertPoint:location toNode:self.kkScene];
+        if (location.x > self.position.x) {
+            self.heroMoveDirection = CBMoveDirectionRight;
+        }else{
+            self.heroMoveDirection = CBMoveDirectionLeft;
+        }
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    
+    CGPoint location = [touch locationInNode:self];
+    if (fabsf(self.position.x - location.x) > 50) {
+        self.moveToPoint = [self convertPoint:location toNode:self.kkScene];
+    }
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    
+    if ([touch tapCount] == 2) {
+        [self performJump];
+    }
+}
+
+
+
 
 @end

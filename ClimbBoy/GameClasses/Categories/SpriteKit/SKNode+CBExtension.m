@@ -61,56 +61,10 @@
     
 }
 
-#pragma mark Node Tree
-
--(void) didMoveToParent
-{
-	// to be overridden by subclasses
-    
-	if ([SKView showsNodeFrames])
-	{
-		SKShapeNode* shape = [SKShapeNode node];
-		CGPathRef path = CGPathCreateWithRect(self.frame, nil);
-		shape.path = path;
-		CGPathRelease(path);
-		shape.antialiased = NO;
-		shape.lineWidth = 1.0;
-		shape.strokeColor = [SKColor orangeColor];
-		[self addChild:shape];
-	}
-	if ([SKView showsNodeAnchorPoints])
-	{
-		SKShapeNode* shape = [SKShapeNode node];
-		CGRect center = CGRectMake(-1, -1, 2, 2);
-		CGPathRef path = CGPathCreateWithRect(center, nil);
-		shape.path = path;
-		CGPathRelease(path);
-		/*
-         CGMutablePathRef path = CGPathCreateMutable();
-         CGPathMoveToPoint(path, nil, self.position.x, self.position.y);
-         CGPathAddLineToPoint(path, nil, self.position.x, self.position.y+1);
-         shape.path = path;
-		 */
-		shape.antialiased = NO;
-		shape.lineWidth = 1.0;
-		[self addChild:shape];
-		
-		id sequence = [SKAction sequence:@[[SKAction runBlock:^{
-			shape.strokeColor = [SKColor colorWithRed:CBRANDOM_0_1() green:CBRANDOM_0_1() blue:CBRANDOM_0_1() alpha:1.0];
-		}], [SKAction waitForDuration:0.2]]];
-		[shape runAction:[SKAction repeatActionForever:sequence]];
-	}
-}
-
-- (void)willMoveFromParent {
-    
-}
-
 #pragma mark Physics
-
 -(void) addPhysicsBodyDrawNodeWithPath:(CGPathRef)path
 {
-	if ([SKView showsPhysicsShapes])
+	if ([KKView showsPhysicsShapes])
 	{
 		SKShapeNode* shape = [SKShapeNode node];
 		shape.path = path;
@@ -122,7 +76,7 @@
 		}
 		else
 		{
-			shape.lineWidth = 1.0;
+			shape.lineWidth = 2.0;
 			shape.glowWidth = 4.0;
 			shape.strokeColor = [SKColor magentaColor];
 		}
@@ -130,35 +84,6 @@
 	}
 }
 
--(SKPhysicsBody*) physicsBodyWithEdgeLoopFromPath:(CGPathRef)path
-{
-	SKPhysicsBody* physicsBody = [SKPhysicsBody bodyWithEdgeLoopFromPath:path];
-	physicsBody.dynamic = NO;
-	self.physicsBody = physicsBody;
-	[self addPhysicsBodyDrawNodeWithPath:path];
-	return physicsBody;
-}
-
--(SKPhysicsBody*) physicsBodyWithEdgeChainFromPath:(CGPathRef)path
-{
-	SKPhysicsBody* physicsBody = [SKPhysicsBody bodyWithEdgeChainFromPath:path];
-	physicsBody.dynamic = NO;
-	self.physicsBody = physicsBody;
-	[self addPhysicsBodyDrawNodeWithPath:path];
-	return physicsBody;
-}
-
--(SKPhysicsBody*) physicsBodyWithRectangleOfSize:(CGSize)size
-{
-	SKPhysicsBody* physicsBody = [SKPhysicsBody bodyWithRectangleOfSize:size];
-	self.physicsBody = physicsBody;
-	CGPathRef path = CGPathCreateWithRect(CGRectMake(-(size.width * 0.5), -(size.height * 0.5), size.width, size.height), nil);
-    physicsBody.dynamic = NO;
-    self.physicsBody = physicsBody;
-	[self addPhysicsBodyDrawNodeWithPath:path];
-	CGPathRelease(path);
-	return physicsBody;
-}
 
 -(SKPhysicsBody *)physicsBodyWithCircleOfRadius:(CGFloat)radius
 {

@@ -12,7 +12,7 @@
 
 @class CBHeroCharacter;
 
-@interface CBMyScene : SKScene
+@interface CBMyScene : KKScene
 
 @property(nonatomic)CBHeroCharacter *hero;
 

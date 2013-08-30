@@ -7,16 +7,18 @@
 //
 
 #import "CBCharacter.h"
+#import "CBBehaviors.h"
+#import "CBMacros.h"
 
 @interface CBCharacter ()
-
+@property (nonatomic) CFTimeInterval lastUpdateTimeInterval;
 @property (nonatomic) BOOL startJump;
 @property (nonatomic) BOOL startLand;
 
 @end
 
 @implementation CBCharacter
-
+@synthesize node;
 #pragma mark - Initialization
 - (id)initWithTexture:(SKTexture *)texture atPosition:(CGPoint)position {
     if (self = [super init]) {
@@ -60,6 +62,13 @@
     self.startLand = NO;
 }
 
+- (void)didMoveToParent {
+    [self observeSceneEvents];
+    [self.kkScene addPhysicsContactEventsObserver:self];
+    CBSpriteFlipBehavior *flipBehavior = [CBSpriteFlipBehavior SpriteFlipWithTarget:self.characterSprite];
+    [self addBehavior:flipBehavior withKey:@"Flip"];
+}
+
 
 #pragma mark - Overridden Methods
 - (void)configurePhysicsBody {
@@ -68,17 +77,6 @@
 
 - (void)animationDidComplete:(CBAnimationState)animation {
     // Called when a requested animation has completed (usually overriden).
-
-}
-
-- (void)collidedWith:(SKPhysicsBody *)other {
-    // Handle a collision with another character, projectile, wall, etc (usually overidden).
-    [self testTouchSide];
-    if (self.isTouchSide && !self.isGrounded) {
-        self.climbing = YES;
-    }
-    
-    NSLog(@"touchSide : %@", self.isTouchSide ? @"YES" : @"NO");
 
 }
 
@@ -110,16 +108,22 @@
 }
 
 #pragma mark - Loop Update
+- (void)update:(NSTimeInterval)currentTime {
+    // Handle time delta.
+    // If we drop below 60fps, we still want everything to move the same distance.
+    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
+    self.lastUpdateTimeInterval = currentTime;
+    if (timeSinceLast > 1) { // more than a second since last update
+        timeSinceLast = 1/60.0;
+        self.lastUpdateTimeInterval = currentTime;
+    }
+    
+    [self updateWithTimeSinceLastUpdate:timeSinceLast];
+}
+
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval {
     if (self.isAnimated) {
         [self resolveRequestedAnimation];
-    }
-    
-    float currentSpeedX = self.physicsBody.velocity.dx;
-    if (currentSpeedX > 1) {
-        self.characterSprite.flipX = NO;
-    }else if (currentSpeedX < -1){
-        self.characterSprite.flipX = YES;
     }
 }
 
@@ -132,6 +136,25 @@
 }
 
 - (void) didSimulatePhysics {
+    
+}
+
+
+#pragma mark - Physics Delegate
+- (SKNode *)node {
+    return self;
+}
+
+- (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
+    [self testTouchSide];
+    if (self.isTouchSide && !self.isGrounded) {
+        self.climbing = YES;
+    }
+    
+    NSLog(@"touchSide : %@", self.isTouchSide ? @"YES" : @"NO");
+}
+
+- (void)didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
     
 }
 

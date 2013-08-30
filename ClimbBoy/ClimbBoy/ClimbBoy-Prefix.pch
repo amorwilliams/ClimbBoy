@@ -4,17 +4,9 @@
 //  The contents of this file are implicitly included at the beginning of every source file.
 //
 
-#import <Availability.h>
-
-#ifndef __IPHONE_5_0
-#warning "This project uses features only available in iOS SDK 5.0 and later."
-#endif
-
 #ifdef __OBJC__
-    #import <UIKit/UIKit.h>
-    #import <Foundation/Foundation.h>
-    #import <SpriteKit/SpriteKit.h>
-    #import "CBMacros.h"
-    #import "CBCategories.h"
-    #import "CBExternals.h"
+	#import <KoboldKit.h>
+	#import <KoboldKitPro/KoboldKitPro.h>
+	#import <KoboldKitCommunity/KoboldKitCommunity.h>
+	#import <KoboldKitExternal/KoboldKitExternal.h>
 #endif

@@ -25,10 +25,9 @@
     return self;
 }
 
-- (void)collidedWith:(SKPhysicsBody *)other {
-    [super collidedWith:other];
-//    NSLog(@"%u", other.categoryBitMask);
-    
+- (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
+    [super didBeginContact:contact otherBody:otherBody];
+    NSLog(@"%u", otherBody.categoryBitMask);
 }
 
 #pragma mark - Shared Assets

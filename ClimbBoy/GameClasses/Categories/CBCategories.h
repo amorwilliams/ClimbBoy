@@ -11,7 +11,6 @@
 
 // Sprite Kit
 #import "SKNode+CBExtension.h"
-#import "SKView+CBExtension.h"
 #import "SKSpriteNode+CBExtension.h"
 
 

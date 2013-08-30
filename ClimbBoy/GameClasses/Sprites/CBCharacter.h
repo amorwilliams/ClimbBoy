@@ -44,9 +44,9 @@ typedef enum : uint8_t {
 #define kDefaultNumberOfIdleFrames 28
 
 #import <SpriteKit/SpriteKit.h>
+#import "CBCategories.h"
 
-@interface CBCharacter : SKNode
-
+@interface CBCharacter : KKNode <KKPhysicsContactEventDelegate>
 /* 保存角色的贴图 */
 @property (nonatomic, retain) SKSpriteNode *characterSprite;
 /* 角色碰撞的半径 */
@@ -77,7 +77,8 @@ typedef enum : uint8_t {
 
 /* Overridden Methods. */
 //- (void)animationDidComplete:(CBAnimationState)animation;
-- (void)collidedWith:(SKPhysicsBody *)other;
+- (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
+- (void)didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
 - (void)performJump;
 - (void)performDeath;
 - (void)configurePhysicsBody;
