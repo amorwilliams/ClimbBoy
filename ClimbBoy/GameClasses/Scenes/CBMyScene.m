@@ -29,18 +29,44 @@
         [CBRobot loadSharedAssets];
         
         [self buildWorld];
+        [self addButtons];
     }
     return self;
 }
 
 -(void)didMoveToView:(SKView *)view
 {
+    [super didMoveToView:view];
+    
     [self addTitle];
     [self addHero];
     
 //    KKCameraFollowBehavior *cameraFollow = [KKCameraFollowBehavior behavior];
 //    cameraFollow.node = self.hero;
 //    [self addBehavior:cameraFollow withKey:@"Camera"];
+}
+
+- (void)addButtons {
+    SKLabelNode *backButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    backButton.text = @"Back";
+    backButton.fontSize = 20;
+    backButton.zPosition = 1;
+    backButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 50, CGRectGetMaxY(self.frame) - 30);
+    [self addChild:backButton];
+    
+    // KKButtonBehavior turns any node into a button
+	KKButtonBehavior* buttonBehavior = [KKButtonBehavior behavior];
+	buttonBehavior.selectedScale = 1.2;
+	[backButton addBehavior:buttonBehavior];
+	
+	// observe button execute notification
+	[self observeNotification:KKButtonDidExecuteNotification
+					 selector:@selector(backButtonDidExecute:)
+					   object:backButton];
+}
+
+- (void)backButtonDidExecute:(NSNotification *)notification {
+    [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
 }
 
 - (void)buildWorld {

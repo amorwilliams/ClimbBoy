@@ -117,7 +117,7 @@
     NSLog(@"%f, %f", location.x, location.y);
     
     if ([touch tapCount] == 1) {
-        self.moveToPoint = [self convertPoint:location toNode:self.kkScene];
+        self.moveToPoint = [self convertPoint:location toNode:self.parent];
         if (location.x > self.position.x) {
             self.heroMoveDirection = CBMoveDirectionRight;
         }else{
@@ -131,7 +131,7 @@
     
     CGPoint location = [touch locationInNode:self];
     if (fabsf(self.position.x - location.x) > 50) {
-        self.moveToPoint = [self convertPoint:location toNode:self.kkScene];
+        self.moveToPoint = [self convertPoint:location toNode:self.parent];
     }
 }
 
