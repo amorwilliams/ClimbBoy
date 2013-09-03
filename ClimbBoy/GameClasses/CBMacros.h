@@ -10,6 +10,7 @@
 #define ClimbBoy_CBMacros_h
 
 /** @file CBMacros.h */
+#define isPad (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)
 
 /** math **/
 #define CLAMP(x, low, high)  (((x) > (high)) ? (high) : (((x) < (low)) ? (low) : (x)))

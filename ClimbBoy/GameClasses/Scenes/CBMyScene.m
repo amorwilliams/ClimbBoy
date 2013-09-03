@@ -10,8 +10,8 @@
 #import "CBGraphicsUtilities.h"
 #import "CBRobot.h"
 
-#define VIEW_SIZE_WIDHT 568
-#define VIEW_SIZE_HEIGHT 320
+#define VIEW_SIZE_WIDHT 1024
+#define VIEW_SIZE_HEIGHT 768
 
 @interface CBMyScene()
 @property (nonatomic) SKLabelNode *myLabel;
@@ -28,7 +28,7 @@
         
         [CBRobot loadSharedAssets];
         
-        [self buildWorld];
+        [self buildWorldWithSize:size];
         [self addButtons];
     }
     return self;
@@ -40,18 +40,14 @@
     
     [self addTitle];
     [self addHero];
-    
-//    KKCameraFollowBehavior *cameraFollow = [KKCameraFollowBehavior behavior];
-//    cameraFollow.node = self.hero;
-//    [self addBehavior:cameraFollow withKey:@"Camera"];
 }
 
 - (void)addButtons {
     SKLabelNode *backButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     backButton.text = @"Back";
-    backButton.fontSize = 20;
+    backButton.fontSize = 40;
     backButton.zPosition = 1;
-    backButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 50, CGRectGetMaxY(self.frame) - 30);
+    backButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 100, CGRectGetMaxY(self.frame) - 100);
     [self addChild:backButton];
     
     // KKButtonBehavior turns any node into a button
@@ -69,22 +65,17 @@
     [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
 }
 
-- (void)buildWorld {
+- (void)buildWorldWithSize:(CGSize)size {
     NSLog(@"Building the world");
 
 //    self.physicsWorld.gravity = CGPointZero;
     self.physicsWorld.contactDelegate = self;
-    [self addCollisionWalls];
-}
-
-- (void)addCollisionWalls {
-    [self addCollisionWallAtWorldPoint:ccp(0, 20) withWidth:VIEW_SIZE_WIDHT height:20];
-    [self addCollisionWallAtWorldPoint:ccp(0, VIEW_SIZE_HEIGHT) withWidth:VIEW_SIZE_WIDHT height:20];
-    [self addCollisionWallAtWorldPoint:ccp(0, VIEW_SIZE_HEIGHT) withWidth:20 height:VIEW_SIZE_HEIGHT];
-    [self addCollisionWallAtWorldPoint:ccp(VIEW_SIZE_WIDHT-20, VIEW_SIZE_HEIGHT) withWidth:20 height:VIEW_SIZE_HEIGHT];
     
-    [self addCollisionWallAtWorldPoint:ccp(VIEW_SIZE_WIDHT/2, VIEW_SIZE_HEIGHT/2) withWidth:20 height:VIEW_SIZE_HEIGHT/2];
-
+    [self addCollisionWallAtWorldPoint:ccp(0, 20) withWidth:size.width height:20];
+    [self addCollisionWallAtWorldPoint:ccp(0, size.height) withWidth:size.width height:20];
+    [self addCollisionWallAtWorldPoint:ccp(0, size.height) withWidth:20 height:size.height];
+    [self addCollisionWallAtWorldPoint:ccp(size.width-20, size.height) withWidth:20 height:size.height];
+    [self addCollisionWallAtWorldPoint:ccp(size.width/2, size.height/2) withWidth:20 height:size.height/2];
 }
 
 - (void)addCollisionWallAtWorldPoint:(CGPoint)worldPoint withWidth:(CGFloat)width height:(CGFloat)height {
@@ -104,9 +95,9 @@
 - (void)addTitle {
     self.myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     self.myLabel.text = @"Hello, World!";
-    self.myLabel.fontSize = 10;
-    self.myLabel.position = CGPointMake(VIEW_SIZE_WIDHT/2,
-                                        VIEW_SIZE_HEIGHT/2 + 100);
+    self.myLabel.fontSize = 40;
+    self.myLabel.position = CGPointMake(self.frame.size.width/2,
+                                        self.frame.size.height/2 + 100);
     [self addChild:self.myLabel];
     NSLog(@"%f, %f", self.myLabel.position.x, self.myLabel.position.y);
 }
@@ -121,6 +112,6 @@
 #pragma mark - Loop Update
 -(void)update:(NSTimeInterval)currentTime {
     [super update:currentTime];
-    self.myLabel.text = [NSString stringWithFormat:@"%@", self.hero.activeAnimationKey];
+    self.myLabel.text = [NSString stringWithFormat:@"%@", self.hero.animatorBehavior.activeAnimationKey];
 }
 @end

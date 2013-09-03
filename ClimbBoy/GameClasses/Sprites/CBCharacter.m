@@ -12,8 +12,6 @@
 
 @interface CBCharacter ()
 @property (nonatomic) CFTimeInterval lastUpdateTimeInterval;
-@property (nonatomic) BOOL startJump;
-@property (nonatomic) BOOL startLand;
 
 @end
 
@@ -35,8 +33,6 @@
     
     _collisionCapsule = CBCapsuleMake(kCharacterCollisionRadius, kCharacterCollisionHeight);
     _health = 100.0f;
-    _animated = YES;
-    _animationSpeed = 1.0f/30.0f;
     
     [self configurePhysicsBody];
 }
@@ -44,7 +40,6 @@
 - (void)sharedInitCharaterSprite:(SKTexture *)texture {
     self.characterSprite = [SKSpriteNode spriteNodeWithTexture:texture];
     [self addChild:self.characterSprite];
-    [self.characterSprite didMoveToParent];
 }
 
 - (void)reset {
@@ -55,8 +50,6 @@
     self.climbing = NO;
     self.wallJumping = NO;
     self.touchSide = NO;
-    self.animated = YES;
-    self.requestedAnimation = CBAnimationStateIdle;
     
     self.startJump = NO;
     self.startLand = NO;
@@ -84,13 +77,13 @@
     self.jumping = YES;
     self.startJump = YES;
     self.startLand = NO;
-    self.requestedAnimation = CBAnimationStateJump;
+    _animatorBehavior.requestedAnimation = CBAnimationStateJump;
 }
 
 - (void)performDeath {
     self.health = 0.0f;
     self.dying = YES;
-    self.requestedAnimation = CBAnimationStateDeath;
+    _animatorBehavior.requestedAnimation = CBAnimationStateDeath;
 }
 
 - (void)onArrived{
@@ -103,7 +96,7 @@
         self.climbing = NO;
         self.wallJumping = NO;
         self.startLand = YES;
-        self.requestedAnimation = CBAnimationStateIdle;
+        _animatorBehavior.requestedAnimation = CBAnimationStateIdle;
     }
 }
 
@@ -122,9 +115,7 @@
 }
 
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval {
-    if (self.isAnimated) {
-        [self resolveRequestedAnimation];
-    }
+    
 }
 
 -(void) didEvaluateActions {
@@ -158,105 +149,10 @@
     
 }
 
-#pragma mark - Animation
-- (void)resolveRequestedAnimation {
-    // Determine the animation we want to play.
-    NSString *animationKey = nil;
-    NSArray *animationFrames = nil;
-    CBAnimationState animationState = self.requestedAnimation;
-    
-    switch (animationState) {
-            
-        default:
-        case CBAnimationStateIdle:
-            if (self.startLand) {
-                animationKey = @"anim_land";
-                animationFrames = [self landAnimationFrames];
-            }else{
-                animationKey = @"anim_idle";
-                animationFrames = [self idleAnimationFrames];
-            }
-            break;
-            
-        case CBAnimationStateWalk:
-            animationKey = @"anim_walk";
-            animationFrames = [self walkAnimationFrames];
-            break;
-            
-        case CBAnimationStateRun:
-            animationKey = @"anim_run";
-            animationFrames = [self runAnimationFrames];
-            break;
-            
-        case CBAnimationStateJump:
-            if (self.startJump) {
-                animationKey = @"anim_jumpStart";
-                animationFrames = [self jumpStartAnimationFrames];
-            }else{
-                animationKey = @"anim_jumpLoop";
-                animationFrames = [self jumpLoopAnimationFrames];
-            }
-            break;
-        
-        case CBAnimationStateClimb:
-            animationKey = @"anim_climb";
-            animationFrames = [self climbAnimationFrames];
-            break;
-            
-        case CBAnimationStateAttack:
-            animationKey = @"anim_attack";
-            animationFrames = [self attackAnimationFrames];
-            break;
-            
-        case CBAnimationStateGetHit:
-            animationKey = @"anim_gethit";
-            animationFrames = [self getHitAnimationFrames];
-            break;
-            
-        case CBAnimationStateDeath:
-            animationKey = @"anim_death";
-            animationFrames = [self deathAnimationFrames];
-            break;
-    }
-    
-    if (animationKey) {
-        [self fireAnimationForState:animationState usingTextures:animationFrames withKey:animationKey];
-    }
-    
-    if (self.dying) {
-        self.requestedAnimation = CBAnimationStateDeath;
-    }else if (self.isClimbing) {
-        self.requestedAnimation = CBAnimationStateClimb;
-    }else if (self.isJumping){
-        self.requestedAnimation = CBAnimationStateJump;
-    }else{
-        if(fabsf(self.physicsBody.velocity.dx) > 50){
-            self.requestedAnimation = CBAnimationStateRun;
-        }else{
-            self.requestedAnimation = CBAnimationStateIdle;
-        }
-    }
-}
-
-- (void)fireAnimationForState:(CBAnimationState)animationState usingTextures:(NSArray *)frames withKey:(NSString *)key {
-    SKAction *animAction = [self.characterSprite actionForKey:key];
-    if (animAction || [frames count] < 1) {
-        return; // we already have a running animation or there aren't any frames to animate
-    }
-    
-    [self.characterSprite removeActionForKey:self.activeAnimationKey];
-    self.activeAnimationKey = key;
-    
-    [self.characterSprite runAction:[SKAction sequence:@[
-                                         [SKAction animateWithTextures:frames timePerFrame:self.animationSpeed resize:YES restore:NO],
-                                         [SKAction runBlock:^{
-        [self animationHasCompleted:animationState];
-    }]]] withKey:key];
-}
-
+#pragma mark - Animator Delegate
 - (void)animationHasCompleted:(CBAnimationState)animationState {
     if (self.dying) {
-        self.animated = NO;
+        _animatorBehavior.animated = NO;
     }
 
     if (self.startJump) {
@@ -268,8 +164,6 @@
     }
     
     [self animationDidComplete:animationState];
-    
-    self.activeAnimationKey = nil;
 }
 
 #pragma mark -  Movement
@@ -283,7 +177,7 @@
     }
     
     if (self.startLand) {
-        self.physicsBody.velocity = CGVectorMake(0, 0);
+        self.physicsBody.velocity = ccvMult(self.physicsBody.velocity, 1);
         return;
     }
     
@@ -343,13 +237,13 @@
 #pragma mark - Physics Test
 - (void)testIsGrounded {
     __block BOOL temp = NO;
-    CGPoint rayStart = self.position;
+    CGPoint rayStart = [self.kkScene convertPoint:self.position toNode:self.kkScene];
 	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y - (self.collisionCapsule.height/2 + 2));
 
     // find body below player
-	SKPhysicsWorld* physicsWorld = self.scene.physicsWorld;
+	SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
 	[physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-		if (body.contactTestBitMask <= 1){
+		if (body.contactTestBitMask < 1){
             if (!self.isGrounded) {
                 [self onGrounded];
             }

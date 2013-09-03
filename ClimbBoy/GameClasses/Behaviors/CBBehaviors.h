@@ -10,6 +10,6 @@
 #define ClimbBoy_CBBehaviors_h
 
 #import "CBSpriteFlipBehavior.h"
-
+#import "CBCharacterAnimator.h"
 
 #endif

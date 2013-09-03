@@ -12,14 +12,21 @@
 @implementation CBRobot
 
 #pragma mark - Initialization
+- (id)init {
+    self = [super init];
+    if (self) {
+        return [self initAtPosition:CGPointZero];
+    }
+    return self;
+}
+
 - (id)initAtPosition:(CGPoint)position {
     SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"Hero_Idle"];
     SKTexture *texture = [atlas textureNamed:@"hero_idle_0001.png"];
     
     if(self = [super initWithTexture:texture atPosition:position]){
-        self.name = @"hero";
-        self.characterSprite.anchorPoint = CGPointMake(0.5, 0.5);
-        [self.characterSprite setScale:0.4];
+        self.characterSprite.anchorPoint = CGPointMake(0.5, 0.45);
+        [self.characterSprite setScale:0.8];
     }
     
     return self;

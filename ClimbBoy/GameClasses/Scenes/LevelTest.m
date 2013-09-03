@@ -29,7 +29,7 @@
 
         [CBRobot loadSharedAssets];
         
-        [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
+//        [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
     }
     return self;
 }
@@ -37,10 +37,14 @@
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
     
-    _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:@"DemoStage001.tmx"];
+    _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
     [self addChild:_tilemapNode];
     
-    [self.tilemapNode createPhysicsShapesWithTileLayerNode:self.tilemapNode.mainTileLayerNode];
+    SKNode *mainLayerPhysics = [self.tilemapNode createPhysicsShapesWithTileLayerNode:self.tilemapNode.mainTileLayerNode];
+    for (SKNode *node in mainLayerPhysics.children) {
+        node.physicsBody.restitution = 0;
+    }
+    
     [_tilemapNode createPhysicsShapesWithObjectLayerNode:[_tilemapNode objectLayerNodeNamed:@"extra-collision"]];
     
     KKTilemapProperties *mapProperties = self.tilemapNode.tilemap.properties;
@@ -51,13 +55,16 @@
         self.physicsWorld.speed = [mapProperties numberForKey:@"physicsSpeed"].floatValue;
     }
     
-    _playerCharacter = [[CBRobot alloc] initAtPosition:CGPointMake(100,100)];
-    [self.tilemapNode.gameObjectsLayerNode addChild:_playerCharacter];
+    [_tilemapNode spawnObjects];
     
-    KKCameraFollowBehavior *b = [KKCameraFollowBehavior behavior];
-    b.scrollingNode = self.tilemapNode.mainTileLayerNode;
-    [_playerCharacter addBehavior:b withKey:@"KKCameraFollowBehavior"];
+    _playerCharacter = (CBRobot*)[_tilemapNode.gameObjectsLayerNode childNodeWithName:@"player"];
+	NSAssert1([_playerCharacter isKindOfClass:[CBRobot class]], @"player node (%@) is not of class PlayerCharacter!", _playerCharacter);
     
+    // this must be performed after the player setup, because the player is moving the camera
+	if ([mapProperties numberForKey:@"restrictScrollingToMapBoundary"].boolValue)
+	{
+		[_tilemapNode restrictScrollingToMapBoundary];
+	}
     [_tilemapNode enableParallaxScrolling];
     
     [self addTitle];
@@ -66,21 +73,41 @@
 - (void)addTitle {
     self.myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     self.myLabel.text = @"Hello, World!";
-    self.myLabel.fontSize = 10;
+    self.myLabel.fontSize = 30;
     self.myLabel.color = [UIColor blackColor];
-    self.myLabel.position = CGPointMake(VIEW_SIZE_WIDHT/2,
-                                        VIEW_SIZE_HEIGHT/2 + 100);
+    self.myLabel.position = CGPointMake(self.frame.size.width/2,
+                                        self.frame.size.height/2 + 100);
     KKViewOriginNode *hud = [KKViewOriginNode node];
     [self addChild:hud];
     
     [hud addChild:self.myLabel];
-    NSLog(@"%f, %f", self.myLabel.position.x, self.myLabel.position.y);
+    
+    SKLabelNode *backButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    backButton.text = @"Back";
+    backButton.fontSize = 30;
+    backButton.fontColor = [SKColor redColor];
+    backButton.zPosition = 1;
+    backButton.position = CGPointMake(self.frame.size.width - 100, self.frame.size.height - 100);
+    [hud addChild:backButton];
+    
+    // KKButtonBehavior turns any node into a button
+	KKButtonBehavior* buttonBehavior = [KKButtonBehavior behavior];
+	buttonBehavior.selectedScale = 1.2;
+	[backButton addBehavior:buttonBehavior];
+	
+	// observe button execute notification
+	[self observeNotification:KKButtonDidExecuteNotification
+					 selector:@selector(backButtonDidExecute:)
+					   object:backButton];
+}
+
+- (void)backButtonDidExecute:(NSNotification *)notification {
+    [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
 }
 
 #pragma mark - Loop Update
 -(void)update:(NSTimeInterval)currentTime {
     [super update:currentTime];
-    self.myLabel.text = [NSString stringWithFormat:@"%@", _playerCharacter.activeAnimationKey];
+    self.myLabel.text = [NSString stringWithFormat:@"%@", _playerCharacter.animatorBehavior.activeAnimationKey];
 }
-
 @end

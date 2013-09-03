@@ -8,9 +8,13 @@
 
 #import "LevelsMenu.h"
 #import "CBMyScene.h"
+#import "LevelTest.h"
 
-#define NUMBER_OF_LEVELS 10
-#define COLUMN_NUMBER 6
+static const NSInteger LEVEL_BOX_SIZE = 96;
+static NSInteger NUMBER_OF_LEVELS = 15;
+static const NSInteger COLUMN_NUMBER = 6;
+static const NSInteger MARGIN_BORDER_HORIZONTAL = 200;
+static const NSInteger MARGIN_BORDER_TOP = 200;
 
 @implementation LevelsMenu
 
@@ -31,9 +35,9 @@
 - (void)addButtons {
     SKLabelNode *backToMainButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     backToMainButton.text = @"Back";
-    backToMainButton.fontSize = 20;
+    backToMainButton.fontSize = 40;
     backToMainButton.zPosition = 1;
-    backToMainButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 50, CGRectGetMaxY(self.frame) - 30);
+    backToMainButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 100, CGRectGetMaxY(self.frame) - 80);
     [self addChild:backToMainButton];
     
     // KKButtonBehavior turns any node into a button
@@ -48,34 +52,43 @@
 }
 
 - (void)addLevelsBox {
+    float boxSpacing = ((self.frame.size.width - MARGIN_BORDER_HORIZONTAL*2) - (COLUMN_NUMBER * LEVEL_BOX_SIZE)) / (COLUMN_NUMBER - 2);
+    boxSpacing += LEVEL_BOX_SIZE;
+    float startPosY = self.frame.size.height - MARGIN_BORDER_TOP;
+
     for (int i = 0; i < NUMBER_OF_LEVELS; i++) {
         int col = i % COLUMN_NUMBER;
         int row = i / COLUMN_NUMBER + 1;
         
-        KKSpriteNode *levelBox = [KKSpriteNode spriteNodeWithImageNamed:@"obj_box001.png"];
-        levelBox.name = [NSString stringWithFormat:@"Level%02d", i+1];
-        levelBox.anchorPoint = CGPointMake(0.5, 0.5);
-        levelBox.size = CGSizeMake(64, 64);
-        levelBox.position = CGPointMake(80 + col * 80, 300 - row * 80);
-        [self addChild:levelBox];
-        
-        // KKButtonBehavior turns any node into a button
-        KKButtonBehavior* buttonBehavior = [KKButtonBehavior behavior];
-        buttonBehavior.selectedScale = 1.2;
-        [levelBox addBehavior:buttonBehavior];
-        
-        // observe button execute notification
-        [self observeNotification:KKButtonDidExecuteNotification
-                         selector:@selector(didSelectLevel:)
-                           object:levelBox];
-        
-        
-        KKLabelNode *boxLabel = [KKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-        boxLabel.text = [NSString stringWithFormat:@"%02d", i+1];
-        boxLabel.fontSize = 20;
-        boxLabel.fontColor = [SKColor blackColor];
-        [levelBox addChild:boxLabel];
+        CGPoint boxPos = CGPointMake(MARGIN_BORDER_HORIZONTAL + col * boxSpacing, startPosY - (row - 1) * boxSpacing);
+
+        [self createLevelBoxByIndex:i+1 Postion:boxPos];
     }
+}
+
+- (void)createLevelBoxByIndex:(int)index Postion:(CGPoint)postion {
+    KKSpriteNode *levelBox = [KKSpriteNode spriteNodeWithImageNamed:@"obj_box001.png"];
+    levelBox.name = [NSString stringWithFormat:@"Level%02d", index];
+    levelBox.anchorPoint = CGPointMake(0.5, 0.5);
+    levelBox.position = postion;
+    [self addChild:levelBox];
+    
+    // KKButtonBehavior turns any node into a button
+    KKButtonBehavior* buttonBehavior = [KKButtonBehavior behavior];
+    buttonBehavior.selectedScale = 1.2;
+    [levelBox addBehavior:buttonBehavior];
+    
+    // observe button execute notification
+    [self observeNotification:KKButtonDidExecuteNotification
+                     selector:@selector(didSelectLevel:)
+                       object:levelBox];
+    
+    
+    KKLabelNode *boxLabel = [KKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    boxLabel.text = [NSString stringWithFormat:@"%02d", index];
+    boxLabel.fontSize = 20;
+    boxLabel.fontColor = [SKColor blackColor];
+    [levelBox addChild:boxLabel];
 }
 
 - (void)backToMainButtonDidExecute:(NSNotification *)notification {
@@ -87,9 +100,18 @@
     NSLog(@"%@", levelBox.name);
     
     if ([levelBox.name isEqualToString:@"Level01"]) {
-        KKScene *levels = [CBMyScene sceneWithSize:self.size];
+        LevelTest *levels = [LevelTest sceneWithSize:self.size];
+        levels.tmxFile = @"LevelTest01.tmx";
         [self.kkView pushScene:levels transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
     }
+    
+    if ([levelBox.name isEqualToString:@"Level02"]) {
+        LevelTest *levels = [LevelTest sceneWithSize:self.size];
+        levels.tmxFile = @"DemoStage001.tmx";
+        [self.kkView pushScene:levels transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+    }
+    
+    
 }
 
 @end

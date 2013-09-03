@@ -43,25 +43,25 @@
 }
 
 #pragma mark - Overridden Methods
-- (void)configurePhysicsBody {
-//    self.physicsBody = [self physicsBodyWithCircleOfRadius:self.collisionRadius];
-//    self.physicsBody = [self physicsBodyWithRectangleOfSize:CGSizeMake(30, 38)];
-    self.physicsBody = [self physicsBodyWithCapsule:self.collisionCapsule];
-    self.physicsBody.allowsRotation = NO;
-    self.physicsBody.restitution = 0;
-    self.physicsBody.mass = 0.05;
-//    self.physicsBody.usesPreciseCollisionDetection = YES;
-//    self.physicsBody.friction = 1;
-
-    // Our object type for collisions.
-    self.physicsBody.categoryBitMask = CBColliderTypeHero;
-    
-    // Collides with these objects.
-    self.physicsBody.collisionBitMask = CBColliderTypeGoblinOrBoss | CBColliderTypeHero | CBColliderTypeWall | CBColliderTypeCave;
-    
-    // We want notifications for colliding with these objects.
-    self.physicsBody.contactTestBitMask = CBColliderTypeGoblinOrBoss | CBColliderTypeWall;
-}
+//- (void)configurePhysicsBody {
+////    self.physicsBody = [self physicsBodyWithCircleOfRadius:self.collisionRadius];
+//    self.physicsBody = [self physicsBodyWithRectangleOfSize:CGSizeMake(40, 60)];
+////    self.physicsBody = [self physicsBodyWithCapsule:self.collisionCapsule];
+//    self.physicsBody.allowsRotation = NO;
+//    self.physicsBody.restitution = 0;
+//    self.physicsBody.mass = 0.05;
+////    self.physicsBody.usesPreciseCollisionDetection = YES;
+////    self.physicsBody.friction = 1;
+//
+//    // Our object type for collisions.
+//    self.physicsBody.categoryBitMask = CBColliderTypeHero;
+//    
+//    // Collides with these objects.
+//    self.physicsBody.collisionBitMask = CBColliderTypeGoblinOrBoss | CBColliderTypeHero | CBColliderTypeWall | CBColliderTypeCave;
+//    
+//    // We want notifications for colliding with these objects.
+//    self.physicsBody.contactTestBitMask = CBColliderTypeGoblinOrBoss | CBColliderTypeWall;
+//}
 
 - (void)performJump{
     if (self.isJumping) {

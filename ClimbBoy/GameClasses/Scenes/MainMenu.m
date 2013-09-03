@@ -8,6 +8,10 @@
 
 #import "MainMenu.h"
 #import "LevelsMenu.h"
+#import "CBMacros.h"
+
+static const NSInteger BUTTON_SPACING_VERTICAL = 80;
+static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
 
 @interface MainMenu ()
 @property (atomic) SKLabelNode *startGameButton;
@@ -22,11 +26,10 @@
     if (self) {
         self.backgroundColor = [SKColor colorWithRed:0.1 green:0.2 blue:0.4 alpha:1];
         
-        
         SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
 		myLabel.text = @"Climb Boy";
-		myLabel.fontSize = 40;
-		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 100);
+        myLabel.fontSize = 80;
+		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 150);
 		[self addChild:myLabel];
         
     }
@@ -35,24 +38,29 @@
 
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
+    
     [self addMenuButtons];
     
-    [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
+//    [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
+    KKModel *model = self.kkView.model;
+    NSDictionary* objectTemplates = [self.kkScene.kkView.model objectForKey:@"config"];
 }
 
 - (void)willMoveFromView:(SKView *)view {
     [super willMoveFromView:view];
 //    [self removeButtons];
     
-    [[OALSimpleAudio sharedInstance] stopBg];
+//    [[OALSimpleAudio sharedInstance] stopBg];
+    
 }
 
 - (void)addMenuButtons {
     _startGameButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     _startGameButton.text = @"START";
-    _startGameButton.fontSize = 20;
+    _startGameButton.fontSize = 40;
     _startGameButton.zPosition = 1;
-    _startGameButton.position = CGPointMake(CGRectGetMidX(self.frame) + 50, CGRectGetMidY(self.frame) + 30);
+    _startGameButton.position = CGPointMake(CGRectGetMidX(self.frame) + BUTTON_FLY_HORIZONTAL_POSITION,
+                                            CGRectGetMidY(self.frame));
     _startGameButton.alpha = 0;
     [self addChild:_startGameButton];
     
@@ -68,9 +76,10 @@
     
     _optionButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     _optionButton.text = @"OPTION";
-    _optionButton.fontSize = 20;
+    _optionButton.fontSize = 40;
     _optionButton.zPosition = 1;
-    _optionButton.position = CGPointMake(CGRectGetMidX(self.frame) + 50, CGRectGetMidY(self.frame) - 20);
+    _optionButton.position = CGPointMake(CGRectGetMidX(self.frame) + BUTTON_FLY_HORIZONTAL_POSITION,
+                                         CGRectGetMidY(self.frame) - BUTTON_SPACING_VERTICAL);
     _optionButton.alpha = 0;
     [self addChild:_optionButton];
     
@@ -84,9 +93,10 @@
     
     _creditsButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     _creditsButton.text = @"CREDITS";
-    _creditsButton.fontSize = 20;
+    _creditsButton.fontSize = 40;
     _creditsButton.zPosition = 1;
-    _creditsButton.position = CGPointMake(CGRectGetMidX(self.frame) + 50, CGRectGetMidY(self.frame) - 70);
+    _creditsButton.position = CGPointMake(CGRectGetMidX(self.frame) + BUTTON_FLY_HORIZONTAL_POSITION,
+                                          CGRectGetMidY(self.frame) - BUTTON_SPACING_VERTICAL*2);
     _creditsButton.alpha = 0;
     [self addChild:_creditsButton];
     
@@ -107,7 +117,7 @@
 }
 
 - (void)removeButtons {
-    SKAction *moveAction = [SKAction group:@[[SKAction moveToX:(CGRectGetMidX(self.frame)-50) duration:0.4],
+    SKAction *moveAction = [SKAction group:@[[SKAction moveToX:(CGRectGetMidX(self.frame) - BUTTON_FLY_HORIZONTAL_POSITION) duration:0.4],
                                              [SKAction fadeOutWithDuration:0.4]]];
     [_startGameButton runAction:[SKAction sequence:@[[SKAction waitForDuration:0.2],
                                                      moveAction,

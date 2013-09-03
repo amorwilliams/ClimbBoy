@@ -17,17 +17,19 @@
 	NSLog(@"%@", koboldKitCommunityVersion());
 	NSLog(@"%@", koboldKitProVersion());
 
-	// create and present first scene
-//	CBMyScene* myScene = [CBMyScene sceneWithSize:self.view.bounds.size];
-//	[self.kkView presentScene:myScene];
+    CGSize viewSize = self.view.bounds.size;
+
+    // On iPhone/iPod touch we want to see a similar amount of the scene as on iPad.
+    // So, we set the size of the scene to be double the size of the view, which is
+    // the whole screen, 3.5- or 4- inch. This effectively scales the scene to 50%.
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
+        viewSize.height *= 2;
+        viewSize.width *= 2;
+    }
     
-    MainMenu *mainScene = [MainMenu sceneWithSize:self.view.bounds.size];
+    // create and present first scene
+    MainMenu *mainScene = [MainMenu sceneWithSize:viewSize];
     [self.kkView presentScene:mainScene];
-    
-//    LevelTest *level = [LevelTest sceneWithSize:self.view.bounds.size];
-//    [level setScale:0.5];
-//    [self.kkView presentScene:level];
-    
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface LevelTest : KKScene
 
+@property (atomic, copy) NSString* tmxFile;
+
 @end

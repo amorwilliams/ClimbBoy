@@ -12,4 +12,10 @@
 
 - (id)initAtPosition:(CGPoint)position;
 
+- (NSArray *)idleAnimationFrames;
+- (NSArray *)runAnimationFrames;
+- (NSArray *)jumpStartAnimationFrames;
+- (NSArray *)jumpLoopAnimationFrames;
+- (NSArray *)landAnimationFrames;
+- (NSArray *)climbAnimationFrames;
 @end

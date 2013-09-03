@@ -17,6 +17,14 @@
 		52265C6917D0C92D00310E9D /* LevelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 52265C6717D0C92D00310E9D /* LevelTest.m */; };
 		52265C6C17D0D09A00310E9D /* Water Temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52265C6B17D0D09A00310E9D /* Water Temple.mp3 */; };
 		52265C6D17D0D09A00310E9D /* Water Temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52265C6B17D0D09A00310E9D /* Water Temple.mp3 */; };
+		5236776117D5C92E0030470C /* objectTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776017D5C92E0030470C /* objectTemplates.lua */; };
+		5236776217D5C92E0030470C /* objectTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776017D5C92E0030470C /* objectTemplates.lua */; };
+		5236776417D5CDE50030470C /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 5236776317D5CDE50030470C /* LevelTest01.tmx */; };
+		5236776517D5CDE50030470C /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 5236776317D5CDE50030470C /* LevelTest01.tmx */; };
+		5236776717D5D7E60030470C /* behaviorTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776617D5D7E60030470C /* behaviorTemplates.lua */; };
+		5236776817D5D7E60030470C /* behaviorTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776617D5D7E60030470C /* behaviorTemplates.lua */; };
+		5239F71D17D63054005F80C6 /* CBCharacterAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */; };
+		5239F71E17D63054005F80C6 /* CBCharacterAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */; };
 		52A5D4F417D45C5D007E14C1 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4F317D45C5D007E14C1 /* MainMenu.m */; };
 		52A5D4F517D45C5D007E14C1 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4F317D45C5D007E14C1 /* MainMenu.m */; };
 		52A5D4FC17D47DFA007E14C1 /* LevelsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4FB17D47DFA007E14C1 /* LevelsMenu.m */; };
@@ -167,6 +175,12 @@
 		52265C6617D0C92D00310E9D /* LevelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTest.h; sourceTree = "<group>"; };
 		52265C6717D0C92D00310E9D /* LevelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTest.m; sourceTree = "<group>"; };
 		52265C6B17D0D09A00310E9D /* Water Temple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Water Temple.mp3"; sourceTree = "<group>"; };
+		5236776017D5C92E0030470C /* objectTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectTemplates.lua; sourceTree = "<group>"; };
+		5236776317D5CDE50030470C /* LevelTest01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LevelTest01.tmx; sourceTree = "<group>"; };
+		5236776617D5D7E60030470C /* behaviorTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = behaviorTemplates.lua; sourceTree = "<group>"; };
+		5239F71B17D63054005F80C6 /* CBCharacterAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimator.h; sourceTree = "<group>"; };
+		5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacterAnimator.m; sourceTree = "<group>"; };
+		5239F72117D641A0005F80C6 /* CBCharacterAnimatorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimatorDelegate.h; sourceTree = "<group>"; };
 		52A5D4F217D45C5D007E14C1 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		52A5D4F317D45C5D007E14C1 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		52A5D4FA17D47DFA007E14C1 /* LevelsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsMenu.h; sourceTree = "<group>"; };
@@ -330,6 +344,7 @@
 		52265C5817D0C6BF00310E9D /* Levels */ = {
 			isa = PBXGroup;
 			children = (
+				5236776317D5CDE50030470C /* LevelTest01.tmx */,
 				52265C5917D0C6BF00310E9D /* DemoStage001.tmx */,
 				52265C5A17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png */,
 				52265C5B17D0C6BF00310E9D /* Tileset_GeometryB.png */,
@@ -343,6 +358,14 @@
 				52265C6B17D0D09A00310E9D /* Water Temple.mp3 */,
 			);
 			path = Musics;
+			sourceTree = "<group>";
+		};
+		5239F71F17D640EC005F80C6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5239F72117D641A0005F80C6 /* CBCharacterAnimatorDelegate.h */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		52B7DC0817D0806500138407 /* Assets */ = {
@@ -397,6 +420,7 @@
 		52B7DC1417D0806500138407 /* GameClasses */ = {
 			isa = PBXGroup;
 			children = (
+				5239F71F17D640EC005F80C6 /* Protocols */,
 				52B7DC5217D0A79800138407 /* Behaviors */,
 				52B7DC1517D0806500138407 /* Categories */,
 				52B7DC1E17D0806500138407 /* CBMacros.h */,
@@ -471,6 +495,8 @@
 				52B7DC5317D0A80F00138407 /* CBSpriteFlipBehavior.h */,
 				52B7DC5417D0A80F00138407 /* CBSpriteFlipBehavior.m */,
 				52B7DC5717D0AB9700138407 /* CBBehaviors.h */,
+				5239F71B17D63054005F80C6 /* CBCharacterAnimator.h */,
+				5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */,
 			);
 			path = Behaviors;
 			sourceTree = "<group>";
@@ -499,6 +525,8 @@
 		DC18B09E178C7BC400641A6D /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				5236776617D5D7E60030470C /* behaviorTemplates.lua */,
+				5236776017D5C92E0030470C /* objectTemplates.lua */,
 				DC18B09F178C7BC400641A6D /* config.lua */,
 				DC18B0A0178C7BC400641A6D /* devconfig.lua */,
 			);
@@ -783,10 +811,12 @@
 				52265C5D17D0C6BF00310E9D /* DemoStage001.tmx in Resources */,
 				52A5D50017D48DF0007E14C1 /* obj_box001.png in Resources */,
 				52B7DC3717D0806500138407 /* Hero_Jump_Start.atlas in Resources */,
+				5236776217D5C92E0030470C /* objectTemplates.lua in Resources */,
 				DCEF831117CFDBF300157387 /* die.wav in Resources */,
 				52B7DC3117D0806500138407 /* Hero_Jump_Land_Idle.atlas in Resources */,
 				52265C6D17D0D09A00310E9D /* Water Temple.mp3 in Resources */,
 				DCD11E3E178C522300FBC406 /* InfoPlist.strings in Resources */,
+				5236776817D5D7E60030470C /* behaviorTemplates.lua in Resources */,
 				52265C6117D0C6BF00310E9D /* Tileset_GeometryB.png in Resources */,
 				52B7DC2D17D0806500138407 /* Hero_Climb_Loop.atlas in Resources */,
 				52B7DC2F17D0806500138407 /* Hero_Idle.atlas in Resources */,
@@ -794,6 +824,7 @@
 				52B7DC3317D0806500138407 /* Hero_Jump_Land_Long.atlas in Resources */,
 				52B7DC3517D0806500138407 /* Hero_Jump_Loop.atlas in Resources */,
 				DCEF830E17CFDAAB00157387 /* ATTRIBUTIONS in Resources */,
+				5236776517D5CDE50030470C /* LevelTest01.tmx in Resources */,
 				DCD11E44178C522300FBC406 /* Credits.rtf in Resources */,
 				DC09DB8E178C84C6000E0B61 /* MainMenu.xib in Resources */,
 				DC18B0D5178C7BC400641A6D /* config.lua in Resources */,
@@ -808,17 +839,20 @@
 				DC5BCDB917CF88E500A5CB01 /* Default@2x.png in Resources */,
 				52B7DC3217D0806500138407 /* Hero_Jump_Land_Long.atlas in Resources */,
 				DCEF82D017CFD35B00157387 /* Icon-72@2x.png in Resources */,
+				5236776717D5D7E60030470C /* behaviorTemplates.lua in Resources */,
 				DC18B128178C7EA000641A6D /* Main_iPad.storyboard in Resources */,
 				DC5BCDB517CF88E500A5CB01 /* Default-Landscape~ipad.png in Resources */,
 				DC5BCDAA17CF88E500A5CB01 /* Icon~ipad.png in Resources */,
 				DC5BCDB717CF88E500A5CB01 /* Default-Portrait~ipad.png in Resources */,
 				DC18B0D6178C7BC400641A6D /* devconfig.lua in Resources */,
 				52265C6017D0C6BF00310E9D /* Tileset_GeometryB.png in Resources */,
+				5236776417D5CDE50030470C /* LevelTest01.tmx in Resources */,
 				DC5BCDB217CF88E500A5CB01 /* iTunesArtwork in Resources */,
 				DCEF82D717CFD4AF00157387 /* Icon.png in Resources */,
 				DC5BCDB317CF88E500A5CB01 /* iTunesArtwork@2x in Resources */,
 				DCEF82D617CFD4AC00157387 /* Icon-Small-50@2x.png in Resources */,
 				52A5D4FF17D48DF0007E14C1 /* obj_box001.png in Resources */,
+				5236776117D5C92E0030470C /* objectTemplates.lua in Resources */,
 				52265C5E17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png in Resources */,
 				DCEF830D17CFDAAB00157387 /* ATTRIBUTIONS in Resources */,
 				52265C6C17D0D09A00310E9D /* Water Temple.mp3 in Resources */,
@@ -853,6 +887,7 @@
 			files = (
 				52B7DC4117D0806500138407 /* CBMyScene.m in Sources */,
 				DCD7EC4A178C573500BBAFB0 /* AppDelegate.m in Sources */,
+				5239F71E17D63054005F80C6 /* CBCharacterAnimator.m in Sources */,
 				DCD11E40178C522300FBC406 /* main.m in Sources */,
 				52B7DC4717D0806500138407 /* CBRobot.m in Sources */,
 				52B7DC3B17D0806500138407 /* SKNode+CBExtension.m in Sources */,
@@ -876,6 +911,7 @@
 			files = (
 				52B7DC4017D0806500138407 /* CBMyScene.m in Sources */,
 				DCD7A289178C7526004A0467 /* AppDelegate.m in Sources */,
+				5239F71D17D63054005F80C6 /* CBCharacterAnimator.m in Sources */,
 				DCD7A28C178C7526004A0467 /* ViewController.m in Sources */,
 				52B7DC4617D0806500138407 /* CBRobot.m in Sources */,
 				52B7DC3A17D0806500138407 /* SKNode+CBExtension.m in Sources */,

@@ -37,7 +37,7 @@ typedef enum : uint8_t {
 #define kMovementSpeed 300.0
 
 #define kCharacterCollisionRadius   15
-#define kCharacterCollisionHeight   40
+#define kCharacterCollisionHeight   80
 #define kProjectileCollisionRadius  15
 
 #define kDefaultNumberOfWalkFrames 28
@@ -45,26 +45,29 @@ typedef enum : uint8_t {
 
 #import <SpriteKit/SpriteKit.h>
 #import "CBCategories.h"
+#import "CBBehaviors.h"
+#import "CBCharacterAnimatorDelegate.h"
 
-@interface CBCharacter : KKNode <KKPhysicsContactEventDelegate>
+@class CBCharacterAnimator;
+
+@interface CBCharacter : KKNode <KKPhysicsContactEventDelegate, CBCharacterAnimatorDelegate>
 /* 保存角色的贴图 */
 @property (nonatomic, retain) SKSpriteNode *characterSprite;
 /* 角色碰撞的半径 */
 @property (nonatomic) CBCapsule collisionCapsule;
 
+@property (nonatomic) CBCharacterAnimator *animatorBehavior;
+
 @property (nonatomic, getter = isDying) BOOL dying;
+@property (nonatomic, getter = isStartJump) BOOL startJump;
 @property (nonatomic, getter = isJumping) BOOL jumping;
 @property (nonatomic, getter = isClimbing) BOOL climbing;
 @property (nonatomic, getter = isWallJumping) BOOL wallJumping;
 @property (nonatomic, getter = isTouchSide) BOOL touchSide;
 @property (nonatomic) CGVector touchSideNormal;
 @property (nonatomic) CGFloat health;
-@property (nonatomic, getter = isAnimated) BOOL animated;
-@property (nonatomic) CGFloat animationSpeed;
+@property (nonatomic, getter = isStartLand) BOOL startLand;
 @property (nonatomic, getter = isGrounded) BOOL grounded;
-
-@property (nonatomic) NSString *activeAnimationKey;
-@property (nonatomic) CBAnimationState requestedAnimation;
 
 /* Preload shared animation frames, emitters, etc. */
 + (void)loadSharedAssets;
