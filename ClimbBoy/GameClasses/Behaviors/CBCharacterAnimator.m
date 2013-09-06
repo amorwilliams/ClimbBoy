@@ -53,13 +53,8 @@
             
         default:
         case CBAnimationStateIdle:
-            if (_character.startLand) {
-                animationKey = @"anim_land";
-                animationFrames = [_character landAnimationFrames];
-            }else{
-                animationKey = @"anim_idle";
-                animationFrames = [_character idleAnimationFrames];
-            }
+            animationKey = @"anim_idle";
+            animationFrames = [_character idleAnimationFrames];
             break;
             
         case CBAnimationStateWalk:
@@ -73,13 +68,13 @@
             break;
             
         case CBAnimationStateJump:
-            if (_character.startJump) {
-                animationKey = @"anim_jumpStart";
-                animationFrames = [_character jumpStartAnimationFrames];
-            }else{
-                animationKey = @"anim_jumpLoop";
-                animationFrames = [_character jumpLoopAnimationFrames];
-            }
+            animationKey = @"anim_jumpLoop";
+            animationFrames = [_character jumpStartAnimationFrames];
+            break;
+            
+        case CBAnimationStateFall:
+            animationKey = @"anim_fall";
+            animationFrames = [_character jumpLoopAnimationFrames];
             break;
             
         case CBAnimationStateClimb:
@@ -107,19 +102,19 @@
         [self fireAnimationForState:animationState usingTextures:animationFrames withKey:animationKey];
     }
     
-    if (_character.isDying) {
-        self.requestedAnimation = CBAnimationStateDeath;
-    }else if (_character.isClimbing) {
-        self.requestedAnimation = CBAnimationStateClimb;
-    }else if (_character.isJumping){
-        self.requestedAnimation = CBAnimationStateJump;
-    }else{
-        if(fabsf(_character.physicsBody.velocity.dx) > 50){
-            self.requestedAnimation = CBAnimationStateRun;
-        }else{
-            self.requestedAnimation = CBAnimationStateIdle;
-        }
-    }
+//    if (_character.isDying) {
+//        self.requestedAnimation = CBAnimationStateDeath;
+//    }else if (_character.isClimbing) {
+//        self.requestedAnimation = CBAnimationStateClimb;
+//    }else if (_character.isJumping){
+//        self.requestedAnimation = CBAnimationStateJump;
+//    }else{
+//        if(fabsf(_character.physicsBody.velocity.dx) > 50){
+//            self.requestedAnimation = CBAnimationStateRun;
+//        }else{
+//            self.requestedAnimation = CBAnimationStateIdle;
+//        }
+//    }
 }
 
 - (void)fireAnimationForState:(CBAnimationState)animationState usingTextures:(NSArray *)frames withKey:(NSString *)key {

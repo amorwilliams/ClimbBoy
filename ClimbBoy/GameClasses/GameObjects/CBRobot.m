@@ -26,7 +26,7 @@
     
     if(self = [super initWithTexture:texture atPosition:position]){
         self.characterSprite.anchorPoint = CGPointMake(0.5, 0.45);
-        [self.characterSprite setScale:0.8];
+        [self.characterSprite setScale:0.5];
     }
     
     return self;

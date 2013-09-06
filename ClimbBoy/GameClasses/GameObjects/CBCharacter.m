@@ -22,6 +22,9 @@
     if (self = [super init]) {
         [self sharedInitCharaterSprite:texture];
         [self sharedInitAtPosition:position];
+        
+        _enableGroundTest = YES;
+        _enableSideTest = NO;
     }
     
     return self;
@@ -45,14 +48,7 @@
 - (void)reset {
     // Reset some base states (used when recycling character instances).
     self.health = 100.0f;
-    self.dying = NO;
-    self.jumping = NO;
-    self.climbing = NO;
-    self.wallJumping = NO;
     self.touchSide = NO;
-    
-    self.startJump = NO;
-    self.startLand = NO;
 }
 
 - (void)didMoveToParent {
@@ -68,36 +64,48 @@
     // Overridden by subclasses to create a physics body with relevant collision settings for this character.
 }
 
-- (void)animationDidComplete:(CBAnimationState)animation {
-    // Called when a requested animation has completed (usually overriden).
-
+#pragma mark - FSM Action Methods
+- (void)doStand {
+//    [self runAnimation:CBAnimationStateIdle];
 }
 
-- (void)performJump {
-    self.jumping = YES;
-    self.startJump = YES;
-    self.startLand = NO;
-    _animatorBehavior.requestedAnimation = CBAnimationStateJump;
+- (void)doRun {
+//    [self runAnimation:CBAnimationStateRun];
 }
 
-- (void)performDeath {
+- (void)doJump {
+//    [self runAnimation:CBAnimationStateJump];
+}
+
+- (void)doFall {
+//    [self runAnimation:CBAnimationStateFall];
+}
+
+- (void)doClimb {
+//    [self runAnimation:CBAnimationStateClimb];
+}
+
+- (void)doDie {
     self.health = 0.0f;
-    self.dying = YES;
-    _animatorBehavior.requestedAnimation = CBAnimationStateDeath;
+//    [self runAnimation:CBAnimationStateDeath];
 }
 
+
+#pragma mark - Character Events
 - (void)onArrived{
     //Called when moveTowards has arrived point (usually overidden)
 }
 
 - (void)onGrounded{
-    if (self.isJumping || self.isClimbing) {
-        self.jumping = NO;
-        self.climbing = NO;
-        self.wallJumping = NO;
-        self.startLand = YES;
-        _animatorBehavior.requestedAnimation = CBAnimationStateIdle;
-    }
+    //Called when character is landing (usually overidden)
+}
+
+- (void)onTouchHeadTop{
+    //Called when character is touch top of head (usually overidden)
+}
+
+- (void)onTouchSide:(CBCharacterTouchSide)side{
+    //Called when chararcter is touch (usually overidden)
 }
 
 #pragma mark - Loop Update
@@ -114,22 +122,24 @@
     [self updateWithTimeSinceLastUpdate:timeSinceLast];
 }
 
-- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)interval {
+- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)delta {
     
 }
 
 -(void) didEvaluateActions {
-	[self testIsGrounded];
-    [self testTouchSide];
+    if (self.enableGroundTest) {
+        [self testGrounded];
+        [self testTouchHeadTop];
+    }
     
-//    NSLog(@"climbing : %@", self.isClimbing ? @"YES" : @"NO");
-//    NSLog(@"%f, %f", self.physicsBody.velocity.dx, self.physicsBody.velocity.dy);
+    if (self.enableSideTest) {
+        [self testTouchSide];
+    }
 }
 
 - (void) didSimulatePhysics {
     
 }
-
 
 #pragma mark - Physics Delegate
 - (SKNode *)node {
@@ -137,33 +147,37 @@
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
-    [self testTouchSide];
-    if (self.isTouchSide && !self.isGrounded) {
-        self.climbing = YES;
+    if (self.enableGroundTest) {
+        [self testGrounded];
+        [self testTouchHeadTop];
     }
     
-    NSLog(@"touchSide : %@", self.isTouchSide ? @"YES" : @"NO");
+    if (self.enableSideTest) {
+        [self testTouchSide];
+    }
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
+    if (self.enableGroundTest) {
+        [self testGrounded];
+        [self testTouchHeadTop];
+    }
     
+    if (self.enableSideTest) {
+        [self testTouchSide];
+    }
 }
 
 #pragma mark - Animator Delegate
 - (void)animationHasCompleted:(CBAnimationState)animationState {
-    if (self.dying) {
-        _animatorBehavior.animated = NO;
-    }
+    // Called when a requested animation has completed (usually overriden).
+}
 
-    if (self.startJump) {
-        self.startJump = NO;
+- (void)runAnimation:(CBAnimationState)animationState {
+    if (animationState != _animatorBehavior.requestedAnimation
+        && _animatorBehavior) {
+        _animatorBehavior.requestedAnimation = animationState;
     }
-    
-    if (self.startLand) {
-        self.startLand = NO;
-    }
-    
-    [self animationDidComplete:animationState];
 }
 
 #pragma mark -  Movement
@@ -172,37 +186,34 @@
 }
 
 - (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed withTimeInterval:(NSTimeInterval)timeInterval {
-    if (!self.isGrounded) {
-        return;
-    }
-    
-    if (self.startLand) {
-        self.physicsBody.velocity = ccvMult(self.physicsBody.velocity, 1);
-        return;
-    }
-    
-    CGVector force = CGVectorZero;
-    float currentSpeedX = self.physicsBody.velocity.dx;
-    switch (direction) {
-        case CBMoveDirectionRight:
-            force = CGVectorMake(self.physicsBody.mass * (speed - currentSpeedX) / timeInterval, 0);
-            break;
-            
-        case CBMoveDirectionLeft:
-            force = CGVectorMake(self.physicsBody.mass * (-speed - currentSpeedX) / timeInterval, 0);
-            break;
-    }
-    
+    CGVector force = [self calculateForceWithSpeed:(direction * speed) byAxis:kCBAxisTypeX withTimeInterval:timeInterval];
     [self.physicsBody applyForce:force];
 //    NSLog(@"%f, %f", force.dx, force.dy);
 
 }
 
-- (void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval {
-    if (!self.isGrounded) {
-        return;
+- (CGVector)calculateForceWithSpeed:(CGFloat)speed byAxis:(CBAxisType)axis withTimeInterval:(NSTimeInterval)timeInterval {
+    CGVector velocity = self.physicsBody.velocity;
+    CGVector force = CGVectorZero;
+    switch (axis) {
+        case kCBAxisTypeX:
+            force = ccv(self.physicsBody.mass * (speed - velocity.dx) / timeInterval, 0);
+            break;
+        
+        case kCBAxisTypeY:
+            force = ccv(0, self.physicsBody.mass * (speed - velocity.dy) / timeInterval);
+            break;
+            
+        case kCBAxisTypeXY:
+            force = ccv(self.physicsBody.mass * (speed - velocity.dx) / timeInterval
+                        , self.physicsBody.mass * (speed - velocity.dy) / timeInterval);
+            break;
     }
-    
+
+    return force;
+}
+
+- (void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval {
     CGPoint curPosition = self.position;
     CGFloat dx = position.x - curPosition.x;
     
@@ -218,10 +229,10 @@
         CGFloat minSpeed = kMovementSpeed / 4.0;
         CGFloat clippedSpeed = CLAMP(rampedSpeed, minSpeed, kMovementSpeed);
         if (dx > 0) {
-            [self move:CBMoveDirectionRight bySpeed:clippedSpeed withTimeInterval:timeInterval];
+            [self move:kCBMoveDirectionRight bySpeed:clippedSpeed withTimeInterval:timeInterval];
         }
         else if (dx < 0){
-            [self move:CBMoveDirectionLeft bySpeed:clippedSpeed withTimeInterval:timeInterval];
+            [self move:kCBMoveDirectionLeft bySpeed:clippedSpeed withTimeInterval:timeInterval];
         }
     }
 }
@@ -235,10 +246,10 @@
 }
 
 #pragma mark - Physics Test
-- (void)testIsGrounded {
+- (void)testGrounded {
     __block BOOL temp = NO;
-    CGPoint rayStart = [self.kkScene convertPoint:self.position toNode:self.kkScene];
-	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y - (self.collisionCapsule.height/2 + 2));
+    CGPoint rayStart = self.position;
+	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y - (_boundingBox.height / 2.0 + 2));
 
     // find body below player
 	SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
@@ -251,41 +262,66 @@
             *stop = YES;
 		}
 	}];
-    self.grounded = temp;
+    _grounded = temp;
 }
+
+- (void)testTouchHeadTop {
+    __block BOOL temp = NO;
+    CGPoint rayStart = self.position;
+	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y + (_boundingBox.height / 2.0 + 2));
+
+    // find body below player
+	SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
+	[physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
+		if (body.contactTestBitMask < 1){
+            if (!self.isTouchTop) {
+                [self onTouchHeadTop];
+            }
+			temp = YES;
+            *stop = YES;
+		}
+	}];
+    _touchTop = temp;
+}
+
 
 - (void)testTouchSide {
     __block BOOL temp = NO;
-    self.touchSideNormal = CGVectorZero;
+    _touchingSide = kCBCharacterTouchSideNil;
+    _touchSideNormal = CGVectorZero;
     CGPoint rayStart = self.position;
-	CGPoint rayEnd = CGPointMake(self.position.x + self.collisionCapsule.radius + 15, self.position.y);
+	CGPoint rayEnd = CGPointMake(self.position.x + (_boundingBox.width / 2.0 + 2), self.position.y);
     
-    // find body below player
+    //test right side
 	SKPhysicsWorld* physicsWorld = self.scene.physicsWorld;
 	[physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
 		if (body.contactTestBitMask <= 1){
-//            if (!self.isTouchSide) {
-//                [self onBeginClimb];
-//            }
+            if (!self.isTouchSide) {
+                [self onTouchSide:kCBCharacterTouchSideRight];
+            }
             temp = YES;
             *stop = YES;
-            self.touchSideNormal = normal;
+            _touchSideNormal = normal;
+            _touchingSide = kCBCharacterTouchSideRight;
 		}
 	}];
     
-    rayEnd = CGPointMake(self.position.x - self.collisionCapsule.radius - 15, self.position.y);
+    rayEnd = CGPointMake(self.position.x - (_boundingBox.width / 2.0 + 2), self.position.y);
+    
+    //test left side
     [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
 		if (body.contactTestBitMask <= 1){
-            //            if (!self.isTouchSide) {
-            //                [self onBeginClimb];
-            //            }
+            if (!self.isTouchSide) {
+                [self onTouchSide:kCBCharacterTouchSideLeft];
+            }
             temp = YES;
             *stop = YES;
-            self.touchSideNormal = normal;
+            _touchSideNormal = normal;
+            _touchingSide = kCBCharacterTouchSideLeft;
 		}
 	}];
     
-    self.touchSide = temp;
+    _touchSide = temp;
 }
 
 
@@ -340,22 +376,6 @@
 
 - (SKAction *)damageAction {
     return nil;
-}
-
-#pragma mark - Getter and Setter
-- (void)setJumping:(BOOL)b {
-    _jumping = b;
-    if (!b) {
-        self.startJump = NO;
-        self.wallJumping = NO;
-    }
-}
-
-- (void)setClimbing:(BOOL)b {
-    _climbing = b;
-    if (b) {
-        self.jumping = NO;
-    }
 }
 
 @end

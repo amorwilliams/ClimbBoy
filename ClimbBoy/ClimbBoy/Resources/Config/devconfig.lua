@@ -25,9 +25,9 @@ local config =
 	showsNodeCount = YES,
 
 	-- private Sprite Kit labels
-	showsCoreAnimationFPS = YES,
-	showsCPUStats = YES,
-	showsGPUStats = YES,
+	showsCoreAnimationFPS = NO,
+	showsCPUStats = NO,
+	showsGPUStats = NO,
 	showsCulledNodesInNodeCount = NO,
 	showsTotalAreaRendered = NO,
 	showsSpriteBounds = NO,

@@ -10,11 +10,11 @@
 #import "CBMyScene.h"
 #import "LevelTest.h"
 
-static const NSInteger LEVEL_BOX_SIZE = 96;
+static const NSInteger LEVEL_BOX_SIZE = 48;
 static NSInteger NUMBER_OF_LEVELS = 15;
 static const NSInteger COLUMN_NUMBER = 6;
-static const NSInteger MARGIN_BORDER_HORIZONTAL = 200;
-static const NSInteger MARGIN_BORDER_TOP = 200;
+static const NSInteger MARGIN_BORDER_HORIZONTAL = 100;
+static const NSInteger MARGIN_BORDER_TOP = 100;
 
 @implementation LevelsMenu
 
@@ -35,9 +35,9 @@ static const NSInteger MARGIN_BORDER_TOP = 200;
 - (void)addButtons {
     SKLabelNode *backToMainButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     backToMainButton.text = @"Back";
-    backToMainButton.fontSize = 40;
+    backToMainButton.fontSize = 20;
     backToMainButton.zPosition = 1;
-    backToMainButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 100, CGRectGetMaxY(self.frame) - 80);
+    backToMainButton.position = CGPointMake(CGRectGetMaxX(self.frame) - 50, CGRectGetMaxY(self.frame) - 40);
     [self addChild:backToMainButton];
     
     // KKButtonBehavior turns any node into a button
@@ -70,6 +70,7 @@ static const NSInteger MARGIN_BORDER_TOP = 200;
     KKSpriteNode *levelBox = [KKSpriteNode spriteNodeWithImageNamed:@"obj_box001.png"];
     levelBox.name = [NSString stringWithFormat:@"Level%02d", index];
     levelBox.anchorPoint = CGPointMake(0.5, 0.5);
+    levelBox.size = CGSizeMake(LEVEL_BOX_SIZE, LEVEL_BOX_SIZE);
     levelBox.position = postion;
     [self addChild:levelBox];
     
@@ -86,7 +87,7 @@ static const NSInteger MARGIN_BORDER_TOP = 200;
     
     KKLabelNode *boxLabel = [KKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     boxLabel.text = [NSString stringWithFormat:@"%02d", index];
-    boxLabel.fontSize = 20;
+    boxLabel.fontSize = 10;
     boxLabel.fontColor = [SKColor blackColor];
     [levelBox addChild:boxLabel];
 }

@@ -23,8 +23,18 @@
 		5236776517D5CDE50030470C /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 5236776317D5CDE50030470C /* LevelTest01.tmx */; };
 		5236776717D5D7E60030470C /* behaviorTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776617D5D7E60030470C /* behaviorTemplates.lua */; };
 		5236776817D5D7E60030470C /* behaviorTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776617D5D7E60030470C /* behaviorTemplates.lua */; };
+		52377E9B17D83CE7003B66FE /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52377E9A17D83CE7003B66FE /* CBHeroCharacter_sm.m */; };
+		52377E9C17D83CE7003B66FE /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52377E9A17D83CE7003B66FE /* CBHeroCharacter_sm.m */; };
 		5239F71D17D63054005F80C6 /* CBCharacterAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */; };
 		5239F71E17D63054005F80C6 /* CBCharacterAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */; };
+		523A9A7217D71A6700F577F7 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A6D17D71A6700F577F7 /* CBCharacter.m */; };
+		523A9A7317D71A6700F577F7 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A6D17D71A6700F577F7 /* CBCharacter.m */; };
+		523A9A7417D71A6700F577F7 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A6F17D71A6700F577F7 /* CBHeroCharacter.m */; };
+		523A9A7517D71A6700F577F7 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A6F17D71A6700F577F7 /* CBHeroCharacter.m */; };
+		523A9A7617D71A6700F577F7 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A7117D71A6700F577F7 /* CBRobot.m */; };
+		523A9A7717D71A6700F577F7 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A7117D71A6700F577F7 /* CBRobot.m */; };
+		5241DCAB17D8C68D00B065B2 /* Jetpack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5241DCAA17D8C68D00B065B2 /* Jetpack.atlas */; };
+		5241DCAC17D8C68D00B065B2 /* Jetpack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5241DCAA17D8C68D00B065B2 /* Jetpack.atlas */; };
 		52A5D4F417D45C5D007E14C1 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4F317D45C5D007E14C1 /* MainMenu.m */; };
 		52A5D4F517D45C5D007E14C1 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4F317D45C5D007E14C1 /* MainMenu.m */; };
 		52A5D4FC17D47DFA007E14C1 /* LevelsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4FB17D47DFA007E14C1 /* LevelsMenu.m */; };
@@ -51,16 +61,12 @@
 		52B7DC3D17D0806500138407 /* SKSpriteNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC1B17D0806500138407 /* SKSpriteNode+CBExtension.m */; };
 		52B7DC4017D0806500138407 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2117D0806500138407 /* CBMyScene.m */; };
 		52B7DC4117D0806500138407 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2117D0806500138407 /* CBMyScene.m */; };
-		52B7DC4217D0806500138407 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2417D0806500138407 /* CBCharacter.m */; };
-		52B7DC4317D0806500138407 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2417D0806500138407 /* CBCharacter.m */; };
-		52B7DC4417D0806500138407 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2617D0806500138407 /* CBHeroCharacter.m */; };
-		52B7DC4517D0806500138407 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2617D0806500138407 /* CBHeroCharacter.m */; };
-		52B7DC4617D0806500138407 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2817D0806500138407 /* CBRobot.m */; };
-		52B7DC4717D0806500138407 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2817D0806500138407 /* CBRobot.m */; };
 		52B7DC4817D0806500138407 /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2B17D0806500138407 /* CBGraphicsUtilities.m */; };
 		52B7DC4917D0806500138407 /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2B17D0806500138407 /* CBGraphicsUtilities.m */; };
 		52B7DC5517D0A80F00138407 /* CBSpriteFlipBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC5417D0A80F00138407 /* CBSpriteFlipBehavior.m */; };
 		52B7DC5617D0A80F00138407 /* CBSpriteFlipBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC5417D0A80F00138407 /* CBSpriteFlipBehavior.m */; };
+		52C2407817D7855A00E4B4CD /* statemap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C2407717D7855A00E4B4CD /* statemap.m */; };
+		52C2407917D7855A00E4B4CD /* statemap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C2407717D7855A00E4B4CD /* statemap.m */; };
 		DC042A83178C5A06009FDBF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */; };
 		DC042A84178C5A12009FDBF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC95BA771786DF8600E31DA6 /* SystemConfiguration.framework */; };
 		DC09DB8E178C84C6000E0B61 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC09DB8D178C84C6000E0B61 /* MainMenu.xib */; };
@@ -175,12 +181,23 @@
 		52265C6617D0C92D00310E9D /* LevelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTest.h; sourceTree = "<group>"; };
 		52265C6717D0C92D00310E9D /* LevelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTest.m; sourceTree = "<group>"; };
 		52265C6B17D0D09A00310E9D /* Water Temple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Water Temple.mp3"; sourceTree = "<group>"; };
-		5236776017D5C92E0030470C /* objectTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectTemplates.lua; sourceTree = "<group>"; };
+		5236776017D5C92E0030470C /* objectTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = objectTemplates.lua; sourceTree = "<group>"; };
 		5236776317D5CDE50030470C /* LevelTest01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LevelTest01.tmx; sourceTree = "<group>"; };
-		5236776617D5D7E60030470C /* behaviorTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = behaviorTemplates.lua; sourceTree = "<group>"; };
+		5236776617D5D7E60030470C /* behaviorTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = behaviorTemplates.lua; sourceTree = "<group>"; };
+		52377E9617D833BB003B66FE /* CBHeroCharacter.sm */ = {isa = PBXFileReference; explicitFileType = sourcecode.javascript; path = CBHeroCharacter.sm; sourceTree = "<group>"; };
+		52377E9717D833BB003B66FE /* Smc.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; path = Smc.jar; sourceTree = "<group>"; };
+		52377E9917D83CE7003B66FE /* CBHeroCharacter_sm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter_sm.h; sourceTree = "<group>"; };
+		52377E9A17D83CE7003B66FE /* CBHeroCharacter_sm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter_sm.m; sourceTree = "<group>"; };
 		5239F71B17D63054005F80C6 /* CBCharacterAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimator.h; sourceTree = "<group>"; };
 		5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacterAnimator.m; sourceTree = "<group>"; };
 		5239F72117D641A0005F80C6 /* CBCharacterAnimatorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimatorDelegate.h; sourceTree = "<group>"; };
+		523A9A6C17D71A6700F577F7 /* CBCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacter.h; sourceTree = "<group>"; };
+		523A9A6D17D71A6700F577F7 /* CBCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacter.m; sourceTree = "<group>"; };
+		523A9A6E17D71A6700F577F7 /* CBHeroCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter.h; sourceTree = "<group>"; };
+		523A9A6F17D71A6700F577F7 /* CBHeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter.m; sourceTree = "<group>"; };
+		523A9A7017D71A6700F577F7 /* CBRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRobot.h; sourceTree = "<group>"; };
+		523A9A7117D71A6700F577F7 /* CBRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRobot.m; sourceTree = "<group>"; };
+		5241DCAA17D8C68D00B065B2 /* Jetpack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Jetpack.atlas; sourceTree = "<group>"; };
 		52A5D4F217D45C5D007E14C1 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		52A5D4F317D45C5D007E14C1 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		52A5D4FA17D47DFA007E14C1 /* LevelsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsMenu.h; sourceTree = "<group>"; };
@@ -201,17 +218,13 @@
 		52B7DC1E17D0806500138407 /* CBMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMacros.h; sourceTree = "<group>"; };
 		52B7DC2017D0806500138407 /* CBMyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMyScene.h; sourceTree = "<group>"; };
 		52B7DC2117D0806500138407 /* CBMyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMyScene.m; sourceTree = "<group>"; };
-		52B7DC2317D0806500138407 /* CBCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacter.h; sourceTree = "<group>"; };
-		52B7DC2417D0806500138407 /* CBCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacter.m; sourceTree = "<group>"; };
-		52B7DC2517D0806500138407 /* CBHeroCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter.h; sourceTree = "<group>"; };
-		52B7DC2617D0806500138407 /* CBHeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter.m; sourceTree = "<group>"; };
-		52B7DC2717D0806500138407 /* CBRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRobot.h; sourceTree = "<group>"; };
-		52B7DC2817D0806500138407 /* CBRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRobot.m; sourceTree = "<group>"; };
 		52B7DC2A17D0806500138407 /* CBGraphicsUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGraphicsUtilities.h; sourceTree = "<group>"; };
 		52B7DC2B17D0806500138407 /* CBGraphicsUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBGraphicsUtilities.m; sourceTree = "<group>"; };
 		52B7DC5317D0A80F00138407 /* CBSpriteFlipBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSpriteFlipBehavior.h; sourceTree = "<group>"; };
 		52B7DC5417D0A80F00138407 /* CBSpriteFlipBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSpriteFlipBehavior.m; sourceTree = "<group>"; };
 		52B7DC5717D0AB9700138407 /* CBBehaviors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBBehaviors.h; sourceTree = "<group>"; };
+		52C2407617D7855A00E4B4CD /* statemap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statemap.h; sourceTree = "<group>"; };
+		52C2407717D7855A00E4B4CD /* statemap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statemap.m; sourceTree = "<group>"; };
 		DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		DC09DB8D178C84C6000E0B61 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		DC0C220517CF9C97007FE7B8 /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
@@ -360,6 +373,24 @@
 			path = Musics;
 			sourceTree = "<group>";
 		};
+		52377E9417D833BB003B66FE /* SMs */ = {
+			isa = PBXGroup;
+			children = (
+				52377E9617D833BB003B66FE /* CBHeroCharacter.sm */,
+				52377E9717D833BB003B66FE /* Smc.jar */,
+			);
+			path = SMs;
+			sourceTree = "<group>";
+		};
+		52377E9817D83CE7003B66FE /* FSMs */ = {
+			isa = PBXGroup;
+			children = (
+				52377E9917D83CE7003B66FE /* CBHeroCharacter_sm.h */,
+				52377E9A17D83CE7003B66FE /* CBHeroCharacter_sm.m */,
+			);
+			path = FSMs;
+			sourceTree = "<group>";
+		};
 		5239F71F17D640EC005F80C6 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,9 +399,24 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		523A9A6B17D71A6700F577F7 /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				52377E9817D83CE7003B66FE /* FSMs */,
+				523A9A6C17D71A6700F577F7 /* CBCharacter.h */,
+				523A9A6D17D71A6700F577F7 /* CBCharacter.m */,
+				523A9A6E17D71A6700F577F7 /* CBHeroCharacter.h */,
+				523A9A6F17D71A6700F577F7 /* CBHeroCharacter.m */,
+				523A9A7017D71A6700F577F7 /* CBRobot.h */,
+				523A9A7117D71A6700F577F7 /* CBRobot.m */,
+			);
+			path = GameObjects;
+			sourceTree = "<group>";
+		};
 		52B7DC0817D0806500138407 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				52377E9417D833BB003B66FE /* SMs */,
 				52A5D4FE17D48DF0007E14C1 /* obj_box001.png */,
 				52265C6A17D0D09A00310E9D /* Musics */,
 				52265C5817D0C6BF00310E9D /* Levels */,
@@ -398,6 +444,7 @@
 		52B7DC0B17D0806500138407 /* Texture Atlases */ = {
 			isa = PBXGroup;
 			children = (
+				5241DCAA17D8C68D00B065B2 /* Jetpack.atlas */,
 				52B7DC0C17D0806500138407 /* Hero */,
 			);
 			path = "Texture Atlases";
@@ -420,12 +467,12 @@
 		52B7DC1417D0806500138407 /* GameClasses */ = {
 			isa = PBXGroup;
 			children = (
+				523A9A6B17D71A6700F577F7 /* GameObjects */,
 				5239F71F17D640EC005F80C6 /* Protocols */,
 				52B7DC5217D0A79800138407 /* Behaviors */,
 				52B7DC1517D0806500138407 /* Categories */,
 				52B7DC1E17D0806500138407 /* CBMacros.h */,
 				52B7DC1F17D0806500138407 /* Scenes */,
-				52B7DC2217D0806500138407 /* Sprites */,
 				52B7DC2917D0806500138407 /* Utilities */,
 			);
 			name = GameClasses;
@@ -467,19 +514,6 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		52B7DC2217D0806500138407 /* Sprites */ = {
-			isa = PBXGroup;
-			children = (
-				52B7DC2317D0806500138407 /* CBCharacter.h */,
-				52B7DC2417D0806500138407 /* CBCharacter.m */,
-				52B7DC2517D0806500138407 /* CBHeroCharacter.h */,
-				52B7DC2617D0806500138407 /* CBHeroCharacter.m */,
-				52B7DC2717D0806500138407 /* CBRobot.h */,
-				52B7DC2817D0806500138407 /* CBRobot.m */,
-			);
-			path = Sprites;
-			sourceTree = "<group>";
-		};
 		52B7DC2917D0806500138407 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -499,6 +533,23 @@
 				5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */,
 			);
 			path = Behaviors;
+			sourceTree = "<group>";
+		};
+		52C2407417D7855A00E4B4CD /* External */ = {
+			isa = PBXGroup;
+			children = (
+				52C2407517D7855A00E4B4CD /* SMC */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		52C2407517D7855A00E4B4CD /* SMC */ = {
+			isa = PBXGroup;
+			children = (
+				52C2407617D7855A00E4B4CD /* statemap.h */,
+				52C2407717D7855A00E4B4CD /* statemap.m */,
+			);
+			path = SMC;
 			sourceTree = "<group>";
 		};
 		DC0C221017CFAA4C007FE7B8 /* Mac */ = {
@@ -647,8 +698,9 @@
 		DCDD2D9F1769FD0A00F307CD = {
 			isa = PBXGroup;
 			children = (
-				52B7DC0817D0806500138407 /* Assets */,
+				52C2407417D7855A00E4B4CD /* External */,
 				DCD11E39178C522300FBC406 /* ClimbBoy */,
+				52B7DC0817D0806500138407 /* Assets */,
 				DCDD2DAA1769FD0A00F307CD /* Frameworks */,
 				DCDD2DA91769FD0A00F307CD /* Products */,
 				DC8B562717CBF16600F95CBC /* KoboldKit.xcodeproj */,
@@ -820,6 +872,7 @@
 				52265C6117D0C6BF00310E9D /* Tileset_GeometryB.png in Resources */,
 				52B7DC2D17D0806500138407 /* Hero_Climb_Loop.atlas in Resources */,
 				52B7DC2F17D0806500138407 /* Hero_Idle.atlas in Resources */,
+				5241DCAC17D8C68D00B065B2 /* Jetpack.atlas in Resources */,
 				52265C5F17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png in Resources */,
 				52B7DC3317D0806500138407 /* Hero_Jump_Land_Long.atlas in Resources */,
 				52B7DC3517D0806500138407 /* Hero_Jump_Loop.atlas in Resources */,
@@ -866,6 +919,7 @@
 				52B7DC2C17D0806500138407 /* Hero_Climb_Loop.atlas in Resources */,
 				DCEF82D217CFD35B00157387 /* Icon-Small@2x.png in Resources */,
 				52265C5C17D0C6BF00310E9D /* DemoStage001.tmx in Resources */,
+				5241DCAB17D8C68D00B065B2 /* Jetpack.atlas in Resources */,
 				52B7DC3017D0806500138407 /* Hero_Jump_Land_Idle.atlas in Resources */,
 				DC18B0D4178C7BC400641A6D /* config.lua in Resources */,
 				DCEF82D517CFD4AC00157387 /* Icon-Small-50.png in Resources */,
@@ -888,17 +942,19 @@
 				52B7DC4117D0806500138407 /* CBMyScene.m in Sources */,
 				DCD7EC4A178C573500BBAFB0 /* AppDelegate.m in Sources */,
 				5239F71E17D63054005F80C6 /* CBCharacterAnimator.m in Sources */,
+				523A9A7717D71A6700F577F7 /* CBRobot.m in Sources */,
 				DCD11E40178C522300FBC406 /* main.m in Sources */,
-				52B7DC4717D0806500138407 /* CBRobot.m in Sources */,
 				52B7DC3B17D0806500138407 /* SKNode+CBExtension.m in Sources */,
 				52A5D4F517D45C5D007E14C1 /* MainMenu.m in Sources */,
 				52B7DC3D17D0806500138407 /* SKSpriteNode+CBExtension.m in Sources */,
+				523A9A7517D71A6700F577F7 /* CBHeroCharacter.m in Sources */,
+				52C2407917D7855A00E4B4CD /* statemap.m in Sources */,
 				52A5D4FD17D47DFA007E14C1 /* LevelsMenu.m in Sources */,
 				52265C6917D0C92D00310E9D /* LevelTest.m in Sources */,
+				52377E9C17D83CE7003B66FE /* CBHeroCharacter_sm.m in Sources */,
+				523A9A7317D71A6700F577F7 /* CBCharacter.m in Sources */,
 				DC0C220817CF9C97007FE7B8 /* MyScene.m in Sources */,
-				52B7DC4317D0806500138407 /* CBCharacter.m in Sources */,
 				52B7DC5617D0A80F00138407 /* CBSpriteFlipBehavior.m in Sources */,
-				52B7DC4517D0806500138407 /* CBHeroCharacter.m in Sources */,
 				DCEF831917CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,
 				52B7DC4917D0806500138407 /* CBGraphicsUtilities.m in Sources */,
 				DCD7EC4D178C573500BBAFB0 /* ViewController.m in Sources */,
@@ -912,17 +968,19 @@
 				52B7DC4017D0806500138407 /* CBMyScene.m in Sources */,
 				DCD7A289178C7526004A0467 /* AppDelegate.m in Sources */,
 				5239F71D17D63054005F80C6 /* CBCharacterAnimator.m in Sources */,
+				523A9A7617D71A6700F577F7 /* CBRobot.m in Sources */,
 				DCD7A28C178C7526004A0467 /* ViewController.m in Sources */,
-				52B7DC4617D0806500138407 /* CBRobot.m in Sources */,
 				52B7DC3A17D0806500138407 /* SKNode+CBExtension.m in Sources */,
 				52A5D4F417D45C5D007E14C1 /* MainMenu.m in Sources */,
 				52B7DC3C17D0806500138407 /* SKSpriteNode+CBExtension.m in Sources */,
+				523A9A7417D71A6700F577F7 /* CBHeroCharacter.m in Sources */,
+				52C2407817D7855A00E4B4CD /* statemap.m in Sources */,
 				52A5D4FC17D47DFA007E14C1 /* LevelsMenu.m in Sources */,
 				52265C6817D0C92D00310E9D /* LevelTest.m in Sources */,
+				52377E9B17D83CE7003B66FE /* CBHeroCharacter_sm.m in Sources */,
+				523A9A7217D71A6700F577F7 /* CBCharacter.m in Sources */,
 				DC0C220717CF9C97007FE7B8 /* MyScene.m in Sources */,
-				52B7DC4217D0806500138407 /* CBCharacter.m in Sources */,
 				52B7DC5517D0A80F00138407 /* CBSpriteFlipBehavior.m in Sources */,
-				52B7DC4417D0806500138407 /* CBHeroCharacter.m in Sources */,
 				DCEF831817CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,
 				52B7DC4817D0806500138407 /* CBGraphicsUtilities.m in Sources */,
 				DCD7A28D178C7526004A0467 /* main.m in Sources */,

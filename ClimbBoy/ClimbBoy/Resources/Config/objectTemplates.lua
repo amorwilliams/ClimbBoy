@@ -98,12 +98,30 @@ local objectTemplates =
 		-- create an instance of this class (class must inherit from SKNode or its subclasses)
 		className = "CBRobot",
 
+        properties =
+        {
+            fallSpeedAcceleration = 500,    -- how fast player accelerates when falling down
+            fallSpeedLimit = 1000,			-- max falling speed
+            jumpAbortVelocity = 500,		-- the (max) upwards velocity forcibly set when jump is aborted
+            jumpSpeedInitial = 50,         -- how fast the player initially moves upwards when jumping is initiated
+            jumpSpeedDeceleration = 16,	-- how fast upwards motion (caused by jumping) decelerates
+            runSpeedAcceleration = 0,		-- how fast player accelerates sideways (0 = instant)
+            runSpeedDeceleration = 0,		-- how fast player decelerates sideways (0 = instant)
+            runSpeedLimit = 300,			-- max sideways running speed
+            climbUpSpeedLimit = 100,
+            climbDownSpeedLimit = 100,
+            boundingBox = "{48, 64}",
+            --anchorPoint = "{0.5, 0.3}",
+
+            --_defaultImage = "dummy_stickman.png",
+        },
+
 		physicsBody =
 		{
 			properties =
 			{
 				allowsRotation = NO,
-				mass = 0.05,
+				mass = 0.07,
 				restitution = 0,
 				linearDamping = 0,
 				angularDamping = 0,

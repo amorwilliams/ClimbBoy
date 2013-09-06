@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="100" height="40" tilewidth="16" tileheight="16">
+<map version="1.0" orientation="orthogonal" width="100" height="80" tilewidth="16" tileheight="16">
  <properties>
   <property name="physicsGravityY" value="-9.81"/>
   <property name="physicsSimulationSpeed" value="1.0"/>
@@ -8,15 +8,15 @@
  <tileset firstgid="1" name="Tileset_Geometry_16x16_256" tilewidth="16" tileheight="16" spacing="1" margin="1">
   <image source="Tileset_Geometry_16x16_256.png" width="256" height="256"/>
  </tileset>
- <layer name="mainlayer" width="100" height="40">
+ <layer name="mainlayer" width="100" height="80">
   <properties>
    <property name="_mainTileLayer" value="YES"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJzt2sENgEAIAMFr4fpv1hIwgeAKOwlPjGbvpd5zznVQIwZ7sNiDxR4s9mCxB4s9WOzBYg8We7DYg2VCj4r3QFXvk7LXmdBjEnuw2IPFHiydPfweE7MHy/bnp7EHiz1Y7MFiDxZ7sNiDxR4s9mB502Pjv6cV/+Bmvp9U3tsE5B5/lD0jX50ve8T7newR73eyR7zfyR7xfid7xPudtvRwHMdx6ucBNaAsbg==
+   eJzt21FOwkAARdFugR2yNJaqRP0jDg3NcKecm7wvMxh7Au2HXLbtdtm2zRK7W9w2JeLRikcrHq14tOLRikcrHq14tOLRikcrHq14tOLRikcrHq14tOLRikcrHq14tOLRikcrHq14tOLRikcrHq14tDqzx3//R17tzB4rxuOn0fcyZr0Oj1Yreax4P9jbSh6fEI9WPFrxaMWj1QyPPd+/nv37as9mPFr5vGrFoxWPVjxa8WjFo9UzHis/P64Wj8ft/ZuPuiY+rx7H49hefc++6/3OY3x+ZjzG52fGY3x+ZjzG52fGY3x+Zit7HP1MGhmP1ni0NvT4/vn1vt0XbGeBa1EYj9YyHnsLXDseJ49HKx6teLT68xjcY66/e/e97hPGozUerfFojUdrz3gYj08dj9Z4tMajNR6t8WiNR2u3L2R89nc=
   </data>
  </layer>
- <objectgroup draworder="topdown" name="game objects" width="100" height="40">
-  <object name="player" type="Player" x="368" y="528" width="32" height="64"/>
+ <objectgroup draworder="topdown" name="game objects" width="100" height="80">
+  <object name="player" type="Player" x="272" y="720" width="32" height="48"/>
  </objectgroup>
 </map>

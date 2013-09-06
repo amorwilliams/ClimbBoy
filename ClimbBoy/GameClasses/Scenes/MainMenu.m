@@ -10,7 +10,7 @@
 #import "LevelsMenu.h"
 #import "CBMacros.h"
 
-static const NSInteger BUTTON_SPACING_VERTICAL = 80;
+static const NSInteger BUTTON_SPACING_VERTICAL = 40;
 static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
 
 @interface MainMenu ()
@@ -28,8 +28,8 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
         
         SKLabelNode* myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
 		myLabel.text = @"Climb Boy";
-        myLabel.fontSize = 80;
-		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 150);
+        myLabel.fontSize = 40;
+		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 75);
 		[self addChild:myLabel];
         
     }
@@ -42,8 +42,6 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
     [self addMenuButtons];
     
 //    [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
-    KKModel *model = self.kkView.model;
-    NSDictionary* objectTemplates = [self.kkScene.kkView.model objectForKey:@"config"];
 }
 
 - (void)willMoveFromView:(SKView *)view {
@@ -57,7 +55,7 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
 - (void)addMenuButtons {
     _startGameButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     _startGameButton.text = @"START";
-    _startGameButton.fontSize = 40;
+    _startGameButton.fontSize = 20;
     _startGameButton.zPosition = 1;
     _startGameButton.position = CGPointMake(CGRectGetMidX(self.frame) + BUTTON_FLY_HORIZONTAL_POSITION,
                                             CGRectGetMidY(self.frame));
@@ -76,7 +74,7 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
     
     _optionButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     _optionButton.text = @"OPTION";
-    _optionButton.fontSize = 40;
+    _optionButton.fontSize = 20;
     _optionButton.zPosition = 1;
     _optionButton.position = CGPointMake(CGRectGetMidX(self.frame) + BUTTON_FLY_HORIZONTAL_POSITION,
                                          CGRectGetMidY(self.frame) - BUTTON_SPACING_VERTICAL);
@@ -93,7 +91,7 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
     
     _creditsButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     _creditsButton.text = @"CREDITS";
-    _creditsButton.fontSize = 40;
+    _creditsButton.fontSize = 20;
     _creditsButton.zPosition = 1;
     _creditsButton.position = CGPointMake(CGRectGetMidX(self.frame) + BUTTON_FLY_HORIZONTAL_POSITION,
                                           CGRectGetMidY(self.frame) - BUTTON_SPACING_VERTICAL*2);

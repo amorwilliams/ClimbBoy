@@ -1,0 +1,97 @@
+%{
+//
+//CaveMan FSM
+//
+%}
+
+
+%start HeroMap::Standing
+%class CBHeroCharacter
+%header   CBHeroCharacter.h
+
+%map HeroMap
+%%
+// State			Transition                      End State		Action(s)
+Standing
+Entry {
+    runAnimation(CBAnimationStateIdle);
+}
+Exit {
+}
+{
+                    toRun                           Running         {}
+                    toJump[!ctxt.isTouchTop]        Jumping         {}
+}
+
+Running
+Entry {
+    runAnimation(CBAnimationStateRun);
+}
+Exit {
+}
+{	
+                    toStand                         Standing        {}
+                    toJump[!ctxt.isTouchTop]        Jumping         {}
+                    toFall                          Falling         {}
+                    update(delta:NSTimeInterval) 	nil             {updateRunning(delta);}
+}
+
+Jumping
+Entry {
+    runAnimation(CBAnimationStateJump);
+    startJumping();
+}
+{
+                    toFall                          Falling         {}
+                    toClimb[ctxt.isTouchSide]       Climbing        {}
+                    update(delta:NSTimeInterval) 	nil             {updateJumping(delta);}
+}
+
+Falling
+Entry {
+    runAnimation(CBAnimationStateFall);
+}
+Exit {
+    
+}
+{
+                    toStand                         Standing        {}
+                    toClimb[ctxt.isTouchSide]       Climbing        {}
+                    update(delta:NSTimeInterval) 	nil             {updateFalling(delta);}
+}
+
+Climbing
+Entry {
+    runAnimation(CBAnimationStateClimb);
+}
+Exit {
+    
+}
+{
+                    toJump                          Jumping         {}
+                    toFall                          Falling         {}
+                    toStand                         Standing        {}
+                    update(delta:NSTimeInterval)	nil             {updateClimbing(delta);}
+}
+
+Dying
+Entry {
+    runAnimation(CBAnimationStateDeath);
+}
+{
+
+}
+
+Default
+{	
+                    toStand                         nil             {}
+                    toRun                           nil             {}
+                    toJump                          nil             {}
+                    toFall                          nil             {}
+                    toClimb                         nil             {}
+                    toDie                           nil             {}
+                    update(delta:NSTimeInterval)    nil             {}
+}
+
+
+%%
