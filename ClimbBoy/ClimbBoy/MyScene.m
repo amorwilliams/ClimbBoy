@@ -6,6 +6,7 @@
 
 #import "MyScene.h"
 #import "RemoveSpaceshipBehavior.h"
+#import "spine-spirte-kit.h"
 
 @implementation MyScene
 
@@ -24,6 +25,17 @@
 		[self addChild:myLabel];
 
 		[self addSmartbombButton];
+        
+        SKSkeleton *skeleton = [[SKSkeleton alloc] initWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:1];
+        [skeleton setSkin:@"goblin"];
+        [skeleton setToSetupPose];
+        for (int i = 0; i < [skeleton slotCount]; i++) {
+            SKTexture *texture = [skeleton getTextureBySlotIndex:i];
+            
+            SKSpriteNode *n = [SKSpriteNode spriteNodeWithTexture:texture];
+            [self addChild:n];
+            n.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+        }
 	}
 	return self;
 }

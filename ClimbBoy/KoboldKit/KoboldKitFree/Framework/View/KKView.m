@@ -59,6 +59,17 @@ static BOOL _showsNodeAnchorPoints = NO;
 	[self reloadConfig];
 }
 
+#pragma mark Properties
+
+-(KKGLContext*) context
+{
+#if TARGET_OS_IPHONE
+	return [EAGLContext currentContext];
+#else
+	return [NSOpenGLContext currentContext];
+#endif
+}
+
 #pragma mark Config
 
 -(void) reloadConfig
@@ -197,7 +208,7 @@ static BOOL _showsNodeAnchorPoints = NO;
 
 -(void) pushScene:(KKScene*)scene transition:(KKTransition*)transition
 {
-	[_sceneStack addObject:scene];
+	[_sceneStack addObject:self.scene];
 	transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
 	ASSERT_SCENE_STACK_INTEGRITY();
 }
@@ -211,10 +222,10 @@ static BOOL _showsNodeAnchorPoints = NO;
 {
 	if (_sceneStack.count > 1)
 	{
-        [_sceneStack removeLastObject];
 		KKScene* scene = [_sceneStack lastObject];
 		if (scene)
 		{
+			[_sceneStack removeLastObject];
 			transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
 			ASSERT_SCENE_STACK_INTEGRITY();
 		}

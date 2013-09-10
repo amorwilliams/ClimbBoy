@@ -7,66 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		52265C5C17D0C6BF00310E9D /* DemoStage001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52265C5917D0C6BF00310E9D /* DemoStage001.tmx */; };
-		52265C5D17D0C6BF00310E9D /* DemoStage001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52265C5917D0C6BF00310E9D /* DemoStage001.tmx */; };
-		52265C5E17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 52265C5A17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png */; };
-		52265C5F17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 52265C5A17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png */; };
-		52265C6017D0C6BF00310E9D /* Tileset_GeometryB.png in Resources */ = {isa = PBXBuildFile; fileRef = 52265C5B17D0C6BF00310E9D /* Tileset_GeometryB.png */; };
-		52265C6117D0C6BF00310E9D /* Tileset_GeometryB.png in Resources */ = {isa = PBXBuildFile; fileRef = 52265C5B17D0C6BF00310E9D /* Tileset_GeometryB.png */; };
-		52265C6817D0C92D00310E9D /* LevelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 52265C6717D0C92D00310E9D /* LevelTest.m */; };
-		52265C6917D0C92D00310E9D /* LevelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 52265C6717D0C92D00310E9D /* LevelTest.m */; };
-		52265C6C17D0D09A00310E9D /* Water Temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52265C6B17D0D09A00310E9D /* Water Temple.mp3 */; };
-		52265C6D17D0D09A00310E9D /* Water Temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52265C6B17D0D09A00310E9D /* Water Temple.mp3 */; };
-		5236776117D5C92E0030470C /* objectTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776017D5C92E0030470C /* objectTemplates.lua */; };
-		5236776217D5C92E0030470C /* objectTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776017D5C92E0030470C /* objectTemplates.lua */; };
-		5236776417D5CDE50030470C /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 5236776317D5CDE50030470C /* LevelTest01.tmx */; };
-		5236776517D5CDE50030470C /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 5236776317D5CDE50030470C /* LevelTest01.tmx */; };
-		5236776717D5D7E60030470C /* behaviorTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776617D5D7E60030470C /* behaviorTemplates.lua */; };
-		5236776817D5D7E60030470C /* behaviorTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 5236776617D5D7E60030470C /* behaviorTemplates.lua */; };
-		52377E9B17D83CE7003B66FE /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52377E9A17D83CE7003B66FE /* CBHeroCharacter_sm.m */; };
-		52377E9C17D83CE7003B66FE /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52377E9A17D83CE7003B66FE /* CBHeroCharacter_sm.m */; };
-		5239F71D17D63054005F80C6 /* CBCharacterAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */; };
-		5239F71E17D63054005F80C6 /* CBCharacterAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */; };
-		523A9A7217D71A6700F577F7 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A6D17D71A6700F577F7 /* CBCharacter.m */; };
-		523A9A7317D71A6700F577F7 /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A6D17D71A6700F577F7 /* CBCharacter.m */; };
-		523A9A7417D71A6700F577F7 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A6F17D71A6700F577F7 /* CBHeroCharacter.m */; };
-		523A9A7517D71A6700F577F7 /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A6F17D71A6700F577F7 /* CBHeroCharacter.m */; };
-		523A9A7617D71A6700F577F7 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A7117D71A6700F577F7 /* CBRobot.m */; };
-		523A9A7717D71A6700F577F7 /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A9A7117D71A6700F577F7 /* CBRobot.m */; };
-		5241DCAB17D8C68D00B065B2 /* Jetpack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5241DCAA17D8C68D00B065B2 /* Jetpack.atlas */; };
-		5241DCAC17D8C68D00B065B2 /* Jetpack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5241DCAA17D8C68D00B065B2 /* Jetpack.atlas */; };
-		52A5D4F417D45C5D007E14C1 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4F317D45C5D007E14C1 /* MainMenu.m */; };
-		52A5D4F517D45C5D007E14C1 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4F317D45C5D007E14C1 /* MainMenu.m */; };
-		52A5D4FC17D47DFA007E14C1 /* LevelsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4FB17D47DFA007E14C1 /* LevelsMenu.m */; };
-		52A5D4FD17D47DFA007E14C1 /* LevelsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52A5D4FB17D47DFA007E14C1 /* LevelsMenu.m */; };
-		52A5D4FF17D48DF0007E14C1 /* obj_box001.png in Resources */ = {isa = PBXBuildFile; fileRef = 52A5D4FE17D48DF0007E14C1 /* obj_box001.png */; };
-		52A5D50017D48DF0007E14C1 /* obj_box001.png in Resources */ = {isa = PBXBuildFile; fileRef = 52A5D4FE17D48DF0007E14C1 /* obj_box001.png */; };
-		52B7DC2C17D0806500138407 /* Hero_Climb_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC0D17D0806500138407 /* Hero_Climb_Loop.atlas */; };
-		52B7DC2D17D0806500138407 /* Hero_Climb_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC0D17D0806500138407 /* Hero_Climb_Loop.atlas */; };
-		52B7DC2E17D0806500138407 /* Hero_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC0E17D0806500138407 /* Hero_Idle.atlas */; };
-		52B7DC2F17D0806500138407 /* Hero_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC0E17D0806500138407 /* Hero_Idle.atlas */; };
-		52B7DC3017D0806500138407 /* Hero_Jump_Land_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC0F17D0806500138407 /* Hero_Jump_Land_Idle.atlas */; };
-		52B7DC3117D0806500138407 /* Hero_Jump_Land_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC0F17D0806500138407 /* Hero_Jump_Land_Idle.atlas */; };
-		52B7DC3217D0806500138407 /* Hero_Jump_Land_Long.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC1017D0806500138407 /* Hero_Jump_Land_Long.atlas */; };
-		52B7DC3317D0806500138407 /* Hero_Jump_Land_Long.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC1017D0806500138407 /* Hero_Jump_Land_Long.atlas */; };
-		52B7DC3417D0806500138407 /* Hero_Jump_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC1117D0806500138407 /* Hero_Jump_Loop.atlas */; };
-		52B7DC3517D0806500138407 /* Hero_Jump_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC1117D0806500138407 /* Hero_Jump_Loop.atlas */; };
-		52B7DC3617D0806500138407 /* Hero_Jump_Start.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC1217D0806500138407 /* Hero_Jump_Start.atlas */; };
-		52B7DC3717D0806500138407 /* Hero_Jump_Start.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC1217D0806500138407 /* Hero_Jump_Start.atlas */; };
-		52B7DC3817D0806500138407 /* Hero_Run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC1317D0806500138407 /* Hero_Run.atlas */; };
-		52B7DC3917D0806500138407 /* Hero_Run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B7DC1317D0806500138407 /* Hero_Run.atlas */; };
-		52B7DC3A17D0806500138407 /* SKNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC1917D0806500138407 /* SKNode+CBExtension.m */; };
-		52B7DC3B17D0806500138407 /* SKNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC1917D0806500138407 /* SKNode+CBExtension.m */; };
-		52B7DC3C17D0806500138407 /* SKSpriteNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC1B17D0806500138407 /* SKSpriteNode+CBExtension.m */; };
-		52B7DC3D17D0806500138407 /* SKSpriteNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC1B17D0806500138407 /* SKSpriteNode+CBExtension.m */; };
-		52B7DC4017D0806500138407 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2117D0806500138407 /* CBMyScene.m */; };
-		52B7DC4117D0806500138407 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2117D0806500138407 /* CBMyScene.m */; };
-		52B7DC4817D0806500138407 /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2B17D0806500138407 /* CBGraphicsUtilities.m */; };
-		52B7DC4917D0806500138407 /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC2B17D0806500138407 /* CBGraphicsUtilities.m */; };
-		52B7DC5517D0A80F00138407 /* CBSpriteFlipBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC5417D0A80F00138407 /* CBSpriteFlipBehavior.m */; };
-		52B7DC5617D0A80F00138407 /* CBSpriteFlipBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B7DC5417D0A80F00138407 /* CBSpriteFlipBehavior.m */; };
-		52C2407817D7855A00E4B4CD /* statemap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C2407717D7855A00E4B4CD /* statemap.m */; };
-		52C2407917D7855A00E4B4CD /* statemap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C2407717D7855A00E4B4CD /* statemap.m */; };
+		528FCA6B17DF49F700EFE6E8 /* behaviorTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 528FCA6917DF49F700EFE6E8 /* behaviorTemplates.lua */; };
+		528FCA6C17DF49F700EFE6E8 /* objectTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 528FCA6A17DF49F700EFE6E8 /* objectTemplates.lua */; };
+		528FCA9917DF4A1400EFE6E8 /* spine-spirte-kit.m in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8317DF4A1400EFE6E8 /* spine-spirte-kit.m */; };
+		528FCA9A17DF4A1400EFE6E8 /* Animation.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8617DF4A1400EFE6E8 /* Animation.c */; };
+		528FCA9B17DF4A1400EFE6E8 /* AnimationState.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8717DF4A1400EFE6E8 /* AnimationState.c */; };
+		528FCA9C17DF4A1400EFE6E8 /* AnimationStateData.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8817DF4A1400EFE6E8 /* AnimationStateData.c */; };
+		528FCA9D17DF4A1400EFE6E8 /* Atlas.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8917DF4A1400EFE6E8 /* Atlas.c */; };
+		528FCA9E17DF4A1400EFE6E8 /* AtlasAttachmentLoader.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8A17DF4A1400EFE6E8 /* AtlasAttachmentLoader.c */; };
+		528FCA9F17DF4A1400EFE6E8 /* Attachment.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8B17DF4A1400EFE6E8 /* Attachment.c */; };
+		528FCAA017DF4A1400EFE6E8 /* AttachmentLoader.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8C17DF4A1400EFE6E8 /* AttachmentLoader.c */; };
+		528FCAA117DF4A1400EFE6E8 /* Bone.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8D17DF4A1400EFE6E8 /* Bone.c */; };
+		528FCAA217DF4A1400EFE6E8 /* BoneData.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8E17DF4A1400EFE6E8 /* BoneData.c */; };
+		528FCAA317DF4A1400EFE6E8 /* extension.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8F17DF4A1400EFE6E8 /* extension.c */; };
+		528FCAA417DF4A1400EFE6E8 /* Json.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9017DF4A1400EFE6E8 /* Json.c */; };
+		528FCAA517DF4A1400EFE6E8 /* RegionAttachment.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9217DF4A1400EFE6E8 /* RegionAttachment.c */; };
+		528FCAA617DF4A1400EFE6E8 /* Skeleton.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9317DF4A1400EFE6E8 /* Skeleton.c */; };
+		528FCAA717DF4A1400EFE6E8 /* SkeletonData.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9417DF4A1400EFE6E8 /* SkeletonData.c */; };
+		528FCAA817DF4A1400EFE6E8 /* SkeletonJson.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9517DF4A1400EFE6E8 /* SkeletonJson.c */; };
+		528FCAA917DF4A1400EFE6E8 /* Skin.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9617DF4A1400EFE6E8 /* Skin.c */; };
+		528FCAAA17DF4A1400EFE6E8 /* Slot.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9717DF4A1400EFE6E8 /* Slot.c */; };
+		528FCAAB17DF4A1400EFE6E8 /* SlotData.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9817DF4A1400EFE6E8 /* SlotData.c */; };
+		528FCAAE17DF5F0100EFE6E8 /* SKSkeleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 528FCAAD17DF5F0100EFE6E8 /* SKSkeleton.m */; };
+		528FCACC17DF635000EFE6E8 /* goblins.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC617DF635000EFE6E8 /* goblins.atlas */; };
+		528FCACD17DF635000EFE6E8 /* goblins.json in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC717DF635000EFE6E8 /* goblins.json */; };
+		528FCACE17DF635000EFE6E8 /* goblins.png in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC817DF635000EFE6E8 /* goblins.png */; };
+		528FCACF17DF635000EFE6E8 /* spineboy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC917DF635000EFE6E8 /* spineboy.atlas */; };
+		528FCAD017DF635000EFE6E8 /* spineboy.json in Resources */ = {isa = PBXBuildFile; fileRef = 528FCACA17DF635000EFE6E8 /* spineboy.json */; };
+		528FCAD117DF635000EFE6E8 /* spineboy.png in Resources */ = {isa = PBXBuildFile; fileRef = 528FCACB17DF635000EFE6E8 /* spineboy.png */; };
+		52DD070C17DF435800189AFF /* DemoStage001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B417DF435800189AFF /* DemoStage001.tmx */; };
+		52DD070D17DF435800189AFF /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B517DF435800189AFF /* LevelTest01.tmx */; };
+		52DD070E17DF435800189AFF /* Tileset_Geometry_16x16_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */; };
+		52DD070F17DF435800189AFF /* Tileset_GeometryB.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B717DF435800189AFF /* Tileset_GeometryB.png */; };
+		52DD071017DF435800189AFF /* Water Temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B917DF435800189AFF /* Water Temple.mp3 */; };
+		52DD071117DF435800189AFF /* obj_box001.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06BA17DF435800189AFF /* obj_box001.png */; };
+		52DD071717DF435800189AFF /* Hero_Climb_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06C617DF435800189AFF /* Hero_Climb_Loop.atlas */; };
+		52DD071817DF435800189AFF /* Hero_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06C717DF435800189AFF /* Hero_Idle.atlas */; };
+		52DD071917DF435800189AFF /* Hero_Jump_Land_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06C817DF435800189AFF /* Hero_Jump_Land_Idle.atlas */; };
+		52DD071A17DF435800189AFF /* Hero_Jump_Land_Long.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06C917DF435800189AFF /* Hero_Jump_Land_Long.atlas */; };
+		52DD071B17DF435800189AFF /* Hero_Jump_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06CA17DF435800189AFF /* Hero_Jump_Loop.atlas */; };
+		52DD071C17DF435800189AFF /* Hero_Jump_Start.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06CB17DF435800189AFF /* Hero_Jump_Start.atlas */; };
+		52DD071D17DF435800189AFF /* Hero_Run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06CC17DF435800189AFF /* Hero_Run.atlas */; };
+		52DD071E17DF435800189AFF /* Jetpack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06CD17DF435800189AFF /* Jetpack.atlas */; };
+		52DD071F17DF435800189AFF /* CBCharacterAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06D217DF435800189AFF /* CBCharacterAnimator.m */; };
+		52DD072017DF435800189AFF /* CBSpriteFlipBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06D417DF435800189AFF /* CBSpriteFlipBehavior.m */; };
+		52DD072117DF435800189AFF /* SKNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06D917DF435800189AFF /* SKNode+CBExtension.m */; };
+		52DD072217DF435800189AFF /* SKSpriteNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06DB17DF435800189AFF /* SKSpriteNode+CBExtension.m */; };
+		52DD072D17DF435800189AFF /* CBCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06F617DF435800189AFF /* CBCharacter.m */; };
+		52DD072E17DF435800189AFF /* CBHeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06F817DF435800189AFF /* CBHeroCharacter.m */; };
+		52DD072F17DF435800189AFF /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06FA17DF435800189AFF /* CBRobot.m */; };
+		52DD073017DF435800189AFF /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06FD17DF435800189AFF /* CBHeroCharacter_sm.m */; };
+		52DD073117DF435800189AFF /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070217DF435800189AFF /* CBMyScene.m */; };
+		52DD073217DF435800189AFF /* LevelsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070417DF435800189AFF /* LevelsMenu.m */; };
+		52DD073317DF435800189AFF /* LevelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070617DF435800189AFF /* LevelTest.m */; };
+		52DD073417DF435800189AFF /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070817DF435800189AFF /* MainMenu.m */; };
+		52DD073517DF435800189AFF /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070B17DF435800189AFF /* CBGraphicsUtilities.m */; };
+		52DD076617DF436700189AFF /* statemap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD073917DF436700189AFF /* statemap.m */; };
 		DC042A83178C5A06009FDBF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */; };
 		DC042A84178C5A12009FDBF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC95BA771786DF8600E31DA6 /* SystemConfiguration.framework */; };
 		DC09DB8E178C84C6000E0B61 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC09DB8D178C84C6000E0B61 /* MainMenu.xib */; };
@@ -85,7 +81,6 @@
 		DC19538A17C124E800EC526C /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC19538817C124E800EC526C /* GameController.framework */; };
 		DC19538B17C124E800EC526C /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC19538917C124E800EC526C /* GameKit.framework */; };
 		DC19538E17C124F000EC526C /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC19538C17C124F000EC526C /* GameController.framework */; };
-		DC19538F17C124F000EC526C /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC19538D17C124F000EC526C /* GameKit.framework */; };
 		DC19539117C124F600EC526C /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC19539017C124F600EC526C /* CoreMotion.framework */; };
 		DC19539317C1251900EC526C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC19539217C1251900EC526C /* UIKit.framework */; };
 		DC19539517C1252300EC526C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC19539417C1252300EC526C /* Cocoa.framework */; };
@@ -175,56 +170,101 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		52265C5917D0C6BF00310E9D /* DemoStage001.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DemoStage001.tmx; sourceTree = "<group>"; };
-		52265C5A17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_Geometry_16x16_256.png; sourceTree = "<group>"; };
-		52265C5B17D0C6BF00310E9D /* Tileset_GeometryB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_GeometryB.png; sourceTree = "<group>"; };
-		52265C6617D0C92D00310E9D /* LevelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTest.h; sourceTree = "<group>"; };
-		52265C6717D0C92D00310E9D /* LevelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTest.m; sourceTree = "<group>"; };
-		52265C6B17D0D09A00310E9D /* Water Temple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Water Temple.mp3"; sourceTree = "<group>"; };
-		5236776017D5C92E0030470C /* objectTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = objectTemplates.lua; sourceTree = "<group>"; };
-		5236776317D5CDE50030470C /* LevelTest01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LevelTest01.tmx; sourceTree = "<group>"; };
-		5236776617D5D7E60030470C /* behaviorTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = behaviorTemplates.lua; sourceTree = "<group>"; };
-		52377E9617D833BB003B66FE /* CBHeroCharacter.sm */ = {isa = PBXFileReference; explicitFileType = sourcecode.javascript; path = CBHeroCharacter.sm; sourceTree = "<group>"; };
-		52377E9717D833BB003B66FE /* Smc.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; path = Smc.jar; sourceTree = "<group>"; };
-		52377E9917D83CE7003B66FE /* CBHeroCharacter_sm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter_sm.h; sourceTree = "<group>"; };
-		52377E9A17D83CE7003B66FE /* CBHeroCharacter_sm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter_sm.m; sourceTree = "<group>"; };
-		5239F71B17D63054005F80C6 /* CBCharacterAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimator.h; sourceTree = "<group>"; };
-		5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacterAnimator.m; sourceTree = "<group>"; };
-		5239F72117D641A0005F80C6 /* CBCharacterAnimatorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimatorDelegate.h; sourceTree = "<group>"; };
-		523A9A6C17D71A6700F577F7 /* CBCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacter.h; sourceTree = "<group>"; };
-		523A9A6D17D71A6700F577F7 /* CBCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacter.m; sourceTree = "<group>"; };
-		523A9A6E17D71A6700F577F7 /* CBHeroCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter.h; sourceTree = "<group>"; };
-		523A9A6F17D71A6700F577F7 /* CBHeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter.m; sourceTree = "<group>"; };
-		523A9A7017D71A6700F577F7 /* CBRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRobot.h; sourceTree = "<group>"; };
-		523A9A7117D71A6700F577F7 /* CBRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRobot.m; sourceTree = "<group>"; };
-		5241DCAA17D8C68D00B065B2 /* Jetpack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Jetpack.atlas; sourceTree = "<group>"; };
-		52A5D4F217D45C5D007E14C1 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
-		52A5D4F317D45C5D007E14C1 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
-		52A5D4FA17D47DFA007E14C1 /* LevelsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsMenu.h; sourceTree = "<group>"; };
-		52A5D4FB17D47DFA007E14C1 /* LevelsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelsMenu.m; sourceTree = "<group>"; };
-		52A5D4FE17D48DF0007E14C1 /* obj_box001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obj_box001.png; sourceTree = "<group>"; };
-		52B7DC0D17D0806500138407 /* Hero_Climb_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Climb_Loop.atlas; sourceTree = "<group>"; };
-		52B7DC0E17D0806500138407 /* Hero_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Idle.atlas; sourceTree = "<group>"; };
-		52B7DC0F17D0806500138407 /* Hero_Jump_Land_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Idle.atlas; sourceTree = "<group>"; };
-		52B7DC1017D0806500138407 /* Hero_Jump_Land_Long.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Long.atlas; sourceTree = "<group>"; };
-		52B7DC1117D0806500138407 /* Hero_Jump_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Loop.atlas; sourceTree = "<group>"; };
-		52B7DC1217D0806500138407 /* Hero_Jump_Start.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Start.atlas; sourceTree = "<group>"; };
-		52B7DC1317D0806500138407 /* Hero_Run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Run.atlas; sourceTree = "<group>"; };
-		52B7DC1617D0806500138407 /* CBCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCategories.h; sourceTree = "<group>"; };
-		52B7DC1817D0806500138407 /* SKNode+CBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+CBExtension.h"; sourceTree = "<group>"; };
-		52B7DC1917D0806500138407 /* SKNode+CBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+CBExtension.m"; sourceTree = "<group>"; };
-		52B7DC1A17D0806500138407 /* SKSpriteNode+CBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSpriteNode+CBExtension.h"; sourceTree = "<group>"; };
-		52B7DC1B17D0806500138407 /* SKSpriteNode+CBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSpriteNode+CBExtension.m"; sourceTree = "<group>"; };
-		52B7DC1E17D0806500138407 /* CBMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMacros.h; sourceTree = "<group>"; };
-		52B7DC2017D0806500138407 /* CBMyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMyScene.h; sourceTree = "<group>"; };
-		52B7DC2117D0806500138407 /* CBMyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMyScene.m; sourceTree = "<group>"; };
-		52B7DC2A17D0806500138407 /* CBGraphicsUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGraphicsUtilities.h; sourceTree = "<group>"; };
-		52B7DC2B17D0806500138407 /* CBGraphicsUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBGraphicsUtilities.m; sourceTree = "<group>"; };
-		52B7DC5317D0A80F00138407 /* CBSpriteFlipBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSpriteFlipBehavior.h; sourceTree = "<group>"; };
-		52B7DC5417D0A80F00138407 /* CBSpriteFlipBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSpriteFlipBehavior.m; sourceTree = "<group>"; };
-		52B7DC5717D0AB9700138407 /* CBBehaviors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CBBehaviors.h; sourceTree = "<group>"; };
-		52C2407617D7855A00E4B4CD /* statemap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statemap.h; sourceTree = "<group>"; };
-		52C2407717D7855A00E4B4CD /* statemap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statemap.m; sourceTree = "<group>"; };
+		528FCA6917DF49F700EFE6E8 /* behaviorTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = behaviorTemplates.lua; sourceTree = "<group>"; };
+		528FCA6A17DF49F700EFE6E8 /* objectTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectTemplates.lua; sourceTree = "<group>"; };
+		528FCA7017DF4A1400EFE6E8 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
+		528FCA7117DF4A1400EFE6E8 /* AnimationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationState.h; sourceTree = "<group>"; };
+		528FCA7217DF4A1400EFE6E8 /* AnimationStateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationStateData.h; sourceTree = "<group>"; };
+		528FCA7317DF4A1400EFE6E8 /* Atlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Atlas.h; sourceTree = "<group>"; };
+		528FCA7417DF4A1400EFE6E8 /* AtlasAttachmentLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtlasAttachmentLoader.h; sourceTree = "<group>"; };
+		528FCA7517DF4A1400EFE6E8 /* Attachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Attachment.h; sourceTree = "<group>"; };
+		528FCA7617DF4A1400EFE6E8 /* AttachmentLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttachmentLoader.h; sourceTree = "<group>"; };
+		528FCA7717DF4A1400EFE6E8 /* Bone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bone.h; sourceTree = "<group>"; };
+		528FCA7817DF4A1400EFE6E8 /* BoneData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoneData.h; sourceTree = "<group>"; };
+		528FCA7917DF4A1400EFE6E8 /* extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = extension.h; sourceTree = "<group>"; };
+		528FCA7A17DF4A1400EFE6E8 /* RegionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegionAttachment.h; sourceTree = "<group>"; };
+		528FCA7B17DF4A1400EFE6E8 /* Skeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skeleton.h; sourceTree = "<group>"; };
+		528FCA7C17DF4A1400EFE6E8 /* SkeletonData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonData.h; sourceTree = "<group>"; };
+		528FCA7D17DF4A1400EFE6E8 /* SkeletonJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SkeletonJson.h; sourceTree = "<group>"; };
+		528FCA7E17DF4A1400EFE6E8 /* Skin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skin.h; sourceTree = "<group>"; };
+		528FCA7F17DF4A1400EFE6E8 /* Slot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slot.h; sourceTree = "<group>"; };
+		528FCA8017DF4A1400EFE6E8 /* SlotData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlotData.h; sourceTree = "<group>"; };
+		528FCA8117DF4A1400EFE6E8 /* spine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spine.h; sourceTree = "<group>"; };
+		528FCA8217DF4A1400EFE6E8 /* spine-spirte-kit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "spine-spirte-kit.h"; sourceTree = "<group>"; };
+		528FCA8317DF4A1400EFE6E8 /* spine-spirte-kit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "spine-spirte-kit.m"; sourceTree = "<group>"; };
+		528FCA8617DF4A1400EFE6E8 /* Animation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Animation.c; sourceTree = "<group>"; };
+		528FCA8717DF4A1400EFE6E8 /* AnimationState.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AnimationState.c; sourceTree = "<group>"; };
+		528FCA8817DF4A1400EFE6E8 /* AnimationStateData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AnimationStateData.c; sourceTree = "<group>"; };
+		528FCA8917DF4A1400EFE6E8 /* Atlas.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Atlas.c; sourceTree = "<group>"; };
+		528FCA8A17DF4A1400EFE6E8 /* AtlasAttachmentLoader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AtlasAttachmentLoader.c; sourceTree = "<group>"; };
+		528FCA8B17DF4A1400EFE6E8 /* Attachment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Attachment.c; sourceTree = "<group>"; };
+		528FCA8C17DF4A1400EFE6E8 /* AttachmentLoader.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = AttachmentLoader.c; sourceTree = "<group>"; };
+		528FCA8D17DF4A1400EFE6E8 /* Bone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Bone.c; sourceTree = "<group>"; };
+		528FCA8E17DF4A1400EFE6E8 /* BoneData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = BoneData.c; sourceTree = "<group>"; };
+		528FCA8F17DF4A1400EFE6E8 /* extension.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = extension.c; sourceTree = "<group>"; };
+		528FCA9017DF4A1400EFE6E8 /* Json.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Json.c; sourceTree = "<group>"; };
+		528FCA9117DF4A1400EFE6E8 /* Json.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Json.h; sourceTree = "<group>"; };
+		528FCA9217DF4A1400EFE6E8 /* RegionAttachment.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = RegionAttachment.c; sourceTree = "<group>"; };
+		528FCA9317DF4A1400EFE6E8 /* Skeleton.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Skeleton.c; sourceTree = "<group>"; };
+		528FCA9417DF4A1400EFE6E8 /* SkeletonData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SkeletonData.c; sourceTree = "<group>"; };
+		528FCA9517DF4A1400EFE6E8 /* SkeletonJson.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SkeletonJson.c; sourceTree = "<group>"; };
+		528FCA9617DF4A1400EFE6E8 /* Skin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Skin.c; sourceTree = "<group>"; };
+		528FCA9717DF4A1400EFE6E8 /* Slot.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Slot.c; sourceTree = "<group>"; };
+		528FCA9817DF4A1400EFE6E8 /* SlotData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SlotData.c; sourceTree = "<group>"; };
+		528FCAAC17DF5F0100EFE6E8 /* SKSkeleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSkeleton.h; sourceTree = "<group>"; };
+		528FCAAD17DF5F0100EFE6E8 /* SKSkeleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSkeleton.m; sourceTree = "<group>"; };
+		528FCAC617DF635000EFE6E8 /* goblins.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = goblins.atlas; sourceTree = "<group>"; };
+		528FCAC717DF635000EFE6E8 /* goblins.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goblins.json; sourceTree = "<group>"; };
+		528FCAC817DF635000EFE6E8 /* goblins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goblins.png; sourceTree = "<group>"; };
+		528FCAC917DF635000EFE6E8 /* spineboy.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spineboy.atlas; sourceTree = "<group>"; };
+		528FCACA17DF635000EFE6E8 /* spineboy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spineboy.json; sourceTree = "<group>"; };
+		528FCACB17DF635000EFE6E8 /* spineboy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spineboy.png; sourceTree = "<group>"; };
+		52DD06B417DF435800189AFF /* DemoStage001.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DemoStage001.tmx; sourceTree = "<group>"; };
+		52DD06B517DF435800189AFF /* LevelTest01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LevelTest01.tmx; sourceTree = "<group>"; };
+		52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_Geometry_16x16_256.png; sourceTree = "<group>"; };
+		52DD06B717DF435800189AFF /* Tileset_GeometryB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_GeometryB.png; sourceTree = "<group>"; };
+		52DD06B917DF435800189AFF /* Water Temple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Water Temple.mp3"; sourceTree = "<group>"; };
+		52DD06BA17DF435800189AFF /* obj_box001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obj_box001.png; sourceTree = "<group>"; };
+		52DD06C617DF435800189AFF /* Hero_Climb_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Climb_Loop.atlas; sourceTree = "<group>"; };
+		52DD06C717DF435800189AFF /* Hero_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Idle.atlas; sourceTree = "<group>"; };
+		52DD06C817DF435800189AFF /* Hero_Jump_Land_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Idle.atlas; sourceTree = "<group>"; };
+		52DD06C917DF435800189AFF /* Hero_Jump_Land_Long.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Long.atlas; sourceTree = "<group>"; };
+		52DD06CA17DF435800189AFF /* Hero_Jump_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Loop.atlas; sourceTree = "<group>"; };
+		52DD06CB17DF435800189AFF /* Hero_Jump_Start.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Start.atlas; sourceTree = "<group>"; };
+		52DD06CC17DF435800189AFF /* Hero_Run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Run.atlas; sourceTree = "<group>"; };
+		52DD06CD17DF435800189AFF /* Jetpack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Jetpack.atlas; sourceTree = "<group>"; };
+		52DD06D017DF435800189AFF /* CBBehaviors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBehaviors.h; sourceTree = "<group>"; };
+		52DD06D117DF435800189AFF /* CBCharacterAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimator.h; sourceTree = "<group>"; };
+		52DD06D217DF435800189AFF /* CBCharacterAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacterAnimator.m; sourceTree = "<group>"; };
+		52DD06D317DF435800189AFF /* CBSpriteFlipBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSpriteFlipBehavior.h; sourceTree = "<group>"; };
+		52DD06D417DF435800189AFF /* CBSpriteFlipBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSpriteFlipBehavior.m; sourceTree = "<group>"; };
+		52DD06D617DF435800189AFF /* CBCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCategories.h; sourceTree = "<group>"; };
+		52DD06D817DF435800189AFF /* SKNode+CBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+CBExtension.h"; sourceTree = "<group>"; };
+		52DD06D917DF435800189AFF /* SKNode+CBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+CBExtension.m"; sourceTree = "<group>"; };
+		52DD06DA17DF435800189AFF /* SKSpriteNode+CBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSpriteNode+CBExtension.h"; sourceTree = "<group>"; };
+		52DD06DB17DF435800189AFF /* SKSpriteNode+CBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSpriteNode+CBExtension.m"; sourceTree = "<group>"; };
+		52DD06DC17DF435800189AFF /* CBMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMacros.h; sourceTree = "<group>"; };
+		52DD06F517DF435800189AFF /* CBCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacter.h; sourceTree = "<group>"; };
+		52DD06F617DF435800189AFF /* CBCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacter.m; sourceTree = "<group>"; };
+		52DD06F717DF435800189AFF /* CBHeroCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter.h; sourceTree = "<group>"; };
+		52DD06F817DF435800189AFF /* CBHeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter.m; sourceTree = "<group>"; };
+		52DD06F917DF435800189AFF /* CBRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBRobot.h; sourceTree = "<group>"; };
+		52DD06FA17DF435800189AFF /* CBRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBRobot.m; sourceTree = "<group>"; };
+		52DD06FC17DF435800189AFF /* CBHeroCharacter_sm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter_sm.h; sourceTree = "<group>"; };
+		52DD06FD17DF435800189AFF /* CBHeroCharacter_sm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter_sm.m; sourceTree = "<group>"; };
+		52DD06FF17DF435800189AFF /* CBCharacterAnimatorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimatorDelegate.h; sourceTree = "<group>"; };
+		52DD070117DF435800189AFF /* CBMyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMyScene.h; sourceTree = "<group>"; };
+		52DD070217DF435800189AFF /* CBMyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMyScene.m; sourceTree = "<group>"; };
+		52DD070317DF435800189AFF /* LevelsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsMenu.h; sourceTree = "<group>"; };
+		52DD070417DF435800189AFF /* LevelsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelsMenu.m; sourceTree = "<group>"; };
+		52DD070517DF435800189AFF /* LevelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTest.h; sourceTree = "<group>"; };
+		52DD070617DF435800189AFF /* LevelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTest.m; sourceTree = "<group>"; };
+		52DD070717DF435800189AFF /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		52DD070817DF435800189AFF /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		52DD070A17DF435800189AFF /* CBGraphicsUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGraphicsUtilities.h; sourceTree = "<group>"; };
+		52DD070B17DF435800189AFF /* CBGraphicsUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBGraphicsUtilities.m; sourceTree = "<group>"; };
+		52DD073817DF436700189AFF /* statemap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = statemap.h; sourceTree = "<group>"; };
+		52DD073917DF436700189AFF /* statemap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = statemap.m; sourceTree = "<group>"; };
 		DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		DC09DB8D178C84C6000E0B61 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		DC0C220517CF9C97007FE7B8 /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
@@ -241,7 +281,6 @@
 		DC19538817C124E800EC526C /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
 		DC19538917C124E800EC526C /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		DC19538C17C124F000EC526C /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/GameController.framework; sourceTree = DEVELOPER_DIR; };
-		DC19538D17C124F000EC526C /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		DC19539017C124F600EC526C /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		DC19539217C1251900EC526C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		DC19539417C1252300EC526C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -339,7 +378,6 @@
 				DC19539317C1251900EC526C /* UIKit.framework in Frameworks */,
 				DC19539117C124F600EC526C /* CoreMotion.framework in Frameworks */,
 				DC19538E17C124F000EC526C /* GameController.framework in Frameworks */,
-				DC19538F17C124F000EC526C /* GameKit.framework in Frameworks */,
 				DCFE4D7217B2B502006675A2 /* CoreMedia.framework in Frameworks */,
 				DCFE4D7017B2B4FC006675A2 /* AVFoundation.framework in Frameworks */,
 				DCD7A292178C7545004A0467 /* libz.dylib in Frameworks */,
@@ -354,202 +392,294 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		52265C5817D0C6BF00310E9D /* Levels */ = {
+		528FCA6D17DF4A1400EFE6E8 /* spine */ = {
 			isa = PBXGroup;
 			children = (
-				5236776317D5CDE50030470C /* LevelTest01.tmx */,
-				52265C5917D0C6BF00310E9D /* DemoStage001.tmx */,
-				52265C5A17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png */,
-				52265C5B17D0C6BF00310E9D /* Tileset_GeometryB.png */,
+				528FCA6E17DF4A1400EFE6E8 /* include */,
+				528FCA8417DF4A1400EFE6E8 /* src */,
+				528FCA8217DF4A1400EFE6E8 /* spine-spirte-kit.h */,
+				528FCA8317DF4A1400EFE6E8 /* spine-spirte-kit.m */,
+				528FCAAC17DF5F0100EFE6E8 /* SKSkeleton.h */,
+				528FCAAD17DF5F0100EFE6E8 /* SKSkeleton.m */,
 			);
-			path = Levels;
+			path = spine;
 			sourceTree = "<group>";
 		};
-		52265C6A17D0D09A00310E9D /* Musics */ = {
+		528FCA6E17DF4A1400EFE6E8 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				52265C6B17D0D09A00310E9D /* Water Temple.mp3 */,
+				528FCA6F17DF4A1400EFE6E8 /* spine */,
 			);
-			path = Musics;
+			path = include;
 			sourceTree = "<group>";
 		};
-		52377E9417D833BB003B66FE /* SMs */ = {
+		528FCA6F17DF4A1400EFE6E8 /* spine */ = {
 			isa = PBXGroup;
 			children = (
-				52377E9617D833BB003B66FE /* CBHeroCharacter.sm */,
-				52377E9717D833BB003B66FE /* Smc.jar */,
+				528FCA7017DF4A1400EFE6E8 /* Animation.h */,
+				528FCA7117DF4A1400EFE6E8 /* AnimationState.h */,
+				528FCA7217DF4A1400EFE6E8 /* AnimationStateData.h */,
+				528FCA7317DF4A1400EFE6E8 /* Atlas.h */,
+				528FCA7417DF4A1400EFE6E8 /* AtlasAttachmentLoader.h */,
+				528FCA7517DF4A1400EFE6E8 /* Attachment.h */,
+				528FCA7617DF4A1400EFE6E8 /* AttachmentLoader.h */,
+				528FCA7717DF4A1400EFE6E8 /* Bone.h */,
+				528FCA7817DF4A1400EFE6E8 /* BoneData.h */,
+				528FCA7917DF4A1400EFE6E8 /* extension.h */,
+				528FCA7A17DF4A1400EFE6E8 /* RegionAttachment.h */,
+				528FCA7B17DF4A1400EFE6E8 /* Skeleton.h */,
+				528FCA7C17DF4A1400EFE6E8 /* SkeletonData.h */,
+				528FCA7D17DF4A1400EFE6E8 /* SkeletonJson.h */,
+				528FCA7E17DF4A1400EFE6E8 /* Skin.h */,
+				528FCA7F17DF4A1400EFE6E8 /* Slot.h */,
+				528FCA8017DF4A1400EFE6E8 /* SlotData.h */,
+				528FCA8117DF4A1400EFE6E8 /* spine.h */,
 			);
-			path = SMs;
+			path = spine;
 			sourceTree = "<group>";
 		};
-		52377E9817D83CE7003B66FE /* FSMs */ = {
+		528FCA8417DF4A1400EFE6E8 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				52377E9917D83CE7003B66FE /* CBHeroCharacter_sm.h */,
-				52377E9A17D83CE7003B66FE /* CBHeroCharacter_sm.m */,
+				528FCA8517DF4A1400EFE6E8 /* spine */,
 			);
-			path = FSMs;
+			path = src;
 			sourceTree = "<group>";
 		};
-		5239F71F17D640EC005F80C6 /* Protocols */ = {
+		528FCA8517DF4A1400EFE6E8 /* spine */ = {
 			isa = PBXGroup;
 			children = (
-				5239F72117D641A0005F80C6 /* CBCharacterAnimatorDelegate.h */,
+				528FCA8617DF4A1400EFE6E8 /* Animation.c */,
+				528FCA8717DF4A1400EFE6E8 /* AnimationState.c */,
+				528FCA8817DF4A1400EFE6E8 /* AnimationStateData.c */,
+				528FCA8917DF4A1400EFE6E8 /* Atlas.c */,
+				528FCA8A17DF4A1400EFE6E8 /* AtlasAttachmentLoader.c */,
+				528FCA8B17DF4A1400EFE6E8 /* Attachment.c */,
+				528FCA8C17DF4A1400EFE6E8 /* AttachmentLoader.c */,
+				528FCA8D17DF4A1400EFE6E8 /* Bone.c */,
+				528FCA8E17DF4A1400EFE6E8 /* BoneData.c */,
+				528FCA8F17DF4A1400EFE6E8 /* extension.c */,
+				528FCA9017DF4A1400EFE6E8 /* Json.c */,
+				528FCA9117DF4A1400EFE6E8 /* Json.h */,
+				528FCA9217DF4A1400EFE6E8 /* RegionAttachment.c */,
+				528FCA9317DF4A1400EFE6E8 /* Skeleton.c */,
+				528FCA9417DF4A1400EFE6E8 /* SkeletonData.c */,
+				528FCA9517DF4A1400EFE6E8 /* SkeletonJson.c */,
+				528FCA9617DF4A1400EFE6E8 /* Skin.c */,
+				528FCA9717DF4A1400EFE6E8 /* Slot.c */,
+				528FCA9817DF4A1400EFE6E8 /* SlotData.c */,
 			);
-			path = Protocols;
+			path = spine;
 			sourceTree = "<group>";
 		};
-		523A9A6B17D71A6700F577F7 /* GameObjects */ = {
+		528FCAC517DF635000EFE6E8 /* SpineData */ = {
 			isa = PBXGroup;
 			children = (
-				52377E9817D83CE7003B66FE /* FSMs */,
-				523A9A6C17D71A6700F577F7 /* CBCharacter.h */,
-				523A9A6D17D71A6700F577F7 /* CBCharacter.m */,
-				523A9A6E17D71A6700F577F7 /* CBHeroCharacter.h */,
-				523A9A6F17D71A6700F577F7 /* CBHeroCharacter.m */,
-				523A9A7017D71A6700F577F7 /* CBRobot.h */,
-				523A9A7117D71A6700F577F7 /* CBRobot.m */,
+				528FCAC617DF635000EFE6E8 /* goblins.atlas */,
+				528FCAC717DF635000EFE6E8 /* goblins.json */,
+				528FCAC817DF635000EFE6E8 /* goblins.png */,
+				528FCAC917DF635000EFE6E8 /* spineboy.atlas */,
+				528FCACA17DF635000EFE6E8 /* spineboy.json */,
+				528FCACB17DF635000EFE6E8 /* spineboy.png */,
 			);
-			path = GameObjects;
+			path = SpineData;
 			sourceTree = "<group>";
 		};
-		52B7DC0817D0806500138407 /* Assets */ = {
+		52DD06B217DF435800189AFF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				52377E9417D833BB003B66FE /* SMs */,
-				52A5D4FE17D48DF0007E14C1 /* obj_box001.png */,
-				52265C6A17D0D09A00310E9D /* Musics */,
-				52265C5817D0C6BF00310E9D /* Levels */,
-				52B7DC0917D0806500138407 /* Particles */,
-				52B7DC0A17D0806500138407 /* Sounds */,
-				52B7DC0B17D0806500138407 /* Texture Atlases */,
+				528FCAC517DF635000EFE6E8 /* SpineData */,
+				52DD06B317DF435800189AFF /* Levels */,
+				52DD06B817DF435800189AFF /* Musics */,
+				52DD06BA17DF435800189AFF /* obj_box001.png */,
+				52DD06BB17DF435800189AFF /* Particles */,
+				52DD06C317DF435800189AFF /* Sounds */,
+				52DD06C417DF435800189AFF /* Texture Atlases */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		52B7DC0917D0806500138407 /* Particles */ = {
+		52DD06B317DF435800189AFF /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				52DD06B417DF435800189AFF /* DemoStage001.tmx */,
+				52DD06B517DF435800189AFF /* LevelTest01.tmx */,
+				52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */,
+				52DD06B717DF435800189AFF /* Tileset_GeometryB.png */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
+		52DD06B817DF435800189AFF /* Musics */ = {
+			isa = PBXGroup;
+			children = (
+				52DD06B917DF435800189AFF /* Water Temple.mp3 */,
+			);
+			path = Musics;
+			sourceTree = "<group>";
+		};
+		52DD06BB17DF435800189AFF /* Particles */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Particles;
 			sourceTree = "<group>";
 		};
-		52B7DC0A17D0806500138407 /* Sounds */ = {
+		52DD06C317DF435800189AFF /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			path = Sounds;
 			sourceTree = "<group>";
 		};
-		52B7DC0B17D0806500138407 /* Texture Atlases */ = {
+		52DD06C417DF435800189AFF /* Texture Atlases */ = {
 			isa = PBXGroup;
 			children = (
-				5241DCAA17D8C68D00B065B2 /* Jetpack.atlas */,
-				52B7DC0C17D0806500138407 /* Hero */,
+				52DD06C517DF435800189AFF /* Hero */,
+				52DD06CD17DF435800189AFF /* Jetpack.atlas */,
 			);
 			path = "Texture Atlases";
 			sourceTree = "<group>";
 		};
-		52B7DC0C17D0806500138407 /* Hero */ = {
+		52DD06C517DF435800189AFF /* Hero */ = {
 			isa = PBXGroup;
 			children = (
-				52B7DC0D17D0806500138407 /* Hero_Climb_Loop.atlas */,
-				52B7DC0E17D0806500138407 /* Hero_Idle.atlas */,
-				52B7DC0F17D0806500138407 /* Hero_Jump_Land_Idle.atlas */,
-				52B7DC1017D0806500138407 /* Hero_Jump_Land_Long.atlas */,
-				52B7DC1117D0806500138407 /* Hero_Jump_Loop.atlas */,
-				52B7DC1217D0806500138407 /* Hero_Jump_Start.atlas */,
-				52B7DC1317D0806500138407 /* Hero_Run.atlas */,
+				52DD06C617DF435800189AFF /* Hero_Climb_Loop.atlas */,
+				52DD06C717DF435800189AFF /* Hero_Idle.atlas */,
+				52DD06C817DF435800189AFF /* Hero_Jump_Land_Idle.atlas */,
+				52DD06C917DF435800189AFF /* Hero_Jump_Land_Long.atlas */,
+				52DD06CA17DF435800189AFF /* Hero_Jump_Loop.atlas */,
+				52DD06CB17DF435800189AFF /* Hero_Jump_Start.atlas */,
+				52DD06CC17DF435800189AFF /* Hero_Run.atlas */,
 			);
 			path = Hero;
 			sourceTree = "<group>";
 		};
-		52B7DC1417D0806500138407 /* GameClasses */ = {
+		52DD06CE17DF435800189AFF /* GameClasses */ = {
 			isa = PBXGroup;
 			children = (
-				523A9A6B17D71A6700F577F7 /* GameObjects */,
-				5239F71F17D640EC005F80C6 /* Protocols */,
-				52B7DC5217D0A79800138407 /* Behaviors */,
-				52B7DC1517D0806500138407 /* Categories */,
-				52B7DC1E17D0806500138407 /* CBMacros.h */,
-				52B7DC1F17D0806500138407 /* Scenes */,
-				52B7DC2917D0806500138407 /* Utilities */,
+				52DD06CF17DF435800189AFF /* Behaviors */,
+				52DD06D517DF435800189AFF /* Categories */,
+				52DD06DC17DF435800189AFF /* CBMacros.h */,
+				52DD06DD17DF435800189AFF /* Extensions */,
+				52DD06F417DF435800189AFF /* GameObjects */,
+				52DD06FE17DF435800189AFF /* Protocols */,
+				52DD070017DF435800189AFF /* Scenes */,
+				52DD070917DF435800189AFF /* Utilities */,
 			);
-			name = GameClasses;
-			path = ../GameClasses;
+			path = GameClasses;
 			sourceTree = "<group>";
 		};
-		52B7DC1517D0806500138407 /* Categories */ = {
+		52DD06CF17DF435800189AFF /* Behaviors */ = {
 			isa = PBXGroup;
 			children = (
-				52B7DC1617D0806500138407 /* CBCategories.h */,
-				52B7DC1717D0806500138407 /* SpriteKit */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		52B7DC1717D0806500138407 /* SpriteKit */ = {
-			isa = PBXGroup;
-			children = (
-				52B7DC1817D0806500138407 /* SKNode+CBExtension.h */,
-				52B7DC1917D0806500138407 /* SKNode+CBExtension.m */,
-				52B7DC1A17D0806500138407 /* SKSpriteNode+CBExtension.h */,
-				52B7DC1B17D0806500138407 /* SKSpriteNode+CBExtension.m */,
-			);
-			path = SpriteKit;
-			sourceTree = "<group>";
-		};
-		52B7DC1F17D0806500138407 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				52B7DC2017D0806500138407 /* CBMyScene.h */,
-				52B7DC2117D0806500138407 /* CBMyScene.m */,
-				52265C6617D0C92D00310E9D /* LevelTest.h */,
-				52265C6717D0C92D00310E9D /* LevelTest.m */,
-				52A5D4F217D45C5D007E14C1 /* MainMenu.h */,
-				52A5D4F317D45C5D007E14C1 /* MainMenu.m */,
-				52A5D4FA17D47DFA007E14C1 /* LevelsMenu.h */,
-				52A5D4FB17D47DFA007E14C1 /* LevelsMenu.m */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
-		52B7DC2917D0806500138407 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				52B7DC2A17D0806500138407 /* CBGraphicsUtilities.h */,
-				52B7DC2B17D0806500138407 /* CBGraphicsUtilities.m */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		52B7DC5217D0A79800138407 /* Behaviors */ = {
-			isa = PBXGroup;
-			children = (
-				52B7DC5317D0A80F00138407 /* CBSpriteFlipBehavior.h */,
-				52B7DC5417D0A80F00138407 /* CBSpriteFlipBehavior.m */,
-				52B7DC5717D0AB9700138407 /* CBBehaviors.h */,
-				5239F71B17D63054005F80C6 /* CBCharacterAnimator.h */,
-				5239F71C17D63054005F80C6 /* CBCharacterAnimator.m */,
+				52DD06D017DF435800189AFF /* CBBehaviors.h */,
+				52DD06D117DF435800189AFF /* CBCharacterAnimator.h */,
+				52DD06D217DF435800189AFF /* CBCharacterAnimator.m */,
+				52DD06D317DF435800189AFF /* CBSpriteFlipBehavior.h */,
+				52DD06D417DF435800189AFF /* CBSpriteFlipBehavior.m */,
 			);
 			path = Behaviors;
 			sourceTree = "<group>";
 		};
-		52C2407417D7855A00E4B4CD /* External */ = {
+		52DD06D517DF435800189AFF /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				52C2407517D7855A00E4B4CD /* SMC */,
+				52DD06D617DF435800189AFF /* CBCategories.h */,
+				52DD06D717DF435800189AFF /* SpriteKit */,
 			);
-			path = External;
+			path = Categories;
 			sourceTree = "<group>";
 		};
-		52C2407517D7855A00E4B4CD /* SMC */ = {
+		52DD06D717DF435800189AFF /* SpriteKit */ = {
 			isa = PBXGroup;
 			children = (
-				52C2407617D7855A00E4B4CD /* statemap.h */,
-				52C2407717D7855A00E4B4CD /* statemap.m */,
+				52DD06D817DF435800189AFF /* SKNode+CBExtension.h */,
+				52DD06D917DF435800189AFF /* SKNode+CBExtension.m */,
+				52DD06DA17DF435800189AFF /* SKSpriteNode+CBExtension.h */,
+				52DD06DB17DF435800189AFF /* SKSpriteNode+CBExtension.m */,
 			);
-			path = SMC;
+			path = SpriteKit;
+			sourceTree = "<group>";
+		};
+		52DD06DD17DF435800189AFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		52DD06F417DF435800189AFF /* GameObjects */ = {
+			isa = PBXGroup;
+			children = (
+				52DD06F517DF435800189AFF /* CBCharacter.h */,
+				52DD06F617DF435800189AFF /* CBCharacter.m */,
+				52DD06F717DF435800189AFF /* CBHeroCharacter.h */,
+				52DD06F817DF435800189AFF /* CBHeroCharacter.m */,
+				52DD06F917DF435800189AFF /* CBRobot.h */,
+				52DD06FA17DF435800189AFF /* CBRobot.m */,
+				52DD06FB17DF435800189AFF /* FSMs */,
+			);
+			path = GameObjects;
+			sourceTree = "<group>";
+		};
+		52DD06FB17DF435800189AFF /* FSMs */ = {
+			isa = PBXGroup;
+			children = (
+				52DD06FC17DF435800189AFF /* CBHeroCharacter_sm.h */,
+				52DD06FD17DF435800189AFF /* CBHeroCharacter_sm.m */,
+			);
+			path = FSMs;
+			sourceTree = "<group>";
+		};
+		52DD06FE17DF435800189AFF /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				52DD06FF17DF435800189AFF /* CBCharacterAnimatorDelegate.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		52DD070017DF435800189AFF /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				52DD070117DF435800189AFF /* CBMyScene.h */,
+				52DD070217DF435800189AFF /* CBMyScene.m */,
+				52DD070317DF435800189AFF /* LevelsMenu.h */,
+				52DD070417DF435800189AFF /* LevelsMenu.m */,
+				52DD070517DF435800189AFF /* LevelTest.h */,
+				52DD070617DF435800189AFF /* LevelTest.m */,
+				52DD070717DF435800189AFF /* MainMenu.h */,
+				52DD070817DF435800189AFF /* MainMenu.m */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		52DD070917DF435800189AFF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				52DD070A17DF435800189AFF /* CBGraphicsUtilities.h */,
+				52DD070B17DF435800189AFF /* CBGraphicsUtilities.m */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		52DD073617DF436700189AFF /* libs */ = {
+			isa = PBXGroup;
+			children = (
+				528FCA6D17DF4A1400EFE6E8 /* spine */,
+				52DD073717DF436700189AFF /* smc */,
+			);
+			path = libs;
+			sourceTree = "<group>";
+		};
+		52DD073717DF436700189AFF /* smc */ = {
+			isa = PBXGroup;
+			children = (
+				52DD073817DF436700189AFF /* statemap.h */,
+				52DD073917DF436700189AFF /* statemap.m */,
+			);
+			path = smc;
 			sourceTree = "<group>";
 		};
 		DC0C221017CFAA4C007FE7B8 /* Mac */ = {
@@ -576,8 +706,8 @@
 		DC18B09E178C7BC400641A6D /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				5236776617D5D7E60030470C /* behaviorTemplates.lua */,
-				5236776017D5C92E0030470C /* objectTemplates.lua */,
+				528FCA6917DF49F700EFE6E8 /* behaviorTemplates.lua */,
+				528FCA6A17DF49F700EFE6E8 /* objectTemplates.lua */,
 				DC18B09F178C7BC400641A6D /* config.lua */,
 				DC18B0A0178C7BC400641A6D /* devconfig.lua */,
 			);
@@ -668,7 +798,8 @@
 		DCD11E39178C522300FBC406 /* ClimbBoy */ = {
 			isa = PBXGroup;
 			children = (
-				52B7DC1417D0806500138407 /* GameClasses */,
+				52DD06B217DF435800189AFF /* Assets */,
+				52DD06CE17DF435800189AFF /* GameClasses */,
 				DCD7EC42178C573500BBAFB0 /* AppDelegate.h */,
 				DCD7EC43178C573500BBAFB0 /* AppDelegate.m */,
 				DCD7EC48178C573500BBAFB0 /* ViewController.h */,
@@ -698,9 +829,8 @@
 		DCDD2D9F1769FD0A00F307CD = {
 			isa = PBXGroup;
 			children = (
-				52C2407417D7855A00E4B4CD /* External */,
 				DCD11E39178C522300FBC406 /* ClimbBoy */,
-				52B7DC0817D0806500138407 /* Assets */,
+				52DD073617DF436700189AFF /* libs */,
 				DCDD2DAA1769FD0A00F307CD /* Frameworks */,
 				DCDD2DA91769FD0A00F307CD /* Products */,
 				DC8B562717CBF16600F95CBC /* KoboldKit.xcodeproj */,
@@ -726,7 +856,6 @@
 				DC19539217C1251900EC526C /* UIKit.framework */,
 				DC19539017C124F600EC526C /* CoreMotion.framework */,
 				DC19538C17C124F000EC526C /* GameController.framework */,
-				DC19538D17C124F000EC526C /* GameKit.framework */,
 				DC19538817C124E800EC526C /* GameController.framework */,
 				DC19538917C124E800EC526C /* GameKit.framework */,
 				DC19538617C124A500EC526C /* OpenAL.framework */,
@@ -757,6 +886,23 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		DCE361C517D3460C008F940E /* ClimbBoy-Android */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "";
+			buildConfigurationList = DCE361C817D3460C008F940E /* Build configuration list for PBXLegacyTarget "ClimbBoy-Android" */;
+			buildPhases = (
+			);
+			buildToolPath = "${PROJECT_DIR}/KoboldKit/ApportableSupport/launch-apportable.sh";
+			buildWorkingDirectory = "${PROJECT_DIR}";
+			dependencies = (
+			);
+			name = "ClimbBoy-Android";
+			passBuildSettingsInEnvironment = 1;
+			productName = "ClimbBoy-Android";
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		DCD11E35178C522300FBC406 /* ClimbBoy-Mac */ = {
@@ -806,6 +952,11 @@
 				TargetAttributes = {
 					DCD7EC51178C57FC00BBAFB0 = {
 						DevelopmentTeam = 35A7PQVH35;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -830,6 +981,7 @@
 			targets = (
 				DCD7EC51178C57FC00BBAFB0 /* ClimbBoy-iOS */,
 				DCD11E35178C522300FBC406 /* ClimbBoy-Mac */,
+				DCE361C517D3460C008F940E /* ClimbBoy-Android */,
 			);
 		};
 /* End PBXProject section */
@@ -859,25 +1011,9 @@
 				DC0C220B17CFA1EF007FE7B8 /* Spaceship.png in Resources */,
 				DC5BCDBA17CF88F300A5CB01 /* Icons-Mac.iconset in Resources */,
 				DC18B0D7178C7BC400641A6D /* devconfig.lua in Resources */,
-				52B7DC3917D0806500138407 /* Hero_Run.atlas in Resources */,
-				52265C5D17D0C6BF00310E9D /* DemoStage001.tmx in Resources */,
-				52A5D50017D48DF0007E14C1 /* obj_box001.png in Resources */,
-				52B7DC3717D0806500138407 /* Hero_Jump_Start.atlas in Resources */,
-				5236776217D5C92E0030470C /* objectTemplates.lua in Resources */,
 				DCEF831117CFDBF300157387 /* die.wav in Resources */,
-				52B7DC3117D0806500138407 /* Hero_Jump_Land_Idle.atlas in Resources */,
-				52265C6D17D0D09A00310E9D /* Water Temple.mp3 in Resources */,
 				DCD11E3E178C522300FBC406 /* InfoPlist.strings in Resources */,
-				5236776817D5D7E60030470C /* behaviorTemplates.lua in Resources */,
-				52265C6117D0C6BF00310E9D /* Tileset_GeometryB.png in Resources */,
-				52B7DC2D17D0806500138407 /* Hero_Climb_Loop.atlas in Resources */,
-				52B7DC2F17D0806500138407 /* Hero_Idle.atlas in Resources */,
-				5241DCAC17D8C68D00B065B2 /* Jetpack.atlas in Resources */,
-				52265C5F17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png in Resources */,
-				52B7DC3317D0806500138407 /* Hero_Jump_Land_Long.atlas in Resources */,
-				52B7DC3517D0806500138407 /* Hero_Jump_Loop.atlas in Resources */,
 				DCEF830E17CFDAAB00157387 /* ATTRIBUTIONS in Resources */,
-				5236776517D5CDE50030470C /* LevelTest01.tmx in Resources */,
 				DCD11E44178C522300FBC406 /* Credits.rtf in Resources */,
 				DC09DB8E178C84C6000E0B61 /* MainMenu.xib in Resources */,
 				DC18B0D5178C7BC400641A6D /* config.lua in Resources */,
@@ -890,45 +1026,51 @@
 			files = (
 				DC0C220A17CFA1EF007FE7B8 /* Spaceship.png in Resources */,
 				DC5BCDB917CF88E500A5CB01 /* Default@2x.png in Resources */,
-				52B7DC3217D0806500138407 /* Hero_Jump_Land_Long.atlas in Resources */,
 				DCEF82D017CFD35B00157387 /* Icon-72@2x.png in Resources */,
-				5236776717D5D7E60030470C /* behaviorTemplates.lua in Resources */,
 				DC18B128178C7EA000641A6D /* Main_iPad.storyboard in Resources */,
+				528FCA6B17DF49F700EFE6E8 /* behaviorTemplates.lua in Resources */,
 				DC5BCDB517CF88E500A5CB01 /* Default-Landscape~ipad.png in Resources */,
+				528FCACD17DF635000EFE6E8 /* goblins.json in Resources */,
+				528FCA6C17DF49F700EFE6E8 /* objectTemplates.lua in Resources */,
 				DC5BCDAA17CF88E500A5CB01 /* Icon~ipad.png in Resources */,
+				52DD071117DF435800189AFF /* obj_box001.png in Resources */,
 				DC5BCDB717CF88E500A5CB01 /* Default-Portrait~ipad.png in Resources */,
 				DC18B0D6178C7BC400641A6D /* devconfig.lua in Resources */,
-				52265C6017D0C6BF00310E9D /* Tileset_GeometryB.png in Resources */,
-				5236776417D5CDE50030470C /* LevelTest01.tmx in Resources */,
 				DC5BCDB217CF88E500A5CB01 /* iTunesArtwork in Resources */,
 				DCEF82D717CFD4AF00157387 /* Icon.png in Resources */,
 				DC5BCDB317CF88E500A5CB01 /* iTunesArtwork@2x in Resources */,
+				52DD071817DF435800189AFF /* Hero_Idle.atlas in Resources */,
+				52DD070C17DF435800189AFF /* DemoStage001.tmx in Resources */,
+				52DD071717DF435800189AFF /* Hero_Climb_Loop.atlas in Resources */,
 				DCEF82D617CFD4AC00157387 /* Icon-Small-50@2x.png in Resources */,
-				52A5D4FF17D48DF0007E14C1 /* obj_box001.png in Resources */,
-				5236776117D5C92E0030470C /* objectTemplates.lua in Resources */,
-				52265C5E17D0C6BF00310E9D /* Tileset_Geometry_16x16_256.png in Resources */,
+				52DD071D17DF435800189AFF /* Hero_Run.atlas in Resources */,
 				DCEF830D17CFDAAB00157387 /* ATTRIBUTIONS in Resources */,
-				52265C6C17D0D09A00310E9D /* Water Temple.mp3 in Resources */,
-				52B7DC2E17D0806500138407 /* Hero_Idle.atlas in Resources */,
 				DCEF831017CFDBF300157387 /* die.wav in Resources */,
 				DCEF82D117CFD35B00157387 /* Icon-Small.png in Resources */,
 				DC5BCDB417CF88E500A5CB01 /* Default-568h@2x.png in Resources */,
 				DC5BCDAF17CF88E500A5CB01 /* Icon@2x~ipad.png in Resources */,
-				52B7DC3817D0806500138407 /* Hero_Run.atlas in Resources */,
-				52B7DC3417D0806500138407 /* Hero_Jump_Loop.atlas in Resources */,
-				52B7DC2C17D0806500138407 /* Hero_Climb_Loop.atlas in Resources */,
+				52DD071A17DF435800189AFF /* Hero_Jump_Land_Long.atlas in Resources */,
+				52DD071B17DF435800189AFF /* Hero_Jump_Loop.atlas in Resources */,
+				528FCAD117DF635000EFE6E8 /* spineboy.png in Resources */,
 				DCEF82D217CFD35B00157387 /* Icon-Small@2x.png in Resources */,
-				52265C5C17D0C6BF00310E9D /* DemoStage001.tmx in Resources */,
-				5241DCAB17D8C68D00B065B2 /* Jetpack.atlas in Resources */,
-				52B7DC3017D0806500138407 /* Hero_Jump_Land_Idle.atlas in Resources */,
+				528FCAD017DF635000EFE6E8 /* spineboy.json in Resources */,
+				52DD071E17DF435800189AFF /* Jetpack.atlas in Resources */,
+				52DD070E17DF435800189AFF /* Tileset_Geometry_16x16_256.png in Resources */,
 				DC18B0D4178C7BC400641A6D /* config.lua in Resources */,
 				DCEF82D517CFD4AC00157387 /* Icon-Small-50.png in Resources */,
 				DC5BCDB017CF88E500A5CB01 /* Icon@2x.png in Resources */,
 				DC5BCDB817CF88E500A5CB01 /* Default-Portrait@2x~ipad.png in Resources */,
 				DCEF82CF17CFD35B00157387 /* Icon-72.png in Resources */,
+				528FCACC17DF635000EFE6E8 /* goblins.atlas in Resources */,
 				DC5BCDB617CF88E500A5CB01 /* Default-Landscape@2x~ipad.png in Resources */,
+				52DD071917DF435800189AFF /* Hero_Jump_Land_Idle.atlas in Resources */,
+				52DD070D17DF435800189AFF /* LevelTest01.tmx in Resources */,
+				52DD070F17DF435800189AFF /* Tileset_GeometryB.png in Resources */,
+				528FCACF17DF635000EFE6E8 /* spineboy.atlas in Resources */,
+				528FCACE17DF635000EFE6E8 /* goblins.png in Resources */,
+				52DD071017DF435800189AFF /* Water Temple.mp3 in Resources */,
+				52DD071C17DF435800189AFF /* Hero_Jump_Start.atlas in Resources */,
 				DC18B129178C7EA000641A6D /* Main_iPhone.storyboard in Resources */,
-				52B7DC3617D0806500138407 /* Hero_Jump_Start.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -939,24 +1081,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B7DC4117D0806500138407 /* CBMyScene.m in Sources */,
 				DCD7EC4A178C573500BBAFB0 /* AppDelegate.m in Sources */,
-				5239F71E17D63054005F80C6 /* CBCharacterAnimator.m in Sources */,
-				523A9A7717D71A6700F577F7 /* CBRobot.m in Sources */,
 				DCD11E40178C522300FBC406 /* main.m in Sources */,
-				52B7DC3B17D0806500138407 /* SKNode+CBExtension.m in Sources */,
-				52A5D4F517D45C5D007E14C1 /* MainMenu.m in Sources */,
-				52B7DC3D17D0806500138407 /* SKSpriteNode+CBExtension.m in Sources */,
-				523A9A7517D71A6700F577F7 /* CBHeroCharacter.m in Sources */,
-				52C2407917D7855A00E4B4CD /* statemap.m in Sources */,
-				52A5D4FD17D47DFA007E14C1 /* LevelsMenu.m in Sources */,
-				52265C6917D0C92D00310E9D /* LevelTest.m in Sources */,
-				52377E9C17D83CE7003B66FE /* CBHeroCharacter_sm.m in Sources */,
-				523A9A7317D71A6700F577F7 /* CBCharacter.m in Sources */,
 				DC0C220817CF9C97007FE7B8 /* MyScene.m in Sources */,
-				52B7DC5617D0A80F00138407 /* CBSpriteFlipBehavior.m in Sources */,
 				DCEF831917CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,
-				52B7DC4917D0806500138407 /* CBGraphicsUtilities.m in Sources */,
 				DCD7EC4D178C573500BBAFB0 /* ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -965,25 +1093,45 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52B7DC4017D0806500138407 /* CBMyScene.m in Sources */,
+				52DD072017DF435800189AFF /* CBSpriteFlipBehavior.m in Sources */,
+				528FCAA317DF4A1400EFE6E8 /* extension.c in Sources */,
 				DCD7A289178C7526004A0467 /* AppDelegate.m in Sources */,
-				5239F71D17D63054005F80C6 /* CBCharacterAnimator.m in Sources */,
-				523A9A7617D71A6700F577F7 /* CBRobot.m in Sources */,
+				528FCAAB17DF4A1400EFE6E8 /* SlotData.c in Sources */,
+				528FCA9F17DF4A1400EFE6E8 /* Attachment.c in Sources */,
+				528FCAA717DF4A1400EFE6E8 /* SkeletonData.c in Sources */,
+				52DD072D17DF435800189AFF /* CBCharacter.m in Sources */,
+				52DD073417DF435800189AFF /* MainMenu.m in Sources */,
 				DCD7A28C178C7526004A0467 /* ViewController.m in Sources */,
-				52B7DC3A17D0806500138407 /* SKNode+CBExtension.m in Sources */,
-				52A5D4F417D45C5D007E14C1 /* MainMenu.m in Sources */,
-				52B7DC3C17D0806500138407 /* SKSpriteNode+CBExtension.m in Sources */,
-				523A9A7417D71A6700F577F7 /* CBHeroCharacter.m in Sources */,
-				52C2407817D7855A00E4B4CD /* statemap.m in Sources */,
-				52A5D4FC17D47DFA007E14C1 /* LevelsMenu.m in Sources */,
-				52265C6817D0C92D00310E9D /* LevelTest.m in Sources */,
-				52377E9B17D83CE7003B66FE /* CBHeroCharacter_sm.m in Sources */,
-				523A9A7217D71A6700F577F7 /* CBCharacter.m in Sources */,
+				528FCAA917DF4A1400EFE6E8 /* Skin.c in Sources */,
+				528FCA9917DF4A1400EFE6E8 /* spine-spirte-kit.m in Sources */,
+				52DD072217DF435800189AFF /* SKSpriteNode+CBExtension.m in Sources */,
+				52DD073217DF435800189AFF /* LevelsMenu.m in Sources */,
+				528FCA9A17DF4A1400EFE6E8 /* Animation.c in Sources */,
+				528FCAA617DF4A1400EFE6E8 /* Skeleton.c in Sources */,
 				DC0C220717CF9C97007FE7B8 /* MyScene.m in Sources */,
-				52B7DC5517D0A80F00138407 /* CBSpriteFlipBehavior.m in Sources */,
 				DCEF831817CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,
-				52B7DC4817D0806500138407 /* CBGraphicsUtilities.m in Sources */,
+				528FCAAE17DF5F0100EFE6E8 /* SKSkeleton.m in Sources */,
+				528FCAA017DF4A1400EFE6E8 /* AttachmentLoader.c in Sources */,
+				52DD072F17DF435800189AFF /* CBRobot.m in Sources */,
+				52DD073117DF435800189AFF /* CBMyScene.m in Sources */,
+				528FCAA517DF4A1400EFE6E8 /* RegionAttachment.c in Sources */,
+				52DD071F17DF435800189AFF /* CBCharacterAnimator.m in Sources */,
+				528FCAA217DF4A1400EFE6E8 /* BoneData.c in Sources */,
+				528FCAA817DF4A1400EFE6E8 /* SkeletonJson.c in Sources */,
+				528FCAAA17DF4A1400EFE6E8 /* Slot.c in Sources */,
+				528FCA9B17DF4A1400EFE6E8 /* AnimationState.c in Sources */,
+				52DD073517DF435800189AFF /* CBGraphicsUtilities.m in Sources */,
+				52DD073317DF435800189AFF /* LevelTest.m in Sources */,
+				52DD076617DF436700189AFF /* statemap.m in Sources */,
+				528FCA9E17DF4A1400EFE6E8 /* AtlasAttachmentLoader.c in Sources */,
+				52DD072E17DF435800189AFF /* CBHeroCharacter.m in Sources */,
 				DCD7A28D178C7526004A0467 /* main.m in Sources */,
+				528FCAA117DF4A1400EFE6E8 /* Bone.c in Sources */,
+				52DD073017DF435800189AFF /* CBHeroCharacter_sm.m in Sources */,
+				528FCA9D17DF4A1400EFE6E8 /* Atlas.c in Sources */,
+				528FCAA417DF4A1400EFE6E8 /* Json.c in Sources */,
+				52DD072117DF435800189AFF /* SKNode+CBExtension.m in Sources */,
+				528FCA9C17DF4A1400EFE6E8 /* AnimationStateData.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1074,6 +1222,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"KoboldKit/**",
+					"\"libs/spine/include\"",
+				);
 				INFOPLIST_FILE = "ClimbBoy/ClimbBoy-iOS-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1089,6 +1241,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"KoboldKit/**",
+					"\"libs/spine/include\"",
+				);
 				INFOPLIST_FILE = "ClimbBoy/ClimbBoy-iOS-Info.plist";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1196,6 +1352,30 @@
 			};
 			name = Release;
 		};
+		DCE361C617D3460C008F940E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUGGING_SYMBOLS = YES;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DCE361C717D3460C008F940E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1222,6 +1402,15 @@
 			buildConfigurations = (
 				DCDD2DE21769FD0A00F307CD /* Debug */,
 				DCDD2DE31769FD0A00F307CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DCE361C817D3460C008F940E /* Build configuration list for PBXLegacyTarget "ClimbBoy-Android" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DCE361C617D3460C008F940E /* Debug */,
+				DCE361C717D3460C008F940E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -25,12 +25,12 @@ local config =
 	showsNodeCount = YES,
 
 	-- private Sprite Kit labels
-	showsCoreAnimationFPS = NO,
-	showsCPUStats = NO,
-	showsGPUStats = NO,
+	showsCoreAnimationFPS = YES,
+	showsCPUStats = YES,
+	showsGPUStats = YES,
 	showsCulledNodesInNodeCount = NO,
 	showsTotalAreaRendered = NO,
-	showsSpriteBounds = NO,
+	showsSpriteBounds = YES,
 	shouldCenterStats = NO,
 
 	-- additional Kobold Kit labels
