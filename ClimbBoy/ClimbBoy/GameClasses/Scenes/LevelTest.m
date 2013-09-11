@@ -48,7 +48,7 @@
     [_tilemapNode createPhysicsShapesWithObjectLayerNode:[_tilemapNode objectLayerNodeNamed:@"extra-collision"]];
     
     KKTilemapProperties *mapProperties = self.tilemapNode.tilemap.properties;
-    self.physicsWorld.gravity = CGPointMake(0, [mapProperties numberForKey:@"physicsGravityY"].floatValue);
+    self.physicsWorld.gravity = CGVectorMake(0, [mapProperties numberForKey:@"physicsGravityY"].floatValue);
 	self.physicsWorld.speed = [mapProperties numberForKey:@"physicsSimulationSpeed"].floatValue;
     if(self.physicsWorld.speed == 0.0){
         // compatibility fallback

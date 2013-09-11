@@ -32,11 +32,6 @@
     return self;
 }
 
-- (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
-    [super didBeginContact:contact otherBody:otherBody];
-    NSLog(@"%u", otherBody.categoryBitMask);
-}
-
 #pragma mark - Shared Assets
 + (void)loadSharedAssets {
     [super loadSharedAssets];

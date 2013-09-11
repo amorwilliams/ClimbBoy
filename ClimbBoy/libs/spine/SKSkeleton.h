@@ -9,7 +9,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import <spine/spine.h>
 
-@interface SKSkeleton : SKNode
+@interface SKSkeleton : KKNode
 {
     Skeleton* _skeleton;
 	Bone* _rootBone;
@@ -20,6 +20,9 @@
     
 	bool _ownsSkeletonData;
 	Atlas* _atlas;
+    
+    NSMutableDictionary *_attachmentSprites;
+    CFTimeInterval _lastUpdateTimeInterval;
 }
 @property (nonatomic, readonly) Skeleton* skeleton;
 @property (nonatomic) float timeScale;
@@ -35,7 +38,8 @@
 - (id) initWithFile:(NSString*)skeletonDataFile atlas:(Atlas*)atlas scale:(float)scale;
 - (id) initWithFile:(NSString*)skeletonDataFile atlasFile:(NSString*)atlasFile scale:(float)scale;
 
-- (SKTexture *) getTextureBySlotIndex:(NSInteger)slotIndex;
+- (void) setupAttachmentSprites;
+- (void) updateAttachmentSprites;
 - (SKTexture *) getTextureAtlas:(RegionAttachment *)regionAttachment;
 
 // --- Convenience methods for common Skeleton_* functions.

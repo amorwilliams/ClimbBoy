@@ -142,19 +142,17 @@
 
 
 - (void)onGrounded {
-    NSLog(@"onGrounded");
     [self doStand];
 }
 
 - (void)onTouchHeadTop {
-    NSLog(@"onTouchHeadTop");
     if ([_fsm.state isEqual:[HeroMap Jumping]]) {
         [self doFall];
     }
 }
 
 - (void)onTouchSide:(CBCharacterTouchSide)side {
-    NSLog(@"onTouch %@ side", side == -1 ?@"left":@"right");
+
 }
 
 
@@ -224,7 +222,7 @@
 #pragma mark - Input Notifications
 -(void) controlPadDidChangeDirection:(NSNotification*)note
 {
-    NSLog(@"eeeeeeeee");
+//    NSLog(@"eeeeeeeee");
 	KKControlPadBehavior* controlPad = [note.userInfo objectForKey:@"behavior"];
 	if (controlPad.direction == KKArcadeJoystickNone)
 	{

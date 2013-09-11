@@ -170,8 +170,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		528FCA6917DF49F700EFE6E8 /* behaviorTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = behaviorTemplates.lua; sourceTree = "<group>"; };
-		528FCA6A17DF49F700EFE6E8 /* objectTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectTemplates.lua; sourceTree = "<group>"; };
+		528FCA6917DF49F700EFE6E8 /* behaviorTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = behaviorTemplates.lua; sourceTree = "<group>"; };
+		528FCA6A17DF49F700EFE6E8 /* objectTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = objectTemplates.lua; sourceTree = "<group>"; };
 		528FCA7017DF4A1400EFE6E8 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
 		528FCA7117DF4A1400EFE6E8 /* AnimationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationState.h; sourceTree = "<group>"; };
 		528FCA7217DF4A1400EFE6E8 /* AnimationStateData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimationStateData.h; sourceTree = "<group>"; };

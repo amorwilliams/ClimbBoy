@@ -128,7 +128,7 @@ local objectTemplates =
 				friction = 0,
 				affectedByGravity = YES,
 				categoryBitMask = kContactCategoryPlayer,
-				contactTestBitMask = 0, --kContactCategoryPlayer + kContactCategoryPickupItem,
+				contactTestBitMask = kContactCategoryWorld + kContactCategoryPlayer + kContactCategoryPickupItem,
 				collisionBitMask = kGameObjectCollisionBitMask,
 			},
 		},

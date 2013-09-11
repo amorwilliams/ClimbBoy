@@ -11,6 +11,8 @@
 #import "CBMacros.h"
 
 @interface CBCharacter ()
+{
+}
 @property (nonatomic) CFTimeInterval lastUpdateTimeInterval;
 
 @end
@@ -25,6 +27,7 @@
         
         _enableGroundTest = YES;
         _enableSideTest = NO;
+        
     }
     
     return self;
@@ -55,7 +58,10 @@
     [self observeSceneEvents];
     [self.kkScene addPhysicsContactEventsObserver:self];
     CBSpriteFlipBehavior *flipBehavior = [CBSpriteFlipBehavior SpriteFlipWithTarget:self.characterSprite];
-    [self addBehavior:flipBehavior withKey:@"Flip"];
+    [self addBehavior:flipBehavior withKey:@"flip"];
+    
+    SKSpriteNode *bound = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1 green:0 blue:0 alpha:0.3] size:_boundingBox];
+    [self addChild:bound];
 }
 
 
@@ -127,14 +133,7 @@
 }
 
 -(void) didEvaluateActions {
-    if (self.enableGroundTest) {
-        [self testGrounded];
-        [self testTouchHeadTop];
-    }
-    
-    if (self.enableSideTest) {
-        [self testTouchSide];
-    }
+    [self rayTesting];
 }
 
 - (void) didSimulatePhysics {
@@ -147,25 +146,13 @@
 }
 
 - (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
-    if (self.enableGroundTest) {
-        [self testGrounded];
-        [self testTouchHeadTop];
-    }
-    
-    if (self.enableSideTest) {
-        [self testTouchSide];
-    }
+//    [self rayTesting];
+
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
-    if (self.enableGroundTest) {
-        [self testGrounded];
-        [self testTouchHeadTop];
-    }
-    
-    if (self.enableSideTest) {
-        [self testTouchSide];
-    }
+//    [self rayTesting];
+
 }
 
 #pragma mark - Animator Delegate
@@ -248,9 +235,10 @@
 #pragma mark - Physics Test
 - (void)testGrounded {
     __block BOOL temp = NO;
-    CGPoint rayStart = self.position;
-	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y - (_boundingBox.height / 2.0 + 2));
-
+    CGPoint rayStart = [self convertPoint:CGPointZero toNode:self.kkScene];
+//    NSLog(@"%f, %f", rayStart.x, rayStart.y);
+	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y - (_boundingBox.height / 2.0 + 5));
+    
     // find body below player
 	SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
 	[physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
@@ -267,8 +255,8 @@
 
 - (void)testTouchHeadTop {
     __block BOOL temp = NO;
-    CGPoint rayStart = self.position;
-	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y + (_boundingBox.height / 2.0 + 2));
+    CGPoint rayStart = [self convertPoint:CGPointZero toNode:self.kkScene];
+	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y + (_boundingBox.height / 2.0 + 5));
 
     // find body below player
 	SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
@@ -289,8 +277,8 @@
     __block BOOL temp = NO;
     _touchingSide = kCBCharacterTouchSideNil;
     _touchSideNormal = CGVectorZero;
-    CGPoint rayStart = self.position;
-	CGPoint rayEnd = CGPointMake(self.position.x + (_boundingBox.width / 2.0 + 2), self.position.y);
+    CGPoint rayStart = [self convertPoint:CGPointZero toNode:self.kkScene];
+	CGPoint rayEnd = CGPointMake(rayStart.x + (_boundingBox.width / 2.0 + 5), rayStart.y);
     
     //test right side
 	SKPhysicsWorld* physicsWorld = self.scene.physicsWorld;
@@ -306,7 +294,7 @@
 		}
 	}];
     
-    rayEnd = CGPointMake(self.position.x - (_boundingBox.width / 2.0 + 2), self.position.y);
+    rayEnd = CGPointMake(rayStart.x - (_boundingBox.width / 2.0 + 5), rayStart.y);
     
     //test left side
     [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
@@ -322,6 +310,17 @@
 	}];
     
     _touchSide = temp;
+}
+
+- (void)rayTesting {
+    if (self.enableGroundTest) {
+        [self testGrounded];
+        [self testTouchHeadTop];
+    }
+    
+    if (self.enableSideTest) {
+        [self testTouchSide];
+    }
 }
 
 

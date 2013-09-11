@@ -24,20 +24,20 @@
 		myLabel.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
 		[self addChild:myLabel];
 
-		[self addSmartbombButton];
+//		[self addSmartbombButton];
         
-        SKSkeleton *skeleton = [[SKSkeleton alloc] initWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:1];
-        [skeleton setSkin:@"goblin"];
-        [skeleton setToSetupPose];
-        for (int i = 0; i < [skeleton slotCount]; i++) {
-            SKTexture *texture = [skeleton getTextureBySlotIndex:i];
-            
-            SKSpriteNode *n = [SKSpriteNode spriteNodeWithTexture:texture];
-            [self addChild:n];
-            n.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-        }
+        
 	}
 	return self;
+}
+
+- (void)didMoveToView:(SKView *)view {
+    SKSkeleton *skeleton = [[SKSkeleton alloc] initWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:1];
+    [skeleton setSkin:@"goblin"];
+    [skeleton setToSetupPose];
+    [skeleton setupAttachmentSprites];
+    [self addChild:skeleton];
+    skeleton.position = CGPointMake(CGRectGetMidX(self.frame), 30);
 }
 
 -(void) addSmartbombButton
@@ -81,7 +81,7 @@
 	SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
 	sprite.position = location;
 	sprite.name = @"spaceship";
-	[sprite setScale:0.5];
+	[sprite setScale:0.2];
 	[self addChild:sprite];
 	
 	SKAction* action = [SKAction rotateByAngle:M_PI duration:1];
@@ -101,7 +101,14 @@
 	for (UITouch* touch in touches)
 	{
 		CGPoint location = [touch locationInNode:self];
-		[self addSpaceshipAt:location];
+//		[self addSpaceshipAt:location];
+        
+        SKSkeleton *skeleton = [[SKSkeleton alloc] initWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:0.5];
+        [skeleton setSkin:@"goblin"];
+        [skeleton setToSetupPose];
+        [skeleton setupAttachmentSprites];
+        [self addChild:skeleton];
+        skeleton.position = location;
 	}
 	
 	// (optional) call super implementation to allow KKScene to dispatch touch events
@@ -113,7 +120,7 @@
 	/* Called when a mouse click occurs */
 	
 	CGPoint location = [event locationInNode:self];
-	[self addSpaceshipAt:location];
+//	[self addSpaceshipAt:location];
 
 	// (optional) call super implementation to allow KKScene to dispatch mouse events
 	[super mouseDown:event];

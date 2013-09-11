@@ -34,11 +34,11 @@ typedef enum : uint8_t {
 
 /* Bitmask for the different entities with physics bodies. */
 typedef enum : uint8_t {
+    CBColliderTypeWall             = 0,
     CBColliderTypeHero             = 1,
     CBColliderTypeGoblinOrBoss     = 2,
     CBColliderTypeProjectile       = 4,
-    CBColliderTypeWall             = 8,
-    CBColliderTypeCave             = 16
+    CBColliderTypeCave             = 8
 } CBColliderType;
 
 typedef enum : uint8_t {
@@ -65,7 +65,7 @@ typedef enum : uint8_t {
 
 @interface CBCharacter : KKNode <KKPhysicsContactEventDelegate, CBCharacterAnimatorDelegate>
 /* 保存角色的贴图 */
-@property (nonatomic, retain) SKSpriteNode *characterSprite;
+@property (nonatomic) SKSpriteNode *characterSprite;
 /* 角色碰撞的半径 */
 @property (nonatomic) CBCapsule collisionCapsule;
 @property (nonatomic) CGSize boundingBox;
