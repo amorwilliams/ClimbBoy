@@ -25,19 +25,64 @@
 		[self addChild:myLabel];
 
 //		[self addSmartbombButton];
+        [self addTitle];
         
+        spineNode = [KKNode node];
+        [self addChild:spineNode];
         
 	}
 	return self;
 }
 
 - (void)didMoveToView:(SKView *)view {
-    SKSkeleton *skeleton = [[SKSkeleton alloc] initWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:1];
+    
+    [self addGoblin:CGPointMake(CGRectGetMidX(self.frame), 30) withScale:1];
+    
+    SKAction *changeSkin = [SKAction runBlock:^{
+        [self changeSkin];
+    }];
+    SKAction *action = [SKAction sequence:@[[SKAction waitForDuration:5], changeSkin]];
+//    [self runAction:[SKAction repeatActionForever:action]];
+}
+
+- (void)addGoblin:(CGPoint)location withScale:(float)scale{
+    SKSkeletonAnimation *skeleton = [SKSkeletonAnimation skeletonWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:scale];
     [skeleton setSkin:@"goblin"];
-    [skeleton setToSetupPose];
-    [skeleton setupAttachmentSprites];
+    
+    [skeleton setAnimation:@"walk" loop:YES];
+    
     [self addChild:skeleton];
-    skeleton.position = CGPointMake(CGRectGetMidX(self.frame), 30);
+    skeleton.position = location;
+    skeleton.name = @"goblin";
+}
+
+- (void)changeSkin{
+    SKSkeletonAnimation *goblin = (SKSkeletonAnimation *)[self childNodeWithName:@"goblin"];
+    if (goblin) {
+        if (_isGirl) {
+            [goblin setSkin:@"goblin"];
+            _isGirl = NO;
+        }else{
+            [goblin setSkin:@"goblingirl"];
+            _isGirl = YES;
+        }
+    }
+}
+
+- (void)addSpineBoy:(CGPoint)location withScale:(float)scale{
+    SKSkeletonAnimation *skeleton = [SKSkeletonAnimation skeletonWithFile:@"spineboy.json" atlasFile:@"spineboy.atlas" scale:scale];
+//    [skeleton setSkin:@"goblin"];
+    
+    [skeleton setMixFrom:@"walk" to:@"jump" duration:0.2f];
+    [skeleton setMixFrom:@"jump" to:@"walk" duration:0.4f];
+    [skeleton setAnimation:@"walk" loop:NO];
+    [skeleton addAnimation:@"jump" loop:NO afterDelay:0];
+    [skeleton addAnimation:@"walk" loop:YES afterDelay:0];
+    
+//    [skeleton setAnimation:@"walk" loop:YES];
+    
+    [self addChild:skeleton];
+    skeleton.position = location;
 }
 
 -(void) addSmartbombButton
@@ -76,6 +121,33 @@
 	}];
 }
 
+- (void)addTitle {
+    KKViewOriginNode *hud = [KKViewOriginNode node];
+    [self addChild:hud];
+    
+    SKLabelNode *backButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
+    backButton.text = @"Back";
+    backButton.fontSize = 20;
+    backButton.fontColor = [SKColor redColor];
+    backButton.zPosition = 1;
+    backButton.position = CGPointMake(self.frame.size.width - 50, self.frame.size.height - 40);
+    [hud addChild:backButton];
+    
+    // KKButtonBehavior turns any node into a button
+	KKButtonBehavior* buttonBehavior = [KKButtonBehavior behavior];
+	buttonBehavior.selectedScale = 1.2;
+	[backButton addBehavior:buttonBehavior];
+	
+	// observe button execute notification
+	[self observeNotification:KKButtonDidExecuteNotification
+					 selector:@selector(backButtonDidExecute:)
+					   object:backButton];
+}
+
+- (void)backButtonDidExecute:(NSNotification *)notification {
+    [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+}
+
 -(void) addSpaceshipAt:(CGPoint)location
 {
 	SKSpriteNode* sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
@@ -93,6 +165,7 @@
 	[sprite addBehavior:removeBehavior];
 }
 
+
 #if TARGET_OS_IPHONE // iOS
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
@@ -102,13 +175,8 @@
 	{
 		CGPoint location = [touch locationInNode:self];
 //		[self addSpaceshipAt:location];
-        
-        SKSkeleton *skeleton = [[SKSkeleton alloc] initWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:0.5];
-        [skeleton setSkin:@"goblin"];
-        [skeleton setToSetupPose];
-        [skeleton setupAttachmentSprites];
-        [self addChild:skeleton];
-        skeleton.position = location;
+    
+        [self addSpineBoy:location withScale:0.3];
 	}
 	
 	// (optional) call super implementation to allow KKScene to dispatch touch events

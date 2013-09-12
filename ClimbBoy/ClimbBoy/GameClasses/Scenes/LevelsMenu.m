@@ -9,6 +9,7 @@
 #import "LevelsMenu.h"
 #import "CBMyScene.h"
 #import "LevelTest.h"
+#import "MyScene.h"
 
 static const NSInteger LEVEL_BOX_SIZE = 48;
 static NSInteger NUMBER_OF_LEVELS = 15;
@@ -101,15 +102,20 @@ static const NSInteger MARGIN_BORDER_TOP = 100;
     NSLog(@"%@", levelBox.name);
     
     if ([levelBox.name isEqualToString:@"Level01"]) {
-        LevelTest *levels = [LevelTest sceneWithSize:self.size];
-        levels.tmxFile = @"LevelTest01.tmx";
-        [self.kkView pushScene:levels transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+        LevelTest *level = [LevelTest sceneWithSize:self.size];
+        level.tmxFile = @"LevelTest01.tmx";
+        [self.kkView pushScene:level transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
     }
     
     if ([levelBox.name isEqualToString:@"Level02"]) {
-        LevelTest *levels = [LevelTest sceneWithSize:self.size];
-        levels.tmxFile = @"DemoStage001.tmx";
-        [self.kkView pushScene:levels transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+        LevelTest *level = [LevelTest sceneWithSize:self.size];
+        level.tmxFile = @"DemoStage001.tmx";
+        [self.kkView pushScene:level transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+    }
+    
+    if ([levelBox.name isEqualToString:@"Level03"]) {
+        MyScene *level = [MyScene sceneWithSize:self.size];
+        [self.kkView pushScene:level transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
     }
     
     

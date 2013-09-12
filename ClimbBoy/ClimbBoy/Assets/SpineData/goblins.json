@@ -35,7 +35,7 @@
 	{ "name": "undie straps", "bone": "pelvis", "attachment": "undie straps" },
 	{ "name": "undies", "bone": "pelvis", "attachment": "undies" },
 	{ "name": "right upper leg", "bone": "right upper leg", "attachment": "right upper leg" },
-	{ "name": "head", "bone": "head", "attachment": "head" },
+	{ "name": "head", "bone": "head", "attachment": "head", "color": "FF0000FF"},
 	{ "name": "eyes", "bone": "head" },
 	{ "name": "right shoulder", "bone": "right shoulder", "attachment": "right shoulder" },
 	{ "name": "right arm", "bone": "right arm", "attachment": "right arm" },

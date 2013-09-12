@@ -38,6 +38,7 @@
 - (id) initWithFile:(NSString*)skeletonDataFile atlas:(Atlas*)atlas scale:(float)scale;
 - (id) initWithFile:(NSString*)skeletonDataFile atlasFile:(NSString*)atlasFile scale:(float)scale;
 
+- (void) updateWithTimeSinceLastUpdate:(CFTimeInterval)delta;
 - (void) setupAttachmentSprites;
 - (void) updateAttachmentSprites;
 - (SKTexture *) getTextureAtlas:(RegionAttachment *)regionAttachment;

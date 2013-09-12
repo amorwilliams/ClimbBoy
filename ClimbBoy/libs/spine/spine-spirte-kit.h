@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <spine/spine.h>
 #import "SKSkeleton.h"
+#import "SKSkeletonAnimation.h"
 
 #ifdef __cplusplus
 namespace spine {

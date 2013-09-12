@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		526C53F017E1585300C9E37E /* SKSkeletonAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 526C53EF17E1585300C9E37E /* SKSkeletonAnimation.m */; };
+		5271590417E0E7F400A942BE /* spine.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5271590317E0E7F400A942BE /* spine.atlas */; };
 		528FCA6B17DF49F700EFE6E8 /* behaviorTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 528FCA6917DF49F700EFE6E8 /* behaviorTemplates.lua */; };
 		528FCA6C17DF49F700EFE6E8 /* objectTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 528FCA6A17DF49F700EFE6E8 /* objectTemplates.lua */; };
 		528FCA9917DF4A1400EFE6E8 /* spine-spirte-kit.m in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8317DF4A1400EFE6E8 /* spine-spirte-kit.m */; };
@@ -31,10 +33,8 @@
 		528FCAAE17DF5F0100EFE6E8 /* SKSkeleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 528FCAAD17DF5F0100EFE6E8 /* SKSkeleton.m */; };
 		528FCACC17DF635000EFE6E8 /* goblins.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC617DF635000EFE6E8 /* goblins.atlas */; };
 		528FCACD17DF635000EFE6E8 /* goblins.json in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC717DF635000EFE6E8 /* goblins.json */; };
-		528FCACE17DF635000EFE6E8 /* goblins.png in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC817DF635000EFE6E8 /* goblins.png */; };
 		528FCACF17DF635000EFE6E8 /* spineboy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC917DF635000EFE6E8 /* spineboy.atlas */; };
 		528FCAD017DF635000EFE6E8 /* spineboy.json in Resources */ = {isa = PBXBuildFile; fileRef = 528FCACA17DF635000EFE6E8 /* spineboy.json */; };
-		528FCAD117DF635000EFE6E8 /* spineboy.png in Resources */ = {isa = PBXBuildFile; fileRef = 528FCACB17DF635000EFE6E8 /* spineboy.png */; };
 		52DD070C17DF435800189AFF /* DemoStage001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B417DF435800189AFF /* DemoStage001.tmx */; };
 		52DD070D17DF435800189AFF /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B517DF435800189AFF /* LevelTest01.tmx */; };
 		52DD070E17DF435800189AFF /* Tileset_Geometry_16x16_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */; };
@@ -170,6 +170,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		526C53EE17E1585300C9E37E /* SKSkeletonAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKSkeletonAnimation.h; sourceTree = "<group>"; };
+		526C53EF17E1585300C9E37E /* SKSkeletonAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSkeletonAnimation.m; sourceTree = "<group>"; };
+		5271590317E0E7F400A942BE /* spine.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spine.atlas; sourceTree = "<group>"; };
 		528FCA6917DF49F700EFE6E8 /* behaviorTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = behaviorTemplates.lua; sourceTree = "<group>"; };
 		528FCA6A17DF49F700EFE6E8 /* objectTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = objectTemplates.lua; sourceTree = "<group>"; };
 		528FCA7017DF4A1400EFE6E8 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
@@ -215,10 +218,8 @@
 		528FCAAD17DF5F0100EFE6E8 /* SKSkeleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKSkeleton.m; sourceTree = "<group>"; };
 		528FCAC617DF635000EFE6E8 /* goblins.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = goblins.atlas; sourceTree = "<group>"; };
 		528FCAC717DF635000EFE6E8 /* goblins.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goblins.json; sourceTree = "<group>"; };
-		528FCAC817DF635000EFE6E8 /* goblins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goblins.png; sourceTree = "<group>"; };
 		528FCAC917DF635000EFE6E8 /* spineboy.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spineboy.atlas; sourceTree = "<group>"; };
 		528FCACA17DF635000EFE6E8 /* spineboy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spineboy.json; sourceTree = "<group>"; };
-		528FCACB17DF635000EFE6E8 /* spineboy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spineboy.png; sourceTree = "<group>"; };
 		52DD06B417DF435800189AFF /* DemoStage001.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DemoStage001.tmx; sourceTree = "<group>"; };
 		52DD06B517DF435800189AFF /* LevelTest01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LevelTest01.tmx; sourceTree = "<group>"; };
 		52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_Geometry_16x16_256.png; sourceTree = "<group>"; };
@@ -401,6 +402,8 @@
 				528FCA8317DF4A1400EFE6E8 /* spine-spirte-kit.m */,
 				528FCAAC17DF5F0100EFE6E8 /* SKSkeleton.h */,
 				528FCAAD17DF5F0100EFE6E8 /* SKSkeleton.m */,
+				526C53EE17E1585300C9E37E /* SKSkeletonAnimation.h */,
+				526C53EF17E1585300C9E37E /* SKSkeletonAnimation.m */,
 			);
 			path = spine;
 			sourceTree = "<group>";
@@ -475,12 +478,11 @@
 		528FCAC517DF635000EFE6E8 /* SpineData */ = {
 			isa = PBXGroup;
 			children = (
+				5271590317E0E7F400A942BE /* spine.atlas */,
 				528FCAC617DF635000EFE6E8 /* goblins.atlas */,
 				528FCAC717DF635000EFE6E8 /* goblins.json */,
-				528FCAC817DF635000EFE6E8 /* goblins.png */,
 				528FCAC917DF635000EFE6E8 /* spineboy.atlas */,
 				528FCACA17DF635000EFE6E8 /* spineboy.json */,
-				528FCACB17DF635000EFE6E8 /* spineboy.png */,
 			);
 			path = SpineData;
 			sourceTree = "<group>";
@@ -1035,6 +1037,7 @@
 				DC5BCDAA17CF88E500A5CB01 /* Icon~ipad.png in Resources */,
 				52DD071117DF435800189AFF /* obj_box001.png in Resources */,
 				DC5BCDB717CF88E500A5CB01 /* Default-Portrait~ipad.png in Resources */,
+				5271590417E0E7F400A942BE /* spine.atlas in Resources */,
 				DC18B0D6178C7BC400641A6D /* devconfig.lua in Resources */,
 				DC5BCDB217CF88E500A5CB01 /* iTunesArtwork in Resources */,
 				DCEF82D717CFD4AF00157387 /* Icon.png in Resources */,
@@ -1051,7 +1054,6 @@
 				DC5BCDAF17CF88E500A5CB01 /* Icon@2x~ipad.png in Resources */,
 				52DD071A17DF435800189AFF /* Hero_Jump_Land_Long.atlas in Resources */,
 				52DD071B17DF435800189AFF /* Hero_Jump_Loop.atlas in Resources */,
-				528FCAD117DF635000EFE6E8 /* spineboy.png in Resources */,
 				DCEF82D217CFD35B00157387 /* Icon-Small@2x.png in Resources */,
 				528FCAD017DF635000EFE6E8 /* spineboy.json in Resources */,
 				52DD071E17DF435800189AFF /* Jetpack.atlas in Resources */,
@@ -1067,7 +1069,6 @@
 				52DD070D17DF435800189AFF /* LevelTest01.tmx in Resources */,
 				52DD070F17DF435800189AFF /* Tileset_GeometryB.png in Resources */,
 				528FCACF17DF635000EFE6E8 /* spineboy.atlas in Resources */,
-				528FCACE17DF635000EFE6E8 /* goblins.png in Resources */,
 				52DD071017DF435800189AFF /* Water Temple.mp3 in Resources */,
 				52DD071C17DF435800189AFF /* Hero_Jump_Start.atlas in Resources */,
 				DC18B129178C7EA000641A6D /* Main_iPhone.storyboard in Resources */,
@@ -1104,6 +1105,7 @@
 				DCD7A28C178C7526004A0467 /* ViewController.m in Sources */,
 				528FCAA917DF4A1400EFE6E8 /* Skin.c in Sources */,
 				528FCA9917DF4A1400EFE6E8 /* spine-spirte-kit.m in Sources */,
+				526C53F017E1585300C9E37E /* SKSkeletonAnimation.m in Sources */,
 				52DD072217DF435800189AFF /* SKSpriteNode+CBExtension.m in Sources */,
 				52DD073217DF435800189AFF /* LevelsMenu.m in Sources */,
 				528FCA9A17DF4A1400EFE6E8 /* Animation.c in Sources */,

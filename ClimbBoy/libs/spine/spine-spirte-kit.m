@@ -12,6 +12,8 @@
 
 
 void _AtlasPage_createTexture (AtlasPage* self, const char* path) {
+//    SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"spine"];
+//    SKTexture *texture = [atlas textureNamed:@(path)];
     SKTexture *texture = [SKTexture textureWithImageNamed:@(path)];
     self->rendererObject = (__bridge void *)(texture);
     self->width = texture.size.width;

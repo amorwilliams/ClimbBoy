@@ -113,9 +113,6 @@
 
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)delta {
     Skeleton_update(_skeleton, delta * _timeScale);
-    
-    Skeleton_updateWorldTransform(_skeleton);
-    [self updateAttachmentSprites];
 }
 
 - (void)setupAttachmentSprites {    
@@ -126,58 +123,93 @@
         }
         
         //create attachment texture node
-        NSString *attachmentName = [NSString stringWithCString:slot->attachment->name encoding:NSASCIIStringEncoding];
+        NSString *attachmentName = @(slot->attachment->name);
         if ([_attachmentSprites objectForKey:attachmentName]) {
             continue;
         }
         
         //get region texture
         RegionAttachment* attachment = (RegionAttachment*)slot->attachment;
-        SKTexture *regionTextureAtlas = [self getTextureAtlas:attachment];
-        AtlasRegion *regionTexture = ((AtlasRegion *)attachment->rendererObject);
-        float w = regionTexture->width / regionTextureAtlas.size.width;
-        float h = regionTexture->height / regionTextureAtlas.size.height;
-        float x = regionTexture->x  / regionTextureAtlas.size.width;
-        float y = (regionTextureAtlas.size.height - regionTexture->y - regionTexture->height) / regionTextureAtlas.size.height;
-        
-        SKTexture *attachmentTexture = [SKTexture textureWithRect:CGRectMake(x, y, w, h)
-                                                        inTexture:regionTextureAtlas];
-        
-        SKSpriteNode *textureNode = [SKSpriteNode spriteNodeWithTexture:attachmentTexture];
-        textureNode.size = CGSizeMake(attachment->width, attachment->height);
-        [_attachmentSprites setValue:textureNode forKey:attachmentName];
-        [self addChild:textureNode];
+        SKSpriteNode *attachmentSpriteNode = [self createAttahcmentNode:attachment];
+        [_attachmentSprites setValue:attachmentSpriteNode forKey:attachmentName];
+        [self addChild:attachmentSpriteNode];
+//        attachmentSpriteNode.zPosition = i + self.zPosition;
+//        [self insertChild:attachmentSpriteNode atIndex:i];
     }
     
     [self updateAttachmentSprites];
 }
 
+- (SKSpriteNode *)createAttahcmentNode:(RegionAttachment *)attachment {
+    SKTexture *regionTextureAtlas = [self getTextureAtlas:attachment];
+    AtlasRegion *regionTexture = ((AtlasRegion *)attachment->rendererObject);
+    float w = regionTexture->width / regionTextureAtlas.size.width;
+    float h = regionTexture->height / regionTextureAtlas.size.height;
+    float x = regionTexture->x  / regionTextureAtlas.size.width;
+    float y = (regionTextureAtlas.size.height - regionTexture->y - regionTexture->height) / regionTextureAtlas.size.height;
+    
+    SKTexture *attachmentTexture = [SKTexture textureWithRect:CGRectMake(x, y, w, h)
+                                                    inTexture:regionTextureAtlas];
+    
+    SKSpriteNode *attachmentSpriteNode = [SKSpriteNode spriteNodeWithTexture:attachmentTexture];
+    attachmentSpriteNode.size = CGSizeMake(attachment->width, attachment->height);
+    return attachmentSpriteNode;
+}
+
 - (void)updateAttachmentSprites {
+    NSMutableArray *remainKey = [NSMutableArray arrayWithArray:[_attachmentSprites allKeys]];
+    
     for (int i = 0; i < [self slotCount]; i++) {
         Slot* slot = _skeleton->slots[i];
-        if (!slot->attachment || slot->attachment->type != ATTACHMENT_REGION) {
-            continue;
-        }
-        RegionAttachment* attachment = (RegionAttachment*)slot->attachment;
-
-        NSString *attachmentName = [NSString stringWithCString:slot->attachment->name encoding:NSASCIIStringEncoding];
-        if ([_attachmentSprites objectForKey:attachmentName]) {
-            SKSpriteNode *textureNode = [_attachmentSprites objectForKey:attachmentName];
+        
+        //检测attachment是否存在
+        if (slot->attachment && slot->attachment->type == ATTACHMENT_REGION) {
+            RegionAttachment* attachment = (RegionAttachment*)slot->attachment;
+            NSString *attachmentName = @(slot->attachment->name);
             
-            //set attachment texture node postion
-            float vertices[8];
-            RegionAttachment_computeVertices(attachment, slot->skeleton->x, slot->skeleton->y, slot->bone, vertices);
-            CGPoint pos = [self centerPointFromQuad:vertices];
-            textureNode.position = pos;
-            
-            //set attachment texture node rotation
-            float amount = 0;
-            Bone *bone = slot->bone;
-            while (bone) {
-                amount += bone->rotation;
-                bone = bone->parent;
+            //如果attachment存在于列表内，则更新他的信息。
+            if ([_attachmentSprites objectForKey:attachmentName]) {
+                SKSpriteNode *textureNode = [_attachmentSprites objectForKey:attachmentName];
+                
+                //set postion
+                float vertices[8];
+                RegionAttachment_computeVertices(attachment, slot->skeleton->x, slot->skeleton->y, slot->bone, vertices);
+                CGPoint pos = [self centerPointFromQuad:vertices];
+                textureNode.position = pos;
+                
+                //set rotation
+                float amount = 0;
+                Bone *bone = slot->bone;
+                while (bone) {
+                    amount += bone->rotation;
+                    bone = bone->parent;
+                }
+                textureNode.zRotation = KK_DEG2RAD(amount +  attachment->rotation);
+                
+                //set color
+                float r = slot->skeleton->r * slot->r;
+                float g = slot->skeleton->g * slot->g;
+                float b = slot->skeleton->b * slot->b;
+                float normalizedAlpha = slot->skeleton->a * slot->a;
+                textureNode.alpha = normalizedAlpha;
+                textureNode.color = [SKColor colorWithRed:r green:g blue:b alpha:1];
+            }else{
+                
+                //如果attachment存在，但是还未加入列表。则生成它，并加入列表
+                SKSpriteNode *attachmentSpriteNode = [self createAttahcmentNode:attachment];
+                [_attachmentSprites setValue:attachmentSpriteNode forKey:attachmentName];
+                [self addChild:attachmentSpriteNode];
             }
-            textureNode.zRotation = KK_DEG2RAD(amount +  attachment->rotation);
+            
+            [remainKey removeObject:attachmentName];
+        }
+    }
+    
+    //如果不存在，并且已经加入了列表，代表当前帧为隐藏状态。设置alpha为0；
+    for (NSString *key in remainKey) {
+        if ([_attachmentSprites objectForKey:key]) {
+            SKSpriteNode *textureNode = [_attachmentSprites objectForKey:key];
+            textureNode.alpha = 0;
         }
     }
 }
@@ -258,19 +290,29 @@
 }
 
 - (bool) setSkin:(NSString*)skinName {
-    [_attachmentSprites removeAllObjects];
-	return (bool)Skeleton_setSkinByName(_skeleton, skinName ? [skinName UTF8String] : 0);
+	bool ret = (bool)Skeleton_setSkinByName(_skeleton, skinName ? [skinName UTF8String] : 0);
+    if (ret) {
+        for (SKNode *child in self.children) {
+            [child removeFromParent];
+        }
+        
+        [_attachmentSprites removeAllObjects];
+        
+        [self setToSetupPose];
+        [self setupAttachmentSprites];
+    }
+    return ret;
 }
 
 - (Attachment*) getAttachment:(NSString*)slotName attachmentName:(NSString*)attachmentName {
 	return Skeleton_getAttachmentForSlotName(_skeleton, [slotName UTF8String], [attachmentName UTF8String]);
 }
 - (bool) setAttachment:(NSString*)slotName attachmentName:(NSString*)attachmentName {
-	bool b = (bool)Skeleton_setAttachment(_skeleton, [slotName UTF8String], [attachmentName UTF8String]);
-    if (b && [_attachmentSprites objectForKey:attachmentName]) {
+	bool ret = (bool)Skeleton_setAttachment(_skeleton, [slotName UTF8String], [attachmentName UTF8String]);
+    if (ret && [_attachmentSprites objectForKey:attachmentName]) {
         [_attachmentSprites removeObjectForKey:attachmentName];
     }
-    return b;
+    return ret;
 }
 
 - (NSInteger)slotCount{

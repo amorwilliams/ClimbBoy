@@ -8,5 +8,9 @@
 
 // IMPORTANT: in Kobold Kit all scenes must inherit from KKScene.
 @interface MyScene : KKScene
+{
+    KKNode *spineNode;
+    BOOL _isGirl;
+}
 
 @end
