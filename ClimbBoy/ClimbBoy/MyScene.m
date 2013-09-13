@@ -35,29 +35,32 @@
 }
 
 - (void)didMoveToView:(SKView *)view {
-    
+//    self.kkView.ignoresSiblingOrder = YES;
+
     [self addGoblin:CGPointMake(CGRectGetMidX(self.frame), 30) withScale:1];
     
-    SKAction *changeSkin = [SKAction runBlock:^{
-        [self changeSkin];
-    }];
-    SKAction *action = [SKAction sequence:@[[SKAction waitForDuration:5], changeSkin]];
+//    SKAction *changeSkin = [SKAction runBlock:^{
+//        [self changeSkin];
+//    }];
+//    SKAction *action = [SKAction sequence:@[[SKAction waitForDuration:5], changeSkin]];
 //    [self runAction:[SKAction repeatActionForever:action]];
 }
 
 - (void)addGoblin:(CGPoint)location withScale:(float)scale{
-    SKSkeletonAnimation *skeleton = [SKSkeletonAnimation skeletonWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:scale];
+    CBSpineSprite *skeleton = [CBSpineSprite skeletonWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:scale];
     [skeleton setSkin:@"goblin"];
     
-    [skeleton setAnimation:@"walk" loop:YES];
+    [skeleton playAnimation:@"walk" loop:YES];
     
-    [self addChild:skeleton];
+    [self insertChild:skeleton atIndex:1];
     skeleton.position = location;
     skeleton.name = @"goblin";
+    
+    [skeleton setScale:0.5];
 }
 
 - (void)changeSkin{
-    SKSkeletonAnimation *goblin = (SKSkeletonAnimation *)[self childNodeWithName:@"goblin"];
+    CBSpineSprite *goblin = (CBSpineSprite *)[self childNodeWithName:@"goblin"];
     if (goblin) {
         if (_isGirl) {
             [goblin setSkin:@"goblin"];
@@ -67,22 +70,24 @@
             _isGirl = YES;
         }
     }
+    NSLog(@"change skin!");
 }
 
 - (void)addSpineBoy:(CGPoint)location withScale:(float)scale{
-    SKSkeletonAnimation *skeleton = [SKSkeletonAnimation skeletonWithFile:@"spineboy.json" atlasFile:@"spineboy.atlas" scale:scale];
+    CBSpineSprite *skeleton = [CBSpineSprite skeletonWithFile:@"spineboy.json" atlasFile:@"spineboy.atlas" scale:scale];
 //    [skeleton setSkin:@"goblin"];
     
     [skeleton setMixFrom:@"walk" to:@"jump" duration:0.2f];
     [skeleton setMixFrom:@"jump" to:@"walk" duration:0.4f];
-    [skeleton setAnimation:@"walk" loop:NO];
-    [skeleton addAnimation:@"jump" loop:NO afterDelay:0];
-    [skeleton addAnimation:@"walk" loop:YES afterDelay:0];
+    [skeleton playAnimation:@"walk" loop:NO];
+    [skeleton queueAnimation:@"jump" loop:NO afterDelay:0];
+    [skeleton queueAnimation:@"walk" loop:YES afterDelay:0];
     
 //    [skeleton setAnimation:@"walk" loop:YES];
     
-    [self addChild:skeleton];
+    [self insertChild:skeleton atIndex:0];
     skeleton.position = location;
+    skeleton.xScale = -1;
 }
 
 -(void) addSmartbombButton
@@ -176,7 +181,8 @@
 		CGPoint location = [touch locationInNode:self];
 //		[self addSpaceshipAt:location];
     
-        [self addSpineBoy:location withScale:0.3];
+//        [self addSpineBoy:location withScale:0.3];
+        [self changeSkin];
 	}
 	
 	// (optional) call super implementation to allow KKScene to dispatch touch events

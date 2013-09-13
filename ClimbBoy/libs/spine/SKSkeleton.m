@@ -115,7 +115,8 @@
     Skeleton_update(_skeleton, delta * _timeScale);
 }
 
-- (void)setupAttachmentSprites {    
+- (void)setupAttachmentSprites {
+    uint index = 0;
     for (int i = 0; i < [self slotCount]; i++) {
         Slot* slot = _skeleton->slots[i];
         if (!slot->attachment || slot->attachment->type != ATTACHMENT_REGION) {
@@ -132,9 +133,11 @@
         RegionAttachment* attachment = (RegionAttachment*)slot->attachment;
         SKSpriteNode *attachmentSpriteNode = [self createAttahcmentNode:attachment];
         [_attachmentSprites setValue:attachmentSpriteNode forKey:attachmentName];
-        [self addChild:attachmentSpriteNode];
-//        attachmentSpriteNode.zPosition = i + self.zPosition;
-//        [self insertChild:attachmentSpriteNode atIndex:i];
+//        [self addChild:attachmentSpriteNode];
+//        attachmentSpriteNode.zPosition = i;
+        [self insertChild:attachmentSpriteNode atIndex:index];
+        
+        index++;
     }
     
     [self updateAttachmentSprites];
@@ -193,6 +196,7 @@
                 float normalizedAlpha = slot->skeleton->a * slot->a;
                 textureNode.alpha = normalizedAlpha;
                 textureNode.color = [SKColor colorWithRed:r green:g blue:b alpha:1];
+                textureNode.colorBlendFactor = 1;
             }else{
                 
                 //如果attachment存在，但是还未加入列表。则生成它，并加入列表

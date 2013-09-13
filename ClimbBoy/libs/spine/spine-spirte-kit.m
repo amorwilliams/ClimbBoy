@@ -9,6 +9,7 @@
 #import "spine-spirte-kit.h"
 #import <spine/spine.h>
 #import <spine/extension.h>
+#import "CBSpineManager.h"
 
 
 void _AtlasPage_createTexture (AtlasPage* self, const char* path) {

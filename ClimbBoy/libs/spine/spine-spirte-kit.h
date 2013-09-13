@@ -7,8 +7,8 @@
 //
 
 #import <spine/spine.h>
-#import "SKSkeleton.h"
-#import "SKSkeletonAnimation.h"
+#import "CBSpineManager.h"
+#include "CBSpineSprite.h"
 
 #ifdef __cplusplus
 namespace spine {

@@ -22,9 +22,9 @@
     }
     
     if (b) {
-        [self runAction:[SKAction scaleXTo:-ABS(self.xScale) duration:0]];
+        self.xScale = -ABS(self.xScale);
     }else{
-        [self runAction:[SKAction scaleXTo:ABS(self.xScale) duration:0]];
+        self.xScale = ABS(self.xScale);
     }
 }
 
@@ -40,9 +40,9 @@
     }
     
     if (b) {
-        [self runAction:[SKAction scaleYTo:-ABS(self.yScale) duration:0]];
+        self.yScale = -ABS(self.yScale);
     }else{
-        [self runAction:[SKAction scaleXTo:ABS(self.yScale) duration:0]];
+        self.yScale = ABS(self.yScale);
     }
 }
 
