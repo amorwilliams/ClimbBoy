@@ -13,7 +13,6 @@
 {
     NSMutableDictionary *_skeletons;
 }
-@property (nonatomic) BOOL slotDebug;
 + (CBSpineManager *)sharedManager;
 - (SkeletonData *) LoadSpineFile:(NSString*)skeletonDataFile atlas:(Atlas*)atlas scale:(float)scale;
 - (SkeletonData *) LoadSpineFile:(NSString*)skeletonDataFile atlasFile:(NSString*)atlasFile scale:(float)scale;

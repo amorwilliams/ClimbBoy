@@ -110,7 +110,7 @@ local objectTemplates =
             runSpeedLimit = 300,			-- max sideways running speed
             climbUpSpeedLimit = 100,
             climbDownSpeedLimit = 100,
-            boundingBox = "{32, 64}",
+            boundingBox = "{48, 64}",
             --anchorPoint = "{0.5, 0.3}",
 
             --_defaultImage = "dummy_stickman.png",

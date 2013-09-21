@@ -30,7 +30,7 @@ static const NSInteger MARGIN_BORDER_TOP = 100;
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
     [self addButtons];
-    [self addLevelsBox];    
+    [self addLevelsBox];
 }
 
 - (void)addButtons {

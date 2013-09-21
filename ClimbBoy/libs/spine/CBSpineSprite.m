@@ -307,12 +307,4 @@
 	AnimationState_clearAnimation(state);
 }
 
-- (void)setColor:(UIColor *)color {
-    for (int i = 0; i < [_slotNodes count]; i++) {
-        CBSpineSlot *slotNode = [_slotNodes objectAtIndex:i];
-        slotNode.color = color;
-    }
-
-}
-
 @end

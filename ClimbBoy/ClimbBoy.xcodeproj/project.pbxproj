@@ -37,8 +37,6 @@
 		528FCAD017DF635000EFE6E8 /* spineboy.json in Resources */ = {isa = PBXBuildFile; fileRef = 528FCACA17DF635000EFE6E8 /* spineboy.json */; };
 		5297AD1B17E2ED700086A938 /* CBSpineSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5297AD1A17E2ED700086A938 /* CBSpineSprite.m */; };
 		5297AD1E17E2EF8F0086A938 /* CBSpineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5297AD1D17E2EF8F0086A938 /* CBSpineManager.m */; };
-		52C8C50F17EB2D86009CF385 /* DebugNodeTestScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C8C50E17EB2D86009CF385 /* DebugNodeTestScene.m */; };
-		52C8C51717EB3D40009CF385 /* CBDebug.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C8C51617EB3D40009CF385 /* CBDebug.m */; };
 		52DD070C17DF435800189AFF /* DemoStage001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B417DF435800189AFF /* DemoStage001.tmx */; };
 		52DD070D17DF435800189AFF /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B517DF435800189AFF /* LevelTest01.tmx */; };
 		52DD070E17DF435800189AFF /* Tileset_Geometry_16x16_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */; };
@@ -228,10 +226,6 @@
 		5297AD1A17E2ED700086A938 /* CBSpineSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSpineSprite.m; sourceTree = "<group>"; };
 		5297AD1C17E2EF8F0086A938 /* CBSpineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSpineManager.h; sourceTree = "<group>"; };
 		5297AD1D17E2EF8F0086A938 /* CBSpineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSpineManager.m; sourceTree = "<group>"; };
-		52C8C50D17EB2D86009CF385 /* DebugNodeTestScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugNodeTestScene.h; sourceTree = "<group>"; };
-		52C8C50E17EB2D86009CF385 /* DebugNodeTestScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugNodeTestScene.m; sourceTree = "<group>"; };
-		52C8C51517EB3D40009CF385 /* CBDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBDebug.h; sourceTree = "<group>"; };
-		52C8C51617EB3D40009CF385 /* CBDebug.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBDebug.m; sourceTree = "<group>"; };
 		52DD06B417DF435800189AFF /* DemoStage001.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DemoStage001.tmx; sourceTree = "<group>"; };
 		52DD06B517DF435800189AFF /* LevelTest01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LevelTest01.tmx; sourceTree = "<group>"; };
 		52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_Geometry_16x16_256.png; sourceTree = "<group>"; };
@@ -503,32 +497,6 @@
 			path = SpineData;
 			sourceTree = "<group>";
 		};
-		52C8C50C17EB2D42009CF385 /* test */ = {
-			isa = PBXGroup;
-			children = (
-				52C8C50D17EB2D86009CF385 /* DebugNodeTestScene.h */,
-				52C8C50E17EB2D86009CF385 /* DebugNodeTestScene.m */,
-			);
-			path = test;
-			sourceTree = "<group>";
-		};
-		52C8C51317EB3D40009CF385 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				52C8C51417EB3D40009CF385 /* DebugNode */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		52C8C51417EB3D40009CF385 /* DebugNode */ = {
-			isa = PBXGroup;
-			children = (
-				52C8C51517EB3D40009CF385 /* CBDebug.h */,
-				52C8C51617EB3D40009CF385 /* CBDebug.m */,
-			);
-			path = DebugNode;
-			sourceTree = "<group>";
-		};
 		52DD06B217DF435800189AFF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -602,10 +570,10 @@
 		52DD06CE17DF435800189AFF /* GameClasses */ = {
 			isa = PBXGroup;
 			children = (
-				52C8C51317EB3D40009CF385 /* Extensions */,
 				52DD06CF17DF435800189AFF /* Behaviors */,
 				52DD06D517DF435800189AFF /* Categories */,
 				52DD06DC17DF435800189AFF /* CBMacros.h */,
+				52DD06DD17DF435800189AFF /* Extensions */,
 				52DD06F417DF435800189AFF /* GameObjects */,
 				52DD06FE17DF435800189AFF /* Protocols */,
 				52DD070017DF435800189AFF /* Scenes */,
@@ -646,6 +614,13 @@
 			path = SpriteKit;
 			sourceTree = "<group>";
 		};
+		52DD06DD17DF435800189AFF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		52DD06F417DF435800189AFF /* GameObjects */ = {
 			isa = PBXGroup;
 			children = (
@@ -680,7 +655,6 @@
 		52DD070017DF435800189AFF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				52C8C50C17EB2D42009CF385 /* test */,
 				52DD070117DF435800189AFF /* CBMyScene.h */,
 				52DD070217DF435800189AFF /* CBMyScene.m */,
 				52DD070317DF435800189AFF /* LevelsMenu.h */,
@@ -1138,7 +1112,6 @@
 				528FCAA717DF4A1400EFE6E8 /* SkeletonData.c in Sources */,
 				52DD072D17DF435800189AFF /* CBCharacter.m in Sources */,
 				52DD073417DF435800189AFF /* MainMenu.m in Sources */,
-				52C8C51717EB3D40009CF385 /* CBDebug.m in Sources */,
 				DCD7A28C178C7526004A0467 /* ViewController.m in Sources */,
 				528FCAA917DF4A1400EFE6E8 /* Skin.c in Sources */,
 				528FCA9917DF4A1400EFE6E8 /* spine-spirte-kit.m in Sources */,
@@ -1172,7 +1145,6 @@
 				528FCAA417DF4A1400EFE6E8 /* Json.c in Sources */,
 				52DD072117DF435800189AFF /* SKNode+CBExtension.m in Sources */,
 				5297AD1E17E2EF8F0086A938 /* CBSpineManager.m in Sources */,
-				52C8C50F17EB2D86009CF385 /* DebugNodeTestScene.m in Sources */,
 				528FCA9C17DF4A1400EFE6E8 /* AnimationStateData.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

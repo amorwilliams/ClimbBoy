@@ -26,7 +26,6 @@ static CBSpineManager *sharedSpineManager = nil;
     self = [super init];
     if (self) {
         _skeletons = [NSMutableDictionary dictionary];
-        _slotDebug = NO;
     }
     return self;
 }

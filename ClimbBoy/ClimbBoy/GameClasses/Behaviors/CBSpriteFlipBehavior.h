@@ -9,9 +9,5 @@
 #import "KKBehavior.h"
 
 @interface CBSpriteFlipBehavior : KKBehavior
-
 + (id) SpriteFlipWithTarget:(SKSpriteNode *)target;
-
-- (id) initWithTarget:(SKSpriteNode *)target;
-
 @end

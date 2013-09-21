@@ -24,7 +24,6 @@
 }
 @property (nonatomic, readonly) Skeleton* skeleton;
 @property (nonatomic) float animationTimeScale;
-@property (nonatomic) SKColor *color;
 @property (nonatomic) bool debugSlots;
 @property (nonatomic) bool debugBones;
 @property (nonatomic) Bone* rootBone;
