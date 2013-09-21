@@ -7,6 +7,7 @@
 //
 
 #import "CBSpineSlot.h"
+#import "CBSpineManager.h"
 
 @implementation CBSpineSlot
 
@@ -18,15 +19,20 @@
 {
     self = [super init];
     if (self) {
-        [self updateSlot:slot];
-         _debugNode = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1 green:0 blue:0 alpha:0.5] size:CGSizeMake(3, 3)];
-        [self addChild:_debugNode];
-        _debugNode.zPosition = 10;
+        [self initialize:slot];
     }
     return self;
 }
 
 - (void) initialize:(Slot *)slot {
+    _color = [SKColor whiteColor];
+    
+    if ([CBSpineManager sharedManager].slotDebug) {
+        _debugNode = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1 green:0 blue:0 alpha:0.5] size:CGSizeMake(3, 3)];
+        [self addChild:_debugNode];
+        _debugNode.zPosition = 100;
+    }
+    
     [self updateSlot:slot];
 }
 
@@ -49,6 +55,7 @@
             _attachmentNode.size = CGSizeMake(attachment->width, attachment->height);
             [self addChild:_attachmentNode];
         }
+        
         
         [_attachmentNode updataAttachment:slot];
 
@@ -74,8 +81,7 @@
 }
 
 - (SKTexture*) getTextureAtlas:(RegionAttachment*)regionAttachment {
-	SKTexture *rt = (__bridge SKTexture*)((AtlasRegion*)regionAttachment->rendererObject)->page->rendererObject;
-    return rt;
+	return (__bridge SKTexture*)((AtlasRegion*)regionAttachment->rendererObject)->page->rendererObject;
 }
 
 - (void)removeAttachment {
@@ -92,18 +98,5 @@
     
     return nil;
 }
-
-#if TARGET_OS_IPHONE
-- (void)setColor:(UIColor *)color {
-    _color = color;
-    if (_attachmentNode) {
-        _attachmentNode.color = color;
-    }
-}
-#else
-- (NSColor *)color {
-    
-}
-#endif
 
 @end

@@ -8,6 +8,7 @@
 
 #import "LevelTest.h"
 #import "CBRobot.h"
+#import "CBDebug.h"
 
 #define VIEW_SIZE_WIDHT 568
 #define VIEW_SIZE_HEIGHT 320
@@ -36,7 +37,8 @@
 
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
-    
+//    [self addChild:[CBDebug sharedCBDebug]];
+
     _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
     [self addChild:_tilemapNode];
     

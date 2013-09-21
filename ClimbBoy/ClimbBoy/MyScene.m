@@ -36,7 +36,8 @@
 
 - (void)didMoveToView:(SKView *)view {
 //    self.kkView.ignoresSiblingOrder = YES;
-
+    
+//    [CBSpineManager sharedManager].slotDebug = YES;
     [self addGoblin:CGPointMake(CGRectGetMidX(self.frame), 30) withScale:1];
     
 //    SKAction *changeSkin = [SKAction runBlock:^{
@@ -50,13 +51,17 @@
     CBSpineSprite *skeleton = [CBSpineSprite skeletonWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:scale];
     [skeleton setSkin:@"goblin"];
     
-    [skeleton playAnimation:@"walk" loop:YES];
+    [skeleton setMixFrom:@"stand" to:@"walk" duration:0.5];
+    [skeleton setMixFrom:@"walk" to:@"stand" duration:0.5];
+    [skeleton playAnimation:@"stand" loop:YES];
+    [skeleton queueAnimation:@"walk" loop:YES afterDelay:3];
+    [skeleton queueAnimation:@"stand" loop:YES afterDelay:6];
     
     [self insertChild:skeleton atIndex:1];
     skeleton.position = location;
     skeleton.name = @"goblin";
     
-    [skeleton setScale:0.5];
+//    [skeleton setScale:0.5];
 }
 
 - (void)changeSkin{
