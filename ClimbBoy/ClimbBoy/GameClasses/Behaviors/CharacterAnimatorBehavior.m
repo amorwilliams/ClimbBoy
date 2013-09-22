@@ -6,20 +6,20 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import "CBCharacterAnimator.h"
+#import "CharacterAnimatorBehavior.h"
 
-@interface CBCharacterAnimator ()
-@property (atomic, weak)CBCharacter *character;
+@interface CharacterAnimatorBehavior ()
+@property (atomic, weak)BaseCharacter *character;
 
 @end
 
-@implementation CBCharacterAnimator
+@implementation CharacterAnimatorBehavior
 
 - (void)didJoinController {
     [self.node.kkScene addSceneEventsObserver:self];
     
-    _character = (CBCharacter *)self.node;
-    NSAssert1([_character isKindOfClass:[CBCharacter class]], @"Target node (%@) is not of class CBCharacter!", _character);
+    _character = (BaseCharacter *)self.node;
+    NSAssert1([_character isKindOfClass:[BaseCharacter class]], @"Target node (%@) is not of class CBCharacter!", _character);
     
     _character.animatorBehavior = self;
     _animated = YES;
@@ -134,7 +134,7 @@
 }
 
 - (void)animationHasCompleted:(CBAnimationState)animationState {
-    [(id<CBCharacterAnimatorDelegate>)_character animationHasCompleted:animationState];
+    [(id<CharacterAnimatorDelegate>)_character animationHasCompleted:animationState];
     
     self.activeAnimationKey = nil;
 }

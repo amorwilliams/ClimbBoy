@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 macbookpro. All rights reserved.
 //
 
-#import "CBRobot.h"
+#import "HeroRobot.h"
 #import "CBGraphicsUtilities.h"
 
-@implementation CBRobot
+@implementation HeroRobot
 
 #pragma mark - Initialization
 - (id)init {

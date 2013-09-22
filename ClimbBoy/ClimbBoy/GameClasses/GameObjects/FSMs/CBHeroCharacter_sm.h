@@ -19,7 +19,7 @@
 @class HeroMap_Default;
 @class CBHeroCharacterState;
 @class CBHeroCharacterContext;
-@class CBHeroCharacter;
+@class HeroCharacter;
 
 @interface CBHeroCharacterState : SMCState
 {
@@ -115,11 +115,11 @@
 
 @interface CBHeroCharacterContext : SMCFSMContext
 {
-    __weak CBHeroCharacter *_owner;
+    __weak HeroCharacter *_owner;
 }
-- (id)initWithOwner:(CBHeroCharacter*)owner;
-- (id)initWithOwner:(CBHeroCharacter*)owner state:(SMCState*)aState;
-- (CBHeroCharacter*)owner;
+- (id)initWithOwner:(HeroCharacter*)owner;
+- (id)initWithOwner:(HeroCharacter*)owner state:(SMCState*)aState;
+- (HeroCharacter*)owner;
 - (CBHeroCharacterState*)state;
 
 - (void)enterStartState;

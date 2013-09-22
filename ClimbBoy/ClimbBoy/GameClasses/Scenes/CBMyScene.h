@@ -10,10 +10,10 @@
 
 #define kMinTimeInterval (1.0f / 60.0f)
 
-@class CBHeroCharacter;
+@class HeroCharacter;
 
 @interface CBMyScene : KKScene
 
-@property(nonatomic)CBHeroCharacter *hero;
+@property(nonatomic)HeroCharacter *hero;
 
 @end

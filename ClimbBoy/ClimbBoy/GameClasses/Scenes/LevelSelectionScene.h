@@ -9,5 +9,8 @@
 #import "KKScene.h"
 
 @interface LevelSelectionScene : KKScene
+{
+    
+}
 
 @end

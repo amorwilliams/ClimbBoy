@@ -8,6 +8,6 @@
 
 #import "KKBehavior.h"
 
-@interface CBSpriteFlipBehavior : KKBehavior
+@interface CharacterSpriteFlipBehavior : KKBehavior
 + (id) SpriteFlipWithTarget:(SKSpriteNode *)target;
 @end

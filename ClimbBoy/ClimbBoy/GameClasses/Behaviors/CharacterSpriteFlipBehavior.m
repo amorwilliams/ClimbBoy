@@ -6,15 +6,15 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import "CBSpriteFlipBehavior.h"
+#import "CharacterSpriteFlipBehavior.h"
 #import "SKSpriteNode+CBExtension.h"
 
-@interface CBSpriteFlipBehavior ()
+@interface CharacterSpriteFlipBehavior ()
 @property (atomic, weak) SKSpriteNode *spriteNode;
 
 @end
 
-@implementation CBSpriteFlipBehavior
+@implementation CharacterSpriteFlipBehavior
 
 + (id) SpriteFlipWithTarget:(SKSpriteNode *)target {
     return [[self alloc] initWithTarget:target];

@@ -10,14 +10,13 @@
 		</dict>
 		<dict>
 			<key>Tilemap</key>
-			<string>2</string>
-		</dict>
-		<dict>
-			<key>Tilemap</key>
-			<string>3</string>
+			<string>DemoStage001.tmx</string>
 		</dict>
 	</array>
 	<key>Settings</key>
-	<string></string>
+	<dict>
+		<key>Music Volume</key>
+		<integer>100</integer>
+	</dict>
 </dict>
 </plist>

@@ -59,18 +59,18 @@ typedef enum : uint8_t {
 #import <SpriteKit/SpriteKit.h>
 #import "CBCategories.h"
 #import "CBBehaviors.h"
-#import "CBCharacterAnimatorDelegate.h"
+#import "CharacterAnimatorDelegate.h"
 
-@class CBCharacterAnimator;
+@class CharacterAnimatorBehavior;
 
-@interface CBCharacter : KKNode <KKPhysicsContactEventDelegate, CBCharacterAnimatorDelegate>
+@interface BaseCharacter : KKNode <KKPhysicsContactEventDelegate, CharacterAnimatorDelegate>
 /* 保存角色的贴图 */
 @property (nonatomic) SKSpriteNode *characterSprite;
 /* 角色碰撞的半径 */
 @property (nonatomic) CBCapsule collisionCapsule;
 @property (nonatomic) CGSize boundingBox;
 
-@property (nonatomic) CBCharacterAnimator *animatorBehavior;
+@property (nonatomic) CharacterAnimatorBehavior *animatorBehavior;
 
 @property (nonatomic, getter = isDying) BOOL dying;
 //@property (nonatomic, getter = isStartJump) BOOL startJump;

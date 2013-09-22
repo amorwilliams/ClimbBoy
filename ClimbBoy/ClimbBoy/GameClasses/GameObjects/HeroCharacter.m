@@ -6,15 +6,15 @@
 //  Copyright (c) 2013年 macbookpro. All rights reserved.
 //
 
-#import "CBHeroCharacter.h"
+#import "HeroCharacter.h"
 
-@interface CBHeroCharacter ()
+@interface HeroCharacter ()
 @property (nonatomic) CGPoint moveToPoint;
 @property (nonatomic) CBMoveDirection heroMoveDirection;
 
 @end
 
-@implementation CBHeroCharacter
+@implementation HeroCharacter
 
 #pragma mark - Initialization
 - (id)initAtPosition:(CGPoint)position {

@@ -8,7 +8,7 @@
 
 #import "CBMyScene.h"
 #import "CBGraphicsUtilities.h"
-#import "CBRobot.h"
+#import "HeroRobot.h"
 
 #define VIEW_SIZE_WIDHT 1024
 #define VIEW_SIZE_HEIGHT 768
@@ -26,7 +26,7 @@
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
         
-        [CBRobot loadSharedAssets];
+        [HeroRobot loadSharedAssets];
         
         [self buildWorldWithSize:size];
         [self addButtons];
@@ -103,7 +103,7 @@
 }
 
 - (void)addHero {
-    self.hero = [[CBRobot alloc] initAtPosition:CGPointMake(100,100)];
+    self.hero = [[HeroRobot alloc] initAtPosition:CGPointMake(100,100)];
     [self addChild:self.hero];
 }
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 macbookpro. All rights reserved.
 //
 
-#import "CBHeroCharacter.h"
+#import "HeroCharacter.h"
 
-@interface CBRobot : CBHeroCharacter
+@interface HeroRobot : HeroCharacter
 
 - (id)initAtPosition:(CGPoint)position;
 

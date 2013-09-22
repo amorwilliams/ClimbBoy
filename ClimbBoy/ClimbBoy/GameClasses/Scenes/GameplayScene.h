@@ -9,6 +9,9 @@
 #import "KKScene.h"
 
 @interface GameplayScene : KKScene
+{
+    
+}
 
 @property (atomic, copy) NSString* tmxFile;
 

@@ -12,8 +12,6 @@
 #import "NSBundle+KoboldKit.h"
 #import "KKClassVarSetter.h"
 
-#define ASSERT_SCENE_STACK_INTEGRITY() NSAssert2([_sceneStack lastObject] == self.scene, @"scene stack out of synch! Presented scene: %@ - topmost scene on stack: %@", self.scene, [_sceneStack lastObject])
-
 static BOOL _showsPhysicsShapes = NO;
 static BOOL _showsNodeFrames = NO;
 static BOOL _showsNodeAnchorPoints = NO;
@@ -53,8 +51,8 @@ static BOOL _showsNodeAnchorPoints = NO;
 -(void) initDefaults
 {
 	_sceneStack = [NSMutableArray array];
-	_model = [[KKModel alloc] init];
-
+	_model = [KKModel model];
+    
 	[KKLua setup];
 	[self reloadConfig];
 }
@@ -78,7 +76,7 @@ static BOOL _showsNodeAnchorPoints = NO;
 	[self loadConfig:@"devconfig.lua"];
 	[self loadConfig:@"objectTemplates.lua" inheritProperties:YES];
 	[self loadConfig:@"behaviorTemplates.lua"];
-
+    
 	BOOL disableAllDebugLabels = [_model boolForKeyPath:@"devconfig.disableAllDebugLabels"];
 	if (disableAllDebugLabels == NO)
 	{
@@ -182,7 +180,6 @@ static BOOL _showsNodeAnchorPoints = NO;
 	[_sceneStack addObject:scene];
 	
 	transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
-	ASSERT_SCENE_STACK_INTEGRITY();
 }
 
 -(void) presentScene:(KKScene *)scene unwindStack:(BOOL)unwindStack
@@ -197,8 +194,8 @@ static BOOL _showsNodeAnchorPoints = NO;
 		[_sceneStack removeAllObjects];
 		[_sceneStack addObject:scene];
 	}
+    
 	transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
-	ASSERT_SCENE_STACK_INTEGRITY();
 }
 
 -(void) pushScene:(KKScene*)scene
@@ -208,9 +205,9 @@ static BOOL _showsNodeAnchorPoints = NO;
 
 -(void) pushScene:(KKScene*)scene transition:(KKTransition*)transition
 {
-	[_sceneStack addObject:scene];
+	[_sceneStack addObject:self.scene];
+	
 	transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
-	ASSERT_SCENE_STACK_INTEGRITY();
 }
 
 -(void) popScene
@@ -222,14 +219,10 @@ static BOOL _showsNodeAnchorPoints = NO;
 {
 	if (_sceneStack.count > 1)
 	{
-        [_sceneStack removeLastObject];
-
 		KKScene* scene = [_sceneStack lastObject];
-		if (scene)
-		{
-			transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
-			ASSERT_SCENE_STACK_INTEGRITY();
-		}
+		[_sceneStack removeLastObject];
+		
+		transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
 	}
 }
 
@@ -247,8 +240,8 @@ static BOOL _showsNodeAnchorPoints = NO;
 		{
 			[_sceneStack removeAllObjects];
 			[_sceneStack addObject:scene];
+			
 			transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
-			ASSERT_SCENE_STACK_INTEGRITY();
 		}
 	}
 }
@@ -271,8 +264,8 @@ static BOOL _showsNodeAnchorPoints = NO;
 			{
 				[_sceneStack removeObjectsAtIndexes:indexes];
 				[_sceneStack addObject:scene];
+				
 				transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
-				ASSERT_SCENE_STACK_INTEGRITY();
 				break;
 			}
 		}

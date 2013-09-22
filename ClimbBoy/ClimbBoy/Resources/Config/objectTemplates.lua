@@ -96,7 +96,7 @@ local objectTemplates =
 	Player =
 	{
 		-- create an instance of this class (class must inherit from SKNode or its subclasses)
-		className = "CBRobot",
+		className = "HeroRobot",
 
         properties =
         {
@@ -137,7 +137,7 @@ local objectTemplates =
 		{
 			--{behaviorClass = "KKLimitVelocityBehavior", properties = {velocityLimit = 100}},
 			--{className = "KKStayInBoundsBehavior", properties = {bounds = "{{0, 0}, {0, 0}}"}},
-            {className = "CBCharacterAnimator"},
+            {className = "CharacterAnimatorBehavior"},
 			{className = "KKCameraFollowBehavior"},
 		},
 		

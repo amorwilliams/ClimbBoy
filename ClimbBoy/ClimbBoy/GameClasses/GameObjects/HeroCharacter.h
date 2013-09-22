@@ -6,10 +6,10 @@
 //  Copyright (c) 2013年 macbookpro. All rights reserved.
 //
 
-#import "CBCharacter.h"
+#import "BaseCharacter.h"
 #import "CBHeroCharacter_sm.h"
 
-@interface CBHeroCharacter : CBCharacter
+@interface HeroCharacter : BaseCharacter
 {
     CGVector _currentControlPadDirection;
     __weak KKButtonBehavior* _jumpButton;

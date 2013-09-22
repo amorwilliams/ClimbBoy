@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-@class CBCharacter;
+@class BaseCharacter;
 
-@protocol CBCharacterAnimatorDelegate <NSObject>
+@protocol CharacterAnimatorDelegate <NSObject>
 @required
 - (void)animationHasCompleted:(CBAnimationState)animationState;
 

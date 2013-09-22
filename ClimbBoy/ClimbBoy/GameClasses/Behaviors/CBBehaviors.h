@@ -9,7 +9,7 @@
 #ifndef ClimbBoy_CBBehaviors_h
 #define ClimbBoy_CBBehaviors_h
 
-#import "CBSpriteFlipBehavior.h"
-#import "CBCharacterAnimator.h"
+#import "CharacterSpriteFlipBehavior.h"
+#import "CharacterAnimatorBehavior.h"
 
 #endif

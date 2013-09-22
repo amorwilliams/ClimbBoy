@@ -7,14 +7,15 @@
 //
 
 #import "GameplayScene.h"
-#import "CBRobot.h"
+#import "HeroRobot.h"
+#import "Debug.h"
 
 #define VIEW_SIZE_WIDHT 568
 #define VIEW_SIZE_HEIGHT 320
 
 @interface GameplayScene ()
 @property (atomic, retain)KKTilemapNode *tilemapNode;
-@property (atomic, retain)CBHeroCharacter *playerCharacter;
+@property (atomic, retain)HeroCharacter *playerCharacter;
 @property (nonatomic) SKLabelNode *myLabel;
 
 @end
@@ -27,7 +28,7 @@
 //        self.backgroundColor = [UIColor blueColor];
         self.anchorPoint = CGPointMake(0.5f, 0.5f);
 
-        [CBRobot loadSharedAssets];
+        [HeroRobot loadSharedAssets];
         
 //        [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
     }
@@ -36,6 +37,8 @@
 
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
+    
+    [self addDebugNode];
     
     _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
     [self addChild:_tilemapNode];
@@ -57,8 +60,8 @@
     
     [_tilemapNode spawnObjects];
     
-    _playerCharacter = (CBRobot*)[_tilemapNode.gameObjectsLayerNode childNodeWithName:@"player"];
-	NSAssert1([_playerCharacter isMemberOfClass:[CBRobot class]], @"player node (%@) is not of class PlayerCharacter!", _playerCharacter);
+    _playerCharacter = (HeroRobot*)[_tilemapNode.gameObjectsLayerNode childNodeWithName:@"player"];
+	NSAssert1([_playerCharacter isMemberOfClass:[HeroRobot class]], @"player node (%@) is not of class PlayerCharacter!", _playerCharacter);
     
     [self createSimpleControls];
     
@@ -70,6 +73,12 @@
     [_tilemapNode enableParallaxScrolling];
     
     [self addTitle];
+}
+
+- (void)addDebugNode {
+    Debug *debugNode = [Debug sharedDebug];
+    [self addChild:debugNode];
+    debugNode.zPosition = 100;
 }
 
 - (void)addTitle {

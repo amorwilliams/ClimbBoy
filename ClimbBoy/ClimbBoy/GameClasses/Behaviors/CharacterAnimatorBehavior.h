@@ -7,10 +7,9 @@
 //
 
 #import "KKBehavior.h"
-#import "CBCharacter.h"
-#import "CBCharacterAnimatorDelegate.h"
+#import "BaseCharacter.h"
 
-@interface CBCharacterAnimator : KKBehavior
+@interface CharacterAnimatorBehavior : KKBehavior
 
 @property (atomic, getter = isAnimated) BOOL animated;
 @property (atomic) CGFloat animationSpeed;

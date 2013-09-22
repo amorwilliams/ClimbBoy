@@ -6,18 +6,19 @@
 //  Copyright (c) 2013年 macbookpro. All rights reserved.
 //
 
-#import "CBCharacter.h"
+#import "BaseCharacter.h"
 #import "CBBehaviors.h"
 #import "CBMacros.h"
+#import "Debug.h"
 
-@interface CBCharacter ()
+@interface BaseCharacter ()
 {
 }
 @property (nonatomic) CFTimeInterval lastUpdateTimeInterval;
 
 @end
 
-@implementation CBCharacter
+@implementation BaseCharacter
 @synthesize node;
 #pragma mark - Initialization
 - (id)initWithTexture:(SKTexture *)texture atPosition:(CGPoint)position {
@@ -57,7 +58,7 @@
 - (void)didMoveToParent {
     [self observeSceneEvents];
     [self.kkScene addPhysicsContactEventsObserver:self];
-    CBSpriteFlipBehavior *flipBehavior = [CBSpriteFlipBehavior SpriteFlipWithTarget:self.characterSprite];
+    CharacterSpriteFlipBehavior *flipBehavior = [CharacterSpriteFlipBehavior SpriteFlipWithTarget:self.characterSprite];
     [self addBehavior:flipBehavior withKey:@"flip"];
     
     SKSpriteNode *bound = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1 green:0 blue:0 alpha:0.3] size:_boundingBox];
@@ -236,20 +237,30 @@
 - (void)testGrounded {
     __block BOOL temp = NO;
     CGPoint rayStart = [self convertPoint:CGPointZero toNode:self.kkScene];
-//    NSLog(@"%f, %f", rayStart.x, rayStart.y);
 	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y - (_boundingBox.height / 2.0 + 5));
     
+    CGFloat offsetX =  _boundingBox.width/2;
+    rayStart.x = rayStart.x - offsetX * 2;
+    rayEnd.x = rayEnd.x - offsetX * 2;
+    
     // find body below player
-	SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
-	[physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-		if (body.contactTestBitMask < 1){
-            if (!self.isGrounded) {
-                [self onGrounded];
+	for (int i = 0; i < 3; i++) {
+        rayStart.x = rayStart.x + offsetX;
+        rayEnd.x = rayEnd.x + offsetX;
+        
+        [Debug drawLineStart:rayStart end:rayEnd];
+        
+        SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
+        [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
+            if (body.contactTestBitMask < 1){
+                if (!self.isGrounded) {
+                    [self onGrounded];
+                }
+                temp = YES;
+                *stop = YES;
             }
-			temp = YES;
-            *stop = YES;
-		}
-	}];
+		}];
+    }
     _grounded = temp;
 }
 
@@ -258,17 +269,29 @@
     CGPoint rayStart = [self convertPoint:CGPointZero toNode:self.kkScene];
 	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y + (_boundingBox.height / 2.0 + 5));
 
+    CGFloat offsetX =  _boundingBox.width/2;
+    rayStart.x = rayStart.x - offsetX * 2;
+    rayEnd.x = rayEnd.x - offsetX * 2;
+    
     // find body below player
-	SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
-	[physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-		if (body.contactTestBitMask < 1){
-            if (!self.isTouchTop) {
-                [self onTouchHeadTop];
+	for (int i = 0; i < 3; i++) {
+        rayStart.x = rayStart.x + offsetX;
+        rayEnd.x = rayEnd.x + offsetX;
+        
+        [Debug drawLineStart:rayStart end:rayEnd];
+        
+        SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
+        [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
+            if (body.contactTestBitMask < 1){
+                if (!self.isTouchTop) {
+                    [self onTouchHeadTop];
+                }
+                temp = YES;
+                *stop = YES;
             }
-			temp = YES;
-            *stop = YES;
-		}
-	}];
+		}];
+    }
+         
     _touchTop = temp;
 }
 
@@ -280,34 +303,46 @@
     CGPoint rayStart = [self convertPoint:CGPointZero toNode:self.kkScene];
 	CGPoint rayEnd = CGPointMake(rayStart.x + (_boundingBox.width / 2.0 + 5), rayStart.y);
     
-    //test right side
-	SKPhysicsWorld* physicsWorld = self.scene.physicsWorld;
-	[physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-		if (body.contactTestBitMask <= 1){
-            if (!self.isTouchSide) {
-                [self onTouchSide:kCBCharacterTouchSideRight];
-            }
-            temp = YES;
-            *stop = YES;
-            _touchSideNormal = normal;
-            _touchingSide = kCBCharacterTouchSideRight;
-		}
-	}];
+    CGFloat offsetY =  _boundingBox.height/2;
+    rayStart.y = rayStart.y - offsetY * 2;
+    rayEnd.y = rayEnd.y - offsetY * 2;
     
-    rayEnd = CGPointMake(rayStart.x - (_boundingBox.width / 2.0 + 5), rayStart.y);
-    
-    //test left side
-    [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-		if (body.contactTestBitMask <= 1){
-            if (!self.isTouchSide) {
-                [self onTouchSide:kCBCharacterTouchSideLeft];
+    // find body below player
+	for (int i = 0; i < 3; i++) {
+        //test right side
+        rayStart.y = rayStart.y + offsetY;
+        rayEnd.y = rayEnd.y + offsetY;
+        [Debug drawLineStart:rayStart end:rayEnd];
+        SKPhysicsWorld* physicsWorld = self.scene.physicsWorld;
+        [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
+            if (body.contactTestBitMask <= 1){
+                if (!self.isTouchSide) {
+                    [self onTouchSide:kCBCharacterTouchSideRight];
+                }
+                temp = YES;
+                *stop = YES;
+                _touchSideNormal = normal;
+                _touchingSide = kCBCharacterTouchSideRight;
             }
-            temp = YES;
-            *stop = YES;
-            _touchSideNormal = normal;
-            _touchingSide = kCBCharacterTouchSideLeft;
-		}
-	}];
+        }];
+        
+        //test left side
+        rayEnd = CGPointMake(rayStart.x - (_boundingBox.width / 2.0 + 5), rayStart.y);
+        [Debug drawLineStart:rayStart end:rayEnd];
+        [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
+            if (body.contactTestBitMask <= 1){
+                if (!self.isTouchSide) {
+                    [self onTouchSide:kCBCharacterTouchSideLeft];
+                }
+                temp = YES;
+                *stop = YES;
+                _touchSideNormal = normal;
+                _touchingSide = kCBCharacterTouchSideLeft;
+            }
+        }];
+
+    }
+    
     
     _touchSide = temp;
 }

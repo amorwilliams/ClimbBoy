@@ -18,11 +18,11 @@
     
 
 	// create and present first scene
-	MyScene* myScene = [MyScene sceneWithSize:self.view.bounds.size];
-	[self.kkView presentScene:myScene];
-    
-//    MainMenu* myScene = [MainMenu sceneWithSize:self.view.bounds.size];
+//	MyScene* myScene = [MyScene sceneWithSize:self.view.bounds.size];
 //	[self.kkView presentScene:myScene];
+    
+    MainMenu* myScene = [MainMenu sceneWithSize:self.view.bounds.size];
+	[self.kkView presentScene:myScene];
 }
 
 @end

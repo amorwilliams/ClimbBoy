@@ -11,7 +11,7 @@
 //
 
 
-#import "CBHeroCharacter.h"
+#import "HeroCharacter.h"
 #import "CBHeroCharacter_sm.h"
 // Class declarations.
 @implementation HeroMap
@@ -164,14 +164,14 @@
 - (void)Entry:(CBHeroCharacterContext*)context;
 
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
 
     [ctxt runAnimation:CBAnimationStateIdle];
 }
 
 - (void)toJump:(CBHeroCharacterContext*)context;
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
     if (!ctxt.isTouchTop)
     {
         [[context state] Exit:context];
@@ -197,7 +197,7 @@
 - (void)Entry:(CBHeroCharacterContext*)context;
 
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
 
     [ctxt runAnimation:CBAnimationStateRun];
 }
@@ -211,7 +211,7 @@
 
 - (void)toJump:(CBHeroCharacterContext*)context;
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
     if (!ctxt.isTouchTop)
     {
         [[context state] Exit:context];
@@ -234,7 +234,7 @@
 
 - (void)update:(CBHeroCharacterContext*)context :(NSTimeInterval)delta;
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
     CBHeroCharacterState* EndStateName = [context state];
 
     [context clearState];
@@ -247,7 +247,7 @@
 - (void)Entry:(CBHeroCharacterContext*)context;
 
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
 
     [ctxt runAnimation:CBAnimationStateJump];
     [ctxt startJumping];
@@ -255,7 +255,7 @@
 
 - (void)toClimb:(CBHeroCharacterContext*)context;
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
     if (ctxt.isTouchSide)
     {
         [[context state] Exit:context];
@@ -278,7 +278,7 @@
 
 - (void)update:(CBHeroCharacterContext*)context :(NSTimeInterval)delta;
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
     CBHeroCharacterState* EndStateName = [context state];
 
     [context clearState];
@@ -291,14 +291,14 @@
 - (void)Entry:(CBHeroCharacterContext*)context;
 
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
 
     [ctxt runAnimation:CBAnimationStateFall];
 }
 
 - (void)toClimb:(CBHeroCharacterContext*)context;
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
     if (ctxt.isTouchSide)
     {
         [[context state] Exit:context];
@@ -321,7 +321,7 @@
 
 - (void)update:(CBHeroCharacterContext*)context :(NSTimeInterval)delta;
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
     CBHeroCharacterState* EndStateName = [context state];
 
     [context clearState];
@@ -334,7 +334,7 @@
 - (void)Entry:(CBHeroCharacterContext*)context;
 
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
 
     [ctxt runAnimation:CBAnimationStateClimb];
 }
@@ -362,7 +362,7 @@
 
 - (void)update:(CBHeroCharacterContext*)context :(NSTimeInterval)delta;
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
     CBHeroCharacterState* EndStateName = [context state];
 
     [context clearState];
@@ -375,14 +375,14 @@
 - (void)Entry:(CBHeroCharacterContext*)context;
 
 {
-    CBHeroCharacter *ctxt = [context owner];
+    HeroCharacter *ctxt = [context owner];
 
     [ctxt runAnimation:CBAnimationStateDeath];
 }
 @end
 
 @implementation CBHeroCharacterContext
-- (id)initWithOwner:(CBHeroCharacter*)owner;
+- (id)initWithOwner:(HeroCharacter*)owner;
 {
     self = [super initWithState:[HeroMap Standing]];
     if (!self)
@@ -392,7 +392,7 @@
     _owner = owner;
     return self;
 }
-- (id)initWithOwner:(CBHeroCharacter*)owner state:(SMCState*)aState;
+- (id)initWithOwner:(HeroCharacter*)owner state:(SMCState*)aState;
 {
     self = [super initWithState: aState];
     if (!self)
@@ -411,7 +411,7 @@
 {
     return (CBHeroCharacterState*)_state;
 }
-- (CBHeroCharacter*)owner;
+- (HeroCharacter*)owner;
 {
     return _owner;
 }
