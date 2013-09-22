@@ -1,13 +1,13 @@
 //
-//  LevelsMenu.h
+//  IntroScene.h
 //  ClimbBoy
 //
-//  Created by Robin on 13-9-2.
+//  Created by Robin on 13-9-21.
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
 #import "KKScene.h"
 
-@interface LevelsMenu : KKScene
+@interface IntroScene : KKScene
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "MainMenu.h"
-#import "LevelsMenu.h"
+#import "LevelSelectionScene.h"
 #import "CBMacros.h"
 
 static const NSInteger BUTTON_SPACING_VERTICAL = 40;
@@ -131,7 +131,7 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
     NSLog(@"Start button");
     [self removeButtons];
     [self runAction:[SKAction waitForDuration:0.7] completion:^{
-        LevelsMenu *levels = [LevelsMenu sceneWithSize:self.size];
+        LevelSelectionScene *levels = [LevelSelectionScene sceneWithSize:self.size];
         [self.kkView pushScene:levels transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
     }];
 }

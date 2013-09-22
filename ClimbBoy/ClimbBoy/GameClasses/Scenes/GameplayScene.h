@@ -8,7 +8,7 @@
 
 #import "KKScene.h"
 
-@interface LevelTest : KKScene
+@interface GameplayScene : KKScene
 
 @property (atomic, copy) NSString* tmxFile;
 

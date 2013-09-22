@@ -141,9 +141,9 @@
 }
 
 #pragma mark - Physics Delegate
-- (SKNode *)node {
-    return self;
-}
+//- (SKNode *)node {
+//    return self;
+//}
 
 - (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
 //    [self rayTesting];

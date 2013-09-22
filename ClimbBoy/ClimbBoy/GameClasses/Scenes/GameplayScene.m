@@ -6,20 +6,20 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import "LevelTest.h"
+#import "GameplayScene.h"
 #import "CBRobot.h"
 
 #define VIEW_SIZE_WIDHT 568
 #define VIEW_SIZE_HEIGHT 320
 
-@interface LevelTest ()
+@interface GameplayScene ()
 @property (atomic, retain)KKTilemapNode *tilemapNode;
 @property (atomic, retain)CBHeroCharacter *playerCharacter;
 @property (nonatomic) SKLabelNode *myLabel;
 
 @end
 
-@implementation LevelTest
+@implementation GameplayScene
 
 - (instancetype)initWithSize:(CGSize)size {
     self = [super initWithSize:size];

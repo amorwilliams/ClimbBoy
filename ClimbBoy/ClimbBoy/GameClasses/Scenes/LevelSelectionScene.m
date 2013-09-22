@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import "LevelsMenu.h"
+#import "LevelSelectionScene.h"
 #import "CBMyScene.h"
-#import "LevelTest.h"
+#import "GameplayScene.h"
 #import "MyScene.h"
 
 static const NSInteger LEVEL_BOX_SIZE = 48;
@@ -17,7 +17,7 @@ static const NSInteger COLUMN_NUMBER = 6;
 static const NSInteger MARGIN_BORDER_HORIZONTAL = 100;
 static const NSInteger MARGIN_BORDER_TOP = 100;
 
-@implementation LevelsMenu
+@implementation LevelSelectionScene
 
 - (instancetype)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
@@ -102,13 +102,13 @@ static const NSInteger MARGIN_BORDER_TOP = 100;
     NSLog(@"%@", levelBox.name);
     
     if ([levelBox.name isEqualToString:@"Level01"]) {
-        LevelTest *level = [LevelTest sceneWithSize:self.size];
+        GameplayScene *level = [GameplayScene sceneWithSize:self.size];
         level.tmxFile = @"LevelTest01.tmx";
         [self.kkView pushScene:level transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
     }
     
     if ([levelBox.name isEqualToString:@"Level02"]) {
-        LevelTest *level = [LevelTest sceneWithSize:self.size];
+        GameplayScene *level = [GameplayScene sceneWithSize:self.size];
         level.tmxFile = @"DemoStage001.tmx";
         [self.kkView pushScene:level transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
     }

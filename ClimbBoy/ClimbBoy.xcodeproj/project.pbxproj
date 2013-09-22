@@ -9,7 +9,27 @@
 /* Begin PBXBuildFile section */
 		52516BD017E2BCD200BC9693 /* CBSpineAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 52516BCF17E2BCD200BC9693 /* CBSpineAttachment.m */; };
 		52516BD317E2C5C400BC9693 /* CBSpineSlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52516BD217E2C5C400BC9693 /* CBSpineSlot.m */; };
-		5271590417E0E7F400A942BE /* spine.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 5271590317E0E7F400A942BE /* spine.atlas */; };
+		528A3C1E17EDDA7E00B1C157 /* IntroScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 528A3C1D17EDDA7E00B1C157 /* IntroScene.m */; };
+		528A3C2117EDDBEA00B1C157 /* CreditsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 528A3C2017EDDBEA00B1C157 /* CreditsScene.m */; };
+		528A3C2417EDDC0000B1C157 /* SettingsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 528A3C2317EDDC0000B1C157 /* SettingsScene.m */; };
+		528A3C4917EDE19D00B1C157 /* Water Temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C2C17EDE19D00B1C157 /* Water Temple.mp3 */; };
+		528A3C4A17EDE19D00B1C157 /* obj_box001.png in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C2D17EDE19D00B1C157 /* obj_box001.png */; };
+		528A3C4C17EDE19D00B1C157 /* CBHeroCharacter.sm in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3017EDE19D00B1C157 /* CBHeroCharacter.sm */; };
+		528A3C4E17EDE19D00B1C157 /* complier.sh in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3317EDE19D00B1C157 /* complier.sh */; };
+		528A3C5017EDE19D00B1C157 /* goblins.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3617EDE19D00B1C157 /* goblins.atlas */; };
+		528A3C5117EDE19D00B1C157 /* goblins.json in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3717EDE19D00B1C157 /* goblins.json */; };
+		528A3C5217EDE19D00B1C157 /* spine.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3817EDE19D00B1C157 /* spine.atlas */; };
+		528A3C5317EDE19D00B1C157 /* spineboy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3917EDE19D00B1C157 /* spineboy.atlas */; };
+		528A3C5417EDE19D00B1C157 /* spineboy.json in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3A17EDE19D00B1C157 /* spineboy.json */; };
+		528A3C5517EDE19D00B1C157 /* Hero_Climb_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3D17EDE19D00B1C157 /* Hero_Climb_Loop.atlas */; };
+		528A3C5617EDE19D00B1C157 /* Hero_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3E17EDE19D00B1C157 /* Hero_Idle.atlas */; };
+		528A3C5717EDE19D00B1C157 /* Hero_Jump_Land_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C3F17EDE19D00B1C157 /* Hero_Jump_Land_Idle.atlas */; };
+		528A3C5817EDE19D00B1C157 /* Hero_Jump_Land_Long.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C4017EDE19D00B1C157 /* Hero_Jump_Land_Long.atlas */; };
+		528A3C5917EDE19D00B1C157 /* Hero_Jump_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C4117EDE19D00B1C157 /* Hero_Jump_Loop.atlas */; };
+		528A3C5A17EDE19D00B1C157 /* Hero_Jump_Start.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C4217EDE19D00B1C157 /* Hero_Jump_Start.atlas */; };
+		528A3C5B17EDE19D00B1C157 /* Hero_Run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C4317EDE19D00B1C157 /* Hero_Run.atlas */; };
+		528A3C5C17EDE19D00B1C157 /* Jetpack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C4417EDE19D00B1C157 /* Jetpack.atlas */; };
+		528A3C5E17EDE37700B1C157 /* GameData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 528A3C5D17EDE37700B1C157 /* GameData.plist */; };
 		528FCA6B17DF49F700EFE6E8 /* behaviorTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 528FCA6917DF49F700EFE6E8 /* behaviorTemplates.lua */; };
 		528FCA6C17DF49F700EFE6E8 /* objectTemplates.lua in Resources */ = {isa = PBXBuildFile; fileRef = 528FCA6A17DF49F700EFE6E8 /* objectTemplates.lua */; };
 		528FCA9917DF4A1400EFE6E8 /* spine-spirte-kit.m in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA8317DF4A1400EFE6E8 /* spine-spirte-kit.m */; };
@@ -31,26 +51,12 @@
 		528FCAA917DF4A1400EFE6E8 /* Skin.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9617DF4A1400EFE6E8 /* Skin.c */; };
 		528FCAAA17DF4A1400EFE6E8 /* Slot.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9717DF4A1400EFE6E8 /* Slot.c */; };
 		528FCAAB17DF4A1400EFE6E8 /* SlotData.c in Sources */ = {isa = PBXBuildFile; fileRef = 528FCA9817DF4A1400EFE6E8 /* SlotData.c */; };
-		528FCACC17DF635000EFE6E8 /* goblins.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC617DF635000EFE6E8 /* goblins.atlas */; };
-		528FCACD17DF635000EFE6E8 /* goblins.json in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC717DF635000EFE6E8 /* goblins.json */; };
-		528FCACF17DF635000EFE6E8 /* spineboy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 528FCAC917DF635000EFE6E8 /* spineboy.atlas */; };
-		528FCAD017DF635000EFE6E8 /* spineboy.json in Resources */ = {isa = PBXBuildFile; fileRef = 528FCACA17DF635000EFE6E8 /* spineboy.json */; };
 		5297AD1B17E2ED700086A938 /* CBSpineSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5297AD1A17E2ED700086A938 /* CBSpineSprite.m */; };
 		5297AD1E17E2EF8F0086A938 /* CBSpineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5297AD1D17E2EF8F0086A938 /* CBSpineManager.m */; };
-		52DD070C17DF435800189AFF /* DemoStage001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B417DF435800189AFF /* DemoStage001.tmx */; };
-		52DD070D17DF435800189AFF /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B517DF435800189AFF /* LevelTest01.tmx */; };
-		52DD070E17DF435800189AFF /* Tileset_Geometry_16x16_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */; };
-		52DD070F17DF435800189AFF /* Tileset_GeometryB.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B717DF435800189AFF /* Tileset_GeometryB.png */; };
-		52DD071017DF435800189AFF /* Water Temple.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06B917DF435800189AFF /* Water Temple.mp3 */; };
-		52DD071117DF435800189AFF /* obj_box001.png in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06BA17DF435800189AFF /* obj_box001.png */; };
-		52DD071717DF435800189AFF /* Hero_Climb_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06C617DF435800189AFF /* Hero_Climb_Loop.atlas */; };
-		52DD071817DF435800189AFF /* Hero_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06C717DF435800189AFF /* Hero_Idle.atlas */; };
-		52DD071917DF435800189AFF /* Hero_Jump_Land_Idle.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06C817DF435800189AFF /* Hero_Jump_Land_Idle.atlas */; };
-		52DD071A17DF435800189AFF /* Hero_Jump_Land_Long.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06C917DF435800189AFF /* Hero_Jump_Land_Long.atlas */; };
-		52DD071B17DF435800189AFF /* Hero_Jump_Loop.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06CA17DF435800189AFF /* Hero_Jump_Loop.atlas */; };
-		52DD071C17DF435800189AFF /* Hero_Jump_Start.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06CB17DF435800189AFF /* Hero_Jump_Start.atlas */; };
-		52DD071D17DF435800189AFF /* Hero_Run.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06CC17DF435800189AFF /* Hero_Run.atlas */; };
-		52DD071E17DF435800189AFF /* Jetpack.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52DD06CD17DF435800189AFF /* Jetpack.atlas */; };
+		52ABBCBA17EE8E830099A919 /* DemoStage001.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52ABBCB617EE8E830099A919 /* DemoStage001.tmx */; };
+		52ABBCBB17EE8E830099A919 /* LevelTest01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52ABBCB717EE8E830099A919 /* LevelTest01.tmx */; };
+		52ABBCBC17EE8E830099A919 /* Tileset_Geometry_16x16_256.png in Resources */ = {isa = PBXBuildFile; fileRef = 52ABBCB817EE8E830099A919 /* Tileset_Geometry_16x16_256.png */; };
+		52ABBCBD17EE8E830099A919 /* Tileset_GeometryB.png in Resources */ = {isa = PBXBuildFile; fileRef = 52ABBCB917EE8E830099A919 /* Tileset_GeometryB.png */; };
 		52DD071F17DF435800189AFF /* CBCharacterAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06D217DF435800189AFF /* CBCharacterAnimator.m */; };
 		52DD072017DF435800189AFF /* CBSpriteFlipBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06D417DF435800189AFF /* CBSpriteFlipBehavior.m */; };
 		52DD072117DF435800189AFF /* SKNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06D917DF435800189AFF /* SKNode+CBExtension.m */; };
@@ -60,8 +66,8 @@
 		52DD072F17DF435800189AFF /* CBRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06FA17DF435800189AFF /* CBRobot.m */; };
 		52DD073017DF435800189AFF /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD06FD17DF435800189AFF /* CBHeroCharacter_sm.m */; };
 		52DD073117DF435800189AFF /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070217DF435800189AFF /* CBMyScene.m */; };
-		52DD073217DF435800189AFF /* LevelsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070417DF435800189AFF /* LevelsMenu.m */; };
-		52DD073317DF435800189AFF /* LevelTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070617DF435800189AFF /* LevelTest.m */; };
+		52DD073217DF435800189AFF /* LevelSelectionScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070417DF435800189AFF /* LevelSelectionScene.m */; };
+		52DD073317DF435800189AFF /* GameplayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070617DF435800189AFF /* GameplayScene.m */; };
 		52DD073417DF435800189AFF /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070817DF435800189AFF /* MainMenu.m */; };
 		52DD073517DF435800189AFF /* CBGraphicsUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD070B17DF435800189AFF /* CBGraphicsUtilities.m */; };
 		52DD076617DF436700189AFF /* statemap.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DD073917DF436700189AFF /* statemap.m */; };
@@ -176,7 +182,30 @@
 		52516BCF17E2BCD200BC9693 /* CBSpineAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSpineAttachment.m; sourceTree = "<group>"; };
 		52516BD117E2C5C400BC9693 /* CBSpineSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSpineSlot.h; sourceTree = "<group>"; };
 		52516BD217E2C5C400BC9693 /* CBSpineSlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSpineSlot.m; sourceTree = "<group>"; };
-		5271590317E0E7F400A942BE /* spine.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spine.atlas; sourceTree = "<group>"; };
+		528A3C1C17EDDA7E00B1C157 /* IntroScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroScene.h; sourceTree = "<group>"; };
+		528A3C1D17EDDA7E00B1C157 /* IntroScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroScene.m; sourceTree = "<group>"; };
+		528A3C1F17EDDBEA00B1C157 /* CreditsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsScene.h; sourceTree = "<group>"; };
+		528A3C2017EDDBEA00B1C157 /* CreditsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsScene.m; sourceTree = "<group>"; };
+		528A3C2217EDDC0000B1C157 /* SettingsScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsScene.h; sourceTree = "<group>"; };
+		528A3C2317EDDC0000B1C157 /* SettingsScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsScene.m; sourceTree = "<group>"; };
+		528A3C2C17EDE19D00B1C157 /* Water Temple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Water Temple.mp3"; sourceTree = "<group>"; };
+		528A3C2D17EDE19D00B1C157 /* obj_box001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obj_box001.png; sourceTree = "<group>"; };
+		528A3C3017EDE19D00B1C157 /* CBHeroCharacter.sm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CBHeroCharacter.sm; sourceTree = "<group>"; };
+		528A3C3317EDE19D00B1C157 /* complier.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = complier.sh; sourceTree = "<group>"; };
+		528A3C3617EDE19D00B1C157 /* goblins.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = goblins.atlas; sourceTree = "<group>"; };
+		528A3C3717EDE19D00B1C157 /* goblins.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goblins.json; sourceTree = "<group>"; };
+		528A3C3817EDE19D00B1C157 /* spine.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spine.atlas; sourceTree = "<group>"; };
+		528A3C3917EDE19D00B1C157 /* spineboy.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spineboy.atlas; sourceTree = "<group>"; };
+		528A3C3A17EDE19D00B1C157 /* spineboy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spineboy.json; sourceTree = "<group>"; };
+		528A3C3D17EDE19D00B1C157 /* Hero_Climb_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Climb_Loop.atlas; sourceTree = "<group>"; };
+		528A3C3E17EDE19D00B1C157 /* Hero_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Idle.atlas; sourceTree = "<group>"; };
+		528A3C3F17EDE19D00B1C157 /* Hero_Jump_Land_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Idle.atlas; sourceTree = "<group>"; };
+		528A3C4017EDE19D00B1C157 /* Hero_Jump_Land_Long.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Long.atlas; sourceTree = "<group>"; };
+		528A3C4117EDE19D00B1C157 /* Hero_Jump_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Loop.atlas; sourceTree = "<group>"; };
+		528A3C4217EDE19D00B1C157 /* Hero_Jump_Start.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Start.atlas; sourceTree = "<group>"; };
+		528A3C4317EDE19D00B1C157 /* Hero_Run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Run.atlas; sourceTree = "<group>"; };
+		528A3C4417EDE19D00B1C157 /* Jetpack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Jetpack.atlas; sourceTree = "<group>"; };
+		528A3C5D17EDE37700B1C157 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		528FCA6917DF49F700EFE6E8 /* behaviorTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = behaviorTemplates.lua; sourceTree = "<group>"; };
 		528FCA6A17DF49F700EFE6E8 /* objectTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = objectTemplates.lua; sourceTree = "<group>"; };
 		528FCA7017DF4A1400EFE6E8 /* Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Animation.h; sourceTree = "<group>"; };
@@ -218,28 +247,14 @@
 		528FCA9617DF4A1400EFE6E8 /* Skin.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Skin.c; sourceTree = "<group>"; };
 		528FCA9717DF4A1400EFE6E8 /* Slot.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Slot.c; sourceTree = "<group>"; };
 		528FCA9817DF4A1400EFE6E8 /* SlotData.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = SlotData.c; sourceTree = "<group>"; };
-		528FCAC617DF635000EFE6E8 /* goblins.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = goblins.atlas; sourceTree = "<group>"; };
-		528FCAC717DF635000EFE6E8 /* goblins.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goblins.json; sourceTree = "<group>"; };
-		528FCAC917DF635000EFE6E8 /* spineboy.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spineboy.atlas; sourceTree = "<group>"; };
-		528FCACA17DF635000EFE6E8 /* spineboy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spineboy.json; sourceTree = "<group>"; };
 		5297AD1917E2ED700086A938 /* CBSpineSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSpineSprite.h; sourceTree = "<group>"; };
 		5297AD1A17E2ED700086A938 /* CBSpineSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSpineSprite.m; sourceTree = "<group>"; };
 		5297AD1C17E2EF8F0086A938 /* CBSpineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBSpineManager.h; sourceTree = "<group>"; };
 		5297AD1D17E2EF8F0086A938 /* CBSpineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBSpineManager.m; sourceTree = "<group>"; };
-		52DD06B417DF435800189AFF /* DemoStage001.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DemoStage001.tmx; sourceTree = "<group>"; };
-		52DD06B517DF435800189AFF /* LevelTest01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LevelTest01.tmx; sourceTree = "<group>"; };
-		52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_Geometry_16x16_256.png; sourceTree = "<group>"; };
-		52DD06B717DF435800189AFF /* Tileset_GeometryB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_GeometryB.png; sourceTree = "<group>"; };
-		52DD06B917DF435800189AFF /* Water Temple.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Water Temple.mp3"; sourceTree = "<group>"; };
-		52DD06BA17DF435800189AFF /* obj_box001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = obj_box001.png; sourceTree = "<group>"; };
-		52DD06C617DF435800189AFF /* Hero_Climb_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Climb_Loop.atlas; sourceTree = "<group>"; };
-		52DD06C717DF435800189AFF /* Hero_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Idle.atlas; sourceTree = "<group>"; };
-		52DD06C817DF435800189AFF /* Hero_Jump_Land_Idle.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Idle.atlas; sourceTree = "<group>"; };
-		52DD06C917DF435800189AFF /* Hero_Jump_Land_Long.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Land_Long.atlas; sourceTree = "<group>"; };
-		52DD06CA17DF435800189AFF /* Hero_Jump_Loop.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Loop.atlas; sourceTree = "<group>"; };
-		52DD06CB17DF435800189AFF /* Hero_Jump_Start.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Jump_Start.atlas; sourceTree = "<group>"; };
-		52DD06CC17DF435800189AFF /* Hero_Run.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Hero_Run.atlas; sourceTree = "<group>"; };
-		52DD06CD17DF435800189AFF /* Jetpack.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Jetpack.atlas; sourceTree = "<group>"; };
+		52ABBCB617EE8E830099A919 /* DemoStage001.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DemoStage001.tmx; sourceTree = "<group>"; };
+		52ABBCB717EE8E830099A919 /* LevelTest01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = LevelTest01.tmx; sourceTree = "<group>"; };
+		52ABBCB817EE8E830099A919 /* Tileset_Geometry_16x16_256.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_Geometry_16x16_256.png; sourceTree = "<group>"; };
+		52ABBCB917EE8E830099A919 /* Tileset_GeometryB.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_GeometryB.png; sourceTree = "<group>"; };
 		52DD06D017DF435800189AFF /* CBBehaviors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBBehaviors.h; sourceTree = "<group>"; };
 		52DD06D117DF435800189AFF /* CBCharacterAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimator.h; sourceTree = "<group>"; };
 		52DD06D217DF435800189AFF /* CBCharacterAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBCharacterAnimator.m; sourceTree = "<group>"; };
@@ -262,10 +277,10 @@
 		52DD06FF17DF435800189AFF /* CBCharacterAnimatorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBCharacterAnimatorDelegate.h; sourceTree = "<group>"; };
 		52DD070117DF435800189AFF /* CBMyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMyScene.h; sourceTree = "<group>"; };
 		52DD070217DF435800189AFF /* CBMyScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBMyScene.m; sourceTree = "<group>"; };
-		52DD070317DF435800189AFF /* LevelsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelsMenu.h; sourceTree = "<group>"; };
-		52DD070417DF435800189AFF /* LevelsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelsMenu.m; sourceTree = "<group>"; };
-		52DD070517DF435800189AFF /* LevelTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelTest.h; sourceTree = "<group>"; };
-		52DD070617DF435800189AFF /* LevelTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelTest.m; sourceTree = "<group>"; };
+		52DD070317DF435800189AFF /* LevelSelectionScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelSelectionScene.h; sourceTree = "<group>"; };
+		52DD070417DF435800189AFF /* LevelSelectionScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelSelectionScene.m; sourceTree = "<group>"; };
+		52DD070517DF435800189AFF /* GameplayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameplayScene.h; sourceTree = "<group>"; };
+		52DD070617DF435800189AFF /* GameplayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameplayScene.m; sourceTree = "<group>"; };
 		52DD070717DF435800189AFF /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		52DD070817DF435800189AFF /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		52DD070A17DF435800189AFF /* CBGraphicsUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBGraphicsUtilities.h; sourceTree = "<group>"; };
@@ -399,6 +414,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		528A3C2517EDE19D00B1C157 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				52ABBCB517EE8E830099A919 /* Maps */,
+				528A3C2B17EDE19D00B1C157 /* Musics */,
+				528A3C2D17EDE19D00B1C157 /* obj_box001.png */,
+				528A3C2E17EDE19D00B1C157 /* SMs */,
+				528A3C3517EDE19D00B1C157 /* SpineData */,
+				528A3C3B17EDE19D00B1C157 /* Texture Atlases */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		528A3C2B17EDE19D00B1C157 /* Musics */ = {
+			isa = PBXGroup;
+			children = (
+				528A3C2C17EDE19D00B1C157 /* Water Temple.mp3 */,
+			);
+			path = Musics;
+			sourceTree = "<group>";
+		};
+		528A3C2E17EDE19D00B1C157 /* SMs */ = {
+			isa = PBXGroup;
+			children = (
+				528A3C3017EDE19D00B1C157 /* CBHeroCharacter.sm */,
+				528A3C3317EDE19D00B1C157 /* complier.sh */,
+			);
+			path = SMs;
+			sourceTree = "<group>";
+		};
+		528A3C3517EDE19D00B1C157 /* SpineData */ = {
+			isa = PBXGroup;
+			children = (
+				528A3C3617EDE19D00B1C157 /* goblins.atlas */,
+				528A3C3717EDE19D00B1C157 /* goblins.json */,
+				528A3C3817EDE19D00B1C157 /* spine.atlas */,
+				528A3C3917EDE19D00B1C157 /* spineboy.atlas */,
+				528A3C3A17EDE19D00B1C157 /* spineboy.json */,
+			);
+			path = SpineData;
+			sourceTree = "<group>";
+		};
+		528A3C3B17EDE19D00B1C157 /* Texture Atlases */ = {
+			isa = PBXGroup;
+			children = (
+				528A3C3C17EDE19D00B1C157 /* Hero */,
+				528A3C4417EDE19D00B1C157 /* Jetpack.atlas */,
+			);
+			path = "Texture Atlases";
+			sourceTree = "<group>";
+		};
+		528A3C3C17EDE19D00B1C157 /* Hero */ = {
+			isa = PBXGroup;
+			children = (
+				528A3C3D17EDE19D00B1C157 /* Hero_Climb_Loop.atlas */,
+				528A3C3E17EDE19D00B1C157 /* Hero_Idle.atlas */,
+				528A3C3F17EDE19D00B1C157 /* Hero_Jump_Land_Idle.atlas */,
+				528A3C4017EDE19D00B1C157 /* Hero_Jump_Land_Long.atlas */,
+				528A3C4117EDE19D00B1C157 /* Hero_Jump_Loop.atlas */,
+				528A3C4217EDE19D00B1C157 /* Hero_Jump_Start.atlas */,
+				528A3C4317EDE19D00B1C157 /* Hero_Run.atlas */,
+			);
+			path = Hero;
+			sourceTree = "<group>";
+		};
 		528FCA6D17DF4A1400EFE6E8 /* spine */ = {
 			isa = PBXGroup;
 			children = (
@@ -485,86 +565,15 @@
 			path = spine;
 			sourceTree = "<group>";
 		};
-		528FCAC517DF635000EFE6E8 /* SpineData */ = {
+		52ABBCB517EE8E830099A919 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
-				5271590317E0E7F400A942BE /* spine.atlas */,
-				528FCAC617DF635000EFE6E8 /* goblins.atlas */,
-				528FCAC717DF635000EFE6E8 /* goblins.json */,
-				528FCAC917DF635000EFE6E8 /* spineboy.atlas */,
-				528FCACA17DF635000EFE6E8 /* spineboy.json */,
+				52ABBCB617EE8E830099A919 /* DemoStage001.tmx */,
+				52ABBCB717EE8E830099A919 /* LevelTest01.tmx */,
+				52ABBCB817EE8E830099A919 /* Tileset_Geometry_16x16_256.png */,
+				52ABBCB917EE8E830099A919 /* Tileset_GeometryB.png */,
 			);
-			path = SpineData;
-			sourceTree = "<group>";
-		};
-		52DD06B217DF435800189AFF /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				528FCAC517DF635000EFE6E8 /* SpineData */,
-				52DD06B317DF435800189AFF /* Levels */,
-				52DD06B817DF435800189AFF /* Musics */,
-				52DD06BA17DF435800189AFF /* obj_box001.png */,
-				52DD06BB17DF435800189AFF /* Particles */,
-				52DD06C317DF435800189AFF /* Sounds */,
-				52DD06C417DF435800189AFF /* Texture Atlases */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		52DD06B317DF435800189AFF /* Levels */ = {
-			isa = PBXGroup;
-			children = (
-				52DD06B417DF435800189AFF /* DemoStage001.tmx */,
-				52DD06B517DF435800189AFF /* LevelTest01.tmx */,
-				52DD06B617DF435800189AFF /* Tileset_Geometry_16x16_256.png */,
-				52DD06B717DF435800189AFF /* Tileset_GeometryB.png */,
-			);
-			path = Levels;
-			sourceTree = "<group>";
-		};
-		52DD06B817DF435800189AFF /* Musics */ = {
-			isa = PBXGroup;
-			children = (
-				52DD06B917DF435800189AFF /* Water Temple.mp3 */,
-			);
-			path = Musics;
-			sourceTree = "<group>";
-		};
-		52DD06BB17DF435800189AFF /* Particles */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Particles;
-			sourceTree = "<group>";
-		};
-		52DD06C317DF435800189AFF /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Sounds;
-			sourceTree = "<group>";
-		};
-		52DD06C417DF435800189AFF /* Texture Atlases */ = {
-			isa = PBXGroup;
-			children = (
-				52DD06C517DF435800189AFF /* Hero */,
-				52DD06CD17DF435800189AFF /* Jetpack.atlas */,
-			);
-			path = "Texture Atlases";
-			sourceTree = "<group>";
-		};
-		52DD06C517DF435800189AFF /* Hero */ = {
-			isa = PBXGroup;
-			children = (
-				52DD06C617DF435800189AFF /* Hero_Climb_Loop.atlas */,
-				52DD06C717DF435800189AFF /* Hero_Idle.atlas */,
-				52DD06C817DF435800189AFF /* Hero_Jump_Land_Idle.atlas */,
-				52DD06C917DF435800189AFF /* Hero_Jump_Land_Long.atlas */,
-				52DD06CA17DF435800189AFF /* Hero_Jump_Loop.atlas */,
-				52DD06CB17DF435800189AFF /* Hero_Jump_Start.atlas */,
-				52DD06CC17DF435800189AFF /* Hero_Run.atlas */,
-			);
-			path = Hero;
+			path = Maps;
 			sourceTree = "<group>";
 		};
 		52DD06CE17DF435800189AFF /* GameClasses */ = {
@@ -657,12 +666,18 @@
 			children = (
 				52DD070117DF435800189AFF /* CBMyScene.h */,
 				52DD070217DF435800189AFF /* CBMyScene.m */,
-				52DD070317DF435800189AFF /* LevelsMenu.h */,
-				52DD070417DF435800189AFF /* LevelsMenu.m */,
-				52DD070517DF435800189AFF /* LevelTest.h */,
-				52DD070617DF435800189AFF /* LevelTest.m */,
+				52DD070317DF435800189AFF /* LevelSelectionScene.h */,
+				52DD070417DF435800189AFF /* LevelSelectionScene.m */,
+				52DD070517DF435800189AFF /* GameplayScene.h */,
+				52DD070617DF435800189AFF /* GameplayScene.m */,
 				52DD070717DF435800189AFF /* MainMenu.h */,
 				52DD070817DF435800189AFF /* MainMenu.m */,
+				528A3C1C17EDDA7E00B1C157 /* IntroScene.h */,
+				528A3C1D17EDDA7E00B1C157 /* IntroScene.m */,
+				528A3C1F17EDDBEA00B1C157 /* CreditsScene.h */,
+				528A3C2017EDDBEA00B1C157 /* CreditsScene.m */,
+				528A3C2217EDDC0000B1C157 /* SettingsScene.h */,
+				528A3C2317EDDC0000B1C157 /* SettingsScene.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -799,10 +814,12 @@
 		DCCC6198178C5574009EC802 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				528A3C2517EDE19D00B1C157 /* Assets */,
 				DCEF830C17CFDAAB00157387 /* ATTRIBUTIONS */,
 				DCEF830F17CFDBF300157387 /* die.wav */,
 				DC0C220917CFA1EF007FE7B8 /* Spaceship.png */,
 				DC18B09E178C7BC400641A6D /* Config */,
+				528A3C5D17EDE37700B1C157 /* GameData.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -810,8 +827,6 @@
 		DCD11E39178C522300FBC406 /* ClimbBoy */ = {
 			isa = PBXGroup;
 			children = (
-				52DD06B217DF435800189AFF /* Assets */,
-				52DD06CE17DF435800189AFF /* GameClasses */,
 				DCD7EC42178C573500BBAFB0 /* AppDelegate.h */,
 				DCD7EC43178C573500BBAFB0 /* AppDelegate.m */,
 				DCD7EC48178C573500BBAFB0 /* ViewController.h */,
@@ -820,6 +835,7 @@
 				DC0C220617CF9C97007FE7B8 /* MyScene.m */,
 				DCEF831617CFDE9500157387 /* RemoveSpaceshipBehavior.h */,
 				DCEF831717CFDE9500157387 /* RemoveSpaceshipBehavior.m */,
+				52DD06CE17DF435800189AFF /* GameClasses */,
 				DCCC6198178C5574009EC802 /* Resources */,
 				DC5BCD9617CF88E400A5CB01 /* KoboldKitResources */,
 				DCD11E3A178C522300FBC406 /* Supporting Files */,
@@ -1037,50 +1053,53 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC0C220A17CFA1EF007FE7B8 /* Spaceship.png in Resources */,
+				528A3C5117EDE19D00B1C157 /* goblins.json in Resources */,
+				52ABBCBD17EE8E830099A919 /* Tileset_GeometryB.png in Resources */,
 				DC5BCDB917CF88E500A5CB01 /* Default@2x.png in Resources */,
+				528A3C5717EDE19D00B1C157 /* Hero_Jump_Land_Idle.atlas in Resources */,
+				528A3C5217EDE19D00B1C157 /* spine.atlas in Resources */,
 				DCEF82D017CFD35B00157387 /* Icon-72@2x.png in Resources */,
+				528A3C5817EDE19D00B1C157 /* Hero_Jump_Land_Long.atlas in Resources */,
 				DC18B128178C7EA000641A6D /* Main_iPad.storyboard in Resources */,
 				528FCA6B17DF49F700EFE6E8 /* behaviorTemplates.lua in Resources */,
+				528A3C5417EDE19D00B1C157 /* spineboy.json in Resources */,
 				DC5BCDB517CF88E500A5CB01 /* Default-Landscape~ipad.png in Resources */,
-				528FCACD17DF635000EFE6E8 /* goblins.json in Resources */,
+				528A3C5E17EDE37700B1C157 /* GameData.plist in Resources */,
 				528FCA6C17DF49F700EFE6E8 /* objectTemplates.lua in Resources */,
+				528A3C5317EDE19D00B1C157 /* spineboy.atlas in Resources */,
 				DC5BCDAA17CF88E500A5CB01 /* Icon~ipad.png in Resources */,
-				52DD071117DF435800189AFF /* obj_box001.png in Resources */,
 				DC5BCDB717CF88E500A5CB01 /* Default-Portrait~ipad.png in Resources */,
-				5271590417E0E7F400A942BE /* spine.atlas in Resources */,
+				52ABBCBB17EE8E830099A919 /* LevelTest01.tmx in Resources */,
+				528A3C5017EDE19D00B1C157 /* goblins.atlas in Resources */,
+				528A3C5517EDE19D00B1C157 /* Hero_Climb_Loop.atlas in Resources */,
+				528A3C5B17EDE19D00B1C157 /* Hero_Run.atlas in Resources */,
 				DC18B0D6178C7BC400641A6D /* devconfig.lua in Resources */,
+				528A3C5C17EDE19D00B1C157 /* Jetpack.atlas in Resources */,
 				DC5BCDB217CF88E500A5CB01 /* iTunesArtwork in Resources */,
+				52ABBCBC17EE8E830099A919 /* Tileset_Geometry_16x16_256.png in Resources */,
 				DCEF82D717CFD4AF00157387 /* Icon.png in Resources */,
+				528A3C4E17EDE19D00B1C157 /* complier.sh in Resources */,
 				DC5BCDB317CF88E500A5CB01 /* iTunesArtwork@2x in Resources */,
-				52DD071817DF435800189AFF /* Hero_Idle.atlas in Resources */,
-				52DD070C17DF435800189AFF /* DemoStage001.tmx in Resources */,
-				52DD071717DF435800189AFF /* Hero_Climb_Loop.atlas in Resources */,
 				DCEF82D617CFD4AC00157387 /* Icon-Small-50@2x.png in Resources */,
-				52DD071D17DF435800189AFF /* Hero_Run.atlas in Resources */,
 				DCEF830D17CFDAAB00157387 /* ATTRIBUTIONS in Resources */,
+				52ABBCBA17EE8E830099A919 /* DemoStage001.tmx in Resources */,
 				DCEF831017CFDBF300157387 /* die.wav in Resources */,
+				528A3C5917EDE19D00B1C157 /* Hero_Jump_Loop.atlas in Resources */,
 				DCEF82D117CFD35B00157387 /* Icon-Small.png in Resources */,
 				DC5BCDB417CF88E500A5CB01 /* Default-568h@2x.png in Resources */,
 				DC5BCDAF17CF88E500A5CB01 /* Icon@2x~ipad.png in Resources */,
-				52DD071A17DF435800189AFF /* Hero_Jump_Land_Long.atlas in Resources */,
-				52DD071B17DF435800189AFF /* Hero_Jump_Loop.atlas in Resources */,
 				DCEF82D217CFD35B00157387 /* Icon-Small@2x.png in Resources */,
-				528FCAD017DF635000EFE6E8 /* spineboy.json in Resources */,
-				52DD071E17DF435800189AFF /* Jetpack.atlas in Resources */,
-				52DD070E17DF435800189AFF /* Tileset_Geometry_16x16_256.png in Resources */,
+				528A3C4C17EDE19D00B1C157 /* CBHeroCharacter.sm in Resources */,
+				528A3C4A17EDE19D00B1C157 /* obj_box001.png in Resources */,
 				DC18B0D4178C7BC400641A6D /* config.lua in Resources */,
+				528A3C4917EDE19D00B1C157 /* Water Temple.mp3 in Resources */,
 				DCEF82D517CFD4AC00157387 /* Icon-Small-50.png in Resources */,
+				528A3C5617EDE19D00B1C157 /* Hero_Idle.atlas in Resources */,
 				DC5BCDB017CF88E500A5CB01 /* Icon@2x.png in Resources */,
+				528A3C5A17EDE19D00B1C157 /* Hero_Jump_Start.atlas in Resources */,
 				DC5BCDB817CF88E500A5CB01 /* Default-Portrait@2x~ipad.png in Resources */,
 				DCEF82CF17CFD35B00157387 /* Icon-72.png in Resources */,
-				528FCACC17DF635000EFE6E8 /* goblins.atlas in Resources */,
 				DC5BCDB617CF88E500A5CB01 /* Default-Landscape@2x~ipad.png in Resources */,
-				52DD071917DF435800189AFF /* Hero_Jump_Land_Idle.atlas in Resources */,
-				52DD070D17DF435800189AFF /* LevelTest01.tmx in Resources */,
-				52DD070F17DF435800189AFF /* Tileset_GeometryB.png in Resources */,
-				528FCACF17DF635000EFE6E8 /* spineboy.atlas in Resources */,
-				52DD071017DF435800189AFF /* Water Temple.mp3 in Resources */,
-				52DD071C17DF435800189AFF /* Hero_Jump_Start.atlas in Resources */,
 				DC18B129178C7EA000641A6D /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1117,7 +1136,7 @@
 				528FCA9917DF4A1400EFE6E8 /* spine-spirte-kit.m in Sources */,
 				5297AD1B17E2ED700086A938 /* CBSpineSprite.m in Sources */,
 				52DD072217DF435800189AFF /* SKSpriteNode+CBExtension.m in Sources */,
-				52DD073217DF435800189AFF /* LevelsMenu.m in Sources */,
+				52DD073217DF435800189AFF /* LevelSelectionScene.m in Sources */,
 				528FCA9A17DF4A1400EFE6E8 /* Animation.c in Sources */,
 				528FCAA617DF4A1400EFE6E8 /* Skeleton.c in Sources */,
 				52516BD017E2BCD200BC9693 /* CBSpineAttachment.m in Sources */,
@@ -1133,18 +1152,21 @@
 				528FCAAA17DF4A1400EFE6E8 /* Slot.c in Sources */,
 				528FCA9B17DF4A1400EFE6E8 /* AnimationState.c in Sources */,
 				52DD073517DF435800189AFF /* CBGraphicsUtilities.m in Sources */,
-				52DD073317DF435800189AFF /* LevelTest.m in Sources */,
+				52DD073317DF435800189AFF /* GameplayScene.m in Sources */,
 				52DD076617DF436700189AFF /* statemap.m in Sources */,
 				528FCA9E17DF4A1400EFE6E8 /* AtlasAttachmentLoader.c in Sources */,
 				52DD072E17DF435800189AFF /* CBHeroCharacter.m in Sources */,
+				528A3C2117EDDBEA00B1C157 /* CreditsScene.m in Sources */,
 				52516BD317E2C5C400BC9693 /* CBSpineSlot.m in Sources */,
 				DCD7A28D178C7526004A0467 /* main.m in Sources */,
+				528A3C2417EDDC0000B1C157 /* SettingsScene.m in Sources */,
 				528FCAA117DF4A1400EFE6E8 /* Bone.c in Sources */,
 				52DD073017DF435800189AFF /* CBHeroCharacter_sm.m in Sources */,
 				528FCA9D17DF4A1400EFE6E8 /* Atlas.c in Sources */,
 				528FCAA417DF4A1400EFE6E8 /* Json.c in Sources */,
 				52DD072117DF435800189AFF /* SKNode+CBExtension.m in Sources */,
 				5297AD1E17E2EF8F0086A938 /* CBSpineManager.m in Sources */,
+				528A3C1E17EDDA7E00B1C157 /* IntroScene.m in Sources */,
 				528FCA9C17DF4A1400EFE6E8 /* AnimationStateData.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
