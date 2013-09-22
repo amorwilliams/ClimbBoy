@@ -34,9 +34,9 @@ local config =
 	shouldCenterStats = NO,
 
 	-- additional Kobold Kit labels
-	showsPhysicsShapes = YES,
+	showsPhysicsShapes = NO,
 	showsNodeFrames = NO,
-	showsNodeAnchorPoints = YES,
+	showsNodeAnchorPoints = NO,
 }
 
 return config

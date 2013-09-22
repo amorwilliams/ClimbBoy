@@ -38,7 +38,7 @@
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
     
-    [self addDebugNode];
+//    [self addDebugNode];
     
     _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
     [self addChild:_tilemapNode];

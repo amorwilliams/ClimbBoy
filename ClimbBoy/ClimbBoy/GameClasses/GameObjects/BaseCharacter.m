@@ -60,9 +60,6 @@
     [self.kkScene addPhysicsContactEventsObserver:self];
     CharacterSpriteFlipBehavior *flipBehavior = [CharacterSpriteFlipBehavior SpriteFlipWithTarget:self.characterSprite];
     [self addBehavior:flipBehavior withKey:@"flip"];
-    
-    SKSpriteNode *bound = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1 green:0 blue:0 alpha:0.3] size:_boundingBox];
-    [self addChild:bound];
 }
 
 
@@ -327,9 +324,9 @@
         }];
         
         //test left side
-        rayEnd = CGPointMake(rayStart.x - (_boundingBox.width / 2.0 + 5), rayStart.y);
-        [Debug drawLineStart:rayStart end:rayEnd];
-        [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
+        CGPoint rayEndLeft = CGPointMake(rayStart.x - (_boundingBox.width / 2.0 + 5), rayStart.y);
+        [Debug drawLineStart:rayStart end:rayEndLeft];
+        [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEndLeft usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
             if (body.contactTestBitMask <= 1){
                 if (!self.isTouchSide) {
                     [self onTouchSide:kCBCharacterTouchSideLeft];

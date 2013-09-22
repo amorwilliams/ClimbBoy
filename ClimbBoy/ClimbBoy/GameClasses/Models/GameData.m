@@ -43,4 +43,38 @@ DEFINE_SINGLETON_FOR_CLASS(GameData)
     self.levels = [NSMutableArray arrayWithArray:[temp objectForKey:@"Levels"]];
 }
 
+#pragma mark !! Update methods below whenever class layout changes !!
+#pragma mark NSCoding
+
+static NSString* const ArchiveKeyForLevel = @"level";
+static NSString* const ArchiveKeyForSettings = @"settings";
+
+-(id) initWithCoder:(NSCoder*)decoder
+{
+	self = [super init];
+	if (self)
+	{
+		_levels = [decoder decodeObjectForKey:ArchiveKeyForLevel];
+		_settings = [decoder decodeObjectForKey:ArchiveKeyForSettings];
+	}
+	return self;
+}
+
+-(void) encodeWithCoder:(NSCoder*)encoder
+{
+	[encoder encodeObject:_levels forKey:ArchiveKeyForLevel];
+	[encoder encodeObject:_settings forKey:ArchiveKeyForSettings];
+}
+
+#pragma mark NSCopying
+
+- (id)copyWithZone:(NSZone *)zone {
+    GameData* copy = [[[self class] allocWithZone:zone] init];
+	copy->_levels = _levels;
+	copy->_settings = _settings;
+	return copy;
+}
+
+
+
 @end

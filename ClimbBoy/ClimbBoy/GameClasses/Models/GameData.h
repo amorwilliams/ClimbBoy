@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CBMacros.h"
 
-@interface GameData : NSObject
+@interface GameData : NSObject <NSCopying, NSCoding>
 {
     
 }
