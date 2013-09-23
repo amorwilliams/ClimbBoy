@@ -1,5 +1,5 @@
 //
-//  MainMenu.h
+//  LevelsMenu.h
 //  ClimbBoy
 //
 //  Created by Robin on 13-9-2.
@@ -8,6 +8,9 @@
 
 #import "KKScene.h"
 
-@interface MainMenu : KKScene
+@interface MapScene : KKScene
+{
+    
+}
 
 @end

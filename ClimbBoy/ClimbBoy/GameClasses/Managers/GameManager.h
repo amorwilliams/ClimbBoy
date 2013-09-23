@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "CBMacros.h"
 
-@interface GameData : NSObject <NSCopying, NSCoding>
+@interface GameManager : NSObject <NSCopying, NSCoding>
 {
     
 }
-DEFINE_SINGLETON_FOR_HEADER(GameData)
+DEFINE_SINGLETON_FOR_HEADER(GameManager)
 
 @property (nonatomic) NSMutableArray *levels;
 @property (nonatomic) NSMutableDictionary *settings;

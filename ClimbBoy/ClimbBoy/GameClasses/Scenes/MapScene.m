@@ -6,18 +6,18 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import "LevelSelectionScene.h"
+#import "MapScene.h"
 #import "CBMyScene.h"
 #import "GameplayScene.h"
 #import "MyScene.h"
-#import "GameData.h"
+#import "GameManager.h"
 
 static const NSInteger LEVEL_BOX_SIZE = 48;
 static const NSInteger COLUMN_NUMBER = 6;
 static const NSInteger MARGIN_BORDER_HORIZONTAL = 100;
 static const NSInteger MARGIN_BORDER_TOP = 100;
 
-@implementation LevelSelectionScene
+@implementation MapScene
 
 - (instancetype)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
@@ -61,7 +61,7 @@ static const NSInteger MARGIN_BORDER_TOP = 100;
     boxSpacing += LEVEL_BOX_SIZE;
     float startPosY = self.frame.size.height - MARGIN_BORDER_TOP;
     
-    NSArray *levels = [GameData sharedGameData].levels;
+    NSArray *levels = [GameManager sharedGameManager].levels;
 
     for (int i = 0; i < levels.count; i++)
     {

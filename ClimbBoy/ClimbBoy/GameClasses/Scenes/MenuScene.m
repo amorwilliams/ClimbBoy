@@ -6,20 +6,20 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import "MainMenu.h"
-#import "LevelSelectionScene.h"
+#import "MenuScene.h"
+#import "MapScene.h"
 #import "CBMacros.h"
 
 static const NSInteger BUTTON_SPACING_VERTICAL = 40;
 static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
 
-@interface MainMenu ()
+@interface MenuScene ()
 @property (atomic) SKLabelNode *startGameButton;
 @property (atomic) SKLabelNode *optionButton;
 @property (atomic) SKLabelNode *creditsButton;
 @end
 
-@implementation MainMenu
+@implementation MenuScene
 
 - (instancetype)initWithSize:(CGSize)size {
     self = [super initWithSize:size];
@@ -131,7 +131,7 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
     NSLog(@"Start button");
     [self removeButtons];
     [self runAction:[SKAction waitForDuration:0.7] completion:^{
-        LevelSelectionScene *levels = [LevelSelectionScene sceneWithSize:self.size];
+        MapScene *levels = [MapScene sceneWithSize:self.size];
         [self.kkView pushScene:levels transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
     }];
 }

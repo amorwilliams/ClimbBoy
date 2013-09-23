@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import "GameData.h"
+#import "GameManager.h"
 
-@implementation GameData
+@implementation GameManager
 
-DEFINE_SINGLETON_FOR_CLASS(GameData)
+DEFINE_SINGLETON_FOR_CLASS(GameManager)
 
 - (id)init
 {
@@ -29,7 +29,7 @@ DEFINE_SINGLETON_FOR_CLASS(GameData)
                                                               NSUserDomainMask, YES) objectAtIndex:0];
     plistPath = [rootPath stringByAppendingPathComponent:@"GameData.plist"];
     if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
+        plistPath = [[NSBundle mainBundle] pathForResource:@"GameManager" ofType:@"plist"];
     }
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
     NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
@@ -69,7 +69,7 @@ static NSString* const ArchiveKeyForSettings = @"settings";
 #pragma mark NSCopying
 
 - (id)copyWithZone:(NSZone *)zone {
-    GameData* copy = [[[self class] allocWithZone:zone] init];
+    GameManager* copy = [[[self class] allocWithZone:zone] init];
 	copy->_levels = _levels;
 	copy->_settings = _settings;
 	return copy;
