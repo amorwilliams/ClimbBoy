@@ -10,9 +10,11 @@
 
 @interface GameplayScene : KKScene
 {
-    
+    NSString *_tmxFile;
+    KKSpriteNode *_curtainSprite;
 }
++ (instancetype) sceneWithSize:(CGSize)size tmxFile:(NSString *)tmx;
 
-@property (atomic, copy) NSString* tmxFile;
+- (instancetype) initWithSize:(CGSize)size tmxFile:(NSString *)tmx;
 
 @end

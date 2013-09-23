@@ -11,10 +11,6 @@
 		52D511AB17F06C6400362403 /* CharacterSpriteFlipBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5114F17F06C6400362403 /* CharacterSpriteFlipBehavior.m */; };
 		52D511AC17F06C6400362403 /* SKNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5115417F06C6400362403 /* SKNode+CBExtension.m */; };
 		52D511AD17F06C6400362403 /* SKSpriteNode+CBExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5115617F06C6400362403 /* SKSpriteNode+CBExtension.m */; };
-		52D511AE17F06C6400362403 /* BaseCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5115A17F06C6400362403 /* BaseCharacter.m */; };
-		52D511AF17F06C6400362403 /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5115D17F06C6400362403 /* CBHeroCharacter_sm.m */; };
-		52D511B017F06C6400362403 /* HeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5115F17F06C6400362403 /* HeroCharacter.m */; };
-		52D511B117F06C6400362403 /* HeroRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5116117F06C6400362403 /* HeroRobot.m */; };
 		52D511B217F06C6400362403 /* GameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5116417F06C6400362403 /* GameManager.m */; };
 		52D511B317F06C6400362403 /* CBMyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5116917F06C6400362403 /* CBMyScene.m */; };
 		52D511B417F06C6400362403 /* CreditsScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5116B17F06C6400362403 /* CreditsScene.m */; };
@@ -93,6 +89,11 @@
 		52D5126A17F06CEF00362403 /* KKProVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5125717F06CEF00362403 /* KKProVersion.m */; };
 		52D5126B17F06CEF00362403 /* KKContactNotificationNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5125C17F06CEF00362403 /* KKContactNotificationNode.m */; };
 		52D5126C17F06CEF00362403 /* KKDownloadProjectFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5125F17F06CEF00362403 /* KKDownloadProjectFiles.m */; };
+		52D5126F17F06F6300362403 /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5126E17F06F6300362403 /* LoadingScene.m */; };
+		52D5127A17F0979A00362403 /* BaseCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127217F0979A00362403 /* BaseCharacter.m */; };
+		52D5127B17F0979A00362403 /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127517F0979A00362403 /* CBHeroCharacter_sm.m */; };
+		52D5127C17F0979A00362403 /* HeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127717F0979A00362403 /* HeroCharacter.m */; };
+		52D5127D17F0979A00362403 /* HeroRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127917F0979A00362403 /* HeroRobot.m */; };
 		DC042A83178C5A06009FDBF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */; };
 		DC042A84178C5A12009FDBF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC95BA771786DF8600E31DA6 /* SystemConfiguration.framework */; };
 		DC09DB8E178C84C6000E0B61 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC09DB8D178C84C6000E0B61 /* MainMenu.xib */; };
@@ -198,14 +199,6 @@
 		52D5115517F06C6400362403 /* SKSpriteNode+CBExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKSpriteNode+CBExtension.h"; sourceTree = "<group>"; };
 		52D5115617F06C6400362403 /* SKSpriteNode+CBExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKSpriteNode+CBExtension.m"; sourceTree = "<group>"; };
 		52D5115717F06C6400362403 /* CBMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBMacros.h; sourceTree = "<group>"; };
-		52D5115917F06C6400362403 /* BaseCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCharacter.h; sourceTree = "<group>"; };
-		52D5115A17F06C6400362403 /* BaseCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCharacter.m; sourceTree = "<group>"; };
-		52D5115C17F06C6400362403 /* CBHeroCharacter_sm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter_sm.h; sourceTree = "<group>"; };
-		52D5115D17F06C6400362403 /* CBHeroCharacter_sm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter_sm.m; sourceTree = "<group>"; };
-		52D5115E17F06C6400362403 /* HeroCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroCharacter.h; sourceTree = "<group>"; };
-		52D5115F17F06C6400362403 /* HeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroCharacter.m; sourceTree = "<group>"; };
-		52D5116017F06C6400362403 /* HeroRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroRobot.h; sourceTree = "<group>"; };
-		52D5116117F06C6400362403 /* HeroRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroRobot.m; sourceTree = "<group>"; };
 		52D5116317F06C6400362403 /* GameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameManager.h; sourceTree = "<group>"; };
 		52D5116417F06C6400362403 /* GameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameManager.m; sourceTree = "<group>"; };
 		52D5116617F06C6400362403 /* CharacterAnimatorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterAnimatorDelegate.h; sourceTree = "<group>"; };
@@ -340,6 +333,16 @@
 		52D5125C17F06CEF00362403 /* KKContactNotificationNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKContactNotificationNode.m; sourceTree = "<group>"; };
 		52D5125E17F06CEF00362403 /* KKDownloadProjectFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KKDownloadProjectFiles.h; sourceTree = "<group>"; };
 		52D5125F17F06CEF00362403 /* KKDownloadProjectFiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KKDownloadProjectFiles.m; sourceTree = "<group>"; };
+		52D5126D17F06F6300362403 /* LoadingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScene.h; sourceTree = "<group>"; };
+		52D5126E17F06F6300362403 /* LoadingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScene.m; sourceTree = "<group>"; };
+		52D5127117F0979A00362403 /* BaseCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCharacter.h; sourceTree = "<group>"; };
+		52D5127217F0979A00362403 /* BaseCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCharacter.m; sourceTree = "<group>"; };
+		52D5127417F0979A00362403 /* CBHeroCharacter_sm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter_sm.h; sourceTree = "<group>"; };
+		52D5127517F0979A00362403 /* CBHeroCharacter_sm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter_sm.m; sourceTree = "<group>"; };
+		52D5127617F0979A00362403 /* HeroCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroCharacter.h; sourceTree = "<group>"; };
+		52D5127717F0979A00362403 /* HeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroCharacter.m; sourceTree = "<group>"; };
+		52D5127817F0979A00362403 /* HeroRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroRobot.h; sourceTree = "<group>"; };
+		52D5127917F0979A00362403 /* HeroRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroRobot.m; sourceTree = "<group>"; };
 		DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		DC09DB8D178C84C6000E0B61 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		DC0C220517CF9C97007FE7B8 /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
@@ -467,10 +470,10 @@
 		52D5114917F06C6400362403 /* GameClasses */ = {
 			isa = PBXGroup;
 			children = (
+				52D5127017F0979A00362403 /* Nodes */,
 				52D5114A17F06C6400362403 /* Behaviors */,
 				52D5115017F06C6400362403 /* Categories */,
 				52D5115717F06C6400362403 /* CBMacros.h */,
-				52D5115817F06C6400362403 /* GameObjects */,
 				52D5116217F06C6400362403 /* Managers */,
 				52D5116517F06C6400362403 /* Protocols */,
 				52D5116717F06C6400362403 /* Scenes */,
@@ -511,29 +514,6 @@
 			path = SpriteKit;
 			sourceTree = "<group>";
 		};
-		52D5115817F06C6400362403 /* GameObjects */ = {
-			isa = PBXGroup;
-			children = (
-				52D5115917F06C6400362403 /* BaseCharacter.h */,
-				52D5115A17F06C6400362403 /* BaseCharacter.m */,
-				52D5115B17F06C6400362403 /* FSMs */,
-				52D5115E17F06C6400362403 /* HeroCharacter.h */,
-				52D5115F17F06C6400362403 /* HeroCharacter.m */,
-				52D5116017F06C6400362403 /* HeroRobot.h */,
-				52D5116117F06C6400362403 /* HeroRobot.m */,
-			);
-			path = GameObjects;
-			sourceTree = "<group>";
-		};
-		52D5115B17F06C6400362403 /* FSMs */ = {
-			isa = PBXGroup;
-			children = (
-				52D5115C17F06C6400362403 /* CBHeroCharacter_sm.h */,
-				52D5115D17F06C6400362403 /* CBHeroCharacter_sm.m */,
-			);
-			path = FSMs;
-			sourceTree = "<group>";
-		};
 		52D5116217F06C6400362403 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +548,8 @@
 				52D5117317F06C6400362403 /* MenuScene.m */,
 				52D5117417F06C6400362403 /* SettingsScene.h */,
 				52D5117517F06C6400362403 /* SettingsScene.m */,
+				52D5126D17F06F6300362403 /* LoadingScene.h */,
+				52D5126E17F06F6300362403 /* LoadingScene.m */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -942,6 +924,37 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
+		52D5127017F0979A00362403 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				52D5127E17F097A300362403 /* CharacterNodes */,
+				52D5127317F0979A00362403 /* FSMs */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		52D5127317F0979A00362403 /* FSMs */ = {
+			isa = PBXGroup;
+			children = (
+				52D5127417F0979A00362403 /* CBHeroCharacter_sm.h */,
+				52D5127517F0979A00362403 /* CBHeroCharacter_sm.m */,
+			);
+			path = FSMs;
+			sourceTree = "<group>";
+		};
+		52D5127E17F097A300362403 /* CharacterNodes */ = {
+			isa = PBXGroup;
+			children = (
+				52D5127117F0979A00362403 /* BaseCharacter.h */,
+				52D5127217F0979A00362403 /* BaseCharacter.m */,
+				52D5127617F0979A00362403 /* HeroCharacter.h */,
+				52D5127717F0979A00362403 /* HeroCharacter.m */,
+				52D5127817F0979A00362403 /* HeroRobot.h */,
+				52D5127917F0979A00362403 /* HeroRobot.m */,
+			);
+			name = CharacterNodes;
+			sourceTree = "<group>";
+		};
 		DC0C221017CFAA4C007FE7B8 /* Mac */ = {
 			isa = PBXGroup;
 			children = (
@@ -1308,19 +1321,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				52D5121C17F06C8400362403 /* CBSpineManager.m in Sources */,
+				52D5127B17F0979A00362403 /* CBHeroCharacter_sm.m in Sources */,
 				52D511B317F06C6400362403 /* CBMyScene.m in Sources */,
 				52D5122017F06C8400362403 /* SKSkeletonAnimation.m in Sources */,
 				52D5123317F06C8400362403 /* SlotData.c in Sources */,
 				52D511B817F06C6400362403 /* MenuScene.m in Sources */,
-				52D511AE17F06C6400362403 /* BaseCharacter.m in Sources */,
 				52D5122117F06C8400362403 /* spine-spirte-kit.m in Sources */,
 				52D5126217F06CEF00362403 /* KKNotifyOnItemCountBehavior.m in Sources */,
 				52D511AC17F06C6400362403 /* SKNode+CBExtension.m in Sources */,
 				DCD7A289178C7526004A0467 /* AppDelegate.m in Sources */,
 				52D5121D17F06C8400362403 /* CBSpineSlot.m in Sources */,
+				52D5127A17F0979A00362403 /* BaseCharacter.m in Sources */,
 				52D5121B17F06C8400362403 /* CBSpineAttachment.m in Sources */,
 				52D5121F17F06C8400362403 /* SKSkeleton.m in Sources */,
-				52D511AF17F06C6400362403 /* CBHeroCharacter_sm.m in Sources */,
 				52D5123017F06C8400362403 /* SkeletonJson.c in Sources */,
 				52D5122A17F06C8400362403 /* BoneData.c in Sources */,
 				52D5122B17F06C8400362403 /* extension.c in Sources */,
@@ -1340,13 +1353,12 @@
 				DC0C220717CF9C97007FE7B8 /* MyScene.m in Sources */,
 				52D511BB17F06C6400362403 /* Debug.m in Sources */,
 				DCEF831817CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,
+				52D5127C17F0979A00362403 /* HeroCharacter.m in Sources */,
 				52D5126A17F06CEF00362403 /* KKProVersion.m in Sources */,
-				52D511B117F06C6400362403 /* HeroRobot.m in Sources */,
 				52D5126B17F06CEF00362403 /* KKContactNotificationNode.m in Sources */,
 				52D5121E17F06C8400362403 /* CBSpineSprite.m in Sources */,
 				52D511AA17F06C6400362403 /* CharacterAnimatorBehavior.m in Sources */,
 				52D5126C17F06CEF00362403 /* KKDownloadProjectFiles.m in Sources */,
-				52D511B017F06C6400362403 /* HeroCharacter.m in Sources */,
 				52D5121A17F06C8400362403 /* statemap.m in Sources */,
 				52D5126517F06CEF00362403 /* KKControlPadBehavior.m in Sources */,
 				DCD7A28D178C7526004A0467 /* main.m in Sources */,
@@ -1365,7 +1377,9 @@
 				52D5122917F06C8400362403 /* Bone.c in Sources */,
 				52D5123117F06C8400362403 /* Skin.c in Sources */,
 				52D5122517F06C8400362403 /* Atlas.c in Sources */,
+				52D5127D17F0979A00362403 /* HeroRobot.m in Sources */,
 				52D511AD17F06C6400362403 /* SKSpriteNode+CBExtension.m in Sources */,
+				52D5126F17F06F6300362403 /* LoadingScene.m in Sources */,
 				52D5126017F06CEF00362403 /* KKEntityDynamicsBehavior.m in Sources */,
 				52D5122217F06C8400362403 /* Animation.c in Sources */,
 				52D5126617F06CEF00362403 /* KKTilemapNode+KoboldKitPro.m in Sources */,

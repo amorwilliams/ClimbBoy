@@ -11,6 +11,7 @@
 #import "GameplayScene.h"
 #import "MyScene.h"
 #import "GameManager.h"
+#import "LoadingScene.h"
 
 static const NSInteger LEVEL_BOX_SIZE = 48;
 static const NSInteger COLUMN_NUMBER = 6;
@@ -108,11 +109,10 @@ static const NSInteger MARGIN_BORDER_TOP = 100;
 - (void)didSelectLevel:(NSNotification *)notification
 {
     KKSpriteNode *levelBox = (KKSpriteNode *)notification.object;
-    NSString *levelName = [levelBox.userData objectForKey:@"Tilemap"];
-    NSLog(@"load level file name: %@", levelName);
+    NSDictionary *levelData = levelBox.userData;
+    int index = [levelBox.name intValue];
     
-    GameplayScene *level = [GameplayScene sceneWithSize:self.size];
-    level.tmxFile = levelName;
+    KKScene *level = [LoadingScene sceneWithWithSize:self.size level:levelData index:index];
     [self.kkView pushScene:level transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
 }
 

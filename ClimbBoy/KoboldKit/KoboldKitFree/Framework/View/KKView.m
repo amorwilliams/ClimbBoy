@@ -205,7 +205,7 @@ static BOOL _showsNodeAnchorPoints = NO;
 
 -(void) pushScene:(KKScene*)scene transition:(KKTransition*)transition
 {
-	[_sceneStack addObject:self.scene];
+	[_sceneStack addObject:scene];
 	
 	transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
 }
@@ -219,9 +219,9 @@ static BOOL _showsNodeAnchorPoints = NO;
 {
 	if (_sceneStack.count > 1)
 	{
-		KKScene* scene = [_sceneStack lastObject];
 		[_sceneStack removeLastObject];
-		
+        KKScene* scene = [_sceneStack lastObject];
+
 		transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
 	}
 }

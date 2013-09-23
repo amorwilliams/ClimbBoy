@@ -22,26 +22,41 @@
 
 @implementation GameplayScene
 
-- (instancetype)initWithSize:(CGSize)size {
++ (instancetype)sceneWithSize:(CGSize)size tmxFile:(NSString *)tmx {
+    return [[GameplayScene alloc] initWithSize:size tmxFile:tmx];
+}
+
+- (instancetype)initWithSize:(CGSize)size tmxFile:(NSString *)tmx {
     self = [super initWithSize:size];
     if (self) {
-//        self.backgroundColor = [UIColor blueColor];
         self.anchorPoint = CGPointMake(0.5f, 0.5f);
+        // hide screen in the first couple frames behind a "curtain" sprite since it takes a few frames for the scene to be fully set up
+		_curtainSprite = [KKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:self.size];
+		_curtainSprite.zPosition = 1000;
+		[self addChild:_curtainSprite];
 
         [HeroRobot loadSharedAssets];
+
+        _tmxFile = tmx;
+        _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
+        [self addChild:_tilemapNode];
         
-//        [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
+        //test loading scene
+        float a = 2423;
+        float b = 3432;
+        for (int i = 0; i < 300000000; i++) {
+            a /= b;
+        }
+
+        [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
+
     }
     return self;
 }
 
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
-    
 //    [self addDebugNode];
-    
-    _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
-    [self addChild:_tilemapNode];
     
     SKNode *mainLayerPhysics = [self.tilemapNode createPhysicsShapesWithTileLayerNode:self.tilemapNode.mainTileLayerNode];
     for (SKNode *node in mainLayerPhysics.children) {
@@ -73,6 +88,10 @@
     [_tilemapNode enableParallaxScrolling];
     
     [self addTitle];
+
+    // remove the curtain
+	[_curtainSprite runAction:[SKAction sequence:@[[SKAction waitForDuration:0.1], [SKAction fadeAlphaTo:0 duration:0.5], [SKAction removeFromParent]]]];
+	_curtainSprite = nil;
 }
 
 - (void)addDebugNode {
