@@ -1,19 +1,18 @@
 //
-//  ClimbBoy_iOS_Tests.m
-//  ClimbBoy-iOS Tests
+//  libKoboldKitExternal_a_Tests.m
+//  libKoboldKitExternal.a Tests
 //
-//  Created by Robin on 13-9-22.
-//  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
+//  Created by Steffen Itterheim on 20/09/13.
+//  Copyright (c) 2013 Steffen Itterheim. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
-#import "GameData.h"
 
-@interface ClimbBoy_iOS_Tests : XCTestCase
+@interface libKoboldKitExternal_a_Tests : XCTestCase
 
 @end
 
-@implementation ClimbBoy_iOS_Tests
+@implementation libKoboldKitExternal_a_Tests
 
 - (void)setUp
 {
@@ -29,8 +28,7 @@
 
 - (void)testExample
 {
-    GameData *data = [GameData sharedGameData];
-//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
 }
 
 @end

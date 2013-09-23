@@ -52,7 +52,7 @@ static BOOL _showsNodeAnchorPoints = NO;
 {
 	_sceneStack = [NSMutableArray array];
 	_model = [KKModel model];
-    
+
 	[KKLua setup];
 	[self reloadConfig];
 }
@@ -76,7 +76,7 @@ static BOOL _showsNodeAnchorPoints = NO;
 	[self loadConfig:@"devconfig.lua"];
 	[self loadConfig:@"objectTemplates.lua" inheritProperties:YES];
 	[self loadConfig:@"behaviorTemplates.lua"];
-    
+
 	BOOL disableAllDebugLabels = [_model boolForKeyPath:@"devconfig.disableAllDebugLabels"];
 	if (disableAllDebugLabels == NO)
 	{
@@ -194,7 +194,7 @@ static BOOL _showsNodeAnchorPoints = NO;
 		[_sceneStack removeAllObjects];
 		[_sceneStack addObject:scene];
 	}
-    
+
 	transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
 }
 

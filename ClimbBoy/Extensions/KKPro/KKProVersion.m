@@ -8,5 +8,5 @@
 
 NSString* koboldKitProVersion()
 {
-	return @"Kobold Kit™ Pro (not installed)";
+	return @"Kobold Kit™ Pro v7.0";
 }

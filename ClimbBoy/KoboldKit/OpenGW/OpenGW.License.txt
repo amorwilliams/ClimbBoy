@@ -1,4 +1,4 @@
-This Open Source Edition of KoboldKitPro is distributed under the MIT License
+This Open Source Edition of OpenGW is distributed under the MIT License
 
 Copyright (c) 2010-2013 Steffen Itterheim. All rights reserved.
 

@@ -5,7 +5,6 @@
  */
 
 
-/** This header includes all the most commonly needed headers and 
- typedefs SK classes that haven't been subclassed yet for forward compatibility. */
+/** This header includes all the most commonly needed headers within the framework. */
 
 #import "KKCommunityCategories.h"

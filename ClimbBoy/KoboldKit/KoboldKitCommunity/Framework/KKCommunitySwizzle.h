@@ -4,5 +4,10 @@
  * KoboldAid/licenses/KoboldKitFree.License.txt
  */
 
-#ifdef __OBJC__
-#endif
+#import <Foundation/Foundation.h>
+
+@interface KKCommunitySwizzle : NSObject
+
++(void) swizzleMethods;
+
+@end

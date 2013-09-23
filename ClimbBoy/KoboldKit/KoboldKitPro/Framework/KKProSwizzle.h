@@ -4,9 +4,10 @@
  * KoboldKit/KoboldKitPro/KoboldKitPro.License.txt
  */
 
-#import "KKProVersion.h"
+#import <Foundation/Foundation.h>
 
-NSString* koboldKitProVersion()
-{
-	return @"Kobold Kit™ Pro (not installed)";
-}
+@interface KKProSwizzle : NSObject
+
++(void) swizzleMethods;
+
+@end

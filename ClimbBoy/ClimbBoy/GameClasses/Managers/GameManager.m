@@ -29,7 +29,7 @@ DEFINE_SINGLETON_FOR_CLASS(GameManager)
                                                               NSUserDomainMask, YES) objectAtIndex:0];
     plistPath = [rootPath stringByAppendingPathComponent:@"GameData.plist"];
     if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
-        plistPath = [[NSBundle mainBundle] pathForResource:@"GameManager" ofType:@"plist"];
+        plistPath = [[NSBundle mainBundle] pathForResource:@"GameData" ofType:@"plist"];
     }
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
     NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
