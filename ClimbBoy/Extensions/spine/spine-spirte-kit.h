@@ -7,7 +7,6 @@
 //
 
 #import <spine/spine.h>
-#import "CBSpineManager.h"
 #include "CBSpineSprite.h"
 
 #ifdef __cplusplus

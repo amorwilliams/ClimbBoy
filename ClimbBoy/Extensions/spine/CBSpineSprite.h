@@ -31,11 +31,9 @@
 @property (retain, nonatomic, readonly) NSMutableArray* states;
 
 
-+ (id) skeletonWithName:(NSString *)name;
 + (id) skeletonWithFile:(NSString*)skeletonDataFile atlas:(Atlas*)atlas scale:(float)scale;
 + (id) skeletonWithFile:(NSString*)skeletonDataFile atlasFile:(NSString*)atlasFile scale:(float)scale;
 
-- (id) initWithName:(NSString *)name;
 - (id) initWithFile:(NSString*)skeletonDataFile atlas:(Atlas*)atlas scale:(float)scale;
 - (id) initWithFile:(NSString*)skeletonDataFile atlasFile:(NSString*)atlasFile scale:(float)scale;
 

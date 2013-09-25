@@ -13,9 +13,6 @@
 {
     RegionAttachment *_attachment;
 }
-//@property (nonatomic, readonly)NSString *name;
-//@property (nonatomic)SKColor *color;
-
 
 + (instancetype)attachmentWithTexture:(SKTexture *)texture slot:(Slot *)slot;
 

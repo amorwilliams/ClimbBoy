@@ -12,6 +12,7 @@
 #import "MyScene.h"
 #import "GameManager.h"
 #import "LoadingScene.h"
+#import "MenuScene.h"
 
 static const NSInteger LEVEL_BOX_SIZE = 48;
 static const NSInteger COLUMN_NUMBER = 6;
@@ -103,7 +104,10 @@ static const NSInteger MARGIN_BORDER_TOP = 100;
 
 - (void)backToMainButtonDidExecute:(NSNotification *)notification
 {
-    [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+//    [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+    
+    MenuScene *menu = [MenuScene sceneWithSize:self.frame.size];
+    [self.kkView presentScene:menu transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.2]];
 }
 
 - (void)didSelectLevel:(NSNotification *)notification

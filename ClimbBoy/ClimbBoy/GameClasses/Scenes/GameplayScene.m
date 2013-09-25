@@ -94,6 +94,11 @@
 	_curtainSprite = nil;
 }
 
+- (void)willMoveFromView:(SKView *)view {
+    [[OALSimpleAudio sharedInstance] stopBg];
+    [super willMoveFromView:view];
+}
+
 - (void)addDebugNode {
     Debug *debugNode = [Debug sharedDebug];
     [self addChild:debugNode];

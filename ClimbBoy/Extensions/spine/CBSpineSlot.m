@@ -47,6 +47,9 @@
             SKTexture *texture = [self createAttahcmentTexture:attachment];
             _attachmentNode = [CBSpineAttachment attachmentWithTexture:texture slot:slot];
             _attachmentNode.size = CGSizeMake(attachment->width, attachment->height);
+            self.xScale = attachment->scaleX;
+            self.yScale = attachment->scaleY;
+            self.zRotation = attachment->rotation;
             [self addChild:_attachmentNode];
         }
         

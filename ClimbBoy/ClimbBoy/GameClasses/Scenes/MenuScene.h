@@ -7,7 +7,13 @@
 //
 
 #import "KKScene.h"
+#import "spine-spirte-kit.h"
 
 @interface MenuScene : KKScene
-
+{
+    CBSpineSprite *_menuAnimationSprite;
+    KKSpriteNode *_startGameButton;
+    KKSpriteNode *_optionsButton;
+    KKSpriteNode *_creditsButton;
+}
 @end

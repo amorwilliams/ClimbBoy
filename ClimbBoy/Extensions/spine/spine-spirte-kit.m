@@ -9,7 +9,6 @@
 #import "spine-spirte-kit.h"
 #import <spine/spine.h>
 #import <spine/extension.h>
-#import "CBSpineManager.h"
 
 
 void _AtlasPage_createTexture (AtlasPage* self, const char* path) {
@@ -29,5 +28,4 @@ char* _Util_readFile (const char* path, int* length) {
     NSString *fileName = [@(path) stringByDeletingPathExtension];
     NSString *extension = [@(path) pathExtension];
 	return _readFile([[[NSBundle mainBundle] pathForResource:fileName ofType:extension] UTF8String], length);
-    return NULL;
 }

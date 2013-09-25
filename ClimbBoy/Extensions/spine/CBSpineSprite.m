@@ -7,13 +7,8 @@
 //
 
 #import "CBSpineSprite.h"
-#import "CBSpineManager.h"
 
 @implementation CBSpineSprite
-
-+ (id) skeletonWithName:(NSString *)name {
-    return [[CBSpineSprite alloc] initWithName:name];
-}
 
 + (id) skeletonWithFile:(NSString*)skeletonDataFile atlas:(Atlas*)atlas scale:(float)scale {
 	return [[CBSpineSprite alloc] initWithFile:skeletonDataFile atlas:atlas scale:scale];
@@ -23,26 +18,15 @@
 	return [[CBSpineSprite alloc] initWithFile:skeletonDataFile atlasFile:atlasFile scale:scale];
 }
 
-- (id) initWithName:(NSString *)name {
-    self = [super init];
-	if (self) {
-        SkeletonData *skeletonData = [[CBSpineManager sharedManager] getSkeletonDataByName:name];
-        NSAssert(skeletonData, @"Can not find skeleton data");
-        
-        [self initialize:skeletonData];
-    }
-    
-	return self;
-}
-
 - (id) initWithFile:(NSString*)skeletonDataFile atlas:(Atlas*)atlas scale:(float)scale {
 	self = [super init];
 	if (self) {
-        NSString *name = [skeletonDataFile stringByDeletingPathExtension];
-        SkeletonData *skeletonData = [[CBSpineManager sharedManager] getSkeletonDataByName:name];
-        if (skeletonDataFile) {
-            skeletonData = [[CBSpineManager sharedManager] LoadSpineFile:skeletonDataFile atlas:atlas scale:scale];
-        }
+        SkeletonJson* json = SkeletonJson_create(atlas);
+        json->scale = scale;
+        SkeletonData* skeletonData = SkeletonJson_readSkeletonDataFile(json, [skeletonDataFile UTF8String]);
+        NSAssert(skeletonData, ([NSString stringWithFormat:@"Error reading skeleton data file: %@\nError: %s", skeletonDataFile, json->error]));
+        SkeletonJson_dispose(json);
+        
         NSAssert(skeletonData, @"Can not find skeleton data");
 
         [self initialize:skeletonData];
@@ -54,11 +38,14 @@
 - (id) initWithFile:(NSString*)skeletonDataFile atlasFile:(NSString*)atlasFile scale:(float)scale {
 	self = [super init];
 	if (self) {
-        NSString *name = [skeletonDataFile stringByDeletingPathExtension];
-        SkeletonData *skeletonData = [[CBSpineManager sharedManager] getSkeletonDataByName:name];
-        if (skeletonDataFile) {
-            skeletonData = [[CBSpineManager sharedManager] LoadSpineFile:skeletonDataFile atlasFile:atlasFile scale:scale];
-        }
+        Atlas *atlas = Atlas_readAtlasFile([atlasFile UTF8String]);
+        NSAssert(atlas, ([NSString stringWithFormat:@"Error reading atlas file: %@", atlasFile]));
+        
+        SkeletonJson* json = SkeletonJson_create(atlas);
+        json->scale = scale;
+        SkeletonData* skeletonData = SkeletonJson_readSkeletonDataFile(json, [skeletonDataFile UTF8String]);
+        NSAssert(skeletonData, ([NSString stringWithFormat:@"Error reading skeleton data file: %@\nError: %s", skeletonDataFile, json->error]));
+        SkeletonJson_dispose(json);
         
         NSAssert(skeletonData, @"Can not find skeleton data");
         

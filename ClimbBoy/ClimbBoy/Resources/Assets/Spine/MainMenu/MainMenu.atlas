@@ -1,0 +1,40 @@
+
+MainMenu.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+MainMenu_Axe
+  rotate: false
+  xy: 2, 2
+  size: 266, 204
+  orig: 266, 204
+  offset: 0, 0
+  index: -1
+MainMenu_Button_Board
+  rotate: false
+  xy: 2, 415
+  size: 829, 185
+  orig: 829, 185
+  offset: 0, 0
+  index: -1
+MainMenu_Shield
+  rotate: false
+  xy: 525, 216
+  size: 192, 197
+  orig: 192, 197
+  offset: 0, 0
+  index: -1
+MainMenu_Tile
+  rotate: false
+  xy: 2, 208
+  size: 521, 205
+  orig: 521, 205
+  offset: 0, 0
+  index: -1
+MainMenu_Tile_Board
+  rotate: false
+  xy: 2, 602
+  size: 894, 394
+  orig: 894, 394
+  offset: 0, 0
+  index: -1

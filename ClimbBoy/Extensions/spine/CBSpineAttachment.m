@@ -32,19 +32,24 @@
 - (void)updataAttachment:(Slot *)slot{
     _attachment = (RegionAttachment *)slot->attachment;
     
+    //set position
     float vertices[8];
     RegionAttachment_computeVertices(_attachment, slot->skeleton->x, slot->skeleton->y, slot->bone, vertices);
     CGPoint pos = [self centerPointFromQuad:vertices];
     self.position = ccpSub(pos, self.parent.position);
     
     //set rotation
-    float amount = 0;
+    float amount = _attachment->rotation;
     Bone *bone = slot->bone;
     while (bone) {
         amount += bone->rotation;
         bone = bone->parent;
     }
     self.zRotation = KK_DEG2RAD(amount +  _attachment->rotation);
+    
+    //set scale
+    self.xScale = slot->bone->scaleX * _attachment->scaleX;
+    self.yScale = slot->bone->scaleY * _attachment->scaleY;
     
     //set color
     float r = slot->skeleton->r * slot->r;

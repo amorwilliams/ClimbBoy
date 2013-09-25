@@ -6,8 +6,7 @@
 
 #import <KoboldKit.h>
 #import "ViewController.h"
-#import "MyScene.h"
-#import "MenuScene.h"
+#import "IntroScene.h"
 
 @implementation ViewController
 
@@ -18,11 +17,8 @@
     
 
 	// create and present first scene
-//	MyScene* myScene = [MyScene sceneWithSize:self.view.bounds.size];
-//	[self.kkView presentScene:myScene];
-    
-    MenuScene* menu = [MenuScene sceneWithSize:self.view.bounds.size];
-	[self.kkView presentScene:menu];
+    IntroScene* scene = [IntroScene sceneWithSize:self.view.bounds.size];
+	[self.kkView presentScene:scene];
 }
 
 @end
