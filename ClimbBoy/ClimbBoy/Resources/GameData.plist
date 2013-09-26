@@ -12,6 +12,58 @@
 			<key>Tilemap</key>
 			<string>DemoStage001.tmx</string>
 		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level01.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>DemoStage001.tmx</string>
+		</dict>
 	</array>
 	<key>Settings</key>
 	<dict>

@@ -41,9 +41,9 @@
 
 - (void) didSimulatePhysics {
     float currentSpeedX = self.node.physicsBody.velocity.dx;
-    if (currentSpeedX > 10) {
+    if (currentSpeedX > 100) {
         _spriteNode.flipX = NO;
-    }else if (currentSpeedX < -10){
+    }else if (currentSpeedX < -100){
         _spriteNode.flipX = YES;
     }
 }

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="23" height="12" tilewidth="64" tileheight="64">
+ <properties>
+  <property name="physicsGravityY" value="-9.81"/>
+  <property name="physicsSimulationSpeed" value="1.0"/>
+  <property name="restrictScrollingToMapBoundary" value="YES"/>
+ </properties>
+ <tileset firstgid="1" name="Tileset_Geometry_16x16_256" tilewidth="64" tileheight="64">
+  <image source="Tileset_64x64.png" width="512" height="576"/>
+ </tileset>
+ <layer name="background" width="23" height="12">
+  <data encoding="base64" compression="zlib">
+   eJy1kjEOwCAIRVkdHBw8SFPtCXr/MzUkkv4QoDj0Jy82QvELEv2nExhq1ej9EfzLKg4NvmuQ50GrBjOhpkUNYlaOiGteCS9zIy6+79WnyHdb52fjom54OMieZzYuvju9s8MV0XvFyZO+R76zYE0t9P3l1cPrkWjnPWRzM+/Bm5vg3ecB/PEU2A==
+  </data>
+ </layer>
+ <layer name="foreground" width="23" height="12">
+  <data encoding="base64" compression="zlib">
+   eJy1ks0KwkAMhKOgh9qTerGtPdgqaKl3fyoo+P6v5CxuaAipbqkufITNJNOlSUFEFSgElZGTmhV1752+nzKgxjrzgJrNAO+ZZ23oETiAuKM/Ev26xnk/6P1/aqWtQAIWIDO+z3rqyZTuvJcdb9pTOxem7qF/8h56/uHNs/+l9wmcwcXHpKf3CIzBBEwNPVeRd0Ci95HfdKV2bo3P3UTdTkW3Y6nA3bfgqSgDckcVX5aAEa8=
+  </data>
+ </layer>
+ <layer name="mainlayer" width="23" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjALqAAAEUAAB
+  </data>
+ </layer>
+ <objectgroup color="#5858a4" draworder="topdown" name="collisions" width="23" height="12">
+  <object x="64" y="640" width="320" height="128"/>
+  <object x="0" y="320" width="64" height="448"/>
+  <object x="0" y="192" width="192" height="128"/>
+  <object x="384" y="256" width="384" height="128"/>
+  <object x="448" y="192" width="192" height="64"/>
+  <object x="512" y="64" width="64" height="128"/>
+  <object x="0" y="0" width="1408" height="64"/>
+  <object x="1408" y="0" width="64" height="512"/>
+  <object x="1152" y="512" width="320" height="64"/>
+  <object x="1280" y="448" width="64" height="64"/>
+  <object x="960" y="192" width="256" height="64"/>
+  <object x="896" y="256" width="384" height="128"/>
+  <object x="640" y="704" width="64" height="64"/>
+  <object x="960" y="704" width="64" height="64"/>
+  <object x="1216" y="576" width="64" height="192"/>
+  <object x="1344" y="576" width="64" height="192"/>
+  <object x="384" y="768" width="1088" height="64"/>
+  <object x="576" y="640" width="512" height="64"/>
+  <object x="704" y="640">
+   <polyline points="0,0 128,-64 256,0 0,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup draworder="topdown" name="game objects" width="23" height="12">
+  <object name="player" type="Player" x="192" y="576" width="32" height="45"/>
+ </objectgroup>
+ <layer name="objects" width="23" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAd4EDj65OpF90cSt1BKhCgUD8+IEFl80BhrI7FbHYcbGLlkc1HN5uQe0gF1A4TZKAApd2A2B0Je2BRS2y64afQTep45MQpNBtb+MPil1KzsQEAeaoDtQ==
+  </data>
+ </layer>
+</map>

@@ -11,6 +11,7 @@
 #import "CBMacros.h"
 #import "spine-spirte-kit.h"
 
+
 static const NSInteger BUTTON_SPACING_VERTICAL = 40;
 static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
 
@@ -127,7 +128,7 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
     }];
 }
 
-- (void)removeButtons {
+- (void)removeButtonsAnimation {
     SKAction *moveAction = [SKAction group:@[[SKAction moveToX:(CGRectGetMidX(self.frame) - BUTTON_FLY_HORIZONTAL_POSITION) duration:0.4],
                                              [SKAction fadeOutWithDuration:0.4]]];
     [_startGameButton runAction:[SKAction sequence:@[[SKAction waitForDuration:0.2],
@@ -142,7 +143,7 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
 
 - (void)startButtonDidExecute:(NSNotification *)notification {
     NSLog(@"Start button");
-    [self removeButtons];
+    [self removeButtonsAnimation];
     MapScene *mapScene = [MapScene sceneWithSize:self.size];
     [self runAction:[SKAction waitForDuration:1] completion:^{
         [self.kkView presentScene:mapScene transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.3]];

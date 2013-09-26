@@ -9,6 +9,7 @@
 #import "GameplayScene.h"
 #import "HeroRobot.h"
 #import "Debug.h"
+#import "MapScene.h"
 
 #define VIEW_SIZE_WIDHT 568
 #define VIEW_SIZE_HEIGHT 320
@@ -44,7 +45,7 @@
         //test loading scene
         float a = 2423;
         float b = 3432;
-        for (int i = 0; i < 300000000; i++) {
+        for (int i = 0; i < 30000000; i++) {
             a /= b;
         }
 
@@ -58,12 +59,15 @@
     [super didMoveToView:view];
 //    [self addDebugNode];
     
-    SKNode *mainLayerPhysics = [self.tilemapNode createPhysicsShapesWithTileLayerNode:self.tilemapNode.mainTileLayerNode];
-    for (SKNode *node in mainLayerPhysics.children) {
+//    SKNode *mainLayerPhysics = [self.tilemapNode createPhysicsShapesWithTileLayerNode:self.tilemapNode.mainTileLayerNode];
+//    for (SKNode *node in mainLayerPhysics.children) {
+//        node.physicsBody.restitution = 0;
+//    }
+    
+    SKNode *collisionsLayerPhysics = [_tilemapNode createPhysicsShapesWithObjectLayerNode:[_tilemapNode objectLayerNodeNamed:@"collisions"]];
+    for (SKNode *node in collisionsLayerPhysics.children) {
         node.physicsBody.restitution = 0;
     }
-    
-    [_tilemapNode createPhysicsShapesWithObjectLayerNode:[_tilemapNode objectLayerNodeNamed:@"extra-collision"]];
     
     KKTilemapProperties *mapProperties = self.tilemapNode.tilemap.properties;
     self.physicsWorld.gravity = CGVectorMake(0, [mapProperties numberForKey:@"physicsGravityY"].floatValue);
@@ -95,8 +99,9 @@
 }
 
 - (void)willMoveFromView:(SKView *)view {
-    [[OALSimpleAudio sharedInstance] stopBg];
+    _tilemapNode = nil;
     [super willMoveFromView:view];
+    [[OALSimpleAudio sharedInstance] stopBg];
 }
 
 - (void)addDebugNode {
@@ -137,7 +142,9 @@
 }
 
 - (void)backButtonDidExecute:(NSNotification *)notification {
-    [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+//    [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+    MapScene *mapScene = [MapScene sceneWithSize:self.size];
+    [self.kkView presentScene:mapScene transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.3]];
 }
 
 #pragma mark - Loop Update

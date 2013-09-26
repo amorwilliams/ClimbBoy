@@ -10,7 +10,12 @@
 
 @interface MapScene : KKScene
 {
+    KKSpriteNode *_mapBoard;
     
+    KKSpriteNode *_homeButton;
+    KKSpriteNode *_shopButton;
+    KKSpriteNode *_previousButton;
+    KKSpriteNode *_nextButton;
 }
 
 @end

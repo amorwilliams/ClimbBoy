@@ -95,6 +95,9 @@
 		52D5127B17F0979A00362403 /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127517F0979A00362403 /* CBHeroCharacter_sm.m */; };
 		52D5127C17F0979A00362403 /* HeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127717F0979A00362403 /* HeroCharacter.m */; };
 		52D5127D17F0979A00362403 /* HeroRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127917F0979A00362403 /* HeroRobot.m */; };
+		52FE6A4617F3D35800804E7A /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FE6A4517F3D35800804E7A /* Button.m */; };
+		52FE6A4A17F411DA00804E7A /* Level01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52FE6A4817F411DA00804E7A /* Level01.tmx */; };
+		52FE6A4E17F41A2D00804E7A /* Tileset_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FE6A4D17F41A2D00804E7A /* Tileset_64x64.png */; };
 		DC042A83178C5A06009FDBF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */; };
 		DC042A84178C5A12009FDBF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC95BA771786DF8600E31DA6 /* SystemConfiguration.framework */; };
 		DC09DB8E178C84C6000E0B61 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC09DB8D178C84C6000E0B61 /* MainMenu.xib */; };
@@ -248,7 +251,7 @@
 		52D5119E17F06C6400362403 /* behaviorTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = behaviorTemplates.lua; sourceTree = "<group>"; };
 		52D5119F17F06C6400362403 /* config.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = config.lua; sourceTree = "<group>"; };
 		52D511A017F06C6400362403 /* devconfig.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = devconfig.lua; sourceTree = "<group>"; };
-		52D511A117F06C6400362403 /* objectTemplates.lua */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = objectTemplates.lua; sourceTree = "<group>"; };
+		52D511A117F06C6400362403 /* objectTemplates.lua */ = {isa = PBXFileReference; explicitFileType = sourcecode.applescript; fileEncoding = 4; path = objectTemplates.lua; sourceTree = "<group>"; };
 		52D511A217F06C6400362403 /* GameData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GameData.plist; sourceTree = "<group>"; };
 		52D511A617F06C6400362403 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		52D511A717F06C6400362403 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
@@ -342,6 +345,10 @@
 		52D5127717F0979A00362403 /* HeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroCharacter.m; sourceTree = "<group>"; };
 		52D5127817F0979A00362403 /* HeroRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroRobot.h; sourceTree = "<group>"; };
 		52D5127917F0979A00362403 /* HeroRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroRobot.m; sourceTree = "<group>"; };
+		52FE6A4417F3D35800804E7A /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		52FE6A4517F3D35800804E7A /* Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Button.m; sourceTree = "<group>"; };
+		52FE6A4817F411DA00804E7A /* Level01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level01.tmx; sourceTree = "<group>"; };
+		52FE6A4D17F41A2D00804E7A /* Tileset_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_64x64.png; sourceTree = "<group>"; };
 		DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		DC09DB8D178C84C6000E0B61 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		DC0C220517CF9C97007FE7B8 /* MyScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
@@ -623,6 +630,8 @@
 		52D5117D17F06C6400362403 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				52FE6A4D17F41A2D00804E7A /* Tileset_64x64.png */,
+				52FE6A4817F411DA00804E7A /* Level01.tmx */,
 				52D5117E17F06C6400362403 /* DemoStage001.tmx */,
 				52D5117F17F06C6400362403 /* LevelTest01.tmx */,
 				52D5118017F06C6400362403 /* Tileset_Geometry_16x16_256.png */,
@@ -942,6 +951,8 @@
 			children = (
 				52D5127E17F097A300362403 /* CharacterNodes */,
 				52D5127317F0979A00362403 /* FSMs */,
+				52FE6A4417F3D35800804E7A /* Button.h */,
+				52FE6A4517F3D35800804E7A /* Button.m */,
 			);
 			path = Nodes;
 			sourceTree = "<group>";
@@ -1273,12 +1284,14 @@
 				DCEF82D017CFD35B00157387 /* Icon-72@2x.png in Resources */,
 				52B6F67717F2AFCA00610CD9 /* GUI.atlas in Resources */,
 				52B6F66F17F2AF8E00610CD9 /* goblins.atlas in Resources */,
+				52FE6A4A17F411DA00804E7A /* Level01.tmx in Resources */,
 				52D511CE17F06C6400362403 /* Hero_Jump_Land_Idle.atlas in Resources */,
 				DC18B128178C7EA000641A6D /* Main_iPad.storyboard in Resources */,
 				DC5BCDAA17CF88E500A5CB01 /* Icon~ipad.png in Resources */,
 				DC5BCDB217CF88E500A5CB01 /* iTunesArtwork in Resources */,
 				DCEF82D717CFD4AF00157387 /* Icon.png in Resources */,
 				52D511DD17F06C6400362403 /* Default@2x.png in Resources */,
+				52FE6A4E17F41A2D00804E7A /* Tileset_64x64.png in Resources */,
 				52D511DA17F06C6400362403 /* Default-568h@2x.png in Resources */,
 				52D511D817F06C6400362403 /* objectTemplates.lua in Resources */,
 				DC5BCDB317CF88E500A5CB01 /* iTunesArtwork@2x in Resources */,
@@ -1397,6 +1410,7 @@
 				52D5126017F06CEF00362403 /* KKEntityDynamicsBehavior.m in Sources */,
 				52D5122217F06C8400362403 /* Animation.c in Sources */,
 				52D5126617F06CEF00362403 /* KKTilemapNode+KoboldKitPro.m in Sources */,
+				52FE6A4617F3D35800804E7A /* Button.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
