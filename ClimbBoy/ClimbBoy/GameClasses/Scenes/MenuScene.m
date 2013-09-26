@@ -10,7 +10,7 @@
 #import "MapScene.h"
 #import "CBMacros.h"
 #import "spine-spirte-kit.h"
-
+#import "ClimbBoy-ui.h"
 
 static const NSInteger BUTTON_SPACING_VERTICAL = 40;
 static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
@@ -43,9 +43,24 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
         [_menuAnimationSprite setAlpha:1];
         [self addMenuButtons];
     }];
+    
+    CBButton *b = [CBButton buttonWithTitle:nil spriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Normal.png"] selectedSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Clicked.png"] disabledSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Disable.png"]];
+    [b setScale:0.5];
+    b.label.fontName = @"Chalkduster";
+    b.label.fontSize = 20;
+    b.label.fontColor = [SKColor yellowColor];
+    b.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
+    [self addChild:b];
+    
+    [b setTarget:self selector:@selector(pressedB:)];
 
 //    [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
     
+}
+
+- (void)pressedB:(id)sender
+{
+    NSLog(@"ssssss + %@", NSStringFromClass([sender class]));
 }
 
 - (void)willMoveFromView:(SKView *)view {

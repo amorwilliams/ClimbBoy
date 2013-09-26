@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		524A8DC517F4628300938B0F /* CBControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC417F4628300938B0F /* CBControl.m */; };
+		524A8DC817F469E400938B0F /* CBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC717F469E400938B0F /* CBButton.m */; };
 		52B6F66F17F2AF8E00610CD9 /* goblins.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B6F66717F2AF8E00610CD9 /* goblins.atlas */; };
 		52B6F67017F2AF8E00610CD9 /* goblins.json in Resources */ = {isa = PBXBuildFile; fileRef = 52B6F66817F2AF8E00610CD9 /* goblins.json */; };
 		52B6F67117F2AF8E00610CD9 /* spine.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B6F66917F2AF8E00610CD9 /* spine.atlas */; };
@@ -192,6 +194,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		524A8DC317F4628300938B0F /* CBControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBControl.h; sourceTree = "<group>"; };
+		524A8DC417F4628300938B0F /* CBControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBControl.m; sourceTree = "<group>"; };
+		524A8DC617F469E400938B0F /* CBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBButton.h; sourceTree = "<group>"; };
+		524A8DC717F469E400938B0F /* CBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBButton.m; sourceTree = "<group>"; };
+		524A8DC917F47B7000938B0F /* ClimbBoy-ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClimbBoy-ui.h"; sourceTree = "<group>"; };
 		52B6F66717F2AF8E00610CD9 /* goblins.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = goblins.atlas; sourceTree = "<group>"; };
 		52B6F66817F2AF8E00610CD9 /* goblins.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = goblins.json; sourceTree = "<group>"; };
 		52B6F66917F2AF8E00610CD9 /* spine.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spine.atlas; sourceTree = "<group>"; };
@@ -473,6 +480,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		524A8DC217F4620300938B0F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				524A8DC317F4628300938B0F /* CBControl.h */,
+				524A8DC417F4628300938B0F /* CBControl.m */,
+				524A8DC617F469E400938B0F /* CBButton.h */,
+				524A8DC717F469E400938B0F /* CBButton.m */,
+				524A8DC917F47B7000938B0F /* ClimbBoy-ui.h */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		52B6F66517F2AF8E00610CD9 /* Spine */ = {
 			isa = PBXGroup;
 			children = (
@@ -949,6 +968,7 @@
 		52D5127017F0979A00362403 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				524A8DC217F4620300938B0F /* UI */,
 				52D5127E17F097A300362403 /* CharacterNodes */,
 				52D5127317F0979A00362403 /* FSMs */,
 				52FE6A4417F3D35800804E7A /* Button.h */,
@@ -1368,6 +1388,7 @@
 				52D511B417F06C6400362403 /* CreditsScene.m in Sources */,
 				DCD7A28C178C7526004A0467 /* ViewController.m in Sources */,
 				52D511B717F06C6400362403 /* MapScene.m in Sources */,
+				524A8DC517F4628300938B0F /* CBControl.m in Sources */,
 				52D5122817F06C8400362403 /* AttachmentLoader.c in Sources */,
 				52D5122417F06C8400362403 /* AnimationStateData.c in Sources */,
 				52D5122717F06C8400362403 /* Attachment.c in Sources */,
@@ -1402,6 +1423,7 @@
 				52D5123217F06C8400362403 /* Slot.c in Sources */,
 				52D5126117F06CEF00362403 /* KKItemCollectorBehavior.m in Sources */,
 				52D5122917F06C8400362403 /* Bone.c in Sources */,
+				524A8DC817F469E400938B0F /* CBButton.m in Sources */,
 				52D5123117F06C8400362403 /* Skin.c in Sources */,
 				52D5122517F06C8400362403 /* Atlas.c in Sources */,
 				52D5127D17F0979A00362403 /* HeroRobot.m in Sources */,
