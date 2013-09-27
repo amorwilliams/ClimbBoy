@@ -10,7 +10,6 @@
 #import "MapScene.h"
 #import "CBMacros.h"
 #import "spine-spirte-kit.h"
-#import "ClimbBoy-ui.h"
 
 static const NSInteger BUTTON_SPACING_VERTICAL = 40;
 static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
@@ -31,6 +30,12 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
         [_menuAnimationSprite setScale:0.5];
         [_menuAnimationSprite setAlpha:0];
         [self addChild:_menuAnimationSprite];
+        
+        [_menuAnimationSprite playAnimation:@"start" loop:NO];
+        [self runAction:[SKAction waitForDuration:0.1] completion:^{
+            [_menuAnimationSprite setAlpha:1];
+            [self addMenuButtons];
+        }];
     }
     return self;
 }
@@ -38,85 +43,44 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
     
-    [_menuAnimationSprite playAnimation:@"start" loop:NO];
-    [self runAction:[SKAction waitForDuration:0.1] completion:^{
-        [_menuAnimationSprite setAlpha:1];
-        [self addMenuButtons];
-    }];
-    
-    CBButton *b = [CBButton buttonWithTitle:nil spriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Normal.png"] selectedSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Clicked.png"] disabledSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Disable.png"]];
-    [b setScale:0.5];
-    b.label.fontName = @"Chalkduster";
-    b.label.fontSize = 20;
-    b.label.fontColor = [SKColor yellowColor];
-    b.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
-    [self addChild:b];
-    
-    [b setTarget:self selector:@selector(pressedB:)];
-
 //    [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
     
 }
 
-- (void)pressedB:(id)sender
-{
-    NSLog(@"ssssss + %@", NSStringFromClass([sender class]));
-}
-
 - (void)willMoveFromView:(SKView *)view {
-    [_menuAnimationSprite setAlpha:0];
     [super willMoveFromView:view];
 }
 
 - (void)addMenuButtons {
     //-------------------------Start Game Button--------------------------------
-    _startGameButton = [KKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Normal.png"];
+    _startGameButton = [CBButton buttonWithTitle:nil spriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Normal.png"] selectedSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Clicked.png"] disabledSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Play_Disable.png"]];
     _startGameButton.zPosition = 1;
+    _startGameButton.alpha = 0;
+    _startGameButton.enabled = NO;
     _startGameButton.position = CGPointMake(CGRectGetMidX(self.frame) - 80,
                                             CGRectGetMidY(self.frame) - 85);
-    _startGameButton.alpha = 0;
-    [_startGameButton setScale:0.5];
     [self addChild:_startGameButton];
-    
-    // KKButtonBehavior turns any node into a button
-	KKButtonBehavior* startButtonBehavior = [KKButtonBehavior behavior];
-    startButtonBehavior.selectedTexture = [SKTexture textureWithImageNamed:@"Button_Play_Clicked.png"];
-	startButtonBehavior.selectedScale = 1.2;
-	[_startGameButton addBehavior:startButtonBehavior withKey:@"button"];
-	
 	
     
     //--------------------------Options Button-------------------------------
-    _optionsButton = [KKSpriteNode spriteNodeWithImageNamed:@"Button_Options_Normal.png"];
+    _optionsButton = [CBButton buttonWithTitle:nil spriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Options_Normal.png"] selectedSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Options_Clicked.png"] disabledSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Options_Disable.png"]];
     _optionsButton.zPosition = 1;
-    _optionsButton.position = CGPointMake(CGRectGetMidX(self.frame),
-                                         CGRectGetMidY(self.frame) - 85);
     _optionsButton.alpha = 0;
-    [_optionsButton setScale:0.5];
+    _optionsButton.enabled = NO;
+    _optionsButton.position = CGPointMake(CGRectGetMidX(self.frame),
+                                            CGRectGetMidY(self.frame) - 85);
     [self addChild:_optionsButton];
-    
-    // KKButtonBehavior turns any node into a button
-    KKButtonBehavior* optionButtonBehavior = [KKButtonBehavior behavior];
-    optionButtonBehavior.selectedTexture = [SKTexture textureWithImageNamed:@"Button_Options_Clicked.png"];
-    optionButtonBehavior.selectedScale = 1.2;
-	[_optionsButton addBehavior:optionButtonBehavior withKey:@"button"];
     
 	
     
     //---------------------------Credits Button------------------------------
-    _creditsButton = [KKSpriteNode spriteNodeWithImageNamed:@"Button_Credits_Normal.png"];
+    _creditsButton = [CBButton buttonWithTitle:nil spriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Credits_Normal.png"] selectedSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Credits_Clicked.png"] disabledSpriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"Button_Credits_Disable.png"]];
     _creditsButton.zPosition = 1;
+    _creditsButton.alpha = 0;
+    _creditsButton.enabled = NO;
     _creditsButton.position = CGPointMake(CGRectGetMidX(self.frame) + 80,
                                           CGRectGetMidY(self.frame) - 85);
-    _creditsButton.alpha = 0;
-    [_creditsButton setScale:0.5];
     [self addChild:_creditsButton];
-    
-    // KKButtonBehavior turns any node into a button
-    KKButtonBehavior* creditsButtonBehavior = [KKButtonBehavior behavior];
-    creditsButtonBehavior.selectedTexture = [SKTexture textureWithImageNamed:@"Button_Credits_Clicked.png"];
-    creditsButtonBehavior.selectedScale = 1.2;
-	[_creditsButton addBehavior:creditsButtonBehavior withKey:@"button"];
 	
     //---------------------------------------------------------
     
@@ -124,54 +88,38 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
                                              [SKAction fadeInWithDuration:0.3]]];
     moveAction.timingMode = SKActionTimingEaseInEaseOut;
     [_startGameButton runAction:[SKAction sequence:@[[SKAction waitForDuration:2], moveAction]] completion:^{
-        // observe button execute notification
-        [self observeNotification:KKButtonDidExecuteNotification
-                         selector:@selector(startButtonDidExecute:)
-                           object:_startGameButton];
+        [_startGameButton setScale:0.5];
+        _startGameButton.enabled = YES;
+        [_startGameButton setTarget:self selector:@selector(startButtonDidExecute:)];
     }];
     [_optionsButton runAction:[SKAction sequence:@[[SKAction waitForDuration:2.2], moveAction]] completion:^{
-        // observe button execute notification
-        [self observeNotification:KKButtonDidExecuteNotification
-                         selector:@selector(optionButtonDidExecute:)
-                           object:_optionsButton];
+        [_optionsButton setScale:0.5];
+        _optionsButton.enabled = YES;
+        [_optionsButton setTarget:self selector:@selector(optionsButtonDidExecute:)];
     }];
     [_creditsButton runAction:[SKAction sequence:@[[SKAction waitForDuration:2.4], moveAction]] completion:^{
-        // observe button execute notification
-        [self observeNotification:KKButtonDidExecuteNotification
-                         selector:@selector(creditsButtonDidExecute:)
-                           object:_creditsButton];
+        [_creditsButton setScale:0.5];
+        _creditsButton.enabled = YES;
+        [_creditsButton setTarget:self selector:@selector(creditsButtonDidExecute:)];
     }];
 }
 
-- (void)removeButtonsAnimation {
-    SKAction *moveAction = [SKAction group:@[[SKAction moveToX:(CGRectGetMidX(self.frame) - BUTTON_FLY_HORIZONTAL_POSITION) duration:0.4],
-                                             [SKAction fadeOutWithDuration:0.4]]];
-    [_startGameButton runAction:[SKAction sequence:@[[SKAction waitForDuration:0.2],
-                                                     moveAction,
-                                                     [SKAction removeFromParent]]]];
-    [_optionsButton runAction:[SKAction sequence:@[[SKAction waitForDuration:0.1],
-                                                  moveAction,
-                                                  [SKAction removeFromParent]]]];
-    [_creditsButton runAction:[SKAction sequence:@[moveAction,
-                                                   [SKAction removeFromParent]]]];
-}
-
-- (void)startButtonDidExecute:(NSNotification *)notification {
+- (void)startButtonDidExecute:(id)sender
+{
     NSLog(@"Start button");
-    [self removeButtonsAnimation];
     MapScene *mapScene = [MapScene sceneWithSize:self.size];
-    [self runAction:[SKAction waitForDuration:1] completion:^{
-        [self.kkView presentScene:mapScene transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.3]];
-    }];
+    [self.kkView presentScene:mapScene transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.6]];
 }
 
-- (void)optionButtonDidExecute:(NSNotification *)notification {
+- (void)optionsButtonDidExecute:(id)sender
+{
     [_menuAnimationSprite playAnimation:@"start" loop:NO];
 
     NSLog(@"Option button");
 }
 
-- (void)creditsButtonDidExecute:(NSNotification *)notification {
+- (void)creditsButtonDidExecute:(id)sender
+{
     NSLog(@"Credits button");
 }
 

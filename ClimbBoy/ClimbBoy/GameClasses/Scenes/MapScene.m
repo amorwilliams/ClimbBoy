@@ -53,76 +53,52 @@ static const NSInteger BUTTON_TOP_START = 60;
 
 - (void)addButtons {
     //------------------------home button---------------------------
-    _homeButton = [KKSpriteNode spriteNodeWithImageNamed:@"Button_MainMenu_Normal.png"];
-    _homeButton.anchorPoint = CGPointMake(0.5, 0.5);
+    _homeButton = [CBButton buttonWithTitle:nil
+                                spriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_MainMenu_Normal.png"]
+                        selectedSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_MainMenu_Clicked.png"]
+                        disabledSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_MainMenu_Disable.png"]];
     [_homeButton setScale:1.2];
     _homeButton.position = CGPointMake(-120, -230);
     [_mapBoard addChild:_homeButton];
     
-    // KKButtonBehavior turns any node into a button
-	KKButtonBehavior* homeButtonBehavior = [KKButtonBehavior behavior];
-    homeButtonBehavior.selectedTexture = [SKTexture textureWithImageNamed:@"Button_MainMenu_Clicked.png"];
-//	homeButtonBehavior.selectedScale = 1.2;
-	[_homeButton addBehavior:homeButtonBehavior];
-	
-	// observe button execute notification
-	[self observeNotification:KKButtonDidExecuteNotification
-					 selector:@selector(homeButtonDidExecute:)
-					   object:_homeButton];
+    [_homeButton setTarget:self selector:@selector(homeButtonDidExecute:)];
     
     //------------------------shop button---------------------------
-    _shopButton = [KKSpriteNode spriteNodeWithImageNamed:@"Button_Shop_Normal.png"];
-    _shopButton.anchorPoint = CGPointMake(0.5, 0.5);
+    _shopButton = [CBButton buttonWithTitle:nil
+                                spriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Shop_Normal.png"]
+                        selectedSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Shop_Clicked.png"]
+                        disabledSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Shop_Disable.png"]];
+    
     [_shopButton setScale:1.2];
     _shopButton.position = CGPointMake(120, -230);
     [_mapBoard addChild:_shopButton];
     
-    // KKButtonBehavior turns any node into a button
-	KKButtonBehavior* shopButtonBehavior = [KKButtonBehavior behavior];
-    shopButtonBehavior.selectedTexture = [SKTexture textureWithImageNamed:@"Button_Shop_Clicked.png"];
-    //	homeButtonBehavior.selectedScale = 1.2;
-	[_shopButton addBehavior:shopButtonBehavior];
-	
-	// observe button execute notification
-	[self observeNotification:KKButtonDidExecuteNotification
-					 selector:@selector(shopButtonDidExecute:)
-					   object:_shopButton];
+    [_shopButton setTarget:self selector:@selector(shopButtonDidExecute:)];
+
     
     //------------------------previous button---------------------------
-    _previousButton = [KKSpriteNode spriteNodeWithImageNamed:@"Button_Previous_Normal.png"];
-    _previousButton.anchorPoint = CGPointMake(0.5, 0.5);
+    _previousButton = [CBButton buttonWithTitle:nil
+                                spriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Previous_Normal.png"]
+                        selectedSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Previous_Clicked.png"]
+                        disabledSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Previous_Disable.png"]];
+    
     [_previousButton setScale:1.2];
     _previousButton.position = CGPointMake(-270, -40);
     [_mapBoard addChild:_previousButton];
     
-    // KKButtonBehavior turns any node into a button
-	KKButtonBehavior* previousButtonBehavior = [KKButtonBehavior behavior];
-    previousButtonBehavior.selectedTexture = [SKTexture textureWithImageNamed:@"Button_Previous_Clicked.png"];
-    //	homeButtonBehavior.selectedScale = 1.2;
-	[_previousButton addBehavior:previousButtonBehavior];
-	
-	// observe button execute notification
-	[self observeNotification:KKButtonDidExecuteNotification
-					 selector:@selector(previousButtonDidExecute:)
-					   object:_previousButton];
+    [_previousButton setTarget:self selector:@selector(previousButtonDidExecute:)];
     
     //------------------------next button---------------------------
-    _nextButton = [KKSpriteNode spriteNodeWithImageNamed:@"Button_Forward_Normal.png"];
-    _nextButton.anchorPoint = CGPointMake(0.5, 0.5);
+    _nextButton = [CBButton buttonWithTitle:nil
+                                    spriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Forward_Normal.png"]
+                            selectedSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Forward_Clicked.png"]
+                            disabledSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Forward_Disable.png"]];
+    
     [_nextButton setScale:1.2];
     _nextButton.position = CGPointMake(270, -40);
     [_mapBoard addChild:_nextButton];
     
-    // KKButtonBehavior turns any node into a button
-	KKButtonBehavior* nextButtonBehavior = [KKButtonBehavior behavior];
-    nextButtonBehavior.selectedTexture = [SKTexture textureWithImageNamed:@"Button_Forward_Clicked.png"];
-    //	homeButtonBehavior.selectedScale = 1.2;
-	[_nextButton addBehavior:nextButtonBehavior];
-	
-	// observe button execute notification
-	[self observeNotification:KKButtonDidExecuteNotification
-					 selector:@selector(nextButtonDidExecute:)
-					   object:_nextButton];
+    [_nextButton setTarget:self selector:@selector(nextButtonDidExecute:)];
 }
 
 - (void)createLevelButtons {
@@ -132,81 +108,70 @@ static const NSInteger BUTTON_TOP_START = 60;
 //    float startPosX = MARGIN_BORDER_LEFT;
 //    float startPosY = MARGIN_BORDER_TOP;
     
-    [SKTexture preloadTextures:@[[SKTexture textureWithImageNamed:@"Button_Bg_Normal.png"],
-                                 [SKTexture textureWithImageNamed:@"Button_Bg_Disable.png"]]
-         withCompletionHandler:^{
-        NSArray *levels = [GameManager sharedGameManager].levels;
-        for (int i = 0; i < levels.count; i++)
-        {
-            //get level data
-            NSDictionary *level = [levels objectAtIndex:i];
-            
-            //caculate position
-            int col = i % COLUMN_NUMBER;
-            int row = i / COLUMN_NUMBER + 1;
-            //        CGPoint postion = CGPointMake(MARGIN_BORDER_LEFT + col * boxSpacing, startPosY - (row - 1) * boxSpacing);
-            CGPoint position = CGPointMake(BUTTON_LEFT_START + col * BUTTON_OFFSET_X, BUTTON_TOP_START - (row -1) * BUTTON_OFFSET_Y);
-            
-            KKSpriteNode *levelButton = [KKSpriteNode spriteNodeWithImageNamed:@"Button_Bg_Normal.png"];
-            levelButton.name = [NSString stringWithFormat:@"Level%02d", i+1];
-            levelButton.anchorPoint = CGPointMake(0.5, 0.5);
-            //        levelBox.size = CGSizeMake(LEVEL_BOX_SIZE, LEVEL_BOX_SIZE);
-            //        [levelButton setScale:0.5];
-            levelButton.position = position;
-            levelButton.userData = [NSMutableDictionary dictionaryWithDictionary:level];
-            [_mapBoard addChild:levelButton];
-            
-            // KKButtonBehavior turns any node into a button
-            KKButtonBehavior* buttonBehavior = [KKButtonBehavior behavior];
-            buttonBehavior.selectedTexture = [SKTexture textureWithImageNamed:@"Button_Bg_Disable.png"];
-            buttonBehavior.selectedScale = 1.2;
-            [levelButton addBehavior:buttonBehavior];
-            
-            // observe button execute notification
-            [self observeNotification:KKButtonDidExecuteNotification
-                             selector:@selector(didSelectLevel:)
-                               object:levelButton];
-            
-            
-            KKLabelNode *boxLabel = [KKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-            boxLabel.text = [NSString stringWithFormat:@"%02d", i+1];
-            boxLabel.fontSize = 20;
-            boxLabel.fontColor = [SKColor yellowColor];
-            [levelButton addChild:boxLabel];
+    NSArray *levels = [GameManager sharedGameManager].levels;
+    for (int i = 0; i < levels.count; i++)
+    {
+        //get level data
+        NSDictionary *level = [levels objectAtIndex:i];
+        
+        //caculate position
+        int col = i % COLUMN_NUMBER;
+        int row = i / COLUMN_NUMBER + 1;
+        //        CGPoint postion = CGPointMake(MARGIN_BORDER_LEFT + col * boxSpacing, startPosY - (row - 1) * boxSpacing);
+        CGPoint position = CGPointMake(BUTTON_LEFT_START + col * BUTTON_OFFSET_X, BUTTON_TOP_START - (row -1) * BUTTON_OFFSET_Y);
+        
+        CBButton *levelButton = [CBButton buttonWithTitle:nil
+                                              spriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Bg_Normal.png"]
+                                      selectedSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Bg_Disable.png"]
+                                      disabledSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Bg_Disable.png"]];
+        levelButton.name = [NSString stringWithFormat:@"Level%02d", i+1];
+        levelButton.position = position;
+        levelButton.userData = [NSMutableDictionary dictionaryWithDictionary:level];
+        levelButton.title = [NSString stringWithFormat:@"%02d", i+1];
+        levelButton.label.fontName = @"Chalkduster";
+        levelButton.label.fontSize = 20;
+        levelButton.label.fontColor = [SKColor yellowColor];
+        [_mapBoard addChild:levelButton];
+        
+        [levelButton setTarget:self selector:@selector(didSelectLevel:)];
+        
+        BOOL locked = [[level valueForKey:@"Locked"] boolValue];
+        if (!locked) {
+            levelButton.enabled = NO;
         }
-    }];
+    }
 }
 #pragma mark -- Buttons Notification
 
-- (void)homeButtonDidExecute:(NSNotification *)notification
+- (void)homeButtonDidExecute:(id)sender
 {
 //    [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
     
     MenuScene *menu = [MenuScene sceneWithSize:self.frame.size];
-    [self.kkView presentScene:menu transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+    [self.kkView presentScene:menu];
 }
 
-- (void)shopButtonDidExecute:(NSNotification *)notification
+- (void)shopButtonDidExecute:(id)sender
 {
-    
+    NSLog(@"shop button");
 }
 
-- (void)previousButtonDidExecute:(NSNotification *)notification
+- (void)previousButtonDidExecute:(id)sender
 {
-    
+    NSLog(@"previous button");
 }
 
-- (void)nextButtonDidExecute:(NSNotification *)notification
+- (void)nextButtonDidExecute:(id)sender
 {
-    
+    NSLog(@"next button");
 }
 
 
-- (void)didSelectLevel:(NSNotification *)notification
+- (void)didSelectLevel:(id)sender
 {
-    KKSpriteNode *levelBox = (KKSpriteNode *)notification.object;
-    NSDictionary *levelData = levelBox.userData;
-    int index = [levelBox.name intValue];
+    CBButton *button = (CBButton *)sender;
+    NSDictionary *levelData = button.userData;
+    int index = [button.name intValue];
     
     KKScene *level = [LoadingScene sceneWithWithSize:self.size level:levelData index:index];
     [self.kkView presentScene:level transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];

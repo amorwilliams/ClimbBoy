@@ -5,64 +5,76 @@
 	<key>Levels</key>
 	<array>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
 			<string>LevelTest01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
 			<string>DemoStage001.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
 			<string>Level01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
+			<string>Level01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
+			<string>Level01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
+			<string>Level01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
+			<string>Level01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
+			<string>Level01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
+			<string>Level01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<true/>
 			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
+			<string>Level01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<false/>
 			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
+			<string>Level01.tmx</string>
 		</dict>
 		<dict>
+			<key>Locked</key>
+			<false/>
 			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
-		</dict>
-		<dict>
-			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
-		</dict>
-		<dict>
-			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
-		</dict>
-		<dict>
-			<key>Tilemap</key>
-			<string>DemoStage001.tmx</string>
+			<string>Level01.tmx</string>
 		</dict>
 	</array>
 	<key>Settings</key>

@@ -8,12 +8,13 @@
 
 #import "KKScene.h"
 #import "spine-spirte-kit.h"
+#import "ClimbBoy-ui.h"
 
 @interface MenuScene : KKScene
 {
     CBSpineSprite *_menuAnimationSprite;
-    KKSpriteNode *_startGameButton;
-    KKSpriteNode *_optionsButton;
-    KKSpriteNode *_creditsButton;
+    CBButton *_startGameButton;
+    CBButton *_optionsButton;
+    CBButton *_creditsButton;
 }
 @end

@@ -30,7 +30,7 @@ local config =
 	showsGPUStats = YES,
 	showsCulledNodesInNodeCount = NO,
 	showsTotalAreaRendered = NO,
-	showsSpriteBounds = YES,
+	showsSpriteBounds = NO,
 	shouldCenterStats = NO,
 
 	-- additional Kobold Kit labels

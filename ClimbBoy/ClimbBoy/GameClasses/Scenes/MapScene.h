@@ -7,15 +7,16 @@
 //
 
 #import "KKScene.h"
+#import "ClimbBoy-ui.h"
 
 @interface MapScene : KKScene
 {
     KKSpriteNode *_mapBoard;
     
-    KKSpriteNode *_homeButton;
-    KKSpriteNode *_shopButton;
-    KKSpriteNode *_previousButton;
-    KKSpriteNode *_nextButton;
+    CBButton *_homeButton;
+    CBButton *_shopButton;
+    CBButton *_previousButton;
+    CBButton *_nextButton;
 }
 
 @end

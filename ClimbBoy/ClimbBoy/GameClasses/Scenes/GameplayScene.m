@@ -45,7 +45,7 @@
         //test loading scene
         float a = 2423;
         float b = 3432;
-        for (int i = 0; i < 30000000; i++) {
+        for (int i = 0; i < 100000000; i++) {
             a /= b;
         }
 
@@ -99,7 +99,6 @@
 }
 
 - (void)willMoveFromView:(SKView *)view {
-    _tilemapNode = nil;
     [super willMoveFromView:view];
     [[OALSimpleAudio sharedInstance] stopBg];
 }
