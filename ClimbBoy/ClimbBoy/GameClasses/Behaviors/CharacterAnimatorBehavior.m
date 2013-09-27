@@ -21,7 +21,6 @@
     _character = (BaseCharacter *)self.node;
     NSAssert1([_character isKindOfClass:[BaseCharacter class]], @"Target node (%@) is not of class CBCharacter!", _character);
     
-    _character.animatorBehavior = self;
     _animated = YES;
     _animationSpeed = 1.0f/30.0f;
 }

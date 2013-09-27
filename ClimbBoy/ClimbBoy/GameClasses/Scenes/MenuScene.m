@@ -113,8 +113,7 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
 
 - (void)optionsButtonDidExecute:(id)sender
 {
-    [_menuAnimationSprite playAnimation:@"start" loop:NO];
-
+//    [_menuAnimationSprite playAnimation:@"start" loop:NO];
     NSLog(@"Option button");
 }
 

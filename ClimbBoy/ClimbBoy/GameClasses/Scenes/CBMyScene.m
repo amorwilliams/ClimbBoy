@@ -112,6 +112,6 @@
 #pragma mark - Loop Update
 -(void)update:(NSTimeInterval)currentTime {
     [super update:currentTime];
-    self.myLabel.text = [NSString stringWithFormat:@"%@", self.hero.animatorBehavior.activeAnimationKey];
+    self.myLabel.text = [NSString stringWithFormat:@"%@", self.hero.activeAnimationKey];
 }
 @end

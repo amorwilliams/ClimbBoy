@@ -49,7 +49,7 @@
             _attachmentNode.size = CGSizeMake(attachment->width, attachment->height);
             self.xScale = attachment->scaleX;
             self.yScale = attachment->scaleY;
-            self.zRotation = attachment->rotation;
+//            self.zRotation = attachment->rotation;
             [self addChild:_attachmentNode];
         }
         

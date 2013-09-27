@@ -10,7 +10,7 @@
 #import <spine/spine.h>
 #import "CBSpineSlot.h"
 
-@interface CBSpineSprite : SKNode
+@interface CBSpineSprite : KKNode
 {
     Skeleton *_skeleton;
     NSMutableArray *_slotNodes;

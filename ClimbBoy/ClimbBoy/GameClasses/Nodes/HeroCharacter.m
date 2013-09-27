@@ -17,12 +17,9 @@
 @implementation HeroCharacter
 
 #pragma mark - Initialization
-- (id)initAtPosition:(CGPoint)position {
-    return [self initWithTexture:nil atPosition:position];
-}
-
-- (id)initWithTexture:(SKTexture *)texture atPosition:(CGPoint)position {
-    self = [super initWithTexture:texture atPosition:position];
+- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position
+{
+    self = [super initWithSpineSprite:spineSprite atPosition:position];
     if (self) {
         self.enableGroundTest = YES;
         self.enableSideTest = YES;
@@ -113,11 +110,11 @@
 }
 
 - (void)updateJumping:(NSTimeInterval)delta {
-    if (_jumpButton) {
-        CGVector force = [self calculateForceWithSpeed:_jumpAbortVelocity byAxis:kCBAxisTypeY withTimeInterval:delta];
-        [self.physicsBody applyForce:force];
-        _jumpingTimer -= delta;
-    }
+//    if (_jumpButton) {
+//        CGVector force = [self calculateForceWithSpeed:_jumpAbortVelocity byAxis:kCBAxisTypeY withTimeInterval:delta];
+//        [self.physicsBody applyForce:force];
+//        _jumpingTimer -= delta;
+//    }
 }
 
 - (void)updateFalling:(NSTimeInterval)delta {
@@ -243,17 +240,19 @@
 	}
 }
 
--(void) jumpButtonPressed:(NSNotification*)note
+- (void)jumpButtonExecute:(id)sender
 {
-    [self doJump];
-    _jumpButton = [note.userInfo objectForKey:@"behavior"];
-//    [[OALSimpleAudio sharedInstance] playEffect:@"jump.wav"];
-}
-
--(void) jumpButtonReleased:(NSNotification *)note
-{
-    if ([_fsm.state isEqual:[HeroMap Jumping]]) {
-        [self endJump];
+    CBButton *button = (CBButton *)sender;
+    if (button.selected)
+    {
+        [self doJump];
+//        _jumpButton = button;
+    }
+    else
+    {
+        if ([_fsm.state isEqual:[HeroMap Jumping]]) {
+            [self endJump];
+        }
     }
 }
 
@@ -265,8 +264,8 @@
         [self doFall];
     }
     
-    [_jumpButton endSelect];
-	_jumpButton = nil;
+//    _jumpButton.selected = NO;
+//	_jumpButton = nil;
 }
 
 

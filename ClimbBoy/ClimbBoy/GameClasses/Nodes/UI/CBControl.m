@@ -12,6 +12,16 @@
 
 #pragma mark Initializers
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        _executesWhenReleased = YES;
+        _executesWhenPressed = NO;
+    }
+    return self;
+}
+
 - (void)didMoveToParent {
     [super didMoveToParent];
     [self observeInputEvents];
@@ -70,20 +80,22 @@
 {
     UITouch* touch = [touches anyObject];
     
-    if ([self containsPoint:[touch locationInNode:self.parent]])
-    {
-        if (!_touchInside)
+    if (_tracking) {
+        if ([self containsPoint:[touch locationInNode:self.parent]])
         {
-            [self touchEntered:touch withEvent:event];
-            _touchInside = YES;
+            if (!_touchInside)
+            {
+                [self touchEntered:touch withEvent:event];
+                _touchInside = YES;
+            }
         }
-    }
-    else
-    {
-        if (_touchInside)
+        else
         {
-            [self touchExited:touch withEvent:event];
-            _touchInside = NO;
+            if (_touchInside)
+            {
+                [self touchExited:touch withEvent:event];
+                _touchInside = NO;
+            }
         }
     }
 }

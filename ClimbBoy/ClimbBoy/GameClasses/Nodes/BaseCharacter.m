@@ -21,14 +21,13 @@
 @implementation BaseCharacter
 @synthesize node;
 #pragma mark - Initialization
-- (id)initWithTexture:(SKTexture *)texture atPosition:(CGPoint)position {
+- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position {
     if (self = [super init]) {
-        [self sharedInitCharaterSprite:texture];
+        self.characterSprite = spineSprite;
+
         [self sharedInitAtPosition:position];
-        
         _enableGroundTest = YES;
         _enableSideTest = NO;
-        
     }
     
     return self;
@@ -44,11 +43,6 @@
     [self configurePhysicsBody];
 }
 
-- (void)sharedInitCharaterSprite:(SKTexture *)texture {
-    self.characterSprite = [SKSpriteNode spriteNodeWithTexture:texture];
-    [self addChild:self.characterSprite];
-}
-
 - (void)reset {
     // Reset some base states (used when recycling character instances).
     self.health = 100.0f;
@@ -58,8 +52,10 @@
 - (void)didMoveToParent {
     [self observeSceneEvents];
     [self.kkScene addPhysicsContactEventsObserver:self];
-    CharacterSpriteFlipBehavior *flipBehavior = [CharacterSpriteFlipBehavior SpriteFlipWithTarget:self.characterSprite];
+    FlipBySpeedBehavior *flipBehavior = [FlipBySpeedBehavior flipWithTarget:self.characterSprite];
     [self addBehavior:flipBehavior withKey:@"flip"];
+    
+    [self addChild:self.characterSprite];
 }
 
 
@@ -70,28 +66,28 @@
 
 #pragma mark - FSM Action Methods
 - (void)doStand {
-//    [self runAnimation:CBAnimationStateIdle];
+    [self runAnimation:CBAnimationStateIdle];
 }
 
 - (void)doRun {
-//    [self runAnimation:CBAnimationStateRun];
+    [self runAnimation:CBAnimationStateRun];
 }
 
 - (void)doJump {
-//    [self runAnimation:CBAnimationStateJump];
+    [self runAnimation:CBAnimationStateJump];
 }
 
 - (void)doFall {
-//    [self runAnimation:CBAnimationStateFall];
+    [self runAnimation:CBAnimationStateFall];
 }
 
 - (void)doClimb {
-//    [self runAnimation:CBAnimationStateClimb];
+    [self runAnimation:CBAnimationStateClimb];
 }
 
 - (void)doDie {
     self.health = 0.0f;
-//    [self runAnimation:CBAnimationStateDeath];
+    [self runAnimation:CBAnimationStateDeath];
 }
 
 
@@ -153,15 +149,81 @@
 
 }
 
-#pragma mark - Animator Delegate
+#pragma mark - Animation
 - (void)animationHasCompleted:(CBAnimationState)animationState {
     // Called when a requested animation has completed (usually overriden).
 }
 
-- (void)runAnimation:(CBAnimationState)animationState {
-    if (animationState != _animatorBehavior.requestedAnimation
-        && _animatorBehavior) {
-        _animatorBehavior.requestedAnimation = animationState;
+- (void)runAnimation:(CBAnimationState)animationState
+{
+    if (animationState != self.requestedAnimation)
+    {
+        self.requestedAnimation = animationState;
+        [self resolveRequestedAnimation];
+    }
+}
+
+- (void)resolveRequestedAnimation {
+    // Determine the animation we want to play.
+    NSString *animationKey = nil;
+//    NSArray *animationFrames = nil;
+    CBAnimationState animationState = self.requestedAnimation;
+    
+    switch (animationState) {
+            
+        default:
+        case CBAnimationStateIdle:
+            animationKey = @"anim_idle";
+            [self.characterSprite playAnimation:@"stand" loop:YES];
+            break;
+            
+        case CBAnimationStateWalk:
+            animationKey = @"anim_walk";
+            [self.characterSprite playAnimation:@"walk" loop:YES];
+            break;
+            
+        case CBAnimationStateRun:
+            animationKey = @"anim_run";
+            [self.characterSprite playAnimation:@"run" loop:YES];
+            break;
+            
+        case CBAnimationStateJump:
+            animationKey = @"anim_jumpLoop";
+            [self.characterSprite playAnimation:@"jump-loop" loop:YES];
+//            [self.characterSprite queueAnimation:@"jump-loop" loop:YES afterDelay:0.5];
+            break;
+            
+        case CBAnimationStateFall:
+            animationKey = @"anim_fall";
+            [self.characterSprite playAnimation:@"jump-loop" loop:YES];
+            break;
+            
+        case CBAnimationStateClimb:
+            animationKey = @"anim_climb";
+            [self.characterSprite playAnimation:@"jump-loop" loop:YES];
+            break;
+            
+        case CBAnimationStateAttack:
+            animationKey = @"anim_attack";
+            [self.characterSprite playAnimation:@"stand-attack" loop:NO];
+            [self.characterSprite queueAnimation:@"stand" loop:YES afterDelay:0.6];
+            break;
+            
+        case CBAnimationStateGetHit:
+            animationKey = @"anim_hit";
+            [self.characterSprite playAnimation:@"hit" loop:NO];
+            [self.characterSprite queueAnimation:@"stand" loop:YES afterDelay:0.6];
+            break;
+            
+        case CBAnimationStateDeath:
+            animationKey = @"anim_death";
+            [self.characterSprite playAnimation:@"die" loop:NO];
+            break;
+    }
+    
+    if (animationKey) {
+//        [self fireAnimationForState:animationState usingTextures:animationFrames withKey:animationKey];
+        self.activeAnimationKey = animationKey;
     }
 }
 

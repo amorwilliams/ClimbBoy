@@ -24,7 +24,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 	BOOL returnValue = [super application:application didFinishLaunchingWithOptions:launchOptions];
 	
     // Override point for customization after application launch.
-    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+//    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
     return returnValue;
 }
 							

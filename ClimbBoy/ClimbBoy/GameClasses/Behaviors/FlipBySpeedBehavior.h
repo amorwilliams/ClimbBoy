@@ -8,6 +8,12 @@
 
 #import "KKBehavior.h"
 
-@interface CharacterSpriteFlipBehavior : KKBehavior
-+ (id) SpriteFlipWithTarget:(SKSpriteNode *)target;
+@interface FlipBySpeedBehavior : KKBehavior
+{
+    __weak KKNode *_targetNode;
+}
+
++ (id) flipWithTarget:(KKNode *)target;
+
+- (id) initWithTarget:(KKNode *)target;
 @end

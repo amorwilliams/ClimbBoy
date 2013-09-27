@@ -8,11 +8,13 @@
 
 #import "BaseCharacter.h"
 #import "CBHeroCharacter_sm.h"
+#import "ClimbBoy-ui.h"
+
 
 @interface HeroCharacter : BaseCharacter
 {
     CGVector _currentControlPadDirection;
-    __weak KKButtonBehavior* _jumpButton;
+    __weak CBButton* _jumpButton;
     CGFloat _jumpingTimer;
 }
 @property (nonatomic) CGFloat jumpSpeedInitial;
@@ -29,8 +31,8 @@
 @property (nonatomic, readonly)CBHeroCharacterContext *fsm;
 
 /* Designated Initializer. */
-- (id)initWithTexture:(SKTexture *)texture atPosition:(CGPoint)position;
-- (id)initAtPosition:(CGPoint)position;
+//- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position;
+//- (id)initAtPosition:(CGPoint)position;
 
 
 - (void)updateRunning:(NSTimeInterval)delta;
@@ -40,7 +42,6 @@
 - (void)updateClimbing:(NSTimeInterval)delta;
 
 -(void) controlPadDidChangeDirection:(NSNotification*)note;
--(void) jumpButtonPressed:(NSNotification*)note;
--(void) jumpButtonReleased:(NSNotification*)note;
+- (void)jumpButtonExecute:(id)sender;
 
 @end

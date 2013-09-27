@@ -39,7 +39,7 @@
     self.position = ccpSub(pos, self.parent.position);
     
     //set rotation
-    float amount = _attachment->rotation;
+    float amount = 0;
     Bone *bone = slot->bone;
     while (bone) {
         amount += bone->rotation;

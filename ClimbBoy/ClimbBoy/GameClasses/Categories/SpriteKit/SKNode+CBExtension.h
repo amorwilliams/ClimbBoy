@@ -26,6 +26,8 @@ static inline CBCapsule CBCapsuleMake(CGFloat radius, CGFloat height)
 
 /** A tag used to identify the node easily */
 @property(SK_NONATOMIC_IOSONLY) NSInteger tag;
+@property (SK_NONATOMIC_IOSONLY) BOOL flipX;
+@property (SK_NONATOMIC_IOSONLY) BOOL flipY;
 
 - (void)addChild:(SKNode *)node tag:(NSInteger)tag;
 - (void)insertChild:(SKNode *)node atIndex:(NSInteger)index tag:(NSInteger)tag;

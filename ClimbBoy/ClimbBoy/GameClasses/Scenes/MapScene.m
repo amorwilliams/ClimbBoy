@@ -34,7 +34,7 @@ static const NSInteger BUTTON_TOP_START = 60;
         
         _mapBoard = [KKSpriteNode spriteNodeWithImageNamed:@"Map_Board.png"];
         _mapBoard.position = ccp(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame) + 30);
-        [_mapBoard setScale:0.5];
+        [_mapBoard setScale:0.55];
         [self addChild:_mapBoard];
     }
     return self;
@@ -57,7 +57,7 @@ static const NSInteger BUTTON_TOP_START = 60;
                                 spriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_MainMenu_Normal.png"]
                         selectedSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_MainMenu_Clicked.png"]
                         disabledSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_MainMenu_Disable.png"]];
-    [_homeButton setScale:1.2];
+    [_homeButton setScale:1.4];
     _homeButton.position = CGPointMake(-120, -230);
     [_mapBoard addChild:_homeButton];
     
@@ -69,7 +69,7 @@ static const NSInteger BUTTON_TOP_START = 60;
                         selectedSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Shop_Clicked.png"]
                         disabledSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Shop_Disable.png"]];
     
-    [_shopButton setScale:1.2];
+    [_shopButton setScale:1.4];
     _shopButton.position = CGPointMake(120, -230);
     [_mapBoard addChild:_shopButton];
     
@@ -82,7 +82,7 @@ static const NSInteger BUTTON_TOP_START = 60;
                         selectedSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Previous_Clicked.png"]
                         disabledSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Previous_Disable.png"]];
     
-    [_previousButton setScale:1.2];
+    [_previousButton setScale:1.4];
     _previousButton.position = CGPointMake(-270, -40);
     [_mapBoard addChild:_previousButton];
     
@@ -94,7 +94,7 @@ static const NSInteger BUTTON_TOP_START = 60;
                             selectedSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Forward_Clicked.png"]
                             disabledSpriteFrame:[KKSpriteNode spriteNodeWithImageNamed:@"Button_Forward_Disable.png"]];
     
-    [_nextButton setScale:1.2];
+    [_nextButton setScale:1.4];
     _nextButton.position = CGPointMake(270, -40);
     [_mapBoard addChild:_nextButton];
     

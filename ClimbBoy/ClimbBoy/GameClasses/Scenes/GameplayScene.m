@@ -149,7 +149,9 @@
 #pragma mark - Loop Update
 -(void)update:(NSTimeInterval)currentTime {
     [super update:currentTime];
-    self.myLabel.text = [NSString stringWithFormat:@"%@, velocity:%f,%f", _playerCharacter.animatorBehavior.activeAnimationKey, _playerCharacter.physicsBody.velocity.dx, _playerCharacter.physicsBody.velocity.dy];
+    self.myLabel.text = [NSString stringWithFormat:@"%@, velocity:%f,%f",
+                         _playerCharacter.activeAnimationKey, _playerCharacter.physicsBody.velocity.dx,
+                         _playerCharacter.physicsBody.velocity.dy];
 }
 
 -(void) createSimpleControls
@@ -173,26 +175,18 @@
 	[dpadNode addBehavior:dpad withKey:@"simple dpad"];
     
 	CGSize sceneSize = self.size;
-	KKSpriteNode* jumpButtonNode = [KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_notpressed"]];
-	jumpButtonNode.position = CGPointMake(sceneSize.width - (jumpButtonNode.size.width / 2 + 20), jumpButtonNode.size.height / 2 + 20);
+    CBButton *jumpButtonNode = [CBButton buttonWithTitle:nil
+                                             spriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_notpressed"]]
+                                     selectedSpriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_pressed"]]
+                                     disabledSpriteFrame:nil];
+	jumpButtonNode.position = CGPointMake(sceneSize.width - 60 , 60);
+    jumpButtonNode.executesWhenPressed = YES;
 	[joypadNode addChild:jumpButtonNode];
-	
-	KKButtonBehavior* button = [KKButtonBehavior new];
-	button.name = @"jump";
-	button.selectedTexture = [atlas textureNamed:@"button_jump_pressed"];
-	button.executesWhenPressed = YES;
-	button.selectedScale = 1.0;
-	[jumpButtonNode addBehavior:button];
 	
 	// make player observe joypad
 	[_playerCharacter observeNotification:KKControlPadDidChangeDirectionNotification
 								 selector:@selector(controlPadDidChangeDirection:)
 								   object:dpadNode];
-	[_playerCharacter observeNotification:KKButtonDidExecuteNotification
-								 selector:@selector(jumpButtonPressed:)
-								   object:jumpButtonNode];
-	[_playerCharacter observeNotification:KKButtonDidEndExecuteNotification
-								 selector:@selector(jumpButtonReleased:)
-								   object:jumpButtonNode];
+    [jumpButtonNode setTarget:_playerCharacter selector:@selector(jumpButtonExecute:)];
 }
 @end

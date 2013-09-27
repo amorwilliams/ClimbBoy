@@ -7,6 +7,7 @@
 //
 
 #import "KKScene.h"
+#import "ClimbBoy-ui.h"
 
 @interface GameplayScene : KKScene
 {

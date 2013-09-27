@@ -1,0 +1,124 @@
+
+light knight.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+head
+  rotate: false
+  xy: 2, 95
+  size: 152, 159
+  orig: 152, 159
+  offset: 0, 0
+  index: -1
+head-ribbon
+  rotate: false
+  xy: 320, 140
+  size: 82, 114
+  orig: 82, 114
+  offset: 0, 0
+  index: -1
+left-arm
+  rotate: false
+  xy: 107, 9
+  size: 37, 30
+  orig: 37, 30
+  offset: 0, 0
+  index: -1
+left-foot
+  rotate: false
+  xy: 242, 117
+  size: 51, 25
+  orig: 51, 25
+  offset: 0, 0
+  index: -1
+left-hand
+  rotate: false
+  xy: 193, 129
+  size: 47, 40
+  orig: 47, 40
+  offset: 0, 0
+  index: -1
+left-lower-leg
+  rotate: false
+  xy: 111, 41
+  size: 31, 52
+  orig: 31, 52
+  offset: 0, 0
+  index: -1
+left-shoulder
+  rotate: false
+  xy: 156, 114
+  size: 35, 55
+  orig: 35, 55
+  offset: 0, 0
+  index: -1
+left-upper-leg
+  rotate: false
+  xy: 484, 220
+  size: 26, 34
+  orig: 26, 34
+  offset: 0, 0
+  index: -1
+right-arm
+  rotate: false
+  xy: 193, 79
+  size: 31, 48
+  orig: 31, 48
+  offset: 0, 0
+  index: -1
+right-foot
+  rotate: false
+  xy: 242, 144
+  size: 52, 25
+  orig: 52, 25
+  offset: 0, 0
+  index: -1
+right-hand
+  rotate: false
+  xy: 68, 46
+  size: 41, 47
+  orig: 41, 47
+  offset: 0, 0
+  index: -1
+right-lower-leg
+  rotate: false
+  xy: 144, 41
+  size: 31, 52
+  orig: 31, 52
+  offset: 0, 0
+  index: -1
+right-shoulder
+  rotate: false
+  xy: 68, 2
+  size: 37, 42
+  orig: 37, 42
+  offset: 0, 0
+  index: -1
+right-upper-leg
+  rotate: false
+  xy: 484, 184
+  size: 26, 34
+  orig: 26, 34
+  offset: 0, 0
+  index: -1
+shield
+  rotate: false
+  xy: 404, 135
+  size: 78, 119
+  orig: 78, 119
+  offset: 0, 0
+  index: -1
+sword
+  rotate: false
+  xy: 156, 171
+  size: 162, 83
+  orig: 162, 83
+  offset: 0, 0
+  index: -1
+torso
+  rotate: false
+  xy: 2, 12
+  size: 64, 81
+  orig: 64, 81
+  offset: 0, 0
+  index: -1

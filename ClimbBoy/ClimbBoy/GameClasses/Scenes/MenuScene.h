@@ -15,6 +15,6 @@
     CBSpineSprite *_menuAnimationSprite;
     CBButton *_startGameButton;
     CBButton *_optionsButton;
-    CBButton *_creditsButton;
+    CBButton *_creditsButton;    
 }
 @end

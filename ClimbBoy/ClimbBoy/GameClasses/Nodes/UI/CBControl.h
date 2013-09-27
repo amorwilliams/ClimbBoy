@@ -36,6 +36,8 @@ typedef int CBControlState;
 @property (nonatomic,assign) BOOL highlighted;
 
 @property (nonatomic,assign) BOOL continuous;
+@property (nonatomic) BOOL executesWhenReleased;
+@property (nonatomic) BOOL executesWhenPressed;
 
 @property (nonatomic,readonly) BOOL tracking;
 @property (nonatomic,readonly) BOOL touchInside;

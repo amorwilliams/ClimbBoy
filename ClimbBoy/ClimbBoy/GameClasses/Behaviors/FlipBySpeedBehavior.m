@@ -6,25 +6,20 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import "CharacterSpriteFlipBehavior.h"
-#import "SKSpriteNode+CBExtension.h"
+#import "FlipBySpeedBehavior.h"
+#import "SKNode+CBExtension.h"
 
-@interface CharacterSpriteFlipBehavior ()
-@property (atomic, weak) SKSpriteNode *spriteNode;
+@implementation FlipBySpeedBehavior
 
-@end
-
-@implementation CharacterSpriteFlipBehavior
-
-+ (id) SpriteFlipWithTarget:(SKSpriteNode *)target {
++ (id) flipWithTarget:(KKNode *)target {
     return [[self alloc] initWithTarget:target];
 }
 
-- (id)initWithTarget:(SKSpriteNode *)target {
+- (id)initWithTarget:(KKNode *)target {
     self = [super init];
 	if (self)
 	{
-		_spriteNode = target;
+		_targetNode = target;
 	}
 	return self;
 }
@@ -42,9 +37,9 @@
 - (void) didSimulatePhysics {
     float currentSpeedX = self.node.physicsBody.velocity.dx;
     if (currentSpeedX > 100) {
-        _spriteNode.flipX = NO;
+        _targetNode.flipX = NO;
     }else if (currentSpeedX < -100){
-        _spriteNode.flipX = YES;
+        _targetNode.flipX = YES;
     }
 }
 

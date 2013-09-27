@@ -60,17 +60,22 @@ typedef enum : uint8_t {
 #import "CBCategories.h"
 #import "CBBehaviors.h"
 #import "CharacterAnimatorDelegate.h"
+#import "spine-spirte-kit.h"
 
 @class CharacterAnimatorBehavior;
 
-@interface BaseCharacter : KKNode <KKPhysicsContactEventDelegate, CharacterAnimatorDelegate>
+@interface BaseCharacter : KKNode <KKPhysicsContactEventDelegate>
 /* 保存角色的贴图 */
-@property (nonatomic) SKSpriteNode *characterSprite;
+@property (nonatomic) CBSpineSprite *characterSprite;
 /* 角色碰撞的半径 */
 @property (nonatomic) CBCapsule collisionCapsule;
 @property (nonatomic) CGSize boundingBox;
 
-@property (nonatomic) CharacterAnimatorBehavior *animatorBehavior;
+//@property (nonatomic) CharacterAnimatorBehavior *animatorBehavior;
+@property (atomic, getter = isAnimated) BOOL animated;
+@property (atomic) CGFloat animationSpeed;
+@property (atomic) NSString *activeAnimationKey;
+@property (atomic) CBAnimationState requestedAnimation;
 
 @property (nonatomic, getter = isDying) BOOL dying;
 //@property (nonatomic, getter = isStartJump) BOOL startJump;
@@ -94,7 +99,7 @@ typedef enum : uint8_t {
 + (void)loadSharedAssets;
 
 /* Initialize a standard sprite. */
-- (id)initWithTexture:(SKTexture *)texture atPosition:(CGPoint)position;
+- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position;
 
 /* Reset a character for reuse. */
 - (void)reset;
