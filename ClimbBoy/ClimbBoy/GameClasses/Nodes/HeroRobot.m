@@ -43,6 +43,7 @@
 
 
 #pragma mark - Shared Assets
+/*
 + (void)loadSharedAssets {
     [super loadSharedAssets];
     
@@ -88,4 +89,5 @@ static NSArray *sSharedClimbAnimationFrames = nil;
 - (NSArray *)climbAnimationFrames {
     return sSharedClimbAnimationFrames;
 }
+ */
 @end

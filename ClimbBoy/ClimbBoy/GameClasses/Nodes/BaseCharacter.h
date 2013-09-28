@@ -12,12 +12,6 @@ typedef enum : int8_t {
     kCBMoveDirectionLeft = -1,
 } CBMoveDirection;
 
-typedef enum : int8_t {
-    kCBCharacterTouchSideNil = 0,
-    kCBCharacterTouchSideRight = 1,
-    kCBCharacterTouchSideLeft = -1,
-} CBCharacterTouchSide;
-
 /* The different animation states of an animated character. */
 typedef enum : uint8_t {
     CBAnimationStateIdle = 0,
@@ -61,79 +55,103 @@ typedef enum : uint8_t {
 #import "CBBehaviors.h"
 #import "CharacterAnimatorDelegate.h"
 #import "spine-spirte-kit.h"
+#import "CBMacros.h"
 
-@class CharacterAnimatorBehavior;
+// Increase n towards target by speed
+static inline float IncrementTowards(float n, float target, float a, NSTimeInterval deltaTime) {
+    if (n == target) {
+        return n;
+    }
+    else {
+        float dir = SIGN(target - n); // must n be increased or decreased to get closer to target
+        n += a * deltaTime * dir;
+        return (dir == SIGN(target-n))? n: target; // if n has now passed target then return target, otherwise return n
+    }
+}
+
+@class CharacterAnimatorBehavior, CharacterPhysicsBehavior;
 
 @interface BaseCharacter : KKNode <KKPhysicsContactEventDelegate>
+{
+    CFTimeInterval _lastUpdateTimeInterval;
+    CGFloat _targetSpeed;
+    CGFloat _currentSpeed;
+    CGFloat _jumpSpeed;
+}
 /* 保存角色的贴图 */
 @property (nonatomic) CBSpineSprite *characterSprite;
 /* 角色碰撞的半径 */
 @property (nonatomic) CBCapsule collisionCapsule;
 @property (nonatomic) CGSize boundingBox;
 
+/* Movement */
+@property (nonatomic) CGFloat jumpSpeedInitial;
+@property (nonatomic) CGFloat jumpSpeedDeceleration;
+@property (nonatomic) CGFloat jumpAbortVelocity;
+@property (nonatomic) CGFloat fallSpeedAcceleration;
+@property (nonatomic) CGFloat fallSpeedLimit;
+@property (nonatomic) CGFloat runSpeedAcceleration;
+@property (nonatomic) CGFloat runSpeedDeceleration;
+@property (nonatomic) CGFloat runSpeedLimit;
+
+/* Animation */
 //@property (nonatomic) CharacterAnimatorBehavior *animatorBehavior;
 @property (atomic, getter = isAnimated) BOOL animated;
 @property (atomic) CGFloat animationSpeed;
 @property (atomic) NSString *activeAnimationKey;
 @property (atomic) CBAnimationState requestedAnimation;
 
+/* States */
 @property (nonatomic, getter = isDying) BOOL dying;
 //@property (nonatomic, getter = isStartJump) BOOL startJump;
 //@property (nonatomic, getter = isJumping) BOOL jumping;
 //@property (nonatomic, getter = isClimbing) BOOL climbing;
 //@property (nonatomic, getter = isWallJumping) BOOL wallJumping;
-@property (nonatomic, getter = isTouchSide) BOOL touchSide;
-@property (nonatomic, readonly) CBCharacterTouchSide touchingSide;
-@property (nonatomic) CGVector touchSideNormal;
 @property (nonatomic) CGFloat health;
 //@property (nonatomic, getter = isStartLand) BOOL startLand;
+
+/* Physics */
 @property (nonatomic, getter = isGrounded) BOOL grounded;
 @property (nonatomic, getter = isTouchTop) BOOL touchTop;
+@property (nonatomic, getter = isTouchSide) BOOL touchSide;
+@property (nonatomic) int touchingSideDirection;
+//@property (nonatomic) CGVector touchSideNormal;
 
 /* 如果为YES，将会开启地面接触检测，并会收到onGrounded的回调 */
-@property (nonatomic) BOOL enableGroundTest;
+//@property (nonatomic) BOOL enableGroundTest;
 /* 如果为YES，将会开启角色两侧接触检测，并会收到onTouchSide的回调 */
-@property (nonatomic) BOOL enableSideTest;
+//@property (nonatomic) BOOL enableSideTest;
 
 /* Preload shared animation frames, emitters, etc. */
-+ (void)loadSharedAssets;
++ (void) loadSharedAssets;
 
 /* Initialize a standard sprite. */
-- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position;
+- (id) initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position;
 
 /* Reset a character for reuse. */
-- (void)reset;
+- (void) reset;
 
 /* Overridden Methods. */
 //- (void)animationDidComplete:(CBAnimationState)animation;
-- (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
-- (void)didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
-- (void)configurePhysicsBody;
-- (void)onArrived;
-- (void)onGrounded;
-- (void)onTouchHeadTop;
-- (void)onTouchSide:(CBCharacterTouchSide)side;
+- (void) didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
+- (void) didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
+- (void) configurePhysicsBody;
+- (void) onArrived;
 
-- (void)doStand;
-- (void)doRun;
-- (void)doJump;
-- (void)doFall;
-- (void)doClimb;
-- (void)doDie;
+- (void) onGrounded;
+- (void) onTouchTop;
+- (void) onTouchSide;
+
+- (void) doStand;
+- (void) doRun;
+- (void) doJump;
+- (void) doFall;
+- (void) doClimb;
+- (void) doDie;
 
 /* Assets - should be overridden for animated characters. */
-- (NSArray *)idleAnimationFrames;
-- (NSArray *)walkAnimationFrames;
-- (NSArray *)runAnimationFrames;
-- (NSArray *)jumpStartAnimationFrames;
-- (NSArray *)jumpLoopAnimationFrames;
-- (NSArray *)landAnimationFrames;
-- (NSArray *)climbAnimationFrames;
-- (NSArray *)attackAnimationFrames;
-- (NSArray *)getHitAnimationFrames;
-- (NSArray *)deathAnimationFrames;
-- (SKEmitterNode *)damageEmitter;   // provide an emitter to show damage applied to character
-- (SKAction *)damageAction;         // action to run when damage is applied
+- (SKEmitterNode *) damageEmitter;   // provide an emitter to show damage applied to character
+- (SKAction *) damageAction;         // action to run when damage is applied
 
 - (void)runAnimation:(CBAnimationState)animationState;
 
@@ -143,12 +161,14 @@ typedef enum : uint8_t {
 - (void) didSimulatePhysics;
 
 /* Orientation, Movement, and Attacking. */
-- (void)move:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval;
-- (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed withTimeInterval:(NSTimeInterval)timeInterval;
-- (CGVector)calculateForceWithSpeed:(CGFloat)speed byAxis:(CBAxisType)axis withTimeInterval:(NSTimeInterval)timeInterval;
+- (void) move:(CBMoveDirection)direction bySpeed:(CGFloat)speed deltaTime:(CFTimeInterval)deltaTime;
+- (void) move:(CBMoveDirection)direction bySpeed:(CGFloat)speed acceleration:(CGFloat)acceleration deltaTime:(CFTimeInterval)deltaTime;
+- (void) jump:(CFTimeInterval)deltaTime;
+- (void) jumpWithDeceleration:(CGFloat)deceleration deltaTime:(CFTimeInterval)deltaTime;
+//- (CGVector)calculateForceWithSpeed:(CGFloat)speed byAxis:(CBAxisType)axis withTimeInterval:(NSTimeInterval)timeInterval;
 //- (CGFloat)faceTo:(CGPoint)position;
-- (void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval;
-- (void)moveInDirection:(CGPoint)direction withTimeInterval:(NSTimeInterval)timeInterval;
-- (void)climb:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval;
+- (void) moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval;
+- (void) moveInDirection:(CGPoint)direction withTimeInterval:(NSTimeInterval)timeInterval;
+- (void) climb:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval;
 
 @end

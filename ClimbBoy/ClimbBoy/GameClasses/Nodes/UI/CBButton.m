@@ -147,7 +147,7 @@ static NSString* const ScaleActionKey = @"CBButtonB:ScaleAction";
 - (void) touchUpInside:(UITouch *)touch withEvent:(UIEvent *)event
 {
     self.selected = NO;
-    if (self.executesWhenReleased) {
+    if (!self.executesWhenPressed) {
         [self triggerAction];
     }
 }
@@ -175,7 +175,7 @@ static NSString* const ScaleActionKey = @"CBButtonB:ScaleAction";
 - (void) mouseUpInside:(NSEvent *)event
 {
     self.selected = NO;
-    if (!self.executesWhenReleased) {
+    if (!self.executesWhenPressed) {
         [self triggerAction];
     }
 }

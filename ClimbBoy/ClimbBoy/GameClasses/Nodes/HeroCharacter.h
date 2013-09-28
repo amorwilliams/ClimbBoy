@@ -15,16 +15,7 @@
 {
     CGVector _currentControlPadDirection;
     __weak CBButton* _jumpButton;
-    CGFloat _jumpingTimer;
 }
-@property (nonatomic) CGFloat jumpSpeedInitial;
-@property (nonatomic) CGFloat jumpSpeedDeceleration;
-@property (nonatomic) CGFloat jumpAbortVelocity;
-@property (nonatomic) CGFloat fallSpeedAcceleration;
-@property (nonatomic) CGFloat fallSpeedLimit;
-@property (nonatomic) CGFloat runSpeedAcceleration;
-@property (nonatomic) CGFloat runSpeedDeceleration;
-@property (nonatomic) CGFloat runSpeedLimit;
 @property (nonatomic) CGFloat climbUpSpeedLimit;
 @property (nonatomic) CGFloat climbDownSpeedLimit;
 

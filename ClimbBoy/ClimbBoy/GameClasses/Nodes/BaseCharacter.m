@@ -11,13 +11,6 @@
 #import "CBMacros.h"
 #import "Debug.h"
 
-@interface BaseCharacter ()
-{
-}
-@property (nonatomic) CFTimeInterval lastUpdateTimeInterval;
-
-@end
-
 @implementation BaseCharacter
 @synthesize node;
 #pragma mark - Initialization
@@ -26,8 +19,8 @@
         self.characterSprite = spineSprite;
 
         [self sharedInitAtPosition:position];
-        _enableGroundTest = YES;
-        _enableSideTest = NO;
+//        _enableGroundTest = YES;
+//        _enableSideTest = NO;
     }
     
     return self;
@@ -46,7 +39,6 @@
 - (void)reset {
     // Reset some base states (used when recycling character instances).
     self.health = 100.0f;
-    self.touchSide = NO;
 }
 
 - (void)didMoveToParent {
@@ -57,6 +49,45 @@
     
     [self addChild:self.characterSprite];
 }
+
+#pragma mark - Properties
+/*
+- (BOOL)isGrounded
+{
+    CharacterPhysicsBehavior *physics = (CharacterPhysicsBehavior *)[self behaviorKindOfClass:[CharacterPhysicsBehavior class]];
+    if (physics) {
+        return physics.isGrounded;
+    }
+    return NO;
+}
+
+- (BOOL)isTouchTop
+{
+    CharacterPhysicsBehavior *physics = (CharacterPhysicsBehavior *)[self behaviorKindOfClass:[CharacterPhysicsBehavior class]];
+    if (physics) {
+        return physics.isTouchTop;
+    }
+    return NO;
+}
+
+- (BOOL)isTouchSide
+{
+    CharacterPhysicsBehavior *physics = (CharacterPhysicsBehavior *)[self behaviorKindOfClass:[CharacterPhysicsBehavior class]];
+    if (physics) {
+        return physics.isTouchSide;
+    }
+    return NO;
+}
+
+- (int)touchingSideDirection
+{
+    CharacterPhysicsBehavior *physics = (CharacterPhysicsBehavior *)[self behaviorKindOfClass:[CharacterPhysicsBehavior class]];
+    if (physics) {
+        return physics.touchSideDirection;
+    }
+    return 0;
+}
+ */
 
 
 #pragma mark - Overridden Methods
@@ -96,15 +127,18 @@
     //Called when moveTowards has arrived point (usually overidden)
 }
 
-- (void)onGrounded{
+- (void)onGrounded
+{
     //Called when character is landing (usually overidden)
 }
 
-- (void)onTouchHeadTop{
+- (void)onTouchTop
+{
     //Called when character is touch top of head (usually overidden)
 }
 
-- (void)onTouchSide:(CBCharacterTouchSide)side{
+- (void)onTouchSide
+{
     //Called when chararcter is touch (usually overidden)
 }
 
@@ -112,11 +146,11 @@
 - (void)update:(NSTimeInterval)currentTime {
     // Handle time delta.
     // If we drop below 60fps, we still want everything to move the same distance.
-    CFTimeInterval timeSinceLast = currentTime - self.lastUpdateTimeInterval;
-    self.lastUpdateTimeInterval = currentTime;
+    CFTimeInterval timeSinceLast = currentTime - _lastUpdateTimeInterval;
+    _lastUpdateTimeInterval = currentTime;
     if (timeSinceLast > 1) { // more than a second since last update
         timeSinceLast = 1/60.0;
-        self.lastUpdateTimeInterval = currentTime;
+        _lastUpdateTimeInterval = currentTime;
     }
     
     [self updateWithTimeSinceLastUpdate:timeSinceLast];
@@ -127,7 +161,7 @@
 }
 
 -(void) didEvaluateActions {
-    [self rayTesting];
+    
 }
 
 - (void) didSimulatePhysics {
@@ -228,17 +262,35 @@
 }
 
 #pragma mark -  Movement
-- (void)move:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval {
-    [self move:direction bySpeed:kMovementSpeed withTimeInterval:timeInterval];
+- (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed deltaTime:(CFTimeInterval)deltaTime
+{
+    [self move:direction bySpeed:speed acceleration:self.runSpeedAcceleration deltaTime:deltaTime];
 }
 
-- (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed withTimeInterval:(NSTimeInterval)timeInterval {
-    CGVector force = [self calculateForceWithSpeed:(direction * speed) byAxis:kCBAxisTypeX withTimeInterval:timeInterval];
-    [self.physicsBody applyForce:force];
-//    NSLog(@"%f, %f", force.dx, force.dy);
 
+- (void)move:(CBMoveDirection)direction bySpeed:(CGFloat)speed acceleration:(CGFloat)acceleration deltaTime:(CFTimeInterval)deltaTime
+{
+    CGVector vel = self.physicsBody.velocity;
+    _targetSpeed = direction * speed;
+    vel.dx = IncrementTowards(vel.dx, _targetSpeed, acceleration, deltaTime);
+    
+    self.physicsBody.velocity = vel;
+    [self collisionTest:CGVectorMake(_targetSpeed, vel.dy)];
 }
 
+- (void)jump:(CFTimeInterval)deltaTime
+{
+    [self jumpWithDeceleration:self.jumpSpeedDeceleration deltaTime:deltaTime];
+}
+
+- (void)jumpWithDeceleration:(CGFloat)deceleration deltaTime:(CFTimeInterval)deltaTime
+{
+    CGVector vel = self.physicsBody.velocity;
+    vel.dy = IncrementTowards(vel.dy, 0, deceleration, deltaTime);
+    self.physicsBody.velocity = vel;
+}
+
+/*
 - (CGVector)calculateForceWithSpeed:(CGFloat)speed byAxis:(CBAxisType)axis withTimeInterval:(NSTimeInterval)timeInterval {
     CGVector velocity = self.physicsBody.velocity;
     CGVector force = CGVectorZero;
@@ -259,7 +311,9 @@
 
     return force;
 }
+*/
 
+/*
 - (void)moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval {
     CGPoint curPosition = self.position;
     CGFloat dx = position.x - curPosition.x;
@@ -283,184 +337,102 @@
         }
     }
 }
+ */
 
 - (void)moveInDirection:(CGPoint)direction withTimeInterval:(NSTimeInterval)timeInterval {
-    
+
 }
 
 - (void)climb:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval {
     self.physicsBody.velocity = CGVectorMake(self.physicsBody.velocity.dx, MAX(-100, self.physicsBody.velocity.dy)) ;
 }
 
-#pragma mark - Physics Test
-- (void)testGrounded {
-    __block BOOL temp = NO;
-    CGPoint rayStart = [self convertPoint:CGPointZero toNode:self.kkScene];
-	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y - (_boundingBox.height / 2.0 + 5));
+
+static const int collisionDivisionsX = 3;
+static const int collisionDivisionsY = 3;
+static const float skin = 10;
+
+- (void)collisionTest:(CGVector)move
+{
+    float deltaX = move.dx;
+    float deltaY = move.dy;
     
-    CGFloat offsetX =  _boundingBox.width/2;
-    rayStart.x = rayStart.x - offsetX * 2;
-    rayEnd.x = rayEnd.x - offsetX * 2;
-    
-    // find body below player
-	for (int i = 0; i < 3; i++) {
-        rayStart.x = rayStart.x + offsetX;
-        rayEnd.x = rayEnd.x + offsetX;
+    SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
+    const CGSize size = self.boundingBox;
+    const CGPoint p = [self convertPoint:CGPointZero toNode:self.kkScene];
+
+    //---------------------------- find body below player -------------------------------------
+    __block BOOL rayHitBottom = NO;
+	for (int i = 0; i < collisionDivisionsX; i++) {
+        CGPoint rayStart = CGPointMake((p.x - size.width/2) + size.width/(collisionDivisionsX-1) * i , p.y);
+        CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y -(size.height/2 + skin));
         
         [Debug drawLineStart:rayStart end:rayEnd];
         
-        SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
         [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
             if (body.contactTestBitMask < 1){
-                if (!self.isGrounded) {
-                    [self onGrounded];
-                }
-                temp = YES;
+                rayHitBottom = YES;
                 *stop = YES;
             }
 		}];
     }
-    _grounded = temp;
-}
-
-- (void)testTouchHeadTop {
-    __block BOOL temp = NO;
-    CGPoint rayStart = [self convertPoint:CGPointZero toNode:self.kkScene];
-	CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y + (_boundingBox.height / 2.0 + 5));
-
-    CGFloat offsetX =  _boundingBox.width/2;
-    rayStart.x = rayStart.x - offsetX * 2;
-    rayEnd.x = rayEnd.x - offsetX * 2;
+    if (rayHitBottom && !self.isGrounded) {
+        [self onGrounded];
+    }
+    _grounded = rayHitBottom;
     
-    // find body below player
-	for (int i = 0; i < 3; i++) {
-        rayStart.x = rayStart.x + offsetX;
-        rayEnd.x = rayEnd.x + offsetX;
+    
+    //---------------------------- find body up player -------------------------------------
+    __block BOOL rayHitTop = NO;
+    for (int i = 0; i < collisionDivisionsX; i++) {
+        CGPoint rayStart = CGPointMake((p.x - size.width/2) + size.width/(collisionDivisionsX-1) * i , p.y);
+        CGPoint rayEnd = CGPointMake(rayStart.x, rayStart.y + size.height/2 + skin);
         
         [Debug drawLineStart:rayStart end:rayEnd];
         
-        SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
         [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
             if (body.contactTestBitMask < 1){
-                if (!self.isTouchTop) {
-                    [self onTouchHeadTop];
-                }
-                temp = YES;
+                rayHitTop = YES;
                 *stop = YES;
             }
 		}];
     }
-         
-    _touchTop = temp;
-}
-
-
-- (void)testTouchSide {
-    __block BOOL temp = NO;
-    _touchingSide = kCBCharacterTouchSideNil;
-    _touchSideNormal = CGVectorZero;
-    CGPoint rayStart = [self convertPoint:CGPointZero toNode:self.kkScene];
-	CGPoint rayEnd = CGPointMake(rayStart.x + (_boundingBox.width / 2.0 + 5), rayStart.y);
     
-    CGFloat offsetY =  _boundingBox.height/2;
-    rayStart.y = rayStart.y - offsetY * 2;
-    rayEnd.y = rayEnd.y - offsetY * 2;
+    if (rayHitTop && !self.isTouchTop) {
+        [self onTouchTop];
+    }
+    _touchTop = rayHitTop;
     
-    // find body below player
-	for (int i = 0; i < 3; i++) {
-        //test right side
-        rayStart.y = rayStart.y + offsetY;
-        rayEnd.y = rayEnd.y + offsetY;
-        [Debug drawLineStart:rayStart end:rayEnd];
-        SKPhysicsWorld* physicsWorld = self.scene.physicsWorld;
-        [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-            if (body.contactTestBitMask <= 1){
-                if (!self.isTouchSide) {
-                    [self onTouchSide:kCBCharacterTouchSideRight];
+    
+    //---------------------------- find body left or right player -------------------------------------
+    __block BOOL rayHitSide = NO;
+    if (deltaX != 0) {
+        int dir = SIGN(deltaX);
+        for (int i = 0; i < collisionDivisionsY; i++)
+        {
+            CGPoint rayStart = CGPointMake(p.x, (p.y - size.height/2) + size.height/(collisionDivisionsY-1) * i);
+            CGPoint rayEnd = CGPointMake(rayStart.x + (size.width/2 + skin) * dir, rayStart.y);
+            
+            [Debug drawLineStart:rayStart end:rayEnd];
+            
+            [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
+                if (body.contactTestBitMask <= 1){
+                    rayHitSide = YES;
+                    *stop = YES;
                 }
-                temp = YES;
-                *stop = YES;
-                _touchSideNormal = normal;
-                _touchingSide = kCBCharacterTouchSideRight;
-            }
-        }];
-        
-        //test left side
-        CGPoint rayEndLeft = CGPointMake(rayStart.x - (_boundingBox.width / 2.0 + 5), rayStart.y);
-        [Debug drawLineStart:rayStart end:rayEndLeft];
-        [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEndLeft usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-            if (body.contactTestBitMask <= 1){
-                if (!self.isTouchSide) {
-                    [self onTouchSide:kCBCharacterTouchSideLeft];
-                }
-                temp = YES;
-                *stop = YES;
-                _touchSideNormal = normal;
-                _touchingSide = kCBCharacterTouchSideLeft;
-            }
-        }];
-
+            }];
+        }
     }
     
-    
-    _touchSide = temp;
+    if (rayHitSide && !self.isTouchSide) {
+        [self onTouchSide];
+    }
+    _touchSide = rayHitSide;
 }
-
-- (void)rayTesting {
-    if (self.enableGroundTest) {
-        [self testGrounded];
-        [self testTouchHeadTop];
-    }
-    
-    if (self.enableSideTest) {
-        [self testTouchSide];
-    }
-}
-
 
 #pragma mark - Shared Assets
 + (void)loadSharedAssets {
     // overridden by subclasses
-}
-
-- (NSArray *)idleAnimationFrames {
-    return nil;
-}
-
-- (NSArray *)walkAnimationFrames {
-    return nil;
-}
-
-- (NSArray *)runAnimationFrames {
-    return nil;
-}
-
-- (NSArray *)jumpStartAnimationFrames {
-    return nil;
-}
-
-- (NSArray *)jumpLoopAnimationFrames {
-    return nil;
-}
-
-- (NSArray *)landAnimationFrames {
-    return nil;
-}
-
-- (NSArray *)climbAnimationFrames {
-    return nil;
-}
-
-- (NSArray *)attackAnimationFrames {
-    return nil;
-}
-
-- (NSArray *)getHitAnimationFrames {
-    return nil;
-}
-
-- (NSArray *)deathAnimationFrames {
-    return nil;
 }
 
 - (SKEmitterNode *)damageEmitter {

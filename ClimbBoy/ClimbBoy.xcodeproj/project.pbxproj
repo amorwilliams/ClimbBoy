@@ -99,6 +99,7 @@
 		52D5127B17F0979A00362403 /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127517F0979A00362403 /* CBHeroCharacter_sm.m */; };
 		52D5127C17F0979A00362403 /* HeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127717F0979A00362403 /* HeroCharacter.m */; };
 		52D5127D17F0979A00362403 /* HeroRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127917F0979A00362403 /* HeroRobot.m */; };
+		52F3935517F6ADFA00D9A07E /* CharacterPhysicsBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F3935417F6ADFA00D9A07E /* CharacterPhysicsBehavior.m */; };
 		52FE6A4617F3D35800804E7A /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 52FE6A4517F3D35800804E7A /* Button.m */; };
 		52FE6A4A17F411DA00804E7A /* Level01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52FE6A4817F411DA00804E7A /* Level01.tmx */; };
 		52FE6A4E17F41A2D00804E7A /* Tileset_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FE6A4D17F41A2D00804E7A /* Tileset_64x64.png */; };
@@ -355,6 +356,8 @@
 		52D5127717F0979A00362403 /* HeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroCharacter.m; sourceTree = "<group>"; };
 		52D5127817F0979A00362403 /* HeroRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroRobot.h; sourceTree = "<group>"; };
 		52D5127917F0979A00362403 /* HeroRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroRobot.m; sourceTree = "<group>"; };
+		52F3935317F6ADFA00D9A07E /* CharacterPhysicsBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterPhysicsBehavior.h; sourceTree = "<group>"; };
+		52F3935417F6ADFA00D9A07E /* CharacterPhysicsBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterPhysicsBehavior.m; sourceTree = "<group>"; };
 		52FE6A4417F3D35800804E7A /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		52FE6A4517F3D35800804E7A /* Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Button.m; sourceTree = "<group>"; };
 		52FE6A4817F411DA00804E7A /* Level01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level01.tmx; sourceTree = "<group>"; };
@@ -568,6 +571,8 @@
 				52D5114D17F06C6400362403 /* CharacterAnimatorBehavior.m */,
 				52D5114E17F06C6400362403 /* FlipBySpeedBehavior.h */,
 				52D5114F17F06C6400362403 /* FlipBySpeedBehavior.m */,
+				52F3935317F6ADFA00D9A07E /* CharacterPhysicsBehavior.h */,
+				52F3935417F6ADFA00D9A07E /* CharacterPhysicsBehavior.m */,
 			);
 			path = Behaviors;
 			sourceTree = "<group>";
@@ -1447,6 +1452,7 @@
 				52D5126117F06CEF00362403 /* KKItemCollectorBehavior.m in Sources */,
 				52D5122917F06C8400362403 /* Bone.c in Sources */,
 				524A8DC817F469E400938B0F /* CBButton.m in Sources */,
+				52F3935517F6ADFA00D9A07E /* CharacterPhysicsBehavior.m in Sources */,
 				52D5123117F06C8400362403 /* Skin.c in Sources */,
 				52D5122517F06C8400362403 /* Atlas.c in Sources */,
 				52D5127D17F0979A00362403 /* HeroRobot.m in Sources */,

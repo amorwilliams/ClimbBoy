@@ -25,6 +25,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 	
     // Override point for customization after application launch.
 //    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+   
     return returnValue;
 }
 							

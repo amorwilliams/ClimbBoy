@@ -16,7 +16,6 @@
 {
     self = [super init];
     if (self) {
-        _executesWhenReleased = YES;
         _executesWhenPressed = NO;
     }
     return self;
@@ -64,37 +63,39 @@
 
 - (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch* touch = [touches anyObject];
-    
-    if ([self containsPoint:[touch locationInNode:self.parent]])
+    for (UITouch* touch in touches)
     {
-        _tracking = YES;
-        _touchInside = YES;
-        
-        [self touchEntered:touch withEvent:event];
+        if ([self containsPoint:[touch locationInNode:self.parent]])
+        {
+            _tracking = (NSInteger)touch;
+            _touchInside = YES;
+            
+            [self touchEntered:touch withEvent:event];
+        }
     }
-   
 }
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch* touch = [touches anyObject];
-    
     if (_tracking) {
-        if ([self containsPoint:[touch locationInNode:self.parent]])
+        for (UITouch* touch in touches)
         {
-            if (!_touchInside)
+            if (_tracking == (NSInteger)touch)
             {
-                [self touchEntered:touch withEvent:event];
-                _touchInside = YES;
-            }
-        }
-        else
-        {
-            if (_touchInside)
-            {
-                [self touchExited:touch withEvent:event];
-                _touchInside = NO;
+                if ([self containsPoint:[touch locationInNode:self.parent]])
+                {
+                    if (!_touchInside)
+                    {
+                        [self touchEntered:touch withEvent:event];
+                        _touchInside = YES;
+                    }
+                }else
+                {
+                    if (_touchInside) {
+                        [self touchExited:touch withEvent:event];
+                        _touchInside = NO;
+                    }
+                }
             }
         }
     }
@@ -102,32 +103,47 @@
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch* touch = [touches anyObject];
-    
-    if (_touchInside)
+    if (_tracking)
     {
-        [self touchUpInside:touch withEvent:event];
-    }
-    else
-    {
-        [self touchUpOutside:touch withEvent:event];
+        for (UITouch* touch in touches)
+        {
+            if (_tracking == (NSInteger)touch)
+            {
+                if (_touchInside)
+                {
+                    [self touchUpInside:touch withEvent:event];
+                }
+                else
+                {
+                    [self touchUpOutside:touch withEvent:event];
+                }
+                
+                _touchInside = NO;
+                _tracking = 0;
+            }
+        }
     }
     
-    _touchInside = NO;
-    _tracking = NO;
 }
 
 - (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch* touch = [touches anyObject];
-    
-    if (_touchInside)
+    if (_tracking)
     {
-        [self touchExited:touch withEvent:event];
+        for (UITouch* touch in touches)
+        {
+            if (_tracking == (NSInteger)touch)
+            {
+                if (_touchInside)
+                {
+                    [self touchExited:touch withEvent:event];
+                }
+                _touchInside = NO;
+                _tracking = 0;
+            }
+        }
+        
     }
-    
-    _touchInside = NO;
-    _tracking = NO;
 }
 
 - (void) touchEntered:(UITouch*) touch withEvent:(UIEvent*)event

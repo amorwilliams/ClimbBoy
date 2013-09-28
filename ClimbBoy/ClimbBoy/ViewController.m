@@ -10,6 +10,12 @@
 
 @implementation ViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self.kkView setMultipleTouchEnabled:YES];
+}
+
 -(void) presentFirstScene
 {
 	NSLog(@"%@", koboldKitCommunityVersion());

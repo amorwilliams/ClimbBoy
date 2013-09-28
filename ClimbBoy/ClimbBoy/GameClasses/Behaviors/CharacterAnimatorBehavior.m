@@ -32,7 +32,7 @@
 #pragma mark - Loop Update
 -(void)update:(NSTimeInterval)currentTime {
     if (self.isAnimated) {
-        [self resolveRequestedAnimation];
+//        [self resolveRequestedAnimation];
     }
 }
 
@@ -42,6 +42,7 @@
 }
 
 #pragma mark - Animation
+/*
 - (void)resolveRequestedAnimation {
     // Determine the animation we want to play.
     NSString *animationKey = nil;
@@ -137,6 +138,6 @@
     
     self.activeAnimationKey = nil;
 }
-
+*/
 
 @end

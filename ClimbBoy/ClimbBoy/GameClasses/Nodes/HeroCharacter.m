@@ -21,8 +21,6 @@
 {
     self = [super initWithSpineSprite:spineSprite atPosition:position];
     if (self) {
-        self.enableGroundTest = YES;
-        self.enableSideTest = YES;
         
         _fsm = [[CBHeroCharacterContext alloc]initWithOwner:self];
         [_fsm setDebugFlag:NO];
@@ -98,34 +96,34 @@
 }
 
 - (void)startJumping {
-    _jumpingTimer = 0.3;
-    
-    CGVector directioin = ccv(0, 1);
-    if ([_fsm.previousState isEqual:[HeroMap Climbing]]) {
-        directioin = ccvNormalize(ccv(1, -self.touchingSide));
-    }
-    CGVector force = ccvMult(directioin, self.physicsBody.mass * _jumpSpeedInitial / (1 / 60.0));
-    [self.physicsBody applyImpulse:force];
-
+//    CGVector directioin = ccv(0, 1);
+//    if ([_fsm.previousState isEqual:[HeroMap Climbing]]) {
+//        directioin = ccvNormalize(ccv(1, -self.touchingSideDirection));
+//    }
+    CGVector vel = self.physicsBody.velocity;
+    _jumpSpeed = self.jumpSpeedInitial;
+    vel.dy = _jumpSpeed;
+    self.physicsBody.velocity = vel;
 }
 
 - (void)updateJumping:(NSTimeInterval)delta {
-//    if (_jumpButton) {
-//        CGVector force = [self calculateForceWithSpeed:_jumpAbortVelocity byAxis:kCBAxisTypeY withTimeInterval:delta];
-//        [self.physicsBody applyForce:force];
-//        _jumpingTimer -= delta;
-//    }
+    CGVector vel = self.physicsBody.velocity;
+    _jumpSpeed = IncrementTowards(_jumpSpeed, -self.fallSpeedLimit, self.jumpSpeedDeceleration, delta);
+    vel.dy = _jumpSpeed;
+    self.physicsBody.velocity = vel;
 }
 
 - (void)updateFalling:(NSTimeInterval)delta {
     CGVector velocity = self.physicsBody.velocity;
     
-    if (_fallSpeedAcceleration == 0.0 || _fallSpeedAcceleration >= _fallSpeedLimit){
-        velocity.dy = -_fallSpeedLimit;
-    }
-    else{
-        velocity.dy -= _fallSpeedAcceleration;
-    }
+//    if (self.fallSpeedAcceleration == 0.0 || self.fallSpeedAcceleration >= self.fallSpeedLimit){
+//        velocity.dy = -self.fallSpeedLimit;
+//    }
+//    else{
+//        velocity.dy -= self.fallSpeedAcceleration;
+//    }
+    
+    velocity.dy = IncrementTowards(velocity.dy, -self.fallSpeedLimit, self.fallSpeedAcceleration, delta);
     
     velocity.dy = MAX(self.physicsBody.velocity.dy, velocity.dy);
     self.physicsBody.velocity = velocity;
@@ -138,18 +136,25 @@
 }
 
 
-- (void)onGrounded {
+#pragma mark - Physics
+
+- (void)onGrounded
+{
+    NSLog(@"onGrounded");
     [self doStand];
 }
 
-- (void)onTouchHeadTop {
+- (void)onTouchTop
+{
+    NSLog(@"onTouchTop");
     if ([_fsm.state isEqual:[HeroMap Jumping]]) {
-        [self doFall];
+        [self endJump];
     }
 }
 
-- (void)onTouchSide:(CBCharacterTouchSide)side {
-
+- (void)onTouchSide
+{
+    NSLog(@"onTouchSide");
 }
 
 
@@ -158,51 +163,57 @@
     
     [_fsm update:delta];
     
-    if ([_fsm.state isEqual:[HeroMap Jumping]]) {
-        if (self.physicsBody.velocity.dy < 0 || _jumpingTimer <= 0) {
-            [self endJump];
-        }
-    }
+    CBMoveDirection dirction = _currentControlPadDirection.dx > 0 ? kCBMoveDirectionRight : kCBMoveDirectionLeft;
+    CGFloat speed = 0;
     
-    if (self.isGrounded) {
-        [self updateMovementOnGround:delta];
+    if (self.isGrounded)
+    {
+        speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit;
         
         if (fabs(self.physicsBody.velocity.dx) < 1) {
             [self doStand];
         }else {
             [self doRun];
         }
-    }else {
-        [self updateMovementInAir:delta];
+    }
+    else
+    {
+        speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit * 0.75;
         
-        BOOL sameSide = ((_currentControlPadDirection.dx > 0 ) && (self.touchingSide == kCBCharacterTouchSideRight))
-        || ((_currentControlPadDirection.dx < 0) && (self.touchingSide == kCBCharacterTouchSideLeft));
-        if (!self.isGrounded && self.isTouchSide) {
-            if (sameSide) {
-                [self doClimb];
+        if (self.isTouchSide){
+            [self doClimb];
+        }
+        
+        if ([_fsm.state isEqual:[HeroMap Climbing]]) {
+            if (!self.isTouchSide) {
+                [self doFall];
+            }
+        }else{
+            if (self.physicsBody.velocity.dy < 0 && ![_fsm.state isEqual:[HeroMap Falling]]) {
+                [self doFall];
+            }
+            if ([_fsm.state isEqual:[HeroMap Jumping]]) {
+                if (_jumpButton && !_jumpButton.selected){
+                    [self endJump];
+                }
             }
         }
-        
-        if ([_fsm.state isEqual:[HeroMap Climbing]] && !self.isTouchSide) {
-            [self doFall];
-        }
-        
-        if (self.physicsBody.velocity.dy < 0 && ![_fsm.state isEqual:[HeroMap Climbing]]) {
-            [self doFall];
-        }
     }
+    
+    [self move:dirction bySpeed:speed acceleration:self.runSpeedAcceleration deltaTime:delta];
 }
 
 - (void)updateMovementOnGround:(CFTimeInterval)delta {
     CBMoveDirection dirction = _currentControlPadDirection.dx > 0 ? kCBMoveDirectionRight : kCBMoveDirectionLeft;
-    float speed = fabsf(_currentControlPadDirection.dx);
-    [self move:dirction bySpeed:speed withTimeInterval:delta];
+    CGFloat speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit;
+    
+    [self move:dirction bySpeed:speed acceleration:self.runSpeedAcceleration deltaTime:delta];
 }
 
 - (void)updateMovementInAir:(CFTimeInterval)delta {
-    CGFloat speed = _currentControlPadDirection.dx  * 0.5;
-    CGVector force = [self calculateForceWithSpeed:speed byAxis:kCBAxisTypeX withTimeInterval:delta];
-    [self.physicsBody applyForce:force];
+    CBMoveDirection dirction = _currentControlPadDirection.dx > 0 ? kCBMoveDirectionRight : kCBMoveDirectionLeft;
+    CGFloat speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit * 0.75;
+    [self move:dirction bySpeed:speed acceleration:self.runSpeedAcceleration deltaTime:delta];
 }
 
 #pragma mark - Physics Delegate
@@ -219,24 +230,14 @@
 #pragma mark - Input Notifications
 -(void) controlPadDidChangeDirection:(NSNotification*)note
 {
-//    NSLog(@"eeeeeeeee");
 	KKControlPadBehavior* controlPad = [note.userInfo objectForKey:@"behavior"];
 	if (controlPad.direction == KKArcadeJoystickNone)
 	{
         _currentControlPadDirection = CGVectorZero;
-        
-        if ([_fsm.state isEqual:[HeroMap Climbing]]) {
-            [self doFall];
-        }
 	}
 	else
 	{
-		CGFloat speed = _runSpeedAcceleration;
-		if (speed == 0.0 || speed > _runSpeedLimit)
-		{
-			speed = _runSpeedLimit;
-		}
-		_currentControlPadDirection = ccvMult(vectorFromJoystickState(controlPad.direction), speed);
+		_currentControlPadDirection = vectorFromJoystickState(controlPad.direction);
 	}
 }
 
@@ -246,26 +247,22 @@
     if (button.selected)
     {
         [self doJump];
-//        _jumpButton = button;
-    }
-    else
-    {
-        if ([_fsm.state isEqual:[HeroMap Jumping]]) {
-            [self endJump];
-        }
+        _jumpButton = button;
     }
 }
 
 -(void) endJump
 {
-    if (self.isGrounded) {
-        [self doStand];
-    }else {
+//    if (self.isGrounded) {
+//        [self doStand];
+//    }else {
         [self doFall];
-    }
+//    }
     
-//    _jumpButton.selected = NO;
-//	_jumpButton = nil;
+    if (_jumpButton) {
+        _jumpButton.selected = NO;
+        _jumpButton = nil;
+    }
 }
 
 

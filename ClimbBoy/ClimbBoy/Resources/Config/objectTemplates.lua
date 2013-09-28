@@ -103,10 +103,10 @@ local objectTemplates =
             fallSpeedAcceleration = 500,    -- how fast player accelerates when falling down
             fallSpeedLimit = 1000,			-- max falling speed
             jumpAbortVelocity = 500,		-- the (max) upwards velocity forcibly set when jump is aborted
-            jumpSpeedInitial = 12,         -- how fast the player initially moves upwards when jumping is initiated
-            jumpSpeedDeceleration = 16,	-- how fast upwards motion (caused by jumping) decelerates
-            runSpeedAcceleration = 0,		-- how fast player accelerates sideways (0 = instant)
-            runSpeedDeceleration = 0,		-- how fast player decelerates sideways (0 = instant)
+            jumpSpeedInitial = 600,         -- how fast the player initially moves upwards when jumping is initiated
+            jumpSpeedDeceleration = 800,	-- how fast upwards motion (caused by jumping) decelerates
+            runSpeedAcceleration = 1200,		-- how fast player accelerates sideways (0 = instant)
+            runSpeedDeceleration = 900,		-- how fast player decelerates sideways (0 = instant)
             runSpeedLimit = 300,			-- max sideways running speed
             climbUpSpeedLimit = 100,
             climbDownSpeedLimit = 100,

@@ -42,10 +42,14 @@
         _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
         [self addChild:_tilemapNode];
         
+        Debug *debugNode = [Debug sharedDebug];
+        [self addChild:debugNode];
+        debugNode.zPosition = 100;
+        
         //test loading scene
         float a = 2423;
         float b = 3432;
-        for (int i = 0; i < 100000000; i++) {
+        for (int i = 0; i < 50000000; i++) {
             a /= b;
         }
 
@@ -57,7 +61,6 @@
 
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
-//    [self addDebugNode];
     
 //    SKNode *mainLayerPhysics = [self.tilemapNode createPhysicsShapesWithTileLayerNode:self.tilemapNode.mainTileLayerNode];
 //    for (SKNode *node in mainLayerPhysics.children) {
@@ -101,12 +104,6 @@
 - (void)willMoveFromView:(SKView *)view {
     [super willMoveFromView:view];
     [[OALSimpleAudio sharedInstance] stopBg];
-}
-
-- (void)addDebugNode {
-    Debug *debugNode = [Debug sharedDebug];
-    [self addChild:debugNode];
-    debugNode.zPosition = 100;
 }
 
 - (void)addTitle {

@@ -14,6 +14,7 @@
 
 /** math **/
 #define CLAMP(x, low, high)  (((x) > (high)) ? (high) : (((x) < (low)) ? (low) : (x)))
+#define SIGN(__x) (((__x) < 0) ? -1 : ((__x) > 0) ? 1 : 0)
 
 /** singleton **/
 #define DEFINE_SINGLETON_FOR_HEADER(className) \
