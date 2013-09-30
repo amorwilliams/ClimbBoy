@@ -91,9 +91,11 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
 /* States */
 @property (nonatomic, getter = isDying) BOOL dying;
 //@property (nonatomic, getter = isStartJump) BOOL startJump;
-//@property (nonatomic, getter = isJumping) BOOL jumping;
-//@property (nonatomic, getter = isClimbing) BOOL climbing;
+@property (nonatomic, getter = isJumping) BOOL jumping;
+@property (nonatomic, getter = isFalling) BOOL falling;
+@property (nonatomic, getter = isClimbing) BOOL climbing;
 //@property (nonatomic, getter = isWallJumping) BOOL wallJumping;
+@property (nonatomic, getter = isAttacking) BOOL attacking;
 @property (nonatomic) CGFloat health;
 //@property (nonatomic, getter = isStartLand) BOOL startLand;
 
@@ -133,6 +135,7 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
 - (void) doFall;
 - (void) doClimb;
 - (void) doDie;
+- (void) doAttack;
 
 /* Assets - should be overridden for animated characters. */
 - (SKEmitterNode *) damageEmitter;   // provide an emitter to show damage applied to character

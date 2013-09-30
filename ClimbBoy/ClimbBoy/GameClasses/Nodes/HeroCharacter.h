@@ -7,7 +7,6 @@
 //
 
 #import "BaseCharacter.h"
-#import "CBHeroCharacter_sm.h"
 #import "ClimbBoy-ui.h"
 
 
@@ -19,20 +18,21 @@
 @property (nonatomic) CGFloat climbUpSpeedLimit;
 @property (nonatomic) CGFloat climbDownSpeedLimit;
 
-@property (nonatomic, readonly)CBHeroCharacterContext *fsm;
+//@property (nonatomic, readonly)CBHeroCharacterContext *fsm;
 
 /* Designated Initializer. */
 //- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position;
 //- (id)initAtPosition:(CGPoint)position;
 
 
-- (void)updateRunning:(NSTimeInterval)delta;
-- (void)startJumping;
-- (void)updateJumping:(NSTimeInterval)delta;
-- (void)updateFalling:(NSTimeInterval)delta;
-- (void)updateClimbing:(NSTimeInterval)delta;
+//- (void)updateRunning:(NSTimeInterval)delta;
+//- (void)startJumping;
+//- (void)updateJumping:(NSTimeInterval)delta;
+//- (void)updateFalling:(NSTimeInterval)delta;
+//- (void)updateClimbing:(NSTimeInterval)delta;
 
 -(void) controlPadDidChangeDirection:(NSNotification*)note;
+- (void)attackButtonExecute:(id)sender;
 - (void)jumpButtonExecute:(id)sender;
 
 @end

@@ -22,9 +22,9 @@
     self = [super initWithSpineSprite:spineSprite];
     if (self) {
         
-        _fsm = [[CBHeroCharacterContext alloc]initWithOwner:self];
-        [_fsm setDebugFlag:NO];
-        [_fsm enterStartState];
+//        _fsm = [[CBHeroCharacterContext alloc]initWithOwner:self];
+//        [_fsm setDebugFlag:NO];
+//        [_fsm enterStartState];
     }
     return self;
 }
@@ -61,28 +61,67 @@
 
 
 #pragma mark - FSM Action Methods
-- (void)doStand {
-    [_fsm toStand];
+- (void)doStand
+{
+    self.attacking = NO;
+    self.jumping = NO;
+    self.falling = NO;
+    self.climbing = NO;
+    
+    [super doStand];
 }
 
-- (void)doRun {
-    [_fsm toRun];
+- (void)doRun
+{
+    self.attacking = NO;
+    self.jumping = NO;
+    self.falling = NO;
+    self.climbing = NO;
+    
+    [super doRun];
 }
 
-- (void)doJump{
-    [_fsm toJump];
+- (void)doJump
+{
+    self.falling = NO;
+    self.jumping = YES;
+    
+    [super doJump];
+
+    CGVector velocity = self.physicsBody.velocity;
+    _jumpSpeed = self.jumpSpeedInitial;
+    
+    if (self.isClimbing) {
+        velocity.dx = -(_currentControlPadDirection.dx * _jumpSpeed * 0.7);
+    }
+    
+    velocity.dy = _jumpSpeed;
+    self.physicsBody.velocity = velocity;
+    
+    self.climbing = NO;
 }
 
-- (void)doFall {
-    [_fsm toFall];
+- (void)doFall
+{
+    self.jumping = NO;
+    self.climbing = NO;
+    self.falling = YES;
+    
+    [super doFall];
 }
 
-- (void)doClimb {
-    [_fsm toClimb];
+- (void)doClimb
+{
+    self.jumping = NO;
+    self.falling = NO;
+    self.climbing = YES;
+    
+    [super doClimb];
 }
 
-- (void)doDie {
-    [_fsm toDie];
+- (void)doDie
+{
+    [super doDie];
     
     /*
     self.health = 0.0f;
@@ -91,54 +130,26 @@
      */
 }
 
-- (void)updateRunning:(NSTimeInterval)delta {
+- (void)doAttack
+{
+    self.attacking = YES;
+    self.climbing = NO;
     
+    [super doAttack];
 }
-
-- (void)startJumping {
-//    CGVector directioin = ccv(0, 1);
-//    if ([_fsm.previousState isEqual:[HeroMap Climbing]]) {
-//        directioin = ccvNormalize(ccv(1, -self.touchingSideDirection));
-//    }
-    CGVector vel = self.physicsBody.velocity;
-    _jumpSpeed = self.jumpSpeedInitial;
-    vel.dy = _jumpSpeed;
-    self.physicsBody.velocity = vel;
-}
-
-- (void)updateJumping:(NSTimeInterval)delta {
-    CGVector vel = self.physicsBody.velocity;
-    _jumpSpeed = IncrementTowards(_jumpSpeed, -self.fallSpeedLimit, self.jumpSpeedDeceleration, delta);
-    vel.dy = _jumpSpeed;
-    self.physicsBody.velocity = vel;
-}
-
-- (void)updateFalling:(NSTimeInterval)delta {
-    CGVector velocity = self.physicsBody.velocity;
-    velocity.dy = IncrementTowards(velocity.dy, -self.fallSpeedLimit, self.fallSpeedAcceleration, delta);
-    velocity.dy = MAX(self.physicsBody.velocity.dy, velocity.dy);
-    self.physicsBody.velocity = velocity;
-}
-
-- (void)updateClimbing:(NSTimeInterval)delta {
-    CGVector velocity = self.physicsBody.velocity;
-    velocity.dy = clampf(self.physicsBody.velocity.dy, _climbUpSpeedLimit, -_climbDownSpeedLimit);
-    self.physicsBody.velocity = velocity;
-}
-
 
 #pragma mark - Physics
 
 - (void)onGrounded
 {
     NSLog(@"onGrounded");
-    [self doStand];
+//    [self doStand];
 }
 
 - (void)onTouchTop
 {
     NSLog(@"onTouchTop");
-    if ([_fsm.state isEqual:[HeroMap Jumping]]) {
+    if (self.isJumping) {
         [self endJump];
     }
 }
@@ -149,71 +160,104 @@
 }
 
 
-- (void)updateWithDeltaTime:(CFTimeInterval)delta{
+- (void)updateWithDeltaTime:(CFTimeInterval)delta {
     [super updateWithDeltaTime:delta];
     
-    [_fsm update:delta];
-    
     CBMoveDirection dirction = _currentControlPadDirection.dx > 0 ? kCBMoveDirectionRight : kCBMoveDirectionLeft;
-    CGFloat speed = 0;
+    CGFloat speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit;
+    CGVector velocity = self.physicsBody.velocity;
     
-    if (self.isGrounded)
+    if (self.isAttacking)
     {
-        speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit;
-        
-        if (fabs(self.physicsBody.velocity.dx) < 1) {
-            [self doStand];
-        }else {
-            [self doRun];
-        }
+        speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit * 0.5;
     }
     else
     {
-        speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit * 0.75;
-        
-        if (self.isTouchSide){
-            [self doClimb];
-        }
-        
-        if ([_fsm.state isEqual:[HeroMap Climbing]]) {
-            if (!self.isTouchSide) {
-                [self doFall];
-            }
-        }else{
-            if (self.physicsBody.velocity.dy < 0 && ![_fsm.state isEqual:[HeroMap Falling]]) {
-                [self doFall];
-            }
-            if ([_fsm.state isEqual:[HeroMap Jumping]]) {
-                if (_jumpButton && !_jumpButton.selected){
-                    [self endJump];
+        if (self.isGrounded)
+        {
+            if (!self.isJumping)
+            {
+                if (fabs(self.physicsBody.velocity.dx) < 1)
+                {
+                    [self doStand];
+                }else
+                {
+                    [self doRun];
                 }
             }
         }
+        else
+        {
+            if (self.isClimbing)
+            {
+                if (!self.isTouchSide)
+                {
+                    [self doFall];
+                }
+                
+                velocity.dy = clampf(self.physicsBody.velocity.dy, _climbUpSpeedLimit, -_climbDownSpeedLimit);
+            }
+            else
+            {
+                if (self.isTouchSide)
+                {
+                    [self doClimb];
+                }
+                else if (self.physicsBody.velocity.dy < 0 && !self.isFalling)
+                {
+                    [self doFall];
+                }
+                
+                if (self.isJumping)
+                {
+                    if (_jumpButton && !_jumpButton.selected)
+                    {
+                        [self endJump];
+                    }
+                    
+                    _jumpSpeed = IncrementTowards(_jumpSpeed, -self.fallSpeedLimit, self.jumpSpeedDeceleration, delta);
+                    velocity.dy = _jumpSpeed;
+                    self.physicsBody.velocity = velocity;
+                }
+                else if (self.isFalling)
+                {
+                    velocity.dy = IncrementTowards(velocity.dy, -self.fallSpeedLimit, self.fallSpeedAcceleration, delta);
+                    velocity.dy = MAX(self.physicsBody.velocity.dy, velocity.dy);
+                }
+            }
+            
+            speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit * 0.75;
+        }
     }
     
+    self.physicsBody.velocity = velocity;
     [self move:dirction bySpeed:speed acceleration:self.runSpeedAcceleration deltaTime:delta];
 }
 
-- (void)updateMovementOnGround:(CFTimeInterval)delta {
+- (void)updateMovementOnGround:(CFTimeInterval)delta
+{
     CBMoveDirection dirction = _currentControlPadDirection.dx > 0 ? kCBMoveDirectionRight : kCBMoveDirectionLeft;
     CGFloat speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit;
     
     [self move:dirction bySpeed:speed acceleration:self.runSpeedAcceleration deltaTime:delta];
 }
 
-- (void)updateMovementInAir:(CFTimeInterval)delta {
+- (void)updateMovementInAir:(CFTimeInterval)delta
+{
     CBMoveDirection dirction = _currentControlPadDirection.dx > 0 ? kCBMoveDirectionRight : kCBMoveDirectionLeft;
     CGFloat speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit * 0.75;
     [self move:dirction bySpeed:speed acceleration:self.runSpeedAcceleration deltaTime:delta];
 }
 
 #pragma mark - Physics Delegate
-- (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
+- (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody
+{
     [super didBeginContact:contact otherBody:otherBody];
     
 }
 
-- (void)didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
+- (void)didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody
+{
     [super didEndContact:contact otherBody:otherBody];
     
 }
@@ -234,7 +278,7 @@
 
 - (void) attackButtonExecute:(id)sender
 {
-    
+    [self doAttack];
 }
 
 - (void) jumpButtonExecute:(id)sender
@@ -242,8 +286,10 @@
     CBButton *button = (CBButton *)sender;
     if (button.selected)
     {
-        [self doJump];
-        _jumpButton = button;
+        if ((self.isGrounded || self.isClimbing) && !self.isAttacking) {
+            [self doJump];
+            _jumpButton = button;
+        }
     }
 }
 

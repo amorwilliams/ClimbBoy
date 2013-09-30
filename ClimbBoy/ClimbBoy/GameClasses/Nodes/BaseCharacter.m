@@ -123,6 +123,10 @@
     [self runAnimation:CBAnimationStateDeath];
 }
 
+- (void)doAttack {
+    [self runAnimation:CBAnimationStateAttack];
+}
+
 
 #pragma mark - Character Events
 - (void)onArrived{
@@ -240,10 +244,15 @@
             break;
             
         case CBAnimationStateAttack:
+        {
             animationKey = @"anim_attack";
             [self.characterSprite playAnimation:@"stand-attack" loop:NO];
-            [self.characterSprite queueAnimation:@"stand" loop:YES afterDelay:0.6];
+//            [self.characterSprite queueAnimation:@"stand" loop:YES afterDelay:0.6];
+            [self runAction:[SKAction waitForDuration:0.6] completion:^{
+                self.attacking = NO;
+            }];
             break;
+        }
             
         case CBAnimationStateGetHit:
             animationKey = @"anim_hit";

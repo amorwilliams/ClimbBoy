@@ -22,6 +22,10 @@
         [spineSprite setMixFrom:@"run" to:@"jump-loop" duration:0.2];
         [spineSprite setMixFrom:@"jump-loop" to:@"stand" duration:0.02];
         [spineSprite setMixFrom:@"jump-loop" to:@"run" duration:0.1];
+        [spineSprite setMixFrom:@"stand" to:@"stand-attack" duration:0.1];
+        [spineSprite setMixFrom:@"run" to:@"stand-attack" duration:0.1];
+        [spineSprite setMixFrom:@"stand-attack" to:@"stand" duration:0.1];
+        [spineSprite setMixFrom:@"stand-attack" to:@"run" duration:0.1];
         
         if(self = [super initWithSpineSprite:spineSprite]){
             //        self.characterSprite.anchorPoint = CGPointMake(0.5, 0.45);

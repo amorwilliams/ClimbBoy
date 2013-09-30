@@ -10,9 +10,10 @@
 typedef enum : uint8_t {
     kContactCategoryWorld               = 0,
     kContactCategoryPlayer              = 1 << 0,
-    kContactCategoryPickupItem          = 1 << 1,
-    kContactCategoryTrigger             = 1 << 2,
-    kContactCategoryStaticObject        = 1 << 3
+    kContactCategoryEnemy               = 1 << 1,
+    kContactCategoryPickupItem          = 1 << 2,
+    kContactCategoryTrigger             = 1 << 3,
+    kContactCategoryStaticObject        = 1 << 4
 } ContactCategoryType;
 
 typedef enum : uint8_t {

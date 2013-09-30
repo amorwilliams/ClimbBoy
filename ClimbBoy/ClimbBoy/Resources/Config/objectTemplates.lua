@@ -4,9 +4,10 @@
 
 local kContactCategoryWorld = 0
 local kContactCategoryPlayer = 1
-local kContactCategoryPickupItem = 2
-local kContactCategoryTrigger = 4
-local kContactCategoryStaticObject = 8
+local kContactCategoryEnemy = 2
+local kContactCategoryPickupItem = 4
+local kContactCategoryTrigger = 8
+local kContactCategoryStaticObject = 16
 
 local kGameObjectCollisionBitMask = 0xffffffff - (kContactCategoryPickupItem + kContactCategoryTrigger)
 
@@ -108,7 +109,7 @@ local objectTemplates =
             runSpeedAcceleration = 1200,		-- how fast player accelerates sideways (0 = instant)
             runSpeedDeceleration = 900,		-- how fast player decelerates sideways (0 = instant)
             runSpeedLimit = 300,			-- max sideways running speed
-            climbUpSpeedLimit = 100,
+            climbUpSpeedLimit = 500,
             climbDownSpeedLimit = 100,
             boundingBox = "{32, 52}",
             --anchorPoint = "{0.5, 0.3}",

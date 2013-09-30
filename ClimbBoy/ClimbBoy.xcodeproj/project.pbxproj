@@ -97,7 +97,6 @@
 		52D5126C17F06CEF00362403 /* KKDownloadProjectFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5125F17F06CEF00362403 /* KKDownloadProjectFiles.m */; };
 		52D5126F17F06F6300362403 /* LoadingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5126E17F06F6300362403 /* LoadingScene.m */; };
 		52D5127A17F0979A00362403 /* BaseCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127217F0979A00362403 /* BaseCharacter.m */; };
-		52D5127B17F0979A00362403 /* CBHeroCharacter_sm.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127517F0979A00362403 /* CBHeroCharacter_sm.m */; };
 		52D5127C17F0979A00362403 /* HeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127717F0979A00362403 /* HeroCharacter.m */; };
 		52D5127D17F0979A00362403 /* HeroRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127917F0979A00362403 /* HeroRobot.m */; };
 		52F3935517F6ADFA00D9A07E /* CharacterPhysicsBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F3935417F6ADFA00D9A07E /* CharacterPhysicsBehavior.m */; };
@@ -352,8 +351,6 @@
 		52D5126E17F06F6300362403 /* LoadingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScene.m; sourceTree = "<group>"; };
 		52D5127117F0979A00362403 /* BaseCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseCharacter.h; sourceTree = "<group>"; };
 		52D5127217F0979A00362403 /* BaseCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseCharacter.m; sourceTree = "<group>"; };
-		52D5127417F0979A00362403 /* CBHeroCharacter_sm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBHeroCharacter_sm.h; sourceTree = "<group>"; };
-		52D5127517F0979A00362403 /* CBHeroCharacter_sm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBHeroCharacter_sm.m; sourceTree = "<group>"; };
 		52D5127617F0979A00362403 /* HeroCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroCharacter.h; sourceTree = "<group>"; };
 		52D5127717F0979A00362403 /* HeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroCharacter.m; sourceTree = "<group>"; };
 		52D5127817F0979A00362403 /* HeroRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroRobot.h; sourceTree = "<group>"; };
@@ -1004,8 +1001,6 @@
 		52D5127317F0979A00362403 /* FSMs */ = {
 			isa = PBXGroup;
 			children = (
-				52D5127417F0979A00362403 /* CBHeroCharacter_sm.h */,
-				52D5127517F0979A00362403 /* CBHeroCharacter_sm.m */,
 			);
 			path = FSMs;
 			sourceTree = "<group>";
@@ -1398,7 +1393,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				52D5127B17F0979A00362403 /* CBHeroCharacter_sm.m in Sources */,
 				52D511B317F06C6400362403 /* CBMyScene.m in Sources */,
 				52D5123317F06C8400362403 /* SlotData.c in Sources */,
 				52D511B817F06C6400362403 /* MenuScene.m in Sources */,
