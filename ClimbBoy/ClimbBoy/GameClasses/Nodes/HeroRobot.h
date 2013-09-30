@@ -10,6 +10,4 @@
 
 @interface HeroRobot : HeroCharacter
 
-- (id)initAtPosition:(CGPoint)position;
-
 @end

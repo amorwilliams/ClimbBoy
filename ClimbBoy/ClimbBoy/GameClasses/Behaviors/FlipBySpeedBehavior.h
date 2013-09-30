@@ -10,10 +10,8 @@
 
 @interface FlipBySpeedBehavior : KKBehavior
 {
-    __weak KKNode *_targetNode;
 }
 
-+ (id) flipWithTarget:(KKNode *)target;
+@property (atomic, weak) KKNode *targetSpriteNode;
 
-- (id) initWithTarget:(KKNode *)target;
 @end

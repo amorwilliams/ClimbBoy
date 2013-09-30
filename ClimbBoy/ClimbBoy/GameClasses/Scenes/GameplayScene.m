@@ -157,6 +157,7 @@
 	joypadNode.name = @"joypad";
 	[self addChild:joypadNode];
     
+    // ----------------------------- DPad ----------------------------
 	SKTextureAtlas* atlas = [SKTextureAtlas atlasNamed:@"Jetpack"];
     
 	KKSpriteNode* dpadNode = [KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_directions_background"]];
@@ -171,19 +172,31 @@
 	dpad.deadZone = 0;
 	[dpadNode addBehavior:dpad withKey:@"simple dpad"];
     
-	CGSize sceneSize = self.size;
+    [_playerCharacter observeNotification:KKControlPadDidChangeDirectionNotification
+								 selector:@selector(controlPadDidChangeDirection:)
+								   object:dpadNode];
+    
+    
+    // ----------------------------- Attack Button ----------------------------
+    CBButton *attackButtonNode = [CBButton buttonWithTitle:nil
+                                               spriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_notpressed"]]
+                                       selectedSpriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_pressed"]]
+                                       disabledSpriteFrame:nil];
+    attackButtonNode.position = CGPointMake(self.size.width - 150 , 60);
+    attackButtonNode.executesWhenPressed = YES;
+	[joypadNode addChild:attackButtonNode];
+    
+    [attackButtonNode setTarget:_playerCharacter selector:@selector(attackButtonExecute:)];
+
+    // ----------------------------- Jump Button ----------------------------
     CBButton *jumpButtonNode = [CBButton buttonWithTitle:nil
                                              spriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_notpressed"]]
                                      selectedSpriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_pressed"]]
                                      disabledSpriteFrame:nil];
-	jumpButtonNode.position = CGPointMake(sceneSize.width - 60 , 60);
+	jumpButtonNode.position = CGPointMake(self.size.width - 60 , 60);
     jumpButtonNode.executesWhenPressed = YES;
 	[joypadNode addChild:jumpButtonNode];
 	
-	// make player observe joypad
-	[_playerCharacter observeNotification:KKControlPadDidChangeDirectionNotification
-								 selector:@selector(controlPadDidChangeDirection:)
-								   object:dpadNode];
     [jumpButtonNode setTarget:_playerCharacter selector:@selector(jumpButtonExecute:)];
 }
 @end

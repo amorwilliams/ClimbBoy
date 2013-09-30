@@ -11,7 +11,7 @@
 
 %map HeroMap
 %%
-// State			Transition                      End State		Action(s)
+// State			Transition                      EndState		Action(s)
 Standing
 Entry {
     runAnimation(CBAnimationStateIdle);
@@ -21,6 +21,7 @@ Exit {
 {
                     toRun                           Running         {}
                     toJump[!ctxt.isTouchTop]        Jumping         {}
+                    toAttack						Attacking 		{}
 }
 
 Running
@@ -33,6 +34,7 @@ Exit {
                     toStand                         Standing        {}
                     toJump[!ctxt.isTouchTop]        Jumping         {}
                     toFall                          Falling         {}
+					toAttack						Attacking 		{}
                     update(delta:NSTimeInterval) 	nil             {updateRunning(delta);}
 }
 
@@ -44,6 +46,7 @@ Entry {
 {
                     toFall                          Falling         {}
                     toClimb[ctxt.isTouchSide]       Climbing        {}
+					toAttack						Attacking 		{}
                     update(delta:NSTimeInterval) 	nil             {updateJumping(delta);}
 }
 
@@ -57,6 +60,7 @@ Exit {
 {
                     toStand                         Standing        {}
                     toClimb[ctxt.isTouchSide]       Climbing        {}
+					toAttack						Attacking 		{}
                     update(delta:NSTimeInterval) 	nil             {updateFalling(delta);}
 }
 
@@ -79,7 +83,19 @@ Entry {
     runAnimation(CBAnimationStateDeath);
 }
 {
+	
+}
 
+Attacking
+Entry {
+    runAnimation(CBAnimationStateAttack);
+}
+Exit {
+    
+}
+{
+                    toStand                         Standing        {}
+                    update(delta:NSTimeInterval)	nil             {updateAttacking(delta);}
 }
 
 Default

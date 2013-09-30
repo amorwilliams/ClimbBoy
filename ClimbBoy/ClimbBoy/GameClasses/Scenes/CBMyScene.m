@@ -39,7 +39,6 @@
     [super didMoveToView:view];
     
     [self addTitle];
-    [self addHero];
 }
 
 - (void)addButtons {
@@ -86,7 +85,7 @@
     wallNode.physicsBody = [wallNode physicsBodyWithRectangleOfSize:rect.size];
     wallNode.physicsBody.dynamic = NO;
     wallNode.physicsBody.restitution = 0;
-    wallNode.physicsBody.categoryBitMask = CBColliderTypeWall;
+    wallNode.physicsBody.categoryBitMask = kContactCategoryWorld;
     wallNode.physicsBody.collisionBitMask = 0;
     
     [self addChild:wallNode];
@@ -101,12 +100,6 @@
     [self addChild:self.myLabel];
     NSLog(@"%f, %f", self.myLabel.position.x, self.myLabel.position.y);
 }
-
-- (void)addHero {
-    self.hero = [[HeroRobot alloc] initAtPosition:CGPointMake(100,100)];
-    [self addChild:self.hero];
-}
-
 
 
 #pragma mark - Loop Update

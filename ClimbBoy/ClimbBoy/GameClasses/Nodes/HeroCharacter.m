@@ -17,9 +17,9 @@
 @implementation HeroCharacter
 
 #pragma mark - Initialization
-- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position
+- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite
 {
-    self = [super initWithSpineSprite:spineSprite atPosition:position];
+    self = [super initWithSpineSprite:spineSprite];
     if (self) {
         
         _fsm = [[CBHeroCharacterContext alloc]initWithOwner:self];
@@ -115,16 +115,7 @@
 
 - (void)updateFalling:(NSTimeInterval)delta {
     CGVector velocity = self.physicsBody.velocity;
-    
-//    if (self.fallSpeedAcceleration == 0.0 || self.fallSpeedAcceleration >= self.fallSpeedLimit){
-//        velocity.dy = -self.fallSpeedLimit;
-//    }
-//    else{
-//        velocity.dy -= self.fallSpeedAcceleration;
-//    }
-    
     velocity.dy = IncrementTowards(velocity.dy, -self.fallSpeedLimit, self.fallSpeedAcceleration, delta);
-    
     velocity.dy = MAX(self.physicsBody.velocity.dy, velocity.dy);
     self.physicsBody.velocity = velocity;
 }
@@ -158,8 +149,8 @@
 }
 
 
-- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)delta{
-    [super updateWithTimeSinceLastUpdate:delta];
+- (void)updateWithDeltaTime:(CFTimeInterval)delta{
+    [super updateWithDeltaTime:delta];
     
     [_fsm update:delta];
     
@@ -241,7 +232,12 @@
 	}
 }
 
-- (void)jumpButtonExecute:(id)sender
+- (void) attackButtonExecute:(id)sender
+{
+    
+}
+
+- (void) jumpButtonExecute:(id)sender
 {
     CBButton *button = (CBButton *)sender;
     if (button.selected)

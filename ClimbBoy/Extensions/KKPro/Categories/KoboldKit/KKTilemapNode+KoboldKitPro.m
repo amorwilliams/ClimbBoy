@@ -150,7 +150,7 @@
 				for (NSString* propertyKey in tiledProperties.allKeys)
 				{
 					// test if a behavior template property exists
-					NSDictionary* behaviorTemplate = [behaviorTemplates objectForKey:propertyKey];
+					NSMutableDictionary* behaviorTemplate = [behaviorTemplates objectForKey:propertyKey];
 					if (behaviorTemplate)
 					{
 						// test if the behavior is enabled, and remove the key to avoid varsetter from trying to "set" it
@@ -159,6 +159,19 @@
 						
 						if (behaviorEnabled.boolValue)
 						{
+                            // replace with tile map properties value
+                            NSMutableDictionary *behaviorPropertys = [behaviorTemplate objectForKey:@"properties"];
+                            if (behaviorPropertys.count) {
+                                for (NSString* behaviorPropertyKey in tiledProperties.allKeys) {
+                                    id behaviorProperty = [behaviorPropertys objectForKey:behaviorPropertyKey];
+                                    if (behaviorProperty) {
+                                        [behaviorPropertys setValue:[tiledProperties objectForKey:behaviorPropertyKey] forKey:behaviorPropertyKey];
+                                        [tiledProperties removeObjectForKey:behaviorPropertyKey];
+                                    }
+                                }
+                                [behaviorTemplate setValue:behaviorPropertys forKey:@"properties"];
+                            }
+                            
 							KKBehavior* behavior = [self behaviorWithTemplate:behaviorTemplate objectNode:objectNode varSetterCache:varSetterCache];
 							[objectNode addBehavior:behavior withKey:propertyKey];
 						}

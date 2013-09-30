@@ -10,7 +10,7 @@
 #define ClimbBoy_CBBehaviors_h
 
 #import "FlipBySpeedBehavior.h"
-#import "CharacterAnimatorBehavior.h"
+//#import "CharacterAnimatorBehavior.h"
 #import "CharacterPhysicsBehavior.h"
 
 #endif

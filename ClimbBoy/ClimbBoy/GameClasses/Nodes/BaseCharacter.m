@@ -12,28 +12,19 @@
 #import "Debug.h"
 
 @implementation BaseCharacter
-@synthesize node;
+//@synthesize node;
 #pragma mark - Initialization
-- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position {
+- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite
+{
     if (self = [super init]) {
         self.characterSprite = spineSprite;
 
-        [self sharedInitAtPosition:position];
-//        _enableGroundTest = YES;
-//        _enableSideTest = NO;
-    }
-    
-    return self;
-}
+        _health = 100.0f;
+        
+        [self configurePhysicsBody];//        _enableGroundTest = YES;
 
-- (void)sharedInitAtPosition:(CGPoint)position {
-    
-    self.position = position;
-    
-    _collisionCapsule = CBCapsuleMake(kCharacterCollisionRadius, kCharacterCollisionHeight);
-    _health = 100.0f;
-    
-    [self configurePhysicsBody];
+    }
+    return self;
 }
 
 - (void)reset {
@@ -44,10 +35,21 @@
 - (void)didMoveToParent {
     [self observeSceneEvents];
     [self.kkScene addPhysicsContactEventsObserver:self];
-    FlipBySpeedBehavior *flipBehavior = [FlipBySpeedBehavior flipWithTarget:self.characterSprite];
+    
+    FlipBySpeedBehavior *flipBehavior = [FlipBySpeedBehavior behavior];
+    flipBehavior.targetSpriteNode = self.characterSprite;
     [self addBehavior:flipBehavior withKey:@"flip"];
     
     [self addChild:self.characterSprite];
+    
+    [self runAnimation:CBAnimationStateIdle];
+}
+
+- (void)willMoveFromParent
+{
+    [super willMoveFromParent];
+    [self disregardSceneEvents];
+    [self.kkScene removePhysicsContactEventsObserver:self];
 }
 
 #pragma mark - Properties
@@ -153,15 +155,17 @@
         _lastUpdateTimeInterval = currentTime;
     }
     
-    [self updateWithTimeSinceLastUpdate:timeSinceLast];
+    [self updateWithDeltaTime:timeSinceLast];
 }
 
-- (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)delta {
+- (void)updateWithDeltaTime:(CFTimeInterval)delta {
     
 }
 
 -(void) didEvaluateActions {
-    
+    if (_platformNode) {
+        self.position = ccp(_platformNode.position.x + _platformOffsetX, self.position.y) ;
+    }
 }
 
 - (void) didSimulatePhysics {
@@ -174,13 +178,11 @@
 //}
 
 - (void)didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
-//    [self rayTesting];
-
+    [super didBeginContact:contact otherBody:otherBody];
 }
 
 - (void)didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody {
-//    [self rayTesting];
-
+    [super didEndContact:contact otherBody:otherBody];
 }
 
 #pragma mark - Animation
@@ -350,13 +352,14 @@
 
 static const int collisionDivisionsX = 3;
 static const int collisionDivisionsY = 3;
-static const float skin = 10;
+static const float skin = 5;
 
 - (void)collisionTest:(CGVector)move
 {
     float deltaX = move.dx;
-    float deltaY = move.dy;
+//    float deltaY = move.dy;
     
+    _platformNode = nil;
     SKPhysicsWorld* physicsWorld = self.kkScene.physicsWorld;
     const CGSize size = self.boundingBox;
     const CGPoint p = [self convertPoint:CGPointZero toNode:self.kkScene];
@@ -370,9 +373,14 @@ static const float skin = 10;
         [Debug drawLineStart:rayStart end:rayEnd];
         
         [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-            if (body.contactTestBitMask < 1){
+            if (body.collisionBitMask & kContactCategoryPlayer){
                 rayHitBottom = YES;
                 *stop = YES;
+                
+                if (body.contactTestBitMask & kContactCategoryPlayer) {
+                    _platformNode = body.node;
+                    _platformOffsetX = self.position.x - body.node.position.x;
+                }
             }
 		}];
     }
@@ -391,7 +399,7 @@ static const float skin = 10;
         [Debug drawLineStart:rayStart end:rayEnd];
         
         [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-            if (body.contactTestBitMask < 1){
+            if (body.collisionBitMask & kContactCategoryPlayer){
                 rayHitTop = YES;
                 *stop = YES;
             }
@@ -416,7 +424,7 @@ static const float skin = 10;
             [Debug drawLineStart:rayStart end:rayEnd];
             
             [physicsWorld enumerateBodiesAlongRayStart:rayStart end:rayEnd usingBlock:^(SKPhysicsBody *body, CGPoint point, CGVector normal, BOOL *stop) {
-                if (body.contactTestBitMask <= 1){
+                if (body.collisionBitMask & kContactCategoryPlayer){
                     rayHitSide = YES;
                     *stop = YES;
                 }

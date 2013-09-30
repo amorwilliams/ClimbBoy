@@ -199,13 +199,6 @@
 			remoteGlobalIDString = DC68B3E217ECB1FE00563A30;
 			remoteInfo = "libKoboldKitExternal.a Tests";
 		};
-		DC68B42617ECB3CA00563A30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DCDBA58817E5E52C00796C04 /* OpenGW.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = DC68B40E17ECB2C200563A30;
-			remoteInfo = "libOpenGW.a-Tests";
-		};
 		DC8B561517CBF10F00F95CBC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC8B560A17CBF10F00F95CBC /* KoboldKitCommunity.xcodeproj */;
@@ -801,7 +794,6 @@
 			children = (
 				DCDBA58E17E5E52C00796C04 /* libOpenGW.a */,
 				DCDBA59017E5E52C00796C04 /* OpenGW.framework */,
-				DC68B42717ECB3CA00563A30 /* libOpenGW.a-Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1025,13 +1017,6 @@
 			fileType = wrapper.cfbundle;
 			path = "libKoboldKitExternal.a Tests.xctest";
 			remoteRef = DC68B42117ECB3CA00563A30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DC68B42717ECB3CA00563A30 /* libOpenGW.a-Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "libOpenGW.a-Tests.xctest";
-			remoteRef = DC68B42617ECB3CA00563A30 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		DC8B561617CBF10F00F95CBC /* libKoboldKitCommunity.a */ = {
@@ -1293,7 +1278,7 @@
 		DC484C88178C418D0067DAA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1310,7 +1295,7 @@
 		DC484C89178C418D0067DAA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KoboldKit;
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PRODUCT_NAME)";

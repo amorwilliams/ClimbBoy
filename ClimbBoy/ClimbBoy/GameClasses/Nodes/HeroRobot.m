@@ -15,32 +15,22 @@
 - (id)init {
     self = [super init];
     if (self) {
-        return [self initAtPosition:CGPointZero];
+        CBSpineSprite *spineSprite = [CBSpineSprite skeletonWithFile:@"light knight.json" atlasFile:@"light knight.atlas" scale:1];
+        [spineSprite setMixFrom:@"stand" to:@"run" duration:0.2];
+        [spineSprite setMixFrom:@"run" to:@"stand" duration:0.2];
+        [spineSprite setMixFrom:@"stand" to:@"jump-loop" duration:0.2];
+        [spineSprite setMixFrom:@"run" to:@"jump-loop" duration:0.2];
+        [spineSprite setMixFrom:@"jump-loop" to:@"stand" duration:0.02];
+        [spineSprite setMixFrom:@"jump-loop" to:@"run" duration:0.1];
+        
+        if(self = [super initWithSpineSprite:spineSprite]){
+            //        self.characterSprite.anchorPoint = CGPointMake(0.5, 0.45);
+            [self.characterSprite setScale:0.2];
+            self.characterSprite.position = ccp(0, -25);
+        }
     }
     return self;
 }
-
-- (id)initAtPosition:(CGPoint)position {
-//    SKTextureAtlas *atlas = [SKTextureAtlas atlasNamed:@"Hero_Idle"];
-//    SKTexture *texture = [atlas textureNamed:@"hero_idle_0001.png"];
-    
-    CBSpineSprite *spineSprite = [CBSpineSprite skeletonWithFile:@"light knight.json" atlasFile:@"light knight.atlas" scale:1];
-    [spineSprite setMixFrom:@"stand" to:@"run" duration:0.2];
-    [spineSprite setMixFrom:@"run" to:@"stand" duration:0.2];
-    [spineSprite setMixFrom:@"stand" to:@"jump-loop" duration:0.2];
-    [spineSprite setMixFrom:@"run" to:@"jump-loop" duration:0.2];
-    [spineSprite setMixFrom:@"jump-loop" to:@"stand" duration:0.1];
-    [spineSprite setMixFrom:@"jump-loop" to:@"run" duration:0.1];
-    
-    if(self = [super initWithSpineSprite:spineSprite atPosition:position]){
-//        self.characterSprite.anchorPoint = CGPointMake(0.5, 0.45);
-        [self.characterSprite setScale:0.2];
-        self.characterSprite.position = ccp(0, -25);
-    }
-    
-    return self;
-}
-
 
 #pragma mark - Shared Assets
 /*

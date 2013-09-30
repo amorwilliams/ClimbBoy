@@ -6,16 +6,6 @@
 
 #import "AppDelegate.h"
 
-static void uncaughtExceptionHandler(NSException *exception) {
-    
-    NSLog(@"CRASH: %@", exception);
-    
-    NSLog(@"Stack Trace: %@", [exception callStackSymbols]);
-    
-    // Internal error reporting
-    
-}
-
 @implementation AppDelegate
 
 #if TARGET_OS_IPHONE
@@ -24,8 +14,7 @@ static void uncaughtExceptionHandler(NSException *exception) {
 	BOOL returnValue = [super application:application didFinishLaunchingWithOptions:launchOptions];
 	
     // Override point for customization after application launch.
-//    NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-   
+    
     return returnValue;
 }
 							

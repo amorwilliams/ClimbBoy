@@ -5,6 +5,12 @@
 //  Created by Robin on 13-8-20.
 //  Copyright (c) 2013年 macbookpro. All rights reserved.
 //
+#import <SpriteKit/SpriteKit.h>
+#import "CBCategories.h"
+#import "CBBehaviors.h"
+#import "spine-spirte-kit.h"
+#import "CBMacros.h"
+#import "Entity.h"
 
 /* Used by the move: method to move a character in a given direction. */
 typedef enum : int8_t {
@@ -26,36 +32,14 @@ typedef enum : uint8_t {
     kAnimationStateCount
 } CBAnimationState;
 
-/* Bitmask for the different entities with physics bodies. */
-typedef enum : uint8_t {
-    CBColliderTypeWall             = 0,
-    CBColliderTypeHero             = 1,
-    CBColliderTypeGoblinOrBoss     = 2,
-    CBColliderTypeProjectile       = 4,
-    CBColliderTypeCave             = 8
-} CBColliderType;
-
-typedef enum : uint8_t {
-    kCBAxisTypeX = 0,
-    kCBAxisTypeY,
-    kCBAxisTypeXY,
-} CBAxisType;
-
-#define kMovementSpeed 300.0
-
-#define kCharacterCollisionRadius   15
-#define kCharacterCollisionHeight   80
-#define kProjectileCollisionRadius  15
-
-#define kDefaultNumberOfWalkFrames 28
-#define kDefaultNumberOfIdleFrames 28
-
-#import <SpriteKit/SpriteKit.h>
-#import "CBCategories.h"
-#import "CBBehaviors.h"
-#import "CharacterAnimatorDelegate.h"
-#import "spine-spirte-kit.h"
-#import "CBMacros.h"
+//#define kMovementSpeed 300.0
+//
+//#define kCharacterCollisionRadius   15
+//#define kCharacterCollisionHeight   80
+//#define kProjectileCollisionRadius  15
+//
+//#define kDefaultNumberOfWalkFrames 28
+//#define kDefaultNumberOfIdleFrames 28
 
 // Increase n towards target by speed
 static inline float IncrementTowards(float n, float target, float a, NSTimeInterval deltaTime) {
@@ -71,17 +55,20 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
 
 @class CharacterAnimatorBehavior, CharacterPhysicsBehavior;
 
-@interface BaseCharacter : KKNode <KKPhysicsContactEventDelegate>
+@interface BaseCharacter : Entity 
 {
     CFTimeInterval _lastUpdateTimeInterval;
     CGFloat _targetSpeed;
     CGFloat _currentSpeed;
     CGFloat _jumpSpeed;
+    
+    __weak SKNode *_platformNode;
+    CGFloat _platformOffsetX;
 }
 /* 保存角色的贴图 */
 @property (nonatomic) CBSpineSprite *characterSprite;
 /* 角色碰撞的半径 */
-@property (nonatomic) CBCapsule collisionCapsule;
+//@property (nonatomic) CBCapsule collisionCapsule;
 @property (nonatomic) CGSize boundingBox;
 
 /* Movement */
@@ -126,15 +113,13 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
 + (void) loadSharedAssets;
 
 /* Initialize a standard sprite. */
-- (id) initWithSpineSprite:(CBSpineSprite *)spineSprite atPosition:(CGPoint)position;
+- (id) initWithSpineSprite:(CBSpineSprite *)spineSprite;
 
 /* Reset a character for reuse. */
 - (void) reset;
 
 /* Overridden Methods. */
 //- (void)animationDidComplete:(CBAnimationState)animation;
-- (void) didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
-- (void) didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
 - (void) configurePhysicsBody;
 - (void) onArrived;
 
@@ -156,7 +141,7 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
 - (void)runAnimation:(CBAnimationState)animationState;
 
 /* Loop Update - called once per frame. */
-- (void) updateWithTimeSinceLastUpdate:(CFTimeInterval)delta;
+- (void) updateWithDeltaTime:(CFTimeInterval)delta;
 - (void) didEvaluateActions;
 - (void) didSimulatePhysics;
 

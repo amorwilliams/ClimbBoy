@@ -18,6 +18,11 @@
    eJy1ks0KwkAMhKOgh9qTerGtPdgqaKl3fyoo+P6v5CxuaAipbqkufITNJNOlSUFEFSgElZGTmhV1752+nzKgxjrzgJrNAO+ZZ23oETiAuKM/Ev26xnk/6P1/aqWtQAIWIDO+z3rqyZTuvJcdb9pTOxem7qF/8h56/uHNs/+l9wmcwcXHpKf3CIzBBEwNPVeRd0Ci95HfdKV2bo3P3UTdTkW3Y6nA3bfgqSgDckcVX5aAEa8=
   </data>
  </layer>
+ <layer name="objects" width="23" height="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAd4EDj65OpF90cSt1BKhCgUD8+IEFl80BhrI7FbHYcbGLlkc1HN5uQe0gF1A4TZKAApd2A2B0Je2BRS2y64afQTep45MQpNBtb+MPil1KzsQEAeaoDtQ==
+  </data>
+ </layer>
  <layer name="mainlayer" width="23" height="12">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2AUjALqAAAEUAAB
@@ -48,10 +53,31 @@
  </objectgroup>
  <objectgroup draworder="topdown" name="game objects" width="23" height="12">
   <object name="player" type="Player" x="192" y="576" width="32" height="45"/>
+  <object name="Text" type="Text" x="640" y="576">
+   <properties>
+    <property name="text" value="Haha!!!!!!!"/>
+   </properties>
+  </object>
+  <object name="Briefcase" type="Briefcase" x="320" y="576" width="64" height="64"/>
+  <object name="path1" x="384" y="535">
+   <polyline points="0,0 320,0"/>
+  </object>
+  <object name="Platform1" type="Platform" x="381" y="522" width="94" height="28">
+   <properties>
+    <property name="FollowPath" value="true"/>
+    <property name="moveSpeed" value="50"/>
+    <property name="pathName" value="path1"/>
+   </properties>
+  </object>
+  <object name="Platform2" type="Platform" x="231" y="517" width="94" height="28">
+   <properties>
+    <property name="FollowPath" value="true"/>
+    <property name="moveSpeed" value="50"/>
+    <property name="pathName" value="path2"/>
+   </properties>
+  </object>
+  <object name="path2" x="280" y="221">
+   <polyline points="0,0 0,320"/>
+  </object>
  </objectgroup>
- <layer name="objects" width="23" height="12">
-  <data encoding="base64" compression="zlib">
-   eJxjYKAd4EDj65OpF90cSt1BKhCgUD8+IEFl80BhrI7FbHYcbGLlkc1HN5uQe0gF1A4TZKAApd2A2B0Je2BRS2y64afQTep45MQpNBtb+MPil1KzsQEAeaoDtQ==
-  </data>
- </layer>
 </map>

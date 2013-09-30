@@ -273,7 +273,6 @@ local objectTemplates =
             },
         },
     },
-
 }
 
 return objectTemplates
