@@ -7,19 +7,13 @@
 //
 
 #import "GameplayScene.h"
-#import "HeroRobot.h"
 #import "Debug.h"
 #import "MapScene.h"
+#import "CBBehaviors.h"
 
 #define VIEW_SIZE_WIDHT 568
 #define VIEW_SIZE_HEIGHT 320
 
-@interface GameplayScene ()
-@property (atomic, retain)KKTilemapNode *tilemapNode;
-@property (atomic, retain)HeroCharacter *playerCharacter;
-@property (nonatomic) SKLabelNode *myLabel;
-
-@end
 
 @implementation GameplayScene
 
@@ -72,7 +66,7 @@
         node.physicsBody.restitution = 0;
     }
     
-    KKTilemapProperties *mapProperties = self.tilemapNode.tilemap.properties;
+    KKTilemapProperties *mapProperties = _tilemapNode.tilemap.properties;
     self.physicsWorld.gravity = CGVectorMake(0, [mapProperties numberForKey:@"physicsGravityY"].floatValue);
 	self.physicsWorld.speed = [mapProperties numberForKey:@"physicsSimulationSpeed"].floatValue;
     if(self.physicsWorld.speed == 0.0){
@@ -94,7 +88,7 @@
 	}
     [_tilemapNode enableParallaxScrolling];
     
-    [self addTitle];
+    [self addDebugInfoNode];
 
     // remove the curtain
 	[_curtainSprite runAction:[SKAction sequence:@[[SKAction waitForDuration:0.1], [SKAction fadeAlphaTo:0 duration:0.5], [SKAction removeFromParent]]]];
@@ -106,17 +100,18 @@
     [[OALSimpleAudio sharedInstance] stopBg];
 }
 
-- (void)addTitle {
-    self.myLabel = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
-    self.myLabel.text = @"Hello, World!";
-    self.myLabel.fontSize = 15;
-    self.myLabel.color = [UIColor blackColor];
-    self.myLabel.position = CGPointMake(self.frame.size.width/2,
-                                        self.frame.size.height - 40);
+- (void)addDebugInfoNode {
+    _debugInfo = [SKLabelNode labelNodeWithFontNamed:@"Arial"];
+    _debugInfo.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+//    _debugInfo.verticalAlignmentMode = SKLabelVerticalAlignmentModeTop;
+    _debugInfo.text = @"Hello, World!";
+    _debugInfo.fontSize = 15;
+    _debugInfo.color = [UIColor blackColor];
+    _debugInfo.position = CGPointMake( 30, self.frame.size.height - 40);
     KKViewOriginNode *hud = [KKViewOriginNode node];
     [self addChild:hud];
     
-    [hud addChild:self.myLabel];
+    [hud addChild:_debugInfo];
     
     SKLabelNode *backButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     backButton.text = @"Back";
@@ -146,7 +141,7 @@
 #pragma mark - Loop Update
 -(void)update:(NSTimeInterval)currentTime {
     [super update:currentTime];
-    self.myLabel.text = [NSString stringWithFormat:@"%@, velocity:%f,%f",
+    _debugInfo.text = [NSString stringWithFormat:@"%@, velocity:%04f,%04f",
                          _playerCharacter.activeAnimationKey, _playerCharacter.physicsBody.velocity.dx,
                          _playerCharacter.physicsBody.velocity.dy];
 }
@@ -199,4 +194,57 @@
 	
     [jumpButtonNode setTarget:_playerCharacter selector:@selector(jumpButtonExecute:)];
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesBegan:touches withEvent:event];
+    
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInNode:_tilemapNode.gameObjectsLayerNode];
+        
+        
+        if (!_emitter) {
+            _emitter =  [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"MyParticle2" ofType:@"sks"]];
+//            _emitter.position = location;
+            _emitter.targetNode = _tilemapNode.gameObjectsLayerNode;
+            [_tilemapNode.gameObjectsLayerNode addChild:_emitter];
+        }
+        
+        PlaceItemBehavior *placeItemBehavior = (PlaceItemBehavior *)[_playerCharacter behaviorMemberOfClass:[PlaceItemBehavior class]];
+        if (placeItemBehavior) {
+            placeItemBehavior.item = _emitter;
+        }
+    }
+}
+
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [super touchesMoved:touches withEvent:event];
+//    
+//    for (UITouch *touch in touches) {
+//        CGPoint location = [touch locationInNode:_tilemapNode.gameObjectsLayerNode];
+//        
+//        
+//        if (_emitter) {
+//            _emitter.position = location;
+//        }
+//        
+//    }
+//}
+
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [super touchesEnded:touches withEvent:event];
+    
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInNode:_tilemapNode.gameObjectsLayerNode];
+        
+//        if (_emitter) {
+//            [_emitter removeFromParent];
+//            _emitter = nil;
+//        }
+        
+    }
+}
+
 @end

@@ -157,7 +157,7 @@ static NSString* const ScaleActionKey = @"CBButtonB:ScaleAction";
     self.selected = NO;
 }
 
-#else
+#else //MacOS
 
 - (void) mouseDownEntered:(NSEvent *)event
 {

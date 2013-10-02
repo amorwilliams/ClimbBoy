@@ -7,12 +7,19 @@
 //
 
 #import "KKScene.h"
+#import "HeroRobot.h"
 #import "ClimbBoy-ui.h"
 
 @interface GameplayScene : KKScene
 {
     NSString *_tmxFile;
     KKSpriteNode *_curtainSprite;
+    
+    KKTilemapNode *_tilemapNode;
+    HeroCharacter *_playerCharacter;
+    SKLabelNode *_debugInfo;
+    
+    SKEmitterNode *_emitter;
 }
 + (instancetype) sceneWithSize:(CGSize)size tmxFile:(NSString *)tmx;
 

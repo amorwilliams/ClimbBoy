@@ -31,7 +31,7 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
         [_menuAnimationSprite setAlpha:0];
         [self addChild:_menuAnimationSprite];
         
-        [_menuAnimationSprite playAnimation:@"start" loop:NO];
+        [_menuAnimationSprite setAnimationForTrack:0 name:@"start" loop:NO];
         [self runAction:[SKAction waitForDuration:0.1] completion:^{
             [_menuAnimationSprite setAlpha:1];
             [self addMenuButtons];

@@ -8,6 +8,10 @@
 
 #import "CBSpineSprite.h"
 
+static void callback (AnimationState* state, int trackIndex, EventType type, Event* event, int loopCount) {
+	[(__bridge CBSpineSprite *)state->context onAnimationStateEvent:trackIndex type:type event:event loopCount:loopCount];
+}
+
 @implementation CBSpineSprite
 
 + (id) skeletonWithFile:(NSString*)skeletonDataFile atlas:(Atlas*)atlas scale:(float)scale {
@@ -62,25 +66,20 @@
     _prevAnimationTimeScale = 0;
     _isAnimationPaused = NO;
     _slotNodes = [NSMutableArray arrayWithCapacity:2];
-    _states = [NSMutableArray arrayWithCapacity:2];
-	_stateDatas = [NSMutableArray arrayWithCapacity:2];
-    
-//    if (_skeleton->data->skinCount > 0) {
-//        [self setSkin:@(_skeleton->data->skins[0]->name)];
-//    }
     
     [self buildSkeleton];
+    
+    _state = AnimationState_create(AnimationStateData_create(_skeleton->data));
+	_state->context = (__bridge void *)(self);
+	_state->listener = callback;
 }
 
 - (void) dealloc {
+    AnimationStateData_dispose(_state->data);
+    AnimationState_dispose(_state);
+    
 	SkeletonData_dispose(_skeleton->data);
 	Skeleton_dispose(_skeleton);
-    
-    for (NSValue* value in _stateDatas)
-		AnimationStateData_dispose([value pointerValue]);
-	
-	for (NSValue* value in _states)
-		AnimationState_dispose([value pointerValue]);
 }
 
 - (void)didMoveToParent {
@@ -97,8 +96,6 @@
         [_slotNodes addObject:slotNode];
         [self addChild:slotNode];
     }
-    
-    [self addAnimationState];
 }
 
 
@@ -118,15 +115,11 @@
 
 - (void)updateWithTimeSinceLastUpdate:(CFTimeInterval)delta {
     // is the animation currently playing? then update the bone positions and slot data
-	for (NSValue* value in _states) {
-		AnimationState* state = [value pointerValue];
-        if (!AnimationState_isComplete(state) || state->loop) {
-            Skeleton_update(_skeleton, delta * _animationTimeScale);
-            AnimationState_update(state, delta * _animationTimeScale);
-            AnimationState_apply(state, _skeleton);
-            _isSpineDirty = YES;
-        }
-	}
+    Skeleton_update(_skeleton, delta * _animationTimeScale);
+    
+    AnimationState_update(_state, delta * _animationTimeScale);
+    AnimationState_apply(_state, _skeleton);
+    _isSpineDirty = YES;
     
     [self updateSprites];
 }
@@ -197,70 +190,65 @@
 }
 
 #pragma mark - Animation methods
-- (void) addAnimationState {
-	AnimationStateData* stateData = AnimationStateData_create(_skeleton->data);
-	[_stateDatas addObject:[NSValue valueWithPointer:stateData]];
-	[self addAnimationState:stateData];
-}
-
-- (void) addAnimationState:(AnimationStateData*)stateData {
+- (void) setAnimationStateData:(AnimationStateData*)stateData {
 	NSAssert(stateData, @"stateData cannot be null.");
-	AnimationState* state = AnimationState_create(stateData);
-	[_states addObject:[NSValue valueWithPointer:state]];
-}
-
-- (AnimationState*) getAnimationState:(int)stateIndex {
-	NSAssert(stateIndex >= 0 && stateIndex < (int)_states.count, @"stateIndex out of range.");
-	return [[_states objectAtIndex:stateIndex] pointerValue];
-}
-
-- (void) setAnimationStateData:(AnimationStateData*)stateData forState:(int)stateIndex {
-	NSAssert(stateData, @"stateData cannot be null.");
-	NSAssert(stateIndex >= 0 && stateIndex < (int)_states.count, @"stateIndex out of range.");
 	
-	AnimationState* state = [[_states objectAtIndex:stateIndex] pointerValue];
-	for (NSValue* value in _stateDatas) {
-		if (state->data == [value pointerValue]) {
-			AnimationStateData_dispose(state->data);
-			[_stateDatas removeObject:value];
-			break;
-		}
-	}
-	[_states removeObject:[NSValue valueWithPointer:state]];
-	AnimationState_dispose(state);
+	AnimationStateData_dispose(_state->data);
+	AnimationState_dispose(_state);
     
-	state = AnimationState_create(stateData);
-	[_states setObject:[NSValue valueWithPointer:state] atIndexedSubscript:stateIndex];
+	_state = AnimationState_create(stateData);
+	_state->context = (__bridge void *)(self);
+	_state->listener = callback;
 }
 
 - (void) setMixFrom:(NSString*)fromAnimation to:(NSString*)toAnimation duration:(float)duration {
-	[self setMixFrom:fromAnimation to:toAnimation duration:duration forState:0];
+	AnimationStateData_setMixByName(_state->data, [fromAnimation UTF8String], [toAnimation UTF8String], duration);
 }
 
-- (void) setMixFrom:(NSString*)fromAnimation to:(NSString*)toAnimation duration:(float)duration forState:(int)stateIndex {
-	NSAssert(stateIndex >= 0 && stateIndex < (int)_states.count, @"stateIndex out of range.");
-	AnimationState* state = [[_states objectAtIndex:stateIndex] pointerValue];
-	AnimationStateData_setMixByName(state->data, [fromAnimation UTF8String], [toAnimation UTF8String], duration);
+- (void) setDelegate:(id<CBSpineSpriteDelegate>)delegate {
+	_delegate = delegate;
+	_delegateStart = [delegate respondsToSelector:@selector(animationDidStart:track:)];
+	_delegateEnd = [delegate respondsToSelector:@selector(animationWillEnd:track:)];
+	_delegateEvent = [delegate respondsToSelector:@selector(animationDidTriggerEvent:track:event:)];
+	_delegateComplete = [delegate respondsToSelector:@selector(animationDidComplete:track:loopCount:)];
 }
 
-- (void) playAnimation:(NSString*)name loop:(bool)loop {
-	[self playAnimation:name loop:loop forState:0];
+- (TrackEntry*) setAnimationForTrack:(int)trackIndex name:(NSString*)name loop:(bool)loop {
+	return AnimationState_setAnimationByName(_state, trackIndex, [name UTF8String], loop);
 }
 
-- (void) playAnimation:(NSString*)name loop:(bool)loop forState:(int)stateIndex {
-	NSAssert(stateIndex >= 0 && stateIndex < (int)_states.count, @"stateIndex out of range.");
-	AnimationState* state = [[_states objectAtIndex:stateIndex] pointerValue];
-	AnimationState_setAnimationByName(state, [name UTF8String], loop);
+- (TrackEntry*) addAnimationForTrack:(int)trackIndex name:(NSString*)name loop:(bool)loop afterDelay:(float)delay {
+	return AnimationState_addAnimationByName(_state, trackIndex, [name UTF8String], loop, delay);
 }
 
-- (void) queueAnimation:(NSString*)name loop:(bool)loop afterDelay:(float)delay {
-	[self queueAnimation:name loop:loop afterDelay:delay forState:0];
+- (TrackEntry*) getCurrentForTrack:(int)trackIndex {
+	return AnimationState_getCurrent(_state, trackIndex);
 }
 
-- (void) queueAnimation:(NSString*)name loop:(bool)loop afterDelay:(float)delay forState:(int)stateIndex {
-	NSAssert(stateIndex >= 0 && stateIndex < (int)_states.count, @"stateIndex out of range.");
-	AnimationState* state = [[_states objectAtIndex:stateIndex] pointerValue];
-	AnimationState_addAnimationByName(state, [name UTF8String], loop, delay);
+- (void) clearAllTracks {
+	AnimationState_clearTracks(_state);
+}
+
+- (void) clearTrack:(int)trackIndex {
+	AnimationState_clearTrack(_state, trackIndex);
+}
+
+- (void) onAnimationStateEvent:(int)trackIndex type:(EventType)type event:(Event*)event loopCount:(int)loopCount {
+	if (!_delegate) return;
+	switch (type) {
+		case ANIMATION_START:
+			if (_delegateStart) [_delegate animationDidStart:self track:trackIndex];
+			break;
+		case ANIMATION_END:
+			if (_delegateEnd) [_delegate animationWillEnd:self track:trackIndex];
+			break;
+		case ANIMATION_COMPLETE:
+			if (_delegateComplete) [_delegate animationDidComplete:self track:trackIndex loopCount:loopCount];
+			break;
+		case ANIMATION_EVENT:
+			if (_delegateEvent) [_delegate animationDidTriggerEvent:self track:trackIndex event:event];
+			break;
+	}
 }
 
 - (void) pauseAnimation {
@@ -279,19 +267,9 @@
 }
 
 - (void) stopAnmation {
-    [self clearAnimation];
+    [self clearAllTracks];
     [self setToSetupPose];
     _isSpineDirty = true;
-}
-
-- (void) clearAnimation {
-	[self clearAnimationForState:0];
-}
-
-- (void) clearAnimationForState:(int)stateIndex {
-	NSAssert(stateIndex >= 0 && stateIndex < (int)_states.count, @"stateIndex out of range.");
-	AnimationState* state = [[_states objectAtIndex:stateIndex] pointerValue];
-	AnimationState_clearAnimation(state);
 }
 
 @end

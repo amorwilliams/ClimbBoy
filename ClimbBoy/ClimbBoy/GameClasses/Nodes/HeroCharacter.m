@@ -25,6 +25,8 @@
 //        _fsm = [[CBHeroCharacterContext alloc]initWithOwner:self];
 //        [_fsm setDebugFlag:NO];
 //        [_fsm enterStartState];
+        _placeItemBehavior = [PlaceItemBehavior behavior];
+        [self addBehavior:_placeItemBehavior];
     }
     return self;
 }
@@ -134,6 +136,8 @@
 {
     self.attacking = YES;
     self.climbing = NO;
+//    self.jumping = NO;
+//    self.falling = NO;
     
     [super doAttack];
 }
@@ -170,64 +174,65 @@
     if (self.isAttacking)
     {
         speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit * 0.5;
+        //        velocity.dy = 0;
+    }
+    else if (self.isGrounded)
+    {
+        if (!self.isJumping)
+        {
+            if (fabs(self.physicsBody.velocity.dx) < 1)
+            {
+                [self doStand];
+            }else
+            {
+                [self doRun];
+            }
+        }
     }
     else
     {
-        if (self.isGrounded)
+        if (self.isClimbing)
         {
-            if (!self.isJumping)
+            if (!self.isTouchSide)
             {
-                if (fabs(self.physicsBody.velocity.dx) < 1)
-                {
-                    [self doStand];
-                }else
-                {
-                    [self doRun];
-                }
+                [self doFall];
             }
+            
+            velocity.dy = clampf(self.physicsBody.velocity.dy, _climbUpSpeedLimit, -_climbDownSpeedLimit);
         }
         else
         {
-            if (self.isClimbing)
+            if (self.isTouchSide)
             {
-                if (!self.isTouchSide)
-                {
-                    [self doFall];
-                }
-                
-                velocity.dy = clampf(self.physicsBody.velocity.dy, _climbUpSpeedLimit, -_climbDownSpeedLimit);
-            }
-            else
-            {
-                if (self.isTouchSide)
+                if (!self.isAttacking)
                 {
                     [self doClimb];
                 }
-                else if (self.physicsBody.velocity.dy < 0 && !self.isFalling)
-                {
-                    [self doFall];
-                }
-                
-                if (self.isJumping)
-                {
-                    if (_jumpButton && !_jumpButton.selected)
-                    {
-                        [self endJump];
-                    }
-                    
-                    _jumpSpeed = IncrementTowards(_jumpSpeed, -self.fallSpeedLimit, self.jumpSpeedDeceleration, delta);
-                    velocity.dy = _jumpSpeed;
-                    self.physicsBody.velocity = velocity;
-                }
-                else if (self.isFalling)
-                {
-                    velocity.dy = IncrementTowards(velocity.dy, -self.fallSpeedLimit, self.fallSpeedAcceleration, delta);
-                    velocity.dy = MAX(self.physicsBody.velocity.dy, velocity.dy);
-                }
+            }
+            else if (self.physicsBody.velocity.dy < 0 && !self.isFalling)
+            {
+                [self doFall];
             }
             
-            speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit * 0.75;
+            if (self.isJumping)
+            {
+                if (_jumpButton && !_jumpButton.selected)
+                {
+                    [self endJump];
+                }
+                
+                _jumpSpeed = IncrementTowards(_jumpSpeed, -self.fallSpeedLimit, self.jumpSpeedDeceleration, delta);
+                velocity.dy = _jumpSpeed;
+                self.physicsBody.velocity = velocity;
+            }
+            else if (self.isFalling)
+            {
+                velocity.dy = IncrementTowards(velocity.dy, -self.fallSpeedLimit, self.fallSpeedAcceleration, delta);
+                velocity.dy = MAX(self.physicsBody.velocity.dy, velocity.dy);
+            }
         }
+        
+        speed *= 0.75;
     }
     
     self.physicsBody.velocity = velocity;
@@ -278,7 +283,13 @@
 
 - (void) attackButtonExecute:(id)sender
 {
-    [self doAttack];
+    CBButton *button = (CBButton *)sender;
+    if (button.selected)
+    {
+        if (!self.isAttacking && self.isAttackColdDown && ![self.activeAnimationKey isEqualToString:@"anim_attack"]) {
+            [self doAttack];
+        }
+    }
 }
 
 - (void) jumpButtonExecute:(id)sender
@@ -306,8 +317,6 @@
         _jumpButton = nil;
     }
 }
-
-
 
 
 @end

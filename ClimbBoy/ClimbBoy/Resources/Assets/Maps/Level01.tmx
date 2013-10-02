@@ -58,7 +58,7 @@
     <property name="text" value="Haha!!!!!!!"/>
    </properties>
   </object>
-  <object name="Briefcase" type="Briefcase" x="320" y="576" width="64" height="64"/>
+  <object name="Briefcase" type="Briefcase" x="321" y="616" width="21" height="20"/>
   <object name="path1" x="384" y="535">
    <polyline points="0,0 320,0"/>
   </object>

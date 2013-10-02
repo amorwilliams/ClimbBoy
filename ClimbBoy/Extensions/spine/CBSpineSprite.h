@@ -10,13 +10,25 @@
 #import <spine/spine.h>
 #import "CBSpineSlot.h"
 
+@class CBSpineSprite;
+
+@protocol CBSpineSpriteDelegate <NSObject>
+@optional
+- (void) animationDidStart:(CBSpineSprite*)animation track:(int)trackIndex;
+- (void) animationWillEnd:(CBSpineSprite*)animation track:(int)trackIndex;
+- (void) animationDidTriggerEvent:(CBSpineSprite*)animation track:(int)trackIndex event:(Event*)event;
+- (void) animationDidComplete:(CBSpineSprite*)animation track:(int)trackIndex loopCount:(int)loopCount;
+@end
+
 @interface CBSpineSprite : KKNode
 {
     Skeleton *_skeleton;
     NSMutableArray *_slotNodes;
     
-    NSMutableArray* _stateDatas;
     bool _isSpineDirty;
+        
+	id<CBSpineSpriteDelegate> _delegate;
+	bool _delegateStart, _delegateEnd, _delegateEvent, _delegateComplete;
     
      CFTimeInterval _lastUpdateTimeInterval;
     float _prevAnimationTimeScale;
@@ -27,9 +39,6 @@
 @property (nonatomic) bool debugSlots;
 @property (nonatomic) bool debugBones;
 @property (nonatomic) Bone* rootBone;
-
-@property (retain, nonatomic, readonly) NSMutableArray* states;
-
 
 + (id) skeletonWithFile:(NSString*)skeletonDataFile atlas:(Atlas*)atlas scale:(float)scale;
 + (id) skeletonWithFile:(NSString*)skeletonDataFile atlasFile:(NSString*)atlasFile scale:(float)scale;
@@ -62,25 +71,25 @@
 /* Returns false if the slot or attachment was not found. */
 - (bool) setAttachment:(NSString*)slotName attachmentName:(NSString*)attachmentName;
 
-- (void) addAnimationState;
-- (void) addAnimationState:(AnimationStateData*)stateData;
-- (AnimationState*) getAnimationState:(int)stateIndex;
-- (void) setAnimationStateData:(AnimationStateData*)stateData forState:(int)stateIndex;
+//----------------------------- animation -------------------------------
+@property (nonatomic, readonly) AnimationState* state;
 
+- (void) setDelegate:(id<CBSpineSpriteDelegate>)delegate;
+
+- (void) setAnimationStateData:(AnimationStateData*)stateData;
 - (void) setMixFrom:(NSString*)fromAnimation to:(NSString*)toAnimation duration:(float)duration;
-- (void) setMixFrom:(NSString*)fromAnimation to:(NSString*)toAnimation duration:(float)duration forState:(int)stateIndex;
 
-- (void) playAnimation:(NSString*)name loop:(bool)loop;
-- (void) playAnimation:(NSString*)name loop:(bool)loop forState:(int)stateIndex;
-
-- (void) queueAnimation:(NSString*)name loop:(bool)loop afterDelay:(float)delay;
-- (void) queueAnimation:(NSString*)name loop:(bool)loop afterDelay:(float)delay forState:(int)stateIndex;
+- (TrackEntry *) setAnimationForTrack:(int)trackIndex name:(NSString*)name loop:(bool)loop;
+- (TrackEntry *) addAnimationForTrack:(int)trackIndex name:(NSString*)name loop:(bool)loop afterDelay:(float)delay;
+- (TrackEntry *) getCurrentForTrack:(int)trackIndex;
 
 - (void) pauseAnimation;
 - (void) resumeAnimation;
 - (void) stopAnmation;
 
-- (void) clearAnimation;
-- (void) clearAnimationForState:(int)stateIndex;
+- (void) clearAllTracks;
+- (void) clearTrack:(int)trackIndex;
+
+- (void) onAnimationStateEvent:(int)trackIndex type:(EventType)type event:(Event*)event loopCount:(int)loopCount;
 
 @end

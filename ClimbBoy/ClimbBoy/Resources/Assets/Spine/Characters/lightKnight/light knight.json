@@ -93,6 +93,9 @@
 		}
 	}
 },
+"events": {
+	"attack": {}
+},
 "animations": {
 	"jump-end": {
 		"bones": {
@@ -2421,7 +2424,10 @@
 					{ "time": 0.6562, "x": 1, "y": 1 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "time": 0.2666, "name": "attack" }
+		]
 	},
 	"walk": {
 		"bones": {

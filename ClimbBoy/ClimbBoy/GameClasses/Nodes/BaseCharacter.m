@@ -20,15 +20,16 @@
         self.characterSprite = spineSprite;
 
         _health = 100.0f;
+        _attackColdDownTime = 1.0;
         
         [self configurePhysicsBody];//        _enableGroundTest = YES;
-
+        [self reset];
     }
     return self;
 }
 
 - (void)reset {
-    // Reset some base states (used when recycling character instances).
+    _attackColdDown = YES;
     self.health = 100.0f;
 }
 
@@ -214,55 +215,55 @@
         default:
         case CBAnimationStateIdle:
             animationKey = @"anim_idle";
-            [self.characterSprite playAnimation:@"stand" loop:YES];
+            [self.characterSprite setAnimationForTrack:0 name:@"stand" loop:YES];
             break;
             
         case CBAnimationStateWalk:
             animationKey = @"anim_walk";
-            [self.characterSprite playAnimation:@"walk" loop:YES];
+            [self.characterSprite setAnimationForTrack:0 name:@"walk" loop:YES];
             break;
             
         case CBAnimationStateRun:
             animationKey = @"anim_run";
-            [self.characterSprite playAnimation:@"run" loop:YES];
+            [self.characterSprite setAnimationForTrack:0 name:@"run" loop:YES];
             break;
             
         case CBAnimationStateJump:
             animationKey = @"anim_jumpLoop";
-            [self.characterSprite playAnimation:@"jump-loop" loop:YES];
+            [self.characterSprite setAnimationForTrack:0 name:@"jump-loop" loop:YES];
 //            [self.characterSprite queueAnimation:@"jump-loop" loop:YES afterDelay:0.5];
             break;
             
         case CBAnimationStateFall:
             animationKey = @"anim_fall";
-            [self.characterSprite playAnimation:@"jump-loop" loop:YES];
+            [self.characterSprite setAnimationForTrack:0 name:@"jump-loop" loop:YES];
             break;
             
         case CBAnimationStateClimb:
             animationKey = @"anim_climb";
-            [self.characterSprite playAnimation:@"jump-loop" loop:YES];
+            [self.characterSprite setAnimationForTrack:0 name:@"jump-loop" loop:YES];
             break;
             
         case CBAnimationStateAttack:
         {
             animationKey = @"anim_attack";
-            [self.characterSprite playAnimation:@"stand-attack" loop:NO];
+            [self.characterSprite setAnimationForTrack:0 name:@"stand-attack" loop:NO];
 //            [self.characterSprite queueAnimation:@"stand" loop:YES afterDelay:0.6];
-            [self runAction:[SKAction waitForDuration:0.6] completion:^{
-                self.attacking = NO;
-            }];
+//            [self runAction:[SKAction waitForDuration:0.6] completion:^{
+//                self.attacking = NO;
+//            }];
             break;
         }
             
         case CBAnimationStateGetHit:
             animationKey = @"anim_hit";
-            [self.characterSprite playAnimation:@"hit" loop:NO];
-            [self.characterSprite queueAnimation:@"stand" loop:YES afterDelay:0.6];
+            [self.characterSprite setAnimationForTrack:0 name:@"hit" loop:NO];
+            [self.characterSprite addAnimationForTrack:0 name:@"stand" loop:YES afterDelay:0.6];
             break;
             
         case CBAnimationStateDeath:
             animationKey = @"anim_death";
-            [self.characterSprite playAnimation:@"die" loop:NO];
+            [self.characterSprite setAnimationForTrack:0 name:@"die" loop:NO];
             break;
     }
     

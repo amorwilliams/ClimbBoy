@@ -16,6 +16,8 @@
 -(void) didPickUpItem:(KKPickupItemBehavior*)itemBehavior
 {
 	[[OALSimpleAudio sharedInstance] playEffect:@"pickup.wav"];
+    
+    NSLog(@"Pickup a item : %@", itemBehavior.node.name);
 
 	// by default counts the number of item pickups
 	NSString* itemName = itemBehavior.node.name;

@@ -12,5 +12,6 @@
 #import "FlipBySpeedBehavior.h"
 //#import "CharacterAnimatorBehavior.h"
 #import "CharacterPhysicsBehavior.h"
+#import "PlaceItemBehavior.h"
 
 #endif

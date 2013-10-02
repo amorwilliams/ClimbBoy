@@ -50,7 +50,7 @@
     CBSpineSprite *skeleton = [CBSpineSprite skeletonWithFile:@"goblins.json" atlasFile:@"goblins.atlas" scale:scale];
     [skeleton setSkin:@"goblin"];
     
-    [skeleton playAnimation:@"walk" loop:YES];
+//    [skeleton playAnimation:@"walk" loop:YES];
     
     [self insertChild:skeleton atIndex:1];
     skeleton.position = location;
@@ -79,9 +79,9 @@
     
     [skeleton setMixFrom:@"walk" to:@"jump" duration:0.2f];
     [skeleton setMixFrom:@"jump" to:@"walk" duration:0.4f];
-    [skeleton playAnimation:@"walk" loop:NO];
-    [skeleton queueAnimation:@"jump" loop:NO afterDelay:0];
-    [skeleton queueAnimation:@"walk" loop:YES afterDelay:0];
+//    [skeleton playAnimation:@"walk" loop:NO];
+//    [skeleton queueAnimation:@"jump" loop:NO afterDelay:0];
+//    [skeleton queueAnimation:@"walk" loop:YES afterDelay:0];
     
 //    [skeleton setAnimation:@"walk" loop:YES];
     

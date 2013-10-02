@@ -96,6 +96,8 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
 @property (nonatomic, getter = isClimbing) BOOL climbing;
 //@property (nonatomic, getter = isWallJumping) BOOL wallJumping;
 @property (nonatomic, getter = isAttacking) BOOL attacking;
+@property (nonatomic, getter = isAttackColdDown) BOOL attackColdDown;
+@property (nonatomic) CGFloat attackColdDownTime;
 @property (nonatomic) CGFloat health;
 //@property (nonatomic, getter = isStartLand) BOOL startLand;
 

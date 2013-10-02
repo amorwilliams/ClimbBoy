@@ -109,8 +109,8 @@ local objectTemplates =
             runSpeedAcceleration = 1200,		-- how fast player accelerates sideways (0 = instant)
             runSpeedDeceleration = 900,		-- how fast player decelerates sideways (0 = instant)
             runSpeedLimit = 300,			-- max sideways running speed
-            climbUpSpeedLimit = 500,
-            climbDownSpeedLimit = 100,
+            climbUpSpeedLimit = 300,
+            climbDownSpeedLimit = 50,
             boundingBox = "{32, 52}",
             --anchorPoint = "{0.5, 0.3}",
 
@@ -140,9 +140,10 @@ local objectTemplates =
 			--{className = "KKStayInBoundsBehavior", properties = {bounds = "{{0, 0}, {0, 0}}"}},
             --{className = "CharacterAnimatorBehavior"},
 			{className = "KKCameraFollowBehavior"},
+            {className = "KKItemCollectorBehavior"},
 		},
 		
-		actions = 
+		actions =
 		{
 			-- not yet, coming soon
 		},

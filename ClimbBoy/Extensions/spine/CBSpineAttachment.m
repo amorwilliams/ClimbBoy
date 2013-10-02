@@ -34,7 +34,7 @@
     
     //set position
     float vertices[8];
-    RegionAttachment_computeVertices(_attachment, slot->skeleton->x, slot->skeleton->y, slot->bone, vertices);
+    RegionAttachment_computeWorldVertices(_attachment, slot->skeleton->x, slot->skeleton->y, slot->bone, vertices);
     CGPoint pos = [self centerPointFromQuad:vertices];
     self.position = ccpSub(pos, self.parent.position);
     

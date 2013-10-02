@@ -6,6 +6,10 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
+
+#import "KKNode.h"
+#import "spine-spirte-kit.h"
+
 /* Bitmask for the different entities with physics bodies. */
 typedef enum : uint8_t {
     kContactCategoryWorld               = 0,
@@ -22,9 +26,7 @@ typedef enum : uint8_t {
     kCBAxisTypeXY,
 } CBAxisType;
 
-#import "KKNode.h"
-
-@interface Entity : KKNode <KKPhysicsContactEventDelegate>
+@interface Entity : KKNode <KKPhysicsContactEventDelegate, CBSpineSpriteDelegate>
 - (void) didBeginContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
 - (void) didEndContact:(SKPhysicsContact *)contact otherBody:(SKPhysicsBody *)otherBody;
 @end
