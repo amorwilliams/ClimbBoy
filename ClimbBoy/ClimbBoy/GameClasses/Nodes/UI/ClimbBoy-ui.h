@@ -11,5 +11,6 @@
 
 #import "CBControl.h"
 #import "CBButton.h"
+#import "CBAnalogueStick.h"
 
 #endif

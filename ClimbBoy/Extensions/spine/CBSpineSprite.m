@@ -129,7 +129,16 @@ static void callback (AnimationState* state, int trackIndex, EventType type, Eve
         _isSpineDirty = NO;
         [self updateWorldTransform];
         
+//        [self removeAllChildren];
         for (int i = 0; i < _skeleton->slotCount; i++) {
+            Slot* slot = _skeleton->drawOrder[i];
+            for (CBSpineSlot *node in _slotNodes) {
+                if ([node.name isEqualToString:@(slot->data->name)]) {
+                    [self insertChild:node atIndex:i];
+                    break;
+                }
+            }
+            
             CBSpineSlot *slotNode = (CBSpineSlot *)_slotNodes[i];
             [slotNode updateSlot:_skeleton->slots[i]];
         }

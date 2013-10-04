@@ -18,6 +18,7 @@
 {
     self = [super init];
     if (self) {
+        self.name = @(slot->data->name);
         [self updateSlot:slot];
          _debugNode = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1 green:0 blue:0 alpha:0.5] size:CGSizeMake(3, 3)];
         [self addChild:_debugNode];

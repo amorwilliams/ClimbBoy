@@ -17,8 +17,6 @@
 {
 	[[OALSimpleAudio sharedInstance] playEffect:@"pickup.wav"];
     
-    NSLog(@"Pickup a item : %@", itemBehavior.node.name);
-
 	// by default counts the number of item pickups
 	NSString* itemName = itemBehavior.node.name;
 	if (itemName.length)
@@ -36,6 +34,8 @@
 		{
 			[model setUnsignedInt32:itemCount forKey:itemName];
 		}
+        
+        NSLog(@"Pickup a item : %@ count: %d", itemName, itemCount);
 
 		Class itemCountBehaviorClass = [KKNotifyOnItemCountBehavior class];
 		for (KKBehavior* behavior in self.controller.behaviors)

@@ -30,12 +30,9 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
         [_menuAnimationSprite setScale:0.5];
         [_menuAnimationSprite setAlpha:0];
         [self addChild:_menuAnimationSprite];
+        [_menuAnimationSprite setDelegate:self];
         
-        [_menuAnimationSprite setAnimationForTrack:0 name:@"start" loop:NO];
-        [self runAction:[SKAction waitForDuration:0.1] completion:^{
-            [_menuAnimationSprite setAlpha:1];
-            [self addMenuButtons];
-        }];
+        [self addMenuButtons];
     }
     return self;
 }
@@ -43,13 +40,44 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
     
-//    [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
+    [_menuAnimationSprite setAlpha:1];
+    [_menuAnimationSprite setAnimationForTrack:0 name:@"start" loop:NO];
     
+    //    [[OALSimpleAudio sharedInstance] playBg:@"Water Temple.mp3" loop:YES];
+
 }
 
 - (void)willMoveFromView:(SKView *)view {
     [super willMoveFromView:view];
 }
+
+- (void)animationDidStart:(CBSpineSprite *)animation track:(int)trackIndex
+{
+    
+}
+
+- (void)animationWillEnd:(CBSpineSprite *)animation track:(int)trackIndex
+{
+    SKAction *moveAction = [SKAction group:@[[SKAction scaleXTo:0.5 y:0.5 duration:0.3],
+                                             [SKAction fadeInWithDuration:0.3]]];
+    moveAction.timingMode = SKActionTimingEaseInEaseOut;
+    [_startGameButton runAction:[SKAction sequence:@[[SKAction waitForDuration:0.2], moveAction]] completion:^{
+        [_startGameButton setScale:0.5];
+        _startGameButton.enabled = YES;
+        [_startGameButton setTarget:self selector:@selector(startButtonDidExecute:)];
+    }];
+    [_optionsButton runAction:[SKAction sequence:@[[SKAction waitForDuration:0.4], moveAction]] completion:^{
+        [_optionsButton setScale:0.5];
+        _optionsButton.enabled = YES;
+        [_optionsButton setTarget:self selector:@selector(optionsButtonDidExecute:)];
+    }];
+    [_creditsButton runAction:[SKAction sequence:@[[SKAction waitForDuration:0.6], moveAction]] completion:^{
+        [_creditsButton setScale:0.5];
+        _creditsButton.enabled = YES;
+        [_creditsButton setTarget:self selector:@selector(creditsButtonDidExecute:)];
+    }];
+}
+
 
 - (void)addMenuButtons {
     //-------------------------Start Game Button--------------------------------
@@ -83,32 +111,13 @@ static const NSInteger BUTTON_FLY_HORIZONTAL_POSITION = 100;
     [self addChild:_creditsButton];
 	
     //---------------------------------------------------------
-    
-    SKAction *moveAction = [SKAction group:@[[SKAction scaleXTo:0.5 y:0.5 duration:0.3],
-                                             [SKAction fadeInWithDuration:0.3]]];
-    moveAction.timingMode = SKActionTimingEaseInEaseOut;
-    [_startGameButton runAction:[SKAction sequence:@[[SKAction waitForDuration:2], moveAction]] completion:^{
-        [_startGameButton setScale:0.5];
-        _startGameButton.enabled = YES;
-        [_startGameButton setTarget:self selector:@selector(startButtonDidExecute:)];
-    }];
-    [_optionsButton runAction:[SKAction sequence:@[[SKAction waitForDuration:2.2], moveAction]] completion:^{
-        [_optionsButton setScale:0.5];
-        _optionsButton.enabled = YES;
-        [_optionsButton setTarget:self selector:@selector(optionsButtonDidExecute:)];
-    }];
-    [_creditsButton runAction:[SKAction sequence:@[[SKAction waitForDuration:2.4], moveAction]] completion:^{
-        [_creditsButton setScale:0.5];
-        _creditsButton.enabled = YES;
-        [_creditsButton setTarget:self selector:@selector(creditsButtonDidExecute:)];
-    }];
 }
 
 - (void)startButtonDidExecute:(id)sender
 {
     NSLog(@"Start button");
     MapScene *mapScene = [MapScene sceneWithSize:self.size];
-    [self.kkView presentScene:mapScene transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.6]];
+    [self.kkView presentScene:mapScene transition:[SKTransition fadeWithDuration:1]];
 }
 
 - (void)optionsButtonDidExecute:(id)sender

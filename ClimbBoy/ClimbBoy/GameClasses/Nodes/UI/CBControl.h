@@ -51,10 +51,11 @@ typedef int CBControlState;
 //- (void) layout;
 
 #if TARGET_OS_IPHONE
-- (void) touchEntered:(UITouch*) touch withEvent:(UIEvent*)event;
-- (void) touchExited:(UITouch*) touch withEvent:(UIEvent*) event;
-- (void) touchUpInside:(UITouch*) touch withEvent:(UIEvent*) event;
-- (void) touchUpOutside:(UITouch*) touch withEvent:(UIEvent*) event;
+- (void) touchEntered:(UITouch*)touch withEvent:(UIEvent*)event;
+- (void) touchExited:(UITouch*)touch withEvent:(UIEvent*)event;
+- (void) touchUpInside:(UITouch*)touch withEvent:(UIEvent*)event;
+- (void) touchUpOutside:(UITouch*)touch withEvent:(UIEvent*)event;
+- (void) touchMoved:(UITouch*)touch withEvent:(UIEvent*)event;
 #else
 - (void) mouseDownEntered:(NSEvent*) event;
 - (void) mouseDownExited:(NSEvent*) event;

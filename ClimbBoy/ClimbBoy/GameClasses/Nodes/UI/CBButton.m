@@ -290,7 +290,7 @@ static NSString* const ScaleActionKey = @"CBButtonB:ScaleAction";
 - (GLubyte) labelOpacityForState:(CBControlState)state
 {
     NSNumber* val = [_labelOpacities objectForKey:[NSNumber numberWithInt:state]];
-    if (!val) return 255;
+    if (!val) return 1;
     return [val intValue];
 }
 
@@ -318,7 +318,7 @@ static NSString* const ScaleActionKey = @"CBButtonB:ScaleAction";
 - (GLubyte) backgroundOpacityForState:(CBControlState)state
 {
     NSNumber* val = [_backgroundOpacities objectForKey:[NSNumber numberWithInt:state]];
-    if (!val) return 255;
+    if (!val) return 1;
     return [val intValue];
 }
 

@@ -17,6 +17,7 @@
     __weak CBButton* _jumpButton;
     
     PlaceItemBehavior *_placeItemBehavior;
+    PlaceItemContainerBehavior *_placeItemContainerBehavior;
 }
 @property (nonatomic) CGFloat climbUpSpeedLimit;
 @property (nonatomic) CGFloat climbDownSpeedLimit;
@@ -34,8 +35,10 @@
 //- (void)updateFalling:(NSTimeInterval)delta;
 //- (void)updateClimbing:(NSTimeInterval)delta;
 
--(void) controlPadDidChangeDirection:(NSNotification*)note;
-- (void)attackButtonExecute:(id)sender;
-- (void)jumpButtonExecute:(id)sender;
+//- (void) controlPadDidChangeDirection:(NSNotification*)note;
+- (void) attackButtonExecute:(id)sender;
+- (void) jumpButtonExecute:(id)sender;
+- (void) analogueStickDidChangeValue:(CBAnalogueStick *)analogueStick;
+
 
 @end

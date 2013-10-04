@@ -42,16 +42,16 @@
 
 - (void)animationDidStart:(CBSpineSprite *)animation track:(int)trackIndex
 {
-    TrackEntry *entry = [animation getCurrentForTrack:trackIndex];
-    NSString *animationName = @(entry->animation->name);
-    NSLog(@"animationDidStart track: %@", animationName);
+//    TrackEntry *entry = [animation getCurrentForTrack:trackIndex];
+//    NSString *animationName = @(entry->animation->name);
+//    NSLog(@"animationDidStart track: %@", animationName);
 }
 
 - (void)animationWillEnd:(CBSpineSprite *)animation track:(int)trackIndex
 {
     TrackEntry *entry = [animation getCurrentForTrack:trackIndex];
     NSString *animationName = @(entry->animation->name);
-    NSLog(@"animationWillEnd track: %@", animationName);
+//    NSLog(@"animationWillEnd track: %@", animationName);
     if ([animationName isEqualToString:@"stand-attack"]) {
         self.attacking = NO;
     }
@@ -66,7 +66,7 @@
 
 - (void)animationDidTriggerEvent:(CBSpineSprite *)animation track:(int)trackIndex event:(Event *)event
 {
-    NSLog(@"animationDidTriggerEvent event: %@", @(event->data->name));
+    NSLog(@"animationDidTriggerEvent event: %@ , %@", @(event->data->name), @(event->stringValue));
 }
 
 #pragma mark - Shared Assets

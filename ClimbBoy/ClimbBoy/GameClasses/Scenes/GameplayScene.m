@@ -10,6 +10,7 @@
 #import "Debug.h"
 #import "MapScene.h"
 #import "CBBehaviors.h"
+#import "GameManager.h"
 
 #define VIEW_SIZE_WIDHT 568
 #define VIEW_SIZE_HEIGHT 320
@@ -36,9 +37,14 @@
         _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
         [self addChild:_tilemapNode];
         
-        Debug *debugNode = [Debug sharedDebug];
-        [self addChild:debugNode];
-        debugNode.zPosition = 100;
+        if ([GameManager showsDebugNode]) {
+            Debug *debugNode = [Debug sharedDebug];
+            [self addChild:debugNode];
+            debugNode.zPosition = 100;
+        }
+        
+        _hud = [KKViewOriginNode node];
+        [self addChild:_hud];
         
         //test loading scene
         float a = 2423;
@@ -108,10 +114,7 @@
     _debugInfo.fontSize = 15;
     _debugInfo.color = [UIColor blackColor];
     _debugInfo.position = CGPointMake( 30, self.frame.size.height - 40);
-    KKViewOriginNode *hud = [KKViewOriginNode node];
-    [self addChild:hud];
-    
-    [hud addChild:_debugInfo];
+    [_hud addChild:_debugInfo];
     
     SKLabelNode *backButton = [SKLabelNode labelNodeWithFontNamed:@"Chalkduster"];
     backButton.text = @"Back";
@@ -119,7 +122,7 @@
     backButton.fontColor = [SKColor redColor];
     backButton.zPosition = 1;
     backButton.position = CGPointMake(self.frame.size.width - 50, self.frame.size.height - 40);
-    [hud addChild:backButton];
+    [_hud addChild:backButton];
     
     // KKButtonBehavior turns any node into a button
 	KKButtonBehavior* buttonBehavior = [KKButtonBehavior behavior];
@@ -148,103 +151,77 @@
 
 -(void) createSimpleControls
 {
-	KKViewOriginNode* joypadNode = [KKViewOriginNode node];
-	joypadNode.name = @"joypad";
-	[self addChild:joypadNode];
-    
     // ----------------------------- DPad ----------------------------
-	SKTextureAtlas* atlas = [SKTextureAtlas atlasNamed:@"Jetpack"];
+	SKTextureAtlas* atlas = [SKTextureAtlas atlasNamed:@"GUI"];
+//
+//	KKSpriteNode* dpadNode = [KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_directions_background"]];
+//	dpadNode.position = CGPointMake(dpadNode.size.width / 2 + 15, dpadNode.size.height / 2 + 15);
+//	[_hud addChild:dpadNode];
+//	
+//	NSArray* dpadTextures = [NSArray arrayWithObjects:
+//							 [atlas textureNamed:@"button_directions_right"],
+//							 [atlas textureNamed:@"button_directions_left"],
+//							 nil];
+//	KKControlPadBehavior* dpad = [KKControlPadBehavior controlPadBehaviorWithTextures:dpadTextures];
+//	dpad.deadZone = 0;
+//	[dpadNode addBehavior:dpad withKey:@"simple dpad"];
+//    
+//    [_playerCharacter observeNotification:KKControlPadDidChangeDirectionNotification
+//								 selector:@selector(controlPadDidChangeDirection:)
+//								   object:dpadNode];
     
-	KKSpriteNode* dpadNode = [KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_directions_background"]];
-	dpadNode.position = CGPointMake(dpadNode.size.width / 2 + 15, dpadNode.size.height / 2 + 15);
-	[joypadNode addChild:dpadNode];
-	
-	NSArray* dpadTextures = [NSArray arrayWithObjects:
-							 [atlas textureNamed:@"button_directions_right"],
-							 [atlas textureNamed:@"button_directions_left"],
-							 nil];
-	KKControlPadBehavior* dpad = [KKControlPadBehavior controlPadBehaviorWithTextures:dpadTextures];
-	dpad.deadZone = 0;
-	[dpadNode addBehavior:dpad withKey:@"simple dpad"];
-    
-    [_playerCharacter observeNotification:KKControlPadDidChangeDirectionNotification
-								 selector:@selector(controlPadDidChangeDirection:)
-								   object:dpadNode];
-    
+    //-------------------------------Joystick-----------------------------------
+    CBAnalogueStick *stick = [CBAnalogueStick StickWithHandle:[SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"analogue_handle"]]
+                                                   background:[SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"analogue_bg"]]];
+    stick.position = CGPointMake(80 , 80);
+    stick.radius = 130;
+    [stick setScale:0.3];
+    [stick setAlpha:0.5];
+    stick.delegate = self;
+    [_hud addChild:stick];
     
     // ----------------------------- Attack Button ----------------------------
     CBButton *attackButtonNode = [CBButton buttonWithTitle:nil
-                                               spriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_notpressed"]]
-                                       selectedSpriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_pressed"]]
+                                               spriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button"]]
+                                       selectedSpriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button-pressed"]]
                                        disabledSpriteFrame:nil];
     attackButtonNode.position = CGPointMake(self.size.width - 150 , 60);
+    [attackButtonNode setScale:0.5];
+    [attackButtonNode setAlpha:0.5];
     attackButtonNode.executesWhenPressed = YES;
-	[joypadNode addChild:attackButtonNode];
+	[_hud addChild:attackButtonNode];
     
     [attackButtonNode setTarget:_playerCharacter selector:@selector(attackButtonExecute:)];
 
     // ----------------------------- Jump Button ----------------------------
     CBButton *jumpButtonNode = [CBButton buttonWithTitle:nil
-                                             spriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_notpressed"]]
-                                     selectedSpriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_jump_pressed"]]
+                                             spriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button"]]
+                                     selectedSpriteFrame:[KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button-pressed"]]
                                      disabledSpriteFrame:nil];
 	jumpButtonNode.position = CGPointMake(self.size.width - 60 , 60);
+    [jumpButtonNode setScale:0.5];
+    [jumpButtonNode setAlpha:0.5];
     jumpButtonNode.executesWhenPressed = YES;
-	[joypadNode addChild:jumpButtonNode];
+	[_hud addChild:jumpButtonNode];
 	
     [jumpButtonNode setTarget:_playerCharacter selector:@selector(jumpButtonExecute:)];
+        
 }
 
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+- (void)analogueStickDidChangeValue:(CBAnalogueStick *)analogueStick
 {
-    [super touchesBegan:touches withEvent:event];
-    
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:_tilemapNode.gameObjectsLayerNode];
-        
-        
-        if (!_emitter) {
-            _emitter =  [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"MyParticle2" ofType:@"sks"]];
-//            _emitter.position = location;
-            _emitter.targetNode = _tilemapNode.gameObjectsLayerNode;
-            [_tilemapNode.gameObjectsLayerNode addChild:_emitter];
-        }
-        
-        PlaceItemBehavior *placeItemBehavior = (PlaceItemBehavior *)[_playerCharacter behaviorMemberOfClass:[PlaceItemBehavior class]];
-        if (placeItemBehavior) {
-            placeItemBehavior.item = _emitter;
-        }
-    }
+    if ([_playerCharacter respondsToSelector:@selector(analogueStickDidChangeValue:)]) {
+        [_playerCharacter analogueStickDidChangeValue:analogueStick];
+    }    
 }
 
-//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
-//{
-//    [super touchesMoved:touches withEvent:event];
-//    
-//    for (UITouch *touch in touches) {
-//        CGPoint location = [touch locationInNode:_tilemapNode.gameObjectsLayerNode];
-//        
-//        
-//        if (_emitter) {
-//            _emitter.position = location;
-//        }
-//        
-//    }
-//}
-
-- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+- (BOOL) hasHUDAtPoint:(CGPoint)point
 {
-    [super touchesEnded:touches withEvent:event];
-    
-    for (UITouch *touch in touches) {
-        CGPoint location = [touch locationInNode:_tilemapNode.gameObjectsLayerNode];
-        
-//        if (_emitter) {
-//            [_emitter removeFromParent];
-//            _emitter = nil;
-//        }
-        
-    }
+    NSArray *nodes = [_hud nodesAtPoint:[_hud convertPoint:point fromNode:self]];
+    if (nodes.count) {
+        return YES;
+    };
+    return NO;
 }
 
 @end

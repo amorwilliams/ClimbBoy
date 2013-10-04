@@ -135,8 +135,8 @@ static const NSInteger BUTTON_TOP_START = 60;
         
         [levelButton setTarget:self selector:@selector(didSelectLevel:)];
         
-        BOOL locked = [[level valueForKey:@"Locked"] boolValue];
-        if (!locked) {
+        BOOL unlock = [[level valueForKey:@"unlock"] boolValue];
+        if (!unlock) {
             levelButton.enabled = NO;
         }
     }
@@ -148,7 +148,7 @@ static const NSInteger BUTTON_TOP_START = 60;
 //    [self.kkView popSceneWithTransition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
     
     MenuScene *menu = [MenuScene sceneWithSize:self.frame.size];
-    [self.kkView presentScene:menu];
+    [self.kkView presentScene:menu transition:[SKTransition fadeWithDuration:1]];
 }
 
 - (void)shopButtonDidExecute:(id)sender
@@ -174,7 +174,7 @@ static const NSInteger BUTTON_TOP_START = 60;
     int index = [button.name intValue];
     
     KKScene *level = [LoadingScene sceneWithWithSize:self.size level:levelData index:index];
-    [self.kkView presentScene:level transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+    [self.kkView presentScene:level transition:[SKTransition fadeWithDuration:1]];
 }
 
 @end

@@ -33,7 +33,7 @@
 	{ "name": "right-shoulder", "bone": "right shoulder" },
 	{ "name": "right-arm", "bone": "right arm" },
 	{ "name": "head", "bone": "head", "attachment": "head" },
-	{ "name": "left hand", "bone": "left hand", "attachment": "shield" },
+	{ "name": "shield", "bone": "left hand", "attachment": "shield" },
 	{ "name": "sword", "bone": "right hand", "attachment": "sword" },
 	{ "name": "right-hand", "bone": "right hand", "attachment": "right-hand" }
 ],
@@ -44,9 +44,6 @@
 		},
 		"head-ribbon": {
 			"head-ribbon": { "x": 19.89, "y": 20.33, "rotation": -162.39, "width": 82, "height": 114 }
-		},
-		"left hand": {
-			"shield": { "x": 26.56, "y": -6.16, "rotation": 15.6, "width": 78, "height": 119 }
 		},
 		"left-arm": {
 			"left-arm": { "x": 7.32, "y": -6.33, "rotation": 25.99, "width": 37, "height": 30 }
@@ -84,6 +81,9 @@
 		},
 		"right-upper-leg": {
 			"right-upper-leg": { "x": 14.49, "y": 0.91, "rotation": 113.2, "width": 26, "height": 34 }
+		},
+		"shield": {
+			"shield": { "x": 26.56, "y": -6.16, "rotation": 15.6, "width": 78, "height": 119 }
 		},
 		"sword": {
 			"sword": { "x": 11.74, "y": 71.41, "rotation": 71.53, "width": 162, "height": 83 }
@@ -1939,11 +1939,6 @@
 				"scale": [
 					{ "time": 0, "x": 1, "y": 1 }
 				]
-			},
-			"root": {
-				"scale": [
-					{ "time": 0, "x": 1, "y": 1 }
-				]
 			}
 		}
 	},
@@ -2160,9 +2155,6 @@
 						"curve": [ 0.351, 0.4, 0.756, 1 ]
 					},
 					{ "time": 0.6562, "x": 0, "y": 0 }
-				],
-				"scale": [
-					{ "time": 0.2187, "x": 0.637, "y": 1 }
 				]
 			},
 			"right lower leg": {
@@ -2426,7 +2418,7 @@
 			}
 		},
 		"events": [
-			{ "time": 0.2666, "name": "attack" }
+			{ "time": 0.2666, "name": "attack", "string": "attack1" }
 		]
 	},
 	"walk": {

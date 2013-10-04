@@ -141,8 +141,9 @@ local objectTemplates =
             --{className = "CharacterAnimatorBehavior"},
 			{className = "KKCameraFollowBehavior"},
             {className = "KKItemCollectorBehavior"},
+            {className = "KKNotifyOnItemCountBehavior", properties = {itemName = "briefcase", count = 1}},
 		},
-		
+
 		actions =
 		{
 			-- not yet, coming soon
@@ -165,8 +166,8 @@ local objectTemplates =
 
         behaviors =
         {
-        {className = "KKRemoveOnContactBehavior"}, -- physics contact resolves in a remove of this node
-        {className = "KKPickupItemBehavior"},
+            {className = "KKRemoveOnContactBehavior"}, -- physics contact resolves in a remove of this node
+            {className = "KKPickupItemBehavior"},
         },
     },
 

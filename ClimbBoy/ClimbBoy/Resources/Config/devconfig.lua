@@ -37,6 +37,9 @@ local config =
 	showsPhysicsShapes = YES,
 	showsNodeFrames = NO,
 	showsNodeAnchorPoints = NO,
+
+    -- additional Climb Boy Debug
+    showsDebugNode = YES,
 }
 
 return config

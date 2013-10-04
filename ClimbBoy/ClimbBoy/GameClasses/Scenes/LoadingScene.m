@@ -72,7 +72,7 @@ static dispatch_queue_t loadingQueue = NULL;
 }
 
 - (void)startMap {
-    [self.kkView presentScene:_nextScene transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:0.5]];
+    [self.kkView presentScene:_nextScene transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:1]];
 }
 
 @end

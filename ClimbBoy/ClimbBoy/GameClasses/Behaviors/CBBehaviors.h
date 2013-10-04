@@ -13,5 +13,6 @@
 //#import "CharacterAnimatorBehavior.h"
 #import "CharacterPhysicsBehavior.h"
 #import "PlaceItemBehavior.h"
+#import "PlaceItemContainerBehavior.h"
 
 #endif

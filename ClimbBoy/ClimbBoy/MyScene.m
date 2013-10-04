@@ -178,7 +178,7 @@
 	
 	for (UITouch* touch in touches)
 	{
-		CGPoint location = [touch locationInNode:self];
+//		CGPoint location = [touch locationInNode:self];
 //		[self addSpaceshipAt:location];
     
 //        [self addSpineBoy:location withScale:0.3];

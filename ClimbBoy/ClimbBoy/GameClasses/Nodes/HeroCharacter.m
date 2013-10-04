@@ -27,6 +27,9 @@
 //        [_fsm enterStartState];
         _placeItemBehavior = [PlaceItemBehavior behavior];
         [self addBehavior:_placeItemBehavior];
+        
+        _placeItemContainerBehavior = [PlaceItemContainerBehavior behavior];
+        [self addBehavior:_placeItemContainerBehavior];
     }
     return self;
 }
@@ -171,6 +174,8 @@
     CGFloat speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit;
     CGVector velocity = self.physicsBody.velocity;
     
+//    self.characterSprite.animationTimeScale = 1;
+    
     if (self.isAttacking)
     {
         speed = fabsf(_currentControlPadDirection.dx) * self.runSpeedLimit * 0.5;
@@ -185,6 +190,7 @@
                 [self doStand];
             }else
             {
+//                self.characterSprite.animationTimeScale = fabs(velocity.dx) / self.runSpeedLimit;
                 [self doRun];
             }
         }
@@ -268,17 +274,22 @@
 }
 
 #pragma mark - Input Notifications
--(void) controlPadDidChangeDirection:(NSNotification*)note
+//-(void) controlPadDidChangeDirection:(NSNotification*)note
+//{
+//	KKControlPadBehavior* controlPad = [note.userInfo objectForKey:@"behavior"];
+//	if (controlPad.direction == KKArcadeJoystickNone)
+//	{
+//        _currentControlPadDirection = CGVectorZero;
+//	}
+//	else
+//	{
+//		_currentControlPadDirection = vectorFromJoystickState(controlPad.direction);
+//	}
+//}
+
+- (void) analogueStickDidChangeValue:(CBAnalogueStick *)analogueStick
 {
-	KKControlPadBehavior* controlPad = [note.userInfo objectForKey:@"behavior"];
-	if (controlPad.direction == KKArcadeJoystickNone)
-	{
-        _currentControlPadDirection = CGVectorZero;
-	}
-	else
-	{
-		_currentControlPadDirection = vectorFromJoystickState(controlPad.direction);
-	}
+    _currentControlPadDirection = ccv(analogueStick.xValue, analogueStick.yValue);
 }
 
 - (void) attackButtonExecute:(id)sender

@@ -10,7 +10,7 @@
 #import "HeroRobot.h"
 #import "ClimbBoy-ui.h"
 
-@interface GameplayScene : KKScene
+@interface GameplayScene : KKScene <CBAnalogueStickDelegate>
 {
     NSString *_tmxFile;
     KKSpriteNode *_curtainSprite;
@@ -21,8 +21,12 @@
     
     SKEmitterNode *_emitter;
 }
+@property (nonatomic, readonly) KKViewOriginNode *hud;
+
 + (instancetype) sceneWithSize:(CGSize)size tmxFile:(NSString *)tmx;
 
 - (instancetype) initWithSize:(CGSize)size tmxFile:(NSString *)tmx;
+
+- (BOOL) hasHUDAtPoint:(CGPoint)point;
 
 @end

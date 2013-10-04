@@ -22,9 +22,9 @@
 - (void) didSimulatePhysics {
     if (_targetSpriteNode) {
         float currentSpeedX = self.node.physicsBody.velocity.dx;
-        if (currentSpeedX > 100) {
+        if (currentSpeedX > 10) {
             _targetSpriteNode.flipX = NO;
-        }else if (currentSpeedX < -100){
+        }else if (currentSpeedX < -10){
             _targetSpriteNode.flipX = YES;
         }
     }

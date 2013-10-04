@@ -23,13 +23,16 @@
 
 - (void)didMoveToParent {
     [super didMoveToParent];
-    [self observeInputEvents];
+//    [self observeInputEvents];
+    [self.kkScene addInputEventsObserver:self];
 }
 
 - (void)willMoveFromParent {
     [super willMoveFromParent];
-    [self disregardInputEvents];
-    [self disregardSceneEvents];
+//    [self disregardInputEvents];
+//    [self disregardSceneEvents];
+    [self.kkScene removeInputEventsObserver:self];
+    [self.kkScene removeSceneEventsObserver:self];
 }
 
 -(void) update:(NSTimeInterval)currentTime
@@ -89,13 +92,16 @@
                         [self touchEntered:touch withEvent:event];
                         _touchInside = YES;
                     }
-                }else
+                }
+                else
                 {
                     if (_touchInside) {
                         [self touchExited:touch withEvent:event];
                         _touchInside = NO;
                     }
                 }
+                
+                [self touchMoved:touch withEvent:event];
             }
         }
     }
@@ -156,6 +162,9 @@
 {}
 
 - (void) touchUpOutside:(UITouch*) touch withEvent:(UIEvent*) event
+{}
+
+- (void) touchMoved:(UITouch*)touch withEvent:(UIEvent*)event
 {}
 
 #else // OS X
@@ -223,11 +232,13 @@
 		_continuous = continuous;
 		if (_continuous)
 		{
-			[self observeSceneEvents];
+//			[self observeSceneEvents];
+            [self.kkScene addSceneEventsObserver:self];
 		}
 		else
 		{
-			[self disregardSceneEvents];
+//			[self disregardSceneEvents];
+            [self.kkScene removeSceneEventsObserver:self];
 		}
 	}
 }

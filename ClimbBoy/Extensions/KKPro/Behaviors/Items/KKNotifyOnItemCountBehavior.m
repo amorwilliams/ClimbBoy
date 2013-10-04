@@ -13,6 +13,7 @@
 {
 	if (count == _count && [itemName isEqualToString:_itemName])
 	{
+//        NSLog(@"Notify on item: %@ count: %d",itemName, count);
 		[self postNotificationName:_notification];
 	}
 }

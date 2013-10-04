@@ -35,9 +35,7 @@ DEFINE_SINGLETON_FOR_CLASS(Debug)
 
 - (void)update:(NSTimeInterval)currentTime
 {
-    if (![self isEnable]) {
-            return;
-        }
+    if (!self.isEnable) return;
 
     for (int i = 0; i < _debugNodes.count; i++) {
             SKNode *node = [_debugNodes objectAtIndex:i];
@@ -61,9 +59,7 @@ DEFINE_SINGLETON_FOR_CLASS(Debug)
 
 - (void) drawLineStart:(CGPoint)start end:(CGPoint)end color:(SKColor *)color
 {
-    if (![self isEnable]) {
-            return;
-        }
+    if (!self.isEnable) return;
 
     CGMutablePathRef path = CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, start.x, start.y);
@@ -109,6 +105,8 @@ DEFINE_SINGLETON_FOR_CLASS(Debug)
 
 - (void) drawParabolaStart:(CGPoint)start end:(CGPoint)end controlPoint1:(CGPoint)cp1 controlPoint2:(CGPoint)cp2 color:(SKColor *)color
 {
+    if (!self.isEnable) return;
+    
     CGMutablePathRef path =CGPathCreateMutable();
     CGPathMoveToPoint(path, NULL, start.x, start.y);
     CGPathAddCurveToPoint(path, NULL, cp1.x, cp1.y, cp2.x, cp2.y, end.x, end.y);

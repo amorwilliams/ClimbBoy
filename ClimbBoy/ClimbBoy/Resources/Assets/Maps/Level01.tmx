@@ -62,22 +62,27 @@
   <object name="path1" x="384" y="535">
    <polyline points="0,0 320,0"/>
   </object>
-  <object name="Platform1" type="Platform" x="381" y="522" width="94" height="28">
-   <properties>
-    <property name="FollowPath" value="true"/>
-    <property name="moveSpeed" value="50"/>
-    <property name="pathName" value="path1"/>
-   </properties>
-  </object>
   <object name="Platform2" type="Platform" x="231" y="517" width="94" height="28">
    <properties>
     <property name="FollowPath" value="true"/>
-    <property name="moveSpeed" value="50"/>
-    <property name="pathName" value="path2"/>
+    <property name="FollowPath.moveSpeed" value="50"/>
+    <property name="FollowPath.pathName" value="path2"/>
    </properties>
   </object>
   <object name="path2" x="280" y="221">
    <polyline points="0,0 0,320"/>
+  </object>
+  <object name="Briefcase" type="Briefcase" x="601" y="618" width="21" height="20"/>
+  <object name="Briefcase" type="Briefcase" x="822" y="553" width="21" height="20"/>
+  <object name="Briefcase" type="Briefcase" x="995" y="617" width="21" height="20"/>
+  <object name="Briefcase" type="Briefcase" x="715" y="231" width="21" height="20"/>
+  <object name="Briefcase" type="Briefcase" x="913" y="230" width="21" height="20"/>
+  <object name="Platform1" type="Platform" x="347" y="522" width="94" height="28">
+   <properties>
+    <property name="FollowPath" value="true"/>
+    <property name="FollowPath.moveSpeed" value="50"/>
+    <property name="FollowPath.pathName" value="path1"/>
+   </properties>
   </object>
  </objectgroup>
 </map>

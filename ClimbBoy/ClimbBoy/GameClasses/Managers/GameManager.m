@@ -8,6 +8,8 @@
 
 #import "GameManager.h"
 
+static BOOL _showsDebugNode = NO;
+
 @implementation GameManager
 
 DEFINE_SINGLETON_FOR_CLASS(GameManager)
@@ -41,6 +43,26 @@ DEFINE_SINGLETON_FOR_CLASS(GameManager)
         NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
     }
     self.levels = [NSMutableArray arrayWithArray:[temp objectForKey:@"Levels"]];
+}
+
+- (void)setView:(KKView *)view
+{
+    _view = view;
+    self.showsDebugNode = [view.model boolForKeyPath:@"devconfig.showsDebugNode"];
+}
+
+@dynamic showsDebugNode;
++ (BOOL)showsDebugNode
+{
+    return _showsDebugNode;
+}
+- (BOOL)showsDebugNode
+{
+    return _showsDebugNode;
+}
+- (void)setShowsDebugNode:(BOOL)showsDebugNode
+{
+    _showsDebugNode = showsDebugNode;
 }
 
 #pragma mark !! Update methods below whenever class layout changes !!

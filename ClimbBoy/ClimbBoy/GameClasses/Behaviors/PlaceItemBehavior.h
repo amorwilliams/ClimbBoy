@@ -8,24 +8,21 @@
 
 #import "KKBehavior.h"
 
-static const float PlaceRange = 200;
-
-static inline CGPoint ccpClampMagnitude(CGPoint v, float lenght)
-{
-    if (ccpLengthSQ(v) > lenght * lenght) {
-        return ccpMult(ccpNormalize(v), lenght);
-    }
-    return v;
-}
-
 @interface PlaceItemBehavior : KKBehavior
 {
     BOOL _isPlacing;
-    int _trackedTouch;
+//    int _trackedTouch;
     CGPoint _touchLocation;
+    
+    CGPoint _startPoint;
+    CGPoint _endPoint;
+    CGPoint _controlPoint1;
+    CGPoint _controlPoint2;
 }
 
 @property (nonatomic, weak) SKNode *item;
+@property (nonatomic) int trackedTouch;
+@property (nonatomic) CGFloat placeRange;
 @property (nonatomic, readonly) CGPoint placePoint;
 @property (nonatomic, readonly) CGVector placePointNormal;
 
