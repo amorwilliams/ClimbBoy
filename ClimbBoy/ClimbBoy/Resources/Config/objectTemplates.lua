@@ -101,8 +101,8 @@ local objectTemplates =
 
         properties =
         {
-            fallSpeedAcceleration = 500,    -- how fast player accelerates when falling down
-            fallSpeedLimit = 1000,			-- max falling speed
+            fallSpeedAcceleration = 3000,    -- how fast player accelerates when falling down
+            fallSpeedLimit = 800,			-- max falling speed
             jumpAbortVelocity = 500,		-- the (max) upwards velocity forcibly set when jump is aborted
             jumpSpeedInitial = 600,         -- how fast the player initially moves upwards when jumping is initiated
             jumpSpeedDeceleration = 800,	-- how fast upwards motion (caused by jumping) decelerates
@@ -122,7 +122,7 @@ local objectTemplates =
 			properties =
 			{
 				allowsRotation = NO,
-				mass = 0.07,
+				mass = 0.1,
 				restitution = 0,
 				linearDamping = 0,
 				angularDamping = 0,

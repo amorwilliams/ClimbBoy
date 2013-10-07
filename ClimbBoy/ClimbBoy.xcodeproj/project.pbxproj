@@ -43,6 +43,15 @@
 		5223C51B17F5C2D600DC0DB5 /* spineboy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5223C51317F5C2D600DC0DB5 /* spineboy.json */; };
 		522BF0E517F81FFD00BDDD2B /* CBScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 522BF0E417F81FFD00BDDD2B /* CBScene.m */; };
 		522BF0E817F8299E00BDDD2B /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 522BF0E717F8299E00BDDD2B /* Entity.m */; };
+		5231596818017D9A009C8D8D /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231596718017D9A009C8D8D /* Map.m */; };
+		5231596E180180C5009C8D8D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDD2DD41769FD0A00F307CD /* XCTest.framework */; };
+		5231596F180180C5009C8D8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDD2DAB1769FD0A00F307CD /* Foundation.framework */; };
+		52315970180180C5009C8D8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC19539217C1251900EC526C /* UIKit.framework */; };
+		52315976180180C5009C8D8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52315974180180C5009C8D8D /* InfoPlist.strings */; };
+		52315978180180C5009C8D8D /* ClimbBoy_iOS_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315977180180C5009C8D8D /* ClimbBoy_iOS_Tests.m */; };
+		5231598118018D58009C8D8D /* MapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231598018018D58009C8D8D /* MapGenerator.m */; };
+		52315984180268ED009C8D8D /* Dungeon.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315983180268ED009C8D8D /* Dungeon.m */; };
+		52315987180268F9009C8D8D /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315986180268F9009C8D8D /* Room.m */; };
 		524A8DC517F4628300938B0F /* CBControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC417F4628300938B0F /* CBControl.m */; };
 		524A8DC817F469E400938B0F /* CBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC717F469E400938B0F /* CBButton.m */; };
 		528E014517FBF50D00081757 /* PlaceItemBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 528E014417FBF50D00081757 /* PlaceItemBehavior.m */; };
@@ -177,6 +186,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		5231597A180180C5009C8D8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DCDD2DA01769FD0A00F307CD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DCD7EC51178C57FC00BBAFB0;
+			remoteInfo = "ClimbBoy-iOS";
+		};
 		DC5AA88017CD0D530001940A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DC8B562717CBF16600F95CBC /* KoboldKit.xcodeproj */;
@@ -271,6 +287,23 @@
 		522BF0E417F81FFD00BDDD2B /* CBScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBScene.m; sourceTree = "<group>"; };
 		522BF0E617F8299E00BDDD2B /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		522BF0E717F8299E00BDDD2B /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
+		5231596618017D9A009C8D8D /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		5231596718017D9A009C8D8D /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
+		5231596D180180C5009C8D8D /* ClimbBoy-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ClimbBoy-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		52315973180180C5009C8D8D /* ClimbBoy-iOS Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClimbBoy-iOS Tests-Info.plist"; sourceTree = "<group>"; };
+		52315975180180C5009C8D8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		52315977180180C5009C8D8D /* ClimbBoy_iOS_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClimbBoy_iOS_Tests.m; sourceTree = "<group>"; };
+		52315979180180C5009C8D8D /* ClimbBoy-iOS Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClimbBoy-iOS Tests-Prefix.pch"; sourceTree = "<group>"; };
+		5231597F18018D58009C8D8D /* MapGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapGenerator.h; sourceTree = "<group>"; };
+		5231598018018D58009C8D8D /* MapGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapGenerator.m; sourceTree = "<group>"; };
+		52315982180268ED009C8D8D /* Dungeon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dungeon.h; sourceTree = "<group>"; };
+		52315983180268ED009C8D8D /* Dungeon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dungeon.m; sourceTree = "<group>"; };
+		52315985180268F9009C8D8D /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
+		52315986180268F9009C8D8D /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
+		5231598918027BE2009C8D8D /* libKoboldKitCommunity.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKoboldKitCommunity.a; path = "KoboldKit/KoboldKitCommunity/build/Debug-iphoneos/libKoboldKitCommunity.a"; sourceTree = "<group>"; };
+		5231598A18027BE2009C8D8D /* libKoboldKitExternal.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKoboldKitExternal.a; path = "KoboldKit/KoboldKitExternal/build/Debug-iphoneos/libKoboldKitExternal.a"; sourceTree = "<group>"; };
+		5231598B18027BE2009C8D8D /* libKoboldKitPro.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKoboldKitPro.a; path = "KoboldKit/KoboldKitPro/build/Debug-iphoneos/libKoboldKitPro.a"; sourceTree = "<group>"; };
+		5231598C18027BE2009C8D8D /* libOpenGW.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libOpenGW.a; path = "KoboldKit/OpenGW/build/Debug-iphoneos/libOpenGW.a"; sourceTree = "<group>"; };
 		524A8DC317F4628300938B0F /* CBControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBControl.h; sourceTree = "<group>"; };
 		524A8DC417F4628300938B0F /* CBControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBControl.m; sourceTree = "<group>"; };
 		524A8DC617F469E400938B0F /* CBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBButton.h; sourceTree = "<group>"; };
@@ -467,6 +500,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5231596A180180C5009C8D8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5231596E180180C5009C8D8D /* XCTest.framework in Frameworks */,
+				52315970180180C5009C8D8D /* UIKit.framework in Frameworks */,
+				5231596F180180C5009C8D8D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCD11E33178C522300FBC406 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -630,6 +673,40 @@
 				5223C51317F5C2D600DC0DB5 /* spineboy.json */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		5231596518017D64009C8D8D /* Tilemap */ = {
+			isa = PBXGroup;
+			children = (
+				5231596618017D9A009C8D8D /* Map.h */,
+				5231596718017D9A009C8D8D /* Map.m */,
+				5231597F18018D58009C8D8D /* MapGenerator.h */,
+				5231598018018D58009C8D8D /* MapGenerator.m */,
+				52315982180268ED009C8D8D /* Dungeon.h */,
+				52315983180268ED009C8D8D /* Dungeon.m */,
+				52315985180268F9009C8D8D /* Room.h */,
+				52315986180268F9009C8D8D /* Room.m */,
+			);
+			name = Tilemap;
+			sourceTree = "<group>";
+		};
+		52315971180180C5009C8D8D /* ClimbBoy-iOS Tests */ = {
+			isa = PBXGroup;
+			children = (
+				52315977180180C5009C8D8D /* ClimbBoy_iOS_Tests.m */,
+				52315972180180C5009C8D8D /* Supporting Files */,
+			);
+			path = "ClimbBoy-iOS Tests";
+			sourceTree = "<group>";
+		};
+		52315972180180C5009C8D8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52315973180180C5009C8D8D /* ClimbBoy-iOS Tests-Info.plist */,
+				52315974180180C5009C8D8D /* InfoPlist.strings */,
+				52315979180180C5009C8D8D /* ClimbBoy-iOS Tests-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		524A8DC217F4620300938B0F /* UI */ = {
@@ -1047,6 +1124,7 @@
 		52D5127017F0979A00362403 /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
+				5231596518017D64009C8D8D /* Tilemap */,
 				524A8DC217F4620300938B0F /* UI */,
 				52D5127E17F097A300362403 /* CharacterNodes */,
 				52D5127317F0979A00362403 /* FSMs */,
@@ -1193,6 +1271,7 @@
 				522BF0E217F810C800BDDD2B /* Build.xcconfig */,
 				DCD11E39178C522300FBC406 /* ClimbBoy */,
 				52D511DE17F06C8400362403 /* Extensions */,
+				52315971180180C5009C8D8D /* ClimbBoy-iOS Tests */,
 				DCDD2DAA1769FD0A00F307CD /* Frameworks */,
 				DCDD2DA91769FD0A00F307CD /* Products */,
 				DC8B562717CBF16600F95CBC /* KoboldKit.xcodeproj */,
@@ -1204,6 +1283,7 @@
 			children = (
 				DCD11E36178C522300FBC406 /* ClimbBoy-Mac.app */,
 				DCD7EC52178C57FC00BBAFB0 /* ClimbBoy-iOS.app */,
+				5231596D180180C5009C8D8D /* ClimbBoy-iOS Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1211,6 +1291,10 @@
 		DCDD2DAA1769FD0A00F307CD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5231598918027BE2009C8D8D /* libKoboldKitCommunity.a */,
+				5231598A18027BE2009C8D8D /* libKoboldKitExternal.a */,
+				5231598B18027BE2009C8D8D /* libKoboldKitPro.a */,
+				5231598C18027BE2009C8D8D /* libOpenGW.a */,
 				DCDBA59317E5E55500796C04 /* OpenGW.framework */,
 				DCDBA59117E5E54E00796C04 /* libOpenGW.a */,
 				DC6DE74917E4D02000947898 /* libc++abi.dylib */,
@@ -1272,6 +1356,24 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
+		5231596C180180C5009C8D8D /* ClimbBoy-iOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5231597C180180C6009C8D8D /* Build configuration list for PBXNativeTarget "ClimbBoy-iOS Tests" */;
+			buildPhases = (
+				52315969180180C5009C8D8D /* Sources */,
+				5231596A180180C5009C8D8D /* Frameworks */,
+				5231596B180180C5009C8D8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5231597B180180C5009C8D8D /* PBXTargetDependency */,
+			);
+			name = "ClimbBoy-iOS Tests";
+			productName = "ClimbBoy-iOS Tests";
+			productReference = 5231596D180180C5009C8D8D /* ClimbBoy-iOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DCD11E35178C522300FBC406 /* ClimbBoy-Mac */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DCD11E62178C522400FBC406 /* Build configuration list for PBXNativeTarget "ClimbBoy-Mac" */;
@@ -1317,6 +1419,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Steffen Itterheim";
 				TargetAttributes = {
+					5231596C180180C5009C8D8D = {
+						TestTargetID = DCD7EC51178C57FC00BBAFB0;
+					};
 					DCD7EC51178C57FC00BBAFB0 = {
 						DevelopmentTeam = 35A7PQVH35;
 					};
@@ -1344,6 +1449,7 @@
 				DCD7EC51178C57FC00BBAFB0 /* ClimbBoy-iOS */,
 				DCD11E35178C522300FBC406 /* ClimbBoy-Mac */,
 				DCE361C517D3460C008F940E /* ClimbBoy-Android */,
+				5231596C180180C5009C8D8D /* ClimbBoy-iOS Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1366,6 +1472,14 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5231596B180180C5009C8D8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52315976180180C5009C8D8D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCD11E34178C522300FBC406 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1442,6 +1556,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		52315969180180C5009C8D8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52315978180180C5009C8D8D /* ClimbBoy_iOS_Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DCD11E32178C522300FBC406 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1458,6 +1580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52315987180268F9009C8D8D /* Room.m in Sources */,
 				52058B6E17FB2D68006ED51D /* Skin.c in Sources */,
 				52D511B317F06C6400362403 /* CBMyScene.m in Sources */,
 				52058B6617FB2D68006ED51D /* EventData.c in Sources */,
@@ -1488,7 +1611,9 @@
 				52D511AB17F06C6400362403 /* FlipBySpeedBehavior.m in Sources */,
 				52D511BA17F06C6400362403 /* CBGraphicsUtilities.m in Sources */,
 				DC0C220717CF9C97007FE7B8 /* MyScene.m in Sources */,
+				5231596818017D9A009C8D8D /* Map.m in Sources */,
 				52058B6817FB2D68006ED51D /* Json.c in Sources */,
+				5231598118018D58009C8D8D /* MapGenerator.m in Sources */,
 				52D511BB17F06C6400362403 /* Debug.m in Sources */,
 				DCEF831817CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,
 				52D5127C17F0979A00362403 /* HeroCharacter.m in Sources */,
@@ -1522,6 +1647,7 @@
 				52058B5F17FB2D68006ED51D /* AtlasAttachmentLoader.c in Sources */,
 				522BF0E817F8299E00BDDD2B /* Entity.m in Sources */,
 				52058B6417FB2D68006ED51D /* BoundingBoxAttachment.c in Sources */,
+				52315984180268ED009C8D8D /* Dungeon.m in Sources */,
 				52F3935517F6ADFA00D9A07E /* CharacterPhysicsBehavior.m in Sources */,
 				52D5127D17F0979A00362403 /* HeroRobot.m in Sources */,
 				52D5126F17F06F6300362403 /* LoadingScene.m in Sources */,
@@ -1535,6 +1661,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		5231597B180180C5009C8D8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DCD7EC51178C57FC00BBAFB0 /* ClimbBoy-iOS */;
+			targetProxy = 5231597A180180C5009C8D8D /* PBXContainerItemProxy */;
+		};
 		DC5AA88117CD0D530001940A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = libKoboldKit.a;
@@ -1548,6 +1679,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		52315974180180C5009C8D8D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52315975180180C5009C8D8D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DC18B120178C7E7C00641A6D /* Main_iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1583,6 +1722,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5231597D180180C6009C8D8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ClimbBoy-iOS.app/ClimbBoy-iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ClimbBoy-iOS Tests/ClimbBoy-iOS Tests-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "ClimbBoy-iOS Tests/ClimbBoy-iOS Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		5231597E180180C6009C8D8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ClimbBoy-iOS.app/ClimbBoy-iOS";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ClimbBoy-iOS Tests/ClimbBoy-iOS Tests-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "ClimbBoy-iOS Tests/ClimbBoy-iOS Tests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
 		DCD11E63178C522400FBC406 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1786,6 +1973,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5231597C180180C6009C8D8D /* Build configuration list for PBXNativeTarget "ClimbBoy-iOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5231597D180180C6009C8D8D /* Debug */,
+				5231597E180180C6009C8D8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		DCD11E62178C522400FBC406 /* Build configuration list for PBXNativeTarget "ClimbBoy-Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

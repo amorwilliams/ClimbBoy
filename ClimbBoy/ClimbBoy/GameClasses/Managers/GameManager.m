@@ -42,7 +42,8 @@ DEFINE_SINGLETON_FOR_CLASS(GameManager)
     if (!temp) {
         NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
     }
-    self.levels = [NSMutableArray arrayWithArray:[temp objectForKey:@"Levels"]];
+    self.maps = [NSArray arrayWithArray:[temp objectForKey:@"Maps"]];
+    self.levels = [NSArray arrayWithArray:[temp objectForKey:@"Levels"]];
 }
 
 - (void)setView:(KKView *)view

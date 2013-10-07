@@ -2,6 +2,49 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Maps</key>
+	<array>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level01.tmx</string>
+			<key>Width</key>
+			<integer>24</integer>
+			<key>Height</key>
+			<integer>12</integer>
+			<key>Gates</key>
+			<string>E1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level02.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>12</integer>
+			<key>Gates</key>
+			<string>W1-E2</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level03.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>18</integer>
+			<key>Gates</key>
+			<string>W2-N2</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level04.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>24</integer>
+			<key>Gates</key>
+			<string>W1-E2-S2</string>
+		</dict>
+	</array>
 	<key>Levels</key>
 	<array>
 		<dict>

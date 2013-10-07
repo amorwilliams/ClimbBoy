@@ -236,7 +236,7 @@
             
         case CBAnimationStateFall:
             animationKey = @"anim_fall";
-            [self.characterSprite setAnimationForTrack:0 name:@"jump-loop" loop:YES];
+            [self.characterSprite setAnimationForTrack:0 name:@"fall-loop" loop:YES];
             break;
             
         case CBAnimationStateClimb:

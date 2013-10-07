@@ -18,7 +18,8 @@ DEFINE_SINGLETON_FOR_HEADER(GameManager)
 @property (nonatomic, weak) KKView *view;
 @property (nonatomic) BOOL showsDebugNode;
 
-@property (nonatomic) NSMutableArray *levels;
+@property (nonatomic) NSArray *maps;
+@property (nonatomic) NSArray *levels;
 @property (nonatomic) NSMutableDictionary *settings;
 
 + (BOOL) showsDebugNode;
