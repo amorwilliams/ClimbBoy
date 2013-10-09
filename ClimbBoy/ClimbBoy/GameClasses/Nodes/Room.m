@@ -15,14 +15,13 @@
 
 @implementation Room
 
-+ (id)roomWithTilemapOfFile:(NSString *)tmxFile
++ (id)roomWithTilemapOfFile:(NSString *)tmxFile parent:(Room *)parentRoom
 {
-    return [[[self class] alloc] initWithTilemapOfFile:tmxFile];
+    return [[[self class] alloc] initWithTilemapOfFile:tmxFile parent:parentRoom];
 }
 
-- (id)initWithTilemapOfFile:(NSString *)tmxFile
+- (id)initWithTilemapOfFile:(NSString *)tmxFile parent:(Room *)parentRoom
 {
-    
     for (NSDictionary *room in [GameManager sharedGameManager].maps) {
         NSString *tmx = [room valueForKey:@"Tilemap"];
         if ([tmx isEqualToString:tmxFile]) {
@@ -41,6 +40,15 @@
     if (self) {
         _gates = [NSMutableArray arrayWithCapacity:2];
         _name = [tmxFile stringByDeletingPathExtension];
+        _parent = parentRoom;
+        if (!_parent) {
+            _isRoot = YES;
+            _depth = 0;
+        }
+        else {
+            _isRoot = NO;
+            _depth = _parent.depth + 1;
+        }
         
         [self markAllCellsvisited];
         [self initialize];
@@ -74,6 +82,7 @@
             [self addGateByIndex:index inDirection:kGDirctionEast];
         }
     }
+    
 }
 
 - (void) addGateByIndex:(int)index inDirection:(GDirctionType)direction
@@ -100,6 +109,7 @@
     
     NSAssert(![self pointIsOutsideBounds:roomGate.cell], @"Gate Point is Outside Bounds in room data : %@", self.name);
     
+    roomGate.room = self;
     [_gates addObject:roomGate];
 }
 
@@ -121,6 +131,31 @@
 - (CGPoint)position
 {
     return CGPointMake(_bounds.origin.x, _bounds.origin.y);
+}
+
+- (BOOL)hasGateByDirection:(GDirctionType)direction
+{
+    for (RoomGate *gate in _gates) {
+        if (gate.direction == direction) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (BOOL)allGateConnected
+{
+    for (RoomGate *gate in _gates) {
+        if (!gate.connectedRoom) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+- (CGPoint)cellWorldPositionFromGate:(RoomGate *)gate
+{
+    return ccpAdd(_bounds.origin, gate.cell);
 }
 
 @end

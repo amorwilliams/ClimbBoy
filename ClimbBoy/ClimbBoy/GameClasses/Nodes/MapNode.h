@@ -6,14 +6,13 @@
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import "Dungeon.h"
+#import "Map.h"
 
-@interface MapGenerator : NSObject
+@interface MapNode : SKNode
 {
-
+    Map *_map;
 }
 
-- (Dungeon *) generate;
+- (void) generate;
 
 @end

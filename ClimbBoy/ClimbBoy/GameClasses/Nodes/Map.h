@@ -1,56 +1,41 @@
 //
-//  Map.h
+//  Dungeon.h
 //  ClimbBoy
 //
-//  Created by Robin on 13-10-6.
+//  Created by Robin on 13-10-7.
 //  Copyright (c) 2013年 Steffen Itterheim. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-////*************************** CGPoint  *********************************
-//struct CGPoint {
-//    int x;
-//    int y;
-//};
-//typedef struct CGPoint CGPoint;
-//
-//static inline CGPoint
-//CGPointMake(int x, int y)
-//{
-//    CGPoint p; p.x = x; p.y = y; return p;
-//}
-//
-//static inline bool
-//CGPointEqualToPoint(CGPoint point1, CGPoint point2)
-//{
-//    return point1.x == point2.x && point1.y == point2.y;
-//}
+#import "Grid.h"
+#import "Room.h"
 
-//************************************************************
-
-
-typedef enum : uint8_t{
-    kGDirctionNorth = 0,
-    kGDirctionSouth,
-    kGDirctionWest,
-    kGDirctionEast,
-}GDirctionType;
-
-@interface Map : NSObject
+@interface Map : Grid
 {
-    @protected
-    bool **_grid;
-    CGRect _bounds;
+    NSMutableArray *_visitedCells;
 }
 
-@property (nonatomic, readonly) int width;
-@property (nonatomic, readonly) int height;
-@property (nonatomic, readonly) CGRect bounds;
+@property (nonatomic, readonly) NSMutableArray *rooms;
 
-- (id) initWithWidth:(int)width height:(int)height;
+@property (nonatomic) NSInteger maxDepth;
 
-- (BOOL) cellWithPoint:(CGPoint)point;
-- (BOOL) hasAdjacentCell:(CGPoint)point inDirection:(GDirctionType)direction;
-- (BOOL) pointIsOutsideBounds:(CGPoint)point;
-- (BOOL) rectIsOutsideBounds:(CGRect)rect;
++ (id) dungeonWithWidth:(int)width height:(int)height;
+
+- (CGPoint) pickRandomCellAndMarkItVisited;
+- (BOOL) isVisitedWithAdjacentCell:(CGPoint)point inDirection:(GDirctionType)direction;
+- (void) flagCellAsVisited:(CGPoint)point;
+- (void) flagCellAsUnvisited:(CGPoint)point;
+- (BOOL) isContainVisitedWithRect:(CGRect)rect;
+- (void) flagRectCellsAsVisited:(CGRect)rect;
+- (void) flagRectCellsAsUnvisited:(CGRect)rect;
+
+
+- (CGPoint) randomVisitedCell;
+//The method then picks a random index within the bounds of the visited cells list. It picks a new index until the visited cell is different than the cell passed in a input parameter and returns this cell.
+- (CGPoint) randomVisitedCellExclude:(CGPoint)point;
+
+- (void) generateWithParentRoom:(Room *)room;
+- (void) addRoom:(Room *)room;
+- (Room *) randomRoomFromRoom:(Room *)room withGate:(RoomGate *)gate end:(BOOL)isEnd;
+
+
 @end

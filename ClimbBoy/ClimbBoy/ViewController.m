@@ -8,6 +8,7 @@
 #import "ViewController.h"
 #import "IntroScene.h"
 #import "GameManager.h"
+#import "MyScene.h"
 
 @implementation ViewController
 
@@ -26,8 +27,11 @@
     
 	// create and present first scene
 //    CGSize size = CGSizeMake(self.view.bounds.size.width * 2, self.view.bounds.size.height * 2);
-    IntroScene* scene = [IntroScene sceneWithSize:self.view.bounds.size];
-	[self.kkView presentScene:scene];
+//    IntroScene* scene = [IntroScene sceneWithSize:self.view.bounds.size];
+//	[self.kkView presentScene:scene];
+    
+    MyScene *scene = [MyScene sceneWithSize:self.view.bounds.size];
+    [self.kkView presentScene:scene];
 }
 
 @end

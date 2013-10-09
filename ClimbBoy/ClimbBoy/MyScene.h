@@ -5,12 +5,14 @@
  */
 
 #import "KKScene.h"
+#import "MapNode.h"
 
 // IMPORTANT: in Kobold Kit all scenes must inherit from KKScene.
 @interface MyScene : KKScene
 {
-    KKNode *spineNode;
-    BOOL _isGirl;
+    MapNode *_mapNode;
+    
+    CGPoint _location;
 }
 
 @end

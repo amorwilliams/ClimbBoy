@@ -97,7 +97,7 @@ static NSString* const ScaleActionKey = @"CBButtonB:ScaleAction";
         }
         else
         {
-            _background = [SKSpriteNode spriteNodeWithColor:[SKColor whiteColor] size:CGSizeMake(32, 32)];
+            _background = [SKSpriteNode spriteNodeWithColor:[SKColor colorWithRed:1 green:1 blue:1 alpha:0] size:CGSizeMake(32, 32)];
         }
         
         if (selected) {

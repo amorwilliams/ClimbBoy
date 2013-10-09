@@ -43,14 +43,14 @@
 		5223C51B17F5C2D600DC0DB5 /* spineboy.json in Resources */ = {isa = PBXBuildFile; fileRef = 5223C51317F5C2D600DC0DB5 /* spineboy.json */; };
 		522BF0E517F81FFD00BDDD2B /* CBScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 522BF0E417F81FFD00BDDD2B /* CBScene.m */; };
 		522BF0E817F8299E00BDDD2B /* Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = 522BF0E717F8299E00BDDD2B /* Entity.m */; };
-		5231596818017D9A009C8D8D /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231596718017D9A009C8D8D /* Map.m */; };
+		5231596818017D9A009C8D8D /* Grid.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231596718017D9A009C8D8D /* Grid.m */; };
 		5231596E180180C5009C8D8D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDD2DD41769FD0A00F307CD /* XCTest.framework */; };
 		5231596F180180C5009C8D8D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDD2DAB1769FD0A00F307CD /* Foundation.framework */; };
 		52315970180180C5009C8D8D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC19539217C1251900EC526C /* UIKit.framework */; };
 		52315976180180C5009C8D8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 52315974180180C5009C8D8D /* InfoPlist.strings */; };
 		52315978180180C5009C8D8D /* ClimbBoy_iOS_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315977180180C5009C8D8D /* ClimbBoy_iOS_Tests.m */; };
-		5231598118018D58009C8D8D /* MapGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231598018018D58009C8D8D /* MapGenerator.m */; };
-		52315984180268ED009C8D8D /* Dungeon.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315983180268ED009C8D8D /* Dungeon.m */; };
+		5231598118018D58009C8D8D /* MapNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5231598018018D58009C8D8D /* MapNode.m */; };
+		52315984180268ED009C8D8D /* Map.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315983180268ED009C8D8D /* Map.m */; };
 		52315987180268F9009C8D8D /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315986180268F9009C8D8D /* Room.m */; };
 		524A8DC517F4628300938B0F /* CBControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC417F4628300938B0F /* CBControl.m */; };
 		524A8DC817F469E400938B0F /* CBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC717F469E400938B0F /* CBButton.m */; };
@@ -287,23 +287,23 @@
 		522BF0E417F81FFD00BDDD2B /* CBScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBScene.m; sourceTree = "<group>"; };
 		522BF0E617F8299E00BDDD2B /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		522BF0E717F8299E00BDDD2B /* Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Entity.m; sourceTree = "<group>"; };
-		5231596618017D9A009C8D8D /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
-		5231596718017D9A009C8D8D /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
+		5231596618017D9A009C8D8D /* Grid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Grid.h; sourceTree = "<group>"; };
+		5231596718017D9A009C8D8D /* Grid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Grid.m; sourceTree = "<group>"; };
 		5231596D180180C5009C8D8D /* ClimbBoy-iOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ClimbBoy-iOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52315973180180C5009C8D8D /* ClimbBoy-iOS Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClimbBoy-iOS Tests-Info.plist"; sourceTree = "<group>"; };
 		52315975180180C5009C8D8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52315977180180C5009C8D8D /* ClimbBoy_iOS_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClimbBoy_iOS_Tests.m; sourceTree = "<group>"; };
 		52315979180180C5009C8D8D /* ClimbBoy-iOS Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClimbBoy-iOS Tests-Prefix.pch"; sourceTree = "<group>"; };
-		5231597F18018D58009C8D8D /* MapGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapGenerator.h; sourceTree = "<group>"; };
-		5231598018018D58009C8D8D /* MapGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapGenerator.m; sourceTree = "<group>"; };
-		52315982180268ED009C8D8D /* Dungeon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dungeon.h; sourceTree = "<group>"; };
-		52315983180268ED009C8D8D /* Dungeon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dungeon.m; sourceTree = "<group>"; };
+		5231597F18018D58009C8D8D /* MapNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapNode.h; sourceTree = "<group>"; };
+		5231598018018D58009C8D8D /* MapNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapNode.m; sourceTree = "<group>"; };
+		52315982180268ED009C8D8D /* Map.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Map.h; sourceTree = "<group>"; };
+		52315983180268ED009C8D8D /* Map.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map.m; sourceTree = "<group>"; };
 		52315985180268F9009C8D8D /* Room.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Room.h; sourceTree = "<group>"; };
 		52315986180268F9009C8D8D /* Room.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Room.m; sourceTree = "<group>"; };
-		5231598918027BE2009C8D8D /* libKoboldKitCommunity.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKoboldKitCommunity.a; path = "KoboldKit/KoboldKitCommunity/build/Debug-iphoneos/libKoboldKitCommunity.a"; sourceTree = "<group>"; };
-		5231598A18027BE2009C8D8D /* libKoboldKitExternal.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKoboldKitExternal.a; path = "KoboldKit/KoboldKitExternal/build/Debug-iphoneos/libKoboldKitExternal.a"; sourceTree = "<group>"; };
-		5231598B18027BE2009C8D8D /* libKoboldKitPro.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libKoboldKitPro.a; path = "KoboldKit/KoboldKitPro/build/Debug-iphoneos/libKoboldKitPro.a"; sourceTree = "<group>"; };
-		5231598C18027BE2009C8D8D /* libOpenGW.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libOpenGW.a; path = "KoboldKit/OpenGW/build/Debug-iphoneos/libOpenGW.a"; sourceTree = "<group>"; };
+		5231598918027BE2009C8D8D /* libKoboldKitCommunity.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKoboldKitCommunity.a; path = "KoboldKit/KoboldKitCommunity/build/Debug-iphoneos/libKoboldKitCommunity.a"; sourceTree = "<group>"; };
+		5231598A18027BE2009C8D8D /* libKoboldKitExternal.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKoboldKitExternal.a; path = "KoboldKit/KoboldKitExternal/build/Debug-iphoneos/libKoboldKitExternal.a"; sourceTree = "<group>"; };
+		5231598B18027BE2009C8D8D /* libKoboldKitPro.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKoboldKitPro.a; path = "KoboldKit/KoboldKitPro/build/Debug-iphoneos/libKoboldKitPro.a"; sourceTree = "<group>"; };
+		5231598C18027BE2009C8D8D /* libOpenGW.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOpenGW.a; path = "KoboldKit/OpenGW/build/Debug-iphoneos/libOpenGW.a"; sourceTree = "<group>"; };
 		524A8DC317F4628300938B0F /* CBControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBControl.h; sourceTree = "<group>"; };
 		524A8DC417F4628300938B0F /* CBControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBControl.m; sourceTree = "<group>"; };
 		524A8DC617F469E400938B0F /* CBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBButton.h; sourceTree = "<group>"; };
@@ -678,12 +678,12 @@
 		5231596518017D64009C8D8D /* Tilemap */ = {
 			isa = PBXGroup;
 			children = (
-				5231596618017D9A009C8D8D /* Map.h */,
-				5231596718017D9A009C8D8D /* Map.m */,
-				5231597F18018D58009C8D8D /* MapGenerator.h */,
-				5231598018018D58009C8D8D /* MapGenerator.m */,
-				52315982180268ED009C8D8D /* Dungeon.h */,
-				52315983180268ED009C8D8D /* Dungeon.m */,
+				5231596618017D9A009C8D8D /* Grid.h */,
+				5231596718017D9A009C8D8D /* Grid.m */,
+				5231597F18018D58009C8D8D /* MapNode.h */,
+				5231598018018D58009C8D8D /* MapNode.m */,
+				52315982180268ED009C8D8D /* Map.h */,
+				52315983180268ED009C8D8D /* Map.m */,
 				52315985180268F9009C8D8D /* Room.h */,
 				52315986180268F9009C8D8D /* Room.m */,
 			);
@@ -1611,9 +1611,9 @@
 				52D511AB17F06C6400362403 /* FlipBySpeedBehavior.m in Sources */,
 				52D511BA17F06C6400362403 /* CBGraphicsUtilities.m in Sources */,
 				DC0C220717CF9C97007FE7B8 /* MyScene.m in Sources */,
-				5231596818017D9A009C8D8D /* Map.m in Sources */,
+				5231596818017D9A009C8D8D /* Grid.m in Sources */,
 				52058B6817FB2D68006ED51D /* Json.c in Sources */,
-				5231598118018D58009C8D8D /* MapGenerator.m in Sources */,
+				5231598118018D58009C8D8D /* MapNode.m in Sources */,
 				52D511BB17F06C6400362403 /* Debug.m in Sources */,
 				DCEF831817CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,
 				52D5127C17F0979A00362403 /* HeroCharacter.m in Sources */,
@@ -1647,7 +1647,7 @@
 				52058B5F17FB2D68006ED51D /* AtlasAttachmentLoader.c in Sources */,
 				522BF0E817F8299E00BDDD2B /* Entity.m in Sources */,
 				52058B6417FB2D68006ED51D /* BoundingBoxAttachment.c in Sources */,
-				52315984180268ED009C8D8D /* Dungeon.m in Sources */,
+				52315984180268ED009C8D8D /* Map.m in Sources */,
 				52F3935517F6ADFA00D9A07E /* CharacterPhysicsBehavior.m in Sources */,
 				52D5127D17F0979A00362403 /* HeroRobot.m in Sources */,
 				52D5126F17F06F6300362403 /* LoadingScene.m in Sources */,
@@ -1980,6 +1980,7 @@
 				5231597E180180C6009C8D8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DCD11E62178C522400FBC406 /* Build configuration list for PBXNativeTarget "ClimbBoy-Mac" */ = {
 			isa = XCConfigurationList;

@@ -10,7 +10,7 @@
 			<key>Width</key>
 			<integer>24</integer>
 			<key>Height</key>
-			<integer>12</integer>
+			<integer>6</integer>
 			<key>Gates</key>
 			<string>E1</string>
 		</dict>
@@ -32,7 +32,7 @@
 			<key>Height</key>
 			<integer>18</integer>
 			<key>Gates</key>
-			<string>W2-N2</string>
+			<string>W2-N1</string>
 		</dict>
 		<dict>
 			<key>Tilemap</key>
@@ -40,9 +40,179 @@
 			<key>Width</key>
 			<integer>12</integer>
 			<key>Height</key>
-			<integer>24</integer>
+			<integer>12</integer>
 			<key>Gates</key>
-			<string>W1-E2-S2</string>
+			<string>W1-E2-S1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level05.tmx</string>
+			<key>Width</key>
+			<integer>24</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>W1-E1-S2-N2</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level06.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>W1-E1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level07.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>W1-S1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level08.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>W1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level09.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>N1-S1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level10.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>E1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level11.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>N1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level12.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>S1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level13.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>N1-S1-W1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level14.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>N1-S1-W1-E1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level15.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>E1-S1-W1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level16.tmx</string>
+			<key>Width</key>
+			<integer>36</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>N1-N3</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level17.tmx</string>
+			<key>Width</key>
+			<integer>36</integer>
+			<key>Height</key>
+			<integer>6</integer>
+			<key>Gates</key>
+			<string>N2-S2-E1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level18.tmx</string>
+			<key>Width</key>
+			<integer>24</integer>
+			<key>Height</key>
+			<integer>12</integer>
+			<key>Gates</key>
+			<string>W1-W2</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level19.tmx</string>
+			<key>Width</key>
+			<integer>24</integer>
+			<key>Height</key>
+			<integer>12</integer>
+			<key>Gates</key>
+			<string>E1-E2</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level20.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>12</integer>
+			<key>Gates</key>
+			<string>S1</string>
+		</dict>
+		<dict>
+			<key>Tilemap</key>
+			<string>Level21.tmx</string>
+			<key>Width</key>
+			<integer>12</integer>
+			<key>Height</key>
+			<integer>12</integer>
+			<key>Gates</key>
+			<string>N1</string>
 		</dict>
 	</array>
 	<key>Levels</key>

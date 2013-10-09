@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Dungeon.h"
+#import "Map.h"
 #import "Room.h"
 
 @interface ClimbBoy_iOS_Tests : XCTestCase
@@ -35,7 +35,7 @@
 
 - (void)testflagRectCells
 {
-    Dungeon *map = [Dungeon dungeonWithWidth:20 height:20];
+    Map *map = [Map dungeonWithWidth:20 height:20];
     
     [map flagRectCellsAsVisited:CGRectMake(3, 2, 5, 5)];
     [map flagRectCellsAsVisited:CGRectMake(6, 8, 10, 4)];
@@ -45,7 +45,7 @@
 
 - (void)testGetRandomVisitedCell
 {
-    Dungeon *map = [Dungeon dungeonWithWidth:10 height:10];
+    Map *map = [Map dungeonWithWidth:10 height:10];
     
     [map flagCellAsVisited:CGPointMake(1, 0)];
     [map flagCellAsVisited:CGPointMake(2, 5)];
@@ -62,30 +62,39 @@
 
 - (void)testCreateRoom
 {
-    Room *room = [Room roomWithTilemapOfFile:@"Level01.tmx"];
+    Room *room = [Room roomWithTilemapOfFile:@"Level01.tmx" parent:nil];
     
     NSLog(@"%@", [room description]);
     
     for (int i = 0; i < room.gates.count; i++) {
-        RoomGate *gate = [RoomGate new];
-        [[room.gates objectAtIndex:i] getValue:&gate];
+        RoomGate *gate = [room.gates objectAtIndex:i];
         NSLog(@"%d, %d, direction: %d", (int)gate.cell.x, (int)gate.cell.y, (int)gate.direction);
     }
 }
 
 - (void)testRandomRoom
 {
-    Dungeon *map = [Dungeon dungeonWithWidth:20 height:20];
+    Map *map = [Map dungeonWithWidth:20 height:20];
     
-    Room *room = [Room roomWithTilemapOfFile:@"Level01.tmx"];
+    Room *room = [Room roomWithTilemapOfFile:@"Level01.tmx" parent:nil];
     [room setPosition:CGPointMake(0, 9)];
     [map addRoom:room];
     
-    RoomGate *gate = [RoomGate new];
-    gate.cell = CGPointMake(3, 1);
-    gate.direction = kGDirctionEast;
-    Room *randomRoom = [map randomRoomFromRoom:room withGate:gate];
+    Room *randomRoom = [map randomRoomFromRoom:room withGate:[room.gates firstObject] end:NO];
     [map addRoom:randomRoom];
+    
+    NSLog(@"%@", [map description]);
+}
+
+- (void)testGenerate
+{
+    Map *map = [Map dungeonWithWidth:20 height:20];
+    
+    Room *room = [Room roomWithTilemapOfFile:@"Level01.tmx" parent:nil];
+    [room setPosition:CGPointMake(0, 9)];
+    [map addRoom:room];
+    
+    [map generateWithParentRoom:room];
     
     NSLog(@"%@", [map description]);
 }
