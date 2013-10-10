@@ -32,11 +32,11 @@
 }
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) BOOL isRoot;
-@property (nonatomic, readonly) Room *parent;
+@property (nonatomic, readonly, weak) Room *parent;
 @property (nonatomic, readonly) uint8_t depth;
 //@property (nonatomic, readonly)KKTilemapNode *tilemapNode;
 @property (nonatomic) CGPoint position;
-@property (nonatomic, readonly) NSMutableArray *gates;
+@property (nonatomic) NSArray *gates;
 
 + (id) roomWithTilemapOfFile:(NSString *)tmxFile parent:(Room *)parentRoom;
 - (id) initWithTilemapOfFile:(NSString *)tmxFile parent:(Room *)parentRoom;
@@ -44,5 +44,6 @@
 - (BOOL) hasGateByDirection:(GDirctionType)direction;
 - (BOOL) allGateConnected;
 - (CGPoint) cellWorldPositionFromGate:(RoomGate *)gate;
+- (void) setDepth:(uint8_t)depth;
 
 @end

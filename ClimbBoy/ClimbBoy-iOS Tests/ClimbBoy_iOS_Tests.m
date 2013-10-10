@@ -94,7 +94,7 @@
     [room setPosition:CGPointMake(0, 9)];
     [map addRoom:room];
     
-    [map generateWithParentRoom:room];
+    [map generateWithRootRoom:room];
     
     NSLog(@"%@", [map description]);
 }

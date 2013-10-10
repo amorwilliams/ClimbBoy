@@ -14,7 +14,7 @@
     NSMutableArray *_visitedCells;
 }
 
-@property (nonatomic, readonly) NSMutableArray *rooms;
+@property (nonatomic) NSMutableArray *rooms;
 
 @property (nonatomic) NSInteger maxDepth;
 
@@ -33,7 +33,7 @@
 //The method then picks a random index within the bounds of the visited cells list. It picks a new index until the visited cell is different than the cell passed in a input parameter and returns this cell.
 - (CGPoint) randomVisitedCellExclude:(CGPoint)point;
 
-- (void) generateWithParentRoom:(Room *)room;
+- (void) generateWithRootRoom:(Room *)room;
 - (void) addRoom:(Room *)room;
 - (Room *) randomRoomFromRoom:(Room *)room withGate:(RoomGate *)gate end:(BOOL)isEnd;
 

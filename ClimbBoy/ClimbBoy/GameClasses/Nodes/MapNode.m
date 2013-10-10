@@ -13,19 +13,24 @@
 
 - (void)generate
 {
-    _map = [Map dungeonWithWidth:20 height:20];
-    _map.maxDepth = 3;
-    
 //    Room *newRoom = [Room roomWithTilemapOfFile:@"Level01.tmx" parent:nil];
 //    [newRoom setPosition:CGPointMake(0, 9)];
 //    [_map addRoom:newRoom];
 //    Room *randomRoom = [_map randomRoomFromRoom:newRoom withGate:[newRoom.gates firstObject] end:NO];
 //    [_map addRoom:randomRoom];
     
-    Room *newRoom = [Room roomWithTilemapOfFile:@"Level01.tmx" parent:nil];
-    [newRoom setPosition:CGPointMake(2, 9)];
-    [_map addRoom:newRoom];
-    [_map generateWithParentRoom:newRoom];
+    
+    int roomCount = 0;
+//    while (roomCount < 15 || roomCount > 30) {
+        _map = [Map dungeonWithWidth:20 height:20];
+        _map.maxDepth = 4;
+        Room *newRoom = [Room roomWithTilemapOfFile:@"Level01.tmx" parent:nil];
+        [newRoom setPosition:CGPointMake(2, 9)];
+        [_map addRoom:newRoom];
+        [_map generateWithRootRoom:newRoom];
+        roomCount = _map.rooms.count;
+        NSLog(@"rooms count: %d", roomCount);
+//    }
     
     NSLog(@"%@", [_map description]);
     

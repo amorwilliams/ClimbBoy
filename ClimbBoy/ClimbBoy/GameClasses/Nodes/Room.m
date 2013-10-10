@@ -38,7 +38,6 @@
     
     self = [super initWithWidth:width height:height];
     if (self) {
-        _gates = [NSMutableArray arrayWithCapacity:2];
         _name = [tmxFile stringByDeletingPathExtension];
         _parent = parentRoom;
         if (!_parent) {
@@ -65,27 +64,32 @@
     NSArray *gatesStringArray = [gatesString componentsSeparatedByString:@"-"];
     gatesStringArray = [gatesStringArray filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF != ''"]];
     
+    NSMutableArray *gates = [NSMutableArray array];
     for (NSString *gate in gatesStringArray) {
         NSString *firstChar = [gate substringToIndex:1];
         int index = [[gate substringFromIndex:1] intValue];
         
+        RoomGate *roomGate;
         if ([firstChar isEqualToString:@"N"]) {
-            [self addGateByIndex:index inDirection:kGDirctionNorth];
+            roomGate = [self gateByIndex:index inDirection:kGDirctionNorth];
         }
         else if ([firstChar isEqualToString:@"S"]) {
-            [self addGateByIndex:index inDirection:kGDirctionSouth];
+            roomGate = [self gateByIndex:index inDirection:kGDirctionSouth];
         }
         else if ([firstChar isEqualToString:@"W"]) {
-            [self addGateByIndex:index inDirection:kGDirctionWest];
+            roomGate = [self gateByIndex:index inDirection:kGDirctionWest];
         }
         else if ([firstChar isEqualToString:@"E"]) {
-            [self addGateByIndex:index inDirection:kGDirctionEast];
+            roomGate = [self gateByIndex:index inDirection:kGDirctionEast];
         }
+        
+        [gates addObject:roomGate];
     }
     
+    _gates = [NSArray arrayWithArray:gates];
 }
 
-- (void) addGateByIndex:(int)index inDirection:(GDirctionType)direction
+- (RoomGate *) gateByIndex:(int)index inDirection:(GDirctionType)direction
 {
     RoomGate *roomGate = [RoomGate new];
     roomGate.direction = direction;
@@ -110,7 +114,8 @@
     NSAssert(![self pointIsOutsideBounds:roomGate.cell], @"Gate Point is Outside Bounds in room data : %@", self.name);
     
     roomGate.room = self;
-    [_gates addObject:roomGate];
+    return roomGate;
+//    [_gates addObject:roomGate];
 }
 
 - (void)markAllCellsvisited
@@ -156,6 +161,11 @@
 - (CGPoint)cellWorldPositionFromGate:(RoomGate *)gate
 {
     return ccpAdd(_bounds.origin, gate.cell);
+}
+
+- (void)setDepth:(uint8_t)depth
+{
+    _depth = depth;
 }
 
 @end
