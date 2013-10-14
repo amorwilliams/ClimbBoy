@@ -112,6 +112,7 @@ local objectTemplates =
             climbUpSpeedLimit = 300,
             climbDownSpeedLimit = 50,
             boundingBox = "{32, 52}",
+            zPosition = 10,
             --anchorPoint = "{0.5, 0.3}",
 
             --_defaultImage = "dummy_stickman.png",
@@ -139,7 +140,7 @@ local objectTemplates =
 			--{behaviorClass = "KKLimitVelocityBehavior", properties = {velocityLimit = 100}},
 			--{className = "KKStayInBoundsBehavior", properties = {bounds = "{{0, 0}, {0, 0}}"}},
             --{className = "CharacterAnimatorBehavior"},
-			{className = "KKCameraFollowBehavior"},
+			{className = "CameraFollowBehavior"},
             {className = "KKItemCollectorBehavior"},
             {className = "KKNotifyOnItemCountBehavior", properties = {itemName = "briefcase", count = 1}},
 		},

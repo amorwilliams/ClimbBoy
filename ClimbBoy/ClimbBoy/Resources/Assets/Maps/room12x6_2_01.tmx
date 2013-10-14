@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="12" height="6" tilewidth="64" tileheight="64">
+ <properties>
+  <property name="physicsGravityY" value="-9.81"/>
+  <property name="physicsSimulationSpeed" value="1.0"/>
+  <property name="restrictScrollingToMapBoundary" value="YES"/>
+ </properties>
+ <tileset firstgid="1" name="Tileset_Geometry_16x16_256" tilewidth="64" tileheight="64">
+  <image source="Tileset_64x64.png" width="512" height="576"/>
+ </tileset>
+ <layer name="background" width="12" height="6">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAFZkDMiYTRAUjMBYiNkTBMrSGauCBUXAzNTBgWxILJUS9KonpcGJt6ANOKBJs=
+  </data>
+ </layer>
+ <layer name="foreground" width="12" height="6">
+  <data encoding="base64" compression="zlib">
+   eJwTZmBgUEbCugwIoIkmJw3EIgzEA6FBqF4GiLmRMA+SPBeanBQQAwDJ9wJ9
+  </data>
+ </layer>
+ <layer name="objects" width="12" height="6">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF+AAAASAAAQ==
+  </data>
+ </layer>
+ <layer name="mainlayer" width="12" height="6">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF+AAAASAAAQ==
+  </data>
+ </layer>
+ <objectgroup color="#5858a4" draworder="topdown" name="collisions" width="12" height="6">
+  <object x="0" y="0" width="320" height="64"/>
+  <object x="448" y="0" width="320" height="64"/>
+  <object x="704" y="64" width="64" height="256"/>
+  <object x="0" y="64" width="64" height="256"/>
+  <object x="0" y="320" width="320" height="64"/>
+  <object x="448" y="320" width="320" height="64"/>
+ </objectgroup>
+ <objectgroup draworder="topdown" name="game objects" width="12" height="6"/>
+</map>

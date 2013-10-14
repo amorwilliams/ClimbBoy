@@ -9,11 +9,16 @@
 #import "KKScene.h"
 #import "HeroRobot.h"
 #import "ClimbBoy-ui.h"
+#import "MapNode.h"
 
 @interface GameplayScene : KKScene <CBAnalogueStickDelegate>
 {
     NSString *_tmxFile;
     KKSpriteNode *_curtainSprite;
+    
+    MapNode *_mapNode;
+    CGPoint _location;
+    CGRect _roomBounds;
     
     KKTilemapNode *_tilemapNode;
     HeroCharacter *_playerCharacter;

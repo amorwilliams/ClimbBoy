@@ -8,11 +8,17 @@
 
 #import "Map.h"
 
-@interface MapNode : SKNode
+@interface MapNode : KKNode
 {
+    CGSize _gridSize;
     Map *_map;
 }
 
-- (void) generate;
+@property (nonatomic, readonly) KKTilemap *mainTilemap;
+@property (nonatomic) NSArray *roomNodes;
 
++ (id) MapWithGridSize:(CGSize)gridSize;
+
+- (void) generate;
+- (CGRect) boundsFromMainLayerPosition:(CGPoint)position;
 @end

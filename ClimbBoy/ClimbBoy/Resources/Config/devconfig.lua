@@ -34,12 +34,12 @@ local config =
 	shouldCenterStats = NO,
 
 	-- additional Kobold Kit labels
-	showsPhysicsShapes = YES,
+	showsPhysicsShapes = NO,
 	showsNodeFrames = NO,
 	showsNodeAnchorPoints = NO,
 
     -- additional Climb Boy Debug
-    showsDebugNode = YES,
+    showsDebugNode = NO,
 }
 
 return config

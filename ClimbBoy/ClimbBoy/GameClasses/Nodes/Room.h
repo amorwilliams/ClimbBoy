@@ -34,7 +34,6 @@
 @property (nonatomic, readonly) BOOL isRoot;
 @property (nonatomic, readonly, weak) Room *parent;
 @property (nonatomic, readonly) uint8_t depth;
-//@property (nonatomic, readonly)KKTilemapNode *tilemapNode;
 @property (nonatomic) CGPoint position;
 @property (nonatomic) NSArray *gates;
 

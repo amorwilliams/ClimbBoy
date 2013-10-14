@@ -42,7 +42,10 @@ DEFINE_SINGLETON_FOR_CLASS(GameManager)
     if (!temp) {
         NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
     }
+    
     self.maps = [NSArray arrayWithArray:[temp objectForKey:@"Maps"]];
+    [self checkMapDuplicated];
+    
     self.levels = [NSArray arrayWithArray:[temp objectForKey:@"Levels"]];
 }
 
@@ -64,6 +67,23 @@ DEFINE_SINGLETON_FOR_CLASS(GameManager)
 - (void)setShowsDebugNode:(BOOL)showsDebugNode
 {
     _showsDebugNode = showsDebugNode;
+}
+
+- (void)checkMapDuplicated
+{
+    for (int i = 0; i < _maps.count; i++) {
+        NSDictionary *map1 = [_maps objectAtIndex:i];
+        NSString *tilemapFile1 = [map1 valueForKey:@"Tilemap"];
+        
+        for (int j = i+1; j < _maps.count; j++) {
+            NSDictionary *map2 = [_maps objectAtIndex:j];
+            NSString *tilemapFile2 = [map2 valueForKey:@"Tilemap"];
+            
+            if ([tilemapFile1 isEqualToString:tilemapFile2]) {
+                NSAssert(NO, @"Have duplicated name of map:%@ in index:%d and %d", tilemapFile1, i, j);
+            }
+        }
+    }
 }
 
 #pragma mark !! Update methods below whenever class layout changes !!

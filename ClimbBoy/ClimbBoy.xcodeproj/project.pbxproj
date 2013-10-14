@@ -120,6 +120,29 @@
 		52D5127A17F0979A00362403 /* BaseCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127217F0979A00362403 /* BaseCharacter.m */; };
 		52D5127C17F0979A00362403 /* HeroCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127717F0979A00362403 /* HeroCharacter.m */; };
 		52D5127D17F0979A00362403 /* HeroRobot.m in Sources */ = {isa = PBXBuildFile; fileRef = 52D5127917F0979A00362403 /* HeroRobot.m */; };
+		52DF2C5A18099AE9003F0EDD /* room_root.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4518099AE9003F0EDD /* room_root.tmx */; };
+		52DF2C5B18099AE9003F0EDD /* room24x6_2_01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4618099AE9003F0EDD /* room24x6_2_01.tmx */; };
+		52DF2C5C18099AE9003F0EDD /* room24x6_1_04.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4718099AE9003F0EDD /* room24x6_1_04.tmx */; };
+		52DF2C5D18099AE9003F0EDD /* room24x6_1_03.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4818099AE9003F0EDD /* room24x6_1_03.tmx */; };
+		52DF2C5E18099AE9003F0EDD /* room24x6_1_02.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4918099AE9003F0EDD /* room24x6_1_02.tmx */; };
+		52DF2C5F18099AE9003F0EDD /* room24x6_1_01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4A18099AE9003F0EDD /* room24x6_1_01.tmx */; };
+		52DF2C6018099AE9003F0EDD /* room12x6_4_01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4B18099AE9003F0EDD /* room12x6_4_01.tmx */; };
+		52DF2C6118099AE9003F0EDD /* room12x6_3_01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4C18099AE9003F0EDD /* room12x6_3_01.tmx */; };
+		52DF2C6218099AE9003F0EDD /* room12x6_3_04.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4D18099AE9003F0EDD /* room12x6_3_04.tmx */; };
+		52DF2C6318099AE9003F0EDD /* room12x6_3_03.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4E18099AE9003F0EDD /* room12x6_3_03.tmx */; };
+		52DF2C6418099AE9003F0EDD /* room12x6_3_02.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C4F18099AE9003F0EDD /* room12x6_3_02.tmx */; };
+		52DF2C6518099AE9003F0EDD /* room12x6_2_06.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5018099AE9003F0EDD /* room12x6_2_06.tmx */; };
+		52DF2C6618099AE9003F0EDD /* room12x6_2_05.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5118099AE9003F0EDD /* room12x6_2_05.tmx */; };
+		52DF2C6718099AE9003F0EDD /* room12x6_2_04.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5218099AE9003F0EDD /* room12x6_2_04.tmx */; };
+		52DF2C6818099AE9003F0EDD /* room12x6_2_02.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5318099AE9003F0EDD /* room12x6_2_02.tmx */; };
+		52DF2C6918099AE9003F0EDD /* room12x6_2_01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5418099AE9003F0EDD /* room12x6_2_01.tmx */; };
+		52DF2C6A18099AE9003F0EDD /* room12x6_1_04.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5518099AE9003F0EDD /* room12x6_1_04.tmx */; };
+		52DF2C6B18099AE9003F0EDD /* room12x6_2_03.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5618099AE9003F0EDD /* room12x6_2_03.tmx */; };
+		52DF2C6C18099AE9003F0EDD /* room12x6_1_03.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5718099AE9003F0EDD /* room12x6_1_03.tmx */; };
+		52DF2C6D18099AE9003F0EDD /* room12x6_1_02.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5818099AE9003F0EDD /* room12x6_1_02.tmx */; };
+		52DF2C6E18099AE9003F0EDD /* room12x6_1_01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52DF2C5918099AE9003F0EDD /* room12x6_1_01.tmx */; };
+		52DF2C75180AD4C0003F0EDD /* CameraFollowBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DF2C74180AD4C0003F0EDD /* CameraFollowBehavior.m */; };
+		52DF2C79180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DF2C78180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.m */; };
 		52F3935517F6ADFA00D9A07E /* CharacterPhysicsBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F3935417F6ADFA00D9A07E /* CharacterPhysicsBehavior.m */; };
 		52FE6A4A17F411DA00804E7A /* Level01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52FE6A4817F411DA00804E7A /* Level01.tmx */; };
 		52FE6A4E17F41A2D00804E7A /* Tileset_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FE6A4D17F41A2D00804E7A /* Tileset_64x64.png */; };
@@ -421,6 +444,31 @@
 		52D5127717F0979A00362403 /* HeroCharacter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroCharacter.m; sourceTree = "<group>"; };
 		52D5127817F0979A00362403 /* HeroRobot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeroRobot.h; sourceTree = "<group>"; };
 		52D5127917F0979A00362403 /* HeroRobot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeroRobot.m; sourceTree = "<group>"; };
+		52DF2C4518099AE9003F0EDD /* room_root.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room_root.tmx; sourceTree = "<group>"; };
+		52DF2C4618099AE9003F0EDD /* room24x6_2_01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room24x6_2_01.tmx; sourceTree = "<group>"; };
+		52DF2C4718099AE9003F0EDD /* room24x6_1_04.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room24x6_1_04.tmx; sourceTree = "<group>"; };
+		52DF2C4818099AE9003F0EDD /* room24x6_1_03.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room24x6_1_03.tmx; sourceTree = "<group>"; };
+		52DF2C4918099AE9003F0EDD /* room24x6_1_02.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room24x6_1_02.tmx; sourceTree = "<group>"; };
+		52DF2C4A18099AE9003F0EDD /* room24x6_1_01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room24x6_1_01.tmx; sourceTree = "<group>"; };
+		52DF2C4B18099AE9003F0EDD /* room12x6_4_01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_4_01.tmx; sourceTree = "<group>"; };
+		52DF2C4C18099AE9003F0EDD /* room12x6_3_01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_3_01.tmx; sourceTree = "<group>"; };
+		52DF2C4D18099AE9003F0EDD /* room12x6_3_04.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_3_04.tmx; sourceTree = "<group>"; };
+		52DF2C4E18099AE9003F0EDD /* room12x6_3_03.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_3_03.tmx; sourceTree = "<group>"; };
+		52DF2C4F18099AE9003F0EDD /* room12x6_3_02.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_3_02.tmx; sourceTree = "<group>"; };
+		52DF2C5018099AE9003F0EDD /* room12x6_2_06.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_2_06.tmx; sourceTree = "<group>"; };
+		52DF2C5118099AE9003F0EDD /* room12x6_2_05.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_2_05.tmx; sourceTree = "<group>"; };
+		52DF2C5218099AE9003F0EDD /* room12x6_2_04.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_2_04.tmx; sourceTree = "<group>"; };
+		52DF2C5318099AE9003F0EDD /* room12x6_2_02.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_2_02.tmx; sourceTree = "<group>"; };
+		52DF2C5418099AE9003F0EDD /* room12x6_2_01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_2_01.tmx; sourceTree = "<group>"; };
+		52DF2C5518099AE9003F0EDD /* room12x6_1_04.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_1_04.tmx; sourceTree = "<group>"; };
+		52DF2C5618099AE9003F0EDD /* room12x6_2_03.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_2_03.tmx; sourceTree = "<group>"; };
+		52DF2C5718099AE9003F0EDD /* room12x6_1_03.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_1_03.tmx; sourceTree = "<group>"; };
+		52DF2C5818099AE9003F0EDD /* room12x6_1_02.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_1_02.tmx; sourceTree = "<group>"; };
+		52DF2C5918099AE9003F0EDD /* room12x6_1_01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = room12x6_1_01.tmx; sourceTree = "<group>"; };
+		52DF2C73180AD4C0003F0EDD /* CameraFollowBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraFollowBehavior.h; sourceTree = "<group>"; };
+		52DF2C74180AD4C0003F0EDD /* CameraFollowBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraFollowBehavior.m; sourceTree = "<group>"; };
+		52DF2C77180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KKTilemapNode+ClimbBoy.h"; sourceTree = "<group>"; };
+		52DF2C78180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KKTilemapNode+ClimbBoy.m"; sourceTree = "<group>"; };
 		52F3935317F6ADFA00D9A07E /* CharacterPhysicsBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterPhysicsBehavior.h; sourceTree = "<group>"; };
 		52F3935417F6ADFA00D9A07E /* CharacterPhysicsBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterPhysicsBehavior.m; sourceTree = "<group>"; };
 		52FE6A4817F411DA00804E7A /* Level01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level01.tmx; sourceTree = "<group>"; };
@@ -680,12 +728,12 @@
 			children = (
 				5231596618017D9A009C8D8D /* Grid.h */,
 				5231596718017D9A009C8D8D /* Grid.m */,
-				5231597F18018D58009C8D8D /* MapNode.h */,
-				5231598018018D58009C8D8D /* MapNode.m */,
 				52315982180268ED009C8D8D /* Map.h */,
 				52315983180268ED009C8D8D /* Map.m */,
 				52315985180268F9009C8D8D /* Room.h */,
 				52315986180268F9009C8D8D /* Room.m */,
+				5231597F18018D58009C8D8D /* MapNode.h */,
+				5231598018018D58009C8D8D /* MapNode.m */,
 			);
 			name = Tilemap;
 			sourceTree = "<group>";
@@ -769,6 +817,8 @@
 				528E014417FBF50D00081757 /* PlaceItemBehavior.m */,
 				52C8294717FD23AA00895460 /* PlaceItemContainerBehavior.h */,
 				52C8294817FD23AA00895460 /* PlaceItemContainerBehavior.m */,
+				52DF2C73180AD4C0003F0EDD /* CameraFollowBehavior.h */,
+				52DF2C74180AD4C0003F0EDD /* CameraFollowBehavior.m */,
 			);
 			path = Behaviors;
 			sourceTree = "<group>";
@@ -778,6 +828,7 @@
 			children = (
 				52D5115117F06C6400362403 /* CBCategories.h */,
 				52D5115217F06C6400362403 /* SpriteKit */,
+				52DF2C76180AE922003F0EDD /* KoboldKit */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -872,6 +923,27 @@
 		52D5117D17F06C6400362403 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				52DF2C4518099AE9003F0EDD /* room_root.tmx */,
+				52DF2C4618099AE9003F0EDD /* room24x6_2_01.tmx */,
+				52DF2C4718099AE9003F0EDD /* room24x6_1_04.tmx */,
+				52DF2C4818099AE9003F0EDD /* room24x6_1_03.tmx */,
+				52DF2C4918099AE9003F0EDD /* room24x6_1_02.tmx */,
+				52DF2C4A18099AE9003F0EDD /* room24x6_1_01.tmx */,
+				52DF2C4B18099AE9003F0EDD /* room12x6_4_01.tmx */,
+				52DF2C4C18099AE9003F0EDD /* room12x6_3_01.tmx */,
+				52DF2C4D18099AE9003F0EDD /* room12x6_3_04.tmx */,
+				52DF2C4E18099AE9003F0EDD /* room12x6_3_03.tmx */,
+				52DF2C4F18099AE9003F0EDD /* room12x6_3_02.tmx */,
+				52DF2C5018099AE9003F0EDD /* room12x6_2_06.tmx */,
+				52DF2C5118099AE9003F0EDD /* room12x6_2_05.tmx */,
+				52DF2C5218099AE9003F0EDD /* room12x6_2_04.tmx */,
+				52DF2C5318099AE9003F0EDD /* room12x6_2_02.tmx */,
+				52DF2C5418099AE9003F0EDD /* room12x6_2_01.tmx */,
+				52DF2C5518099AE9003F0EDD /* room12x6_1_04.tmx */,
+				52DF2C5618099AE9003F0EDD /* room12x6_2_03.tmx */,
+				52DF2C5718099AE9003F0EDD /* room12x6_1_03.tmx */,
+				52DF2C5818099AE9003F0EDD /* room12x6_1_02.tmx */,
+				52DF2C5918099AE9003F0EDD /* room12x6_1_01.tmx */,
 				52FE6A4D17F41A2D00804E7A /* Tileset_64x64.png */,
 				52FE6A4817F411DA00804E7A /* Level01.tmx */,
 				52D5117E17F06C6400362403 /* DemoStage001.tmx */,
@@ -1156,6 +1228,15 @@
 				52058B1E17FAE6D3006ED51D /* Enemy.m */,
 			);
 			name = CharacterNodes;
+			sourceTree = "<group>";
+		};
+		52DF2C76180AE922003F0EDD /* KoboldKit */ = {
+			isa = PBXGroup;
+			children = (
+				52DF2C77180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.h */,
+				52DF2C78180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.m */,
+			);
+			path = KoboldKit;
 			sourceTree = "<group>";
 		};
 		DC0C221017CFAA4C007FE7B8 /* Mac */ = {
@@ -1506,32 +1587,47 @@
 				52058B2617FB1214006ED51D /* MyParticle.sks in Resources */,
 				5223C51417F5C2D600DC0DB5 /* light knight.atlas in Resources */,
 				DC5BCDAA17CF88E500A5CB01 /* Icon~ipad.png in Resources */,
+				52DF2C6518099AE9003F0EDD /* room12x6_2_06.tmx in Resources */,
 				DC5BCDB217CF88E500A5CB01 /* iTunesArtwork in Resources */,
 				DCEF82D717CFD4AF00157387 /* Icon.png in Resources */,
 				5223C51517F5C2D600DC0DB5 /* light knight.json in Resources */,
 				52058B2917FB1809006ED51D /* MyParticle2.sks in Resources */,
+				52DF2C5F18099AE9003F0EDD /* room24x6_1_01.tmx in Resources */,
 				52D511DD17F06C6400362403 /* Default@2x.png in Resources */,
+				52DF2C6E18099AE9003F0EDD /* room12x6_1_01.tmx in Resources */,
 				52FE6A4E17F41A2D00804E7A /* Tileset_64x64.png in Resources */,
 				52D511DA17F06C6400362403 /* Default-568h@2x.png in Resources */,
 				52D511D817F06C6400362403 /* objectTemplates.lua in Resources */,
 				DC5BCDB317CF88E500A5CB01 /* iTunesArtwork@2x in Resources */,
+				52DF2C6018099AE9003F0EDD /* room12x6_4_01.tmx in Resources */,
+				52DF2C5D18099AE9003F0EDD /* room24x6_1_03.tmx in Resources */,
 				52058B2717FB1214006ED51D /* spark.png in Resources */,
 				52D511DC17F06C6400362403 /* Default-Landscape~ipad.png in Resources */,
 				5223C51817F5C2D600DC0DB5 /* goblins.json in Resources */,
+				52DF2C6718099AE9003F0EDD /* room12x6_2_04.tmx in Resources */,
 				DCEF82D617CFD4AC00157387 /* Icon-Small-50@2x.png in Resources */,
 				52D511C017F06C6400362403 /* Water Temple.mp3 in Resources */,
+				52DF2C6118099AE9003F0EDD /* room12x6_3_01.tmx in Resources */,
 				52D511D317F06C6400362403 /* Jetpack.atlas in Resources */,
+				52DF2C6618099AE9003F0EDD /* room12x6_2_05.tmx in Resources */,
+				52DF2C6B18099AE9003F0EDD /* room12x6_2_03.tmx in Resources */,
+				52DF2C6C18099AE9003F0EDD /* room12x6_1_03.tmx in Resources */,
+				52DF2C5C18099AE9003F0EDD /* room24x6_1_04.tmx in Resources */,
 				52D511CC17F06C6400362403 /* Hero_Climb_Loop.atlas in Resources */,
 				DCEF82D117CFD35B00157387 /* Icon-Small.png in Resources */,
+				52DF2C5A18099AE9003F0EDD /* room_root.tmx in Resources */,
 				52D511D617F06C6400362403 /* config.lua in Resources */,
 				5223C51617F5C2D600DC0DB5 /* light knight.png in Resources */,
 				52D511BC17F06C6400362403 /* DemoStage001.tmx in Resources */,
 				DC5BCDAF17CF88E500A5CB01 /* Icon@2x~ipad.png in Resources */,
+				52DF2C6A18099AE9003F0EDD /* room12x6_1_04.tmx in Resources */,
 				52D511D917F06C6400362403 /* GameData.plist in Resources */,
 				52B6F68017F2CE4D00610CD9 /* MainMenu.png in Resources */,
 				DCEF82D217CFD35B00157387 /* Icon-Small@2x.png in Resources */,
+				52DF2C6818099AE9003F0EDD /* room12x6_2_02.tmx in Resources */,
 				DCEF82D517CFD4AC00157387 /* Icon-Small-50.png in Resources */,
 				52D511CF17F06C6400362403 /* Hero_Jump_Land_Long.atlas in Resources */,
+				52DF2C6418099AE9003F0EDD /* room12x6_3_02.tmx in Resources */,
 				52B6F67F17F2CE4D00610CD9 /* MainMenu.json in Resources */,
 				52D511C117F06C6400362403 /* obj_box001.png in Resources */,
 				52D511CD17F06C6400362403 /* Hero_Idle.atlas in Resources */,
@@ -1540,16 +1636,22 @@
 				52D511D717F06C6400362403 /* devconfig.lua in Resources */,
 				52D511D117F06C6400362403 /* Hero_Jump_Start.atlas in Resources */,
 				52D511D217F06C6400362403 /* Hero_Run.atlas in Resources */,
+				52DF2C6918099AE9003F0EDD /* room12x6_2_01.tmx in Resources */,
 				52D511BE17F06C6400362403 /* Tileset_Geometry_16x16_256.png in Resources */,
 				52D511D517F06C6400362403 /* behaviorTemplates.lua in Resources */,
+				52DF2C6D18099AE9003F0EDD /* room12x6_1_02.tmx in Resources */,
 				5223C51A17F5C2D600DC0DB5 /* spineboy.atlas in Resources */,
 				DCEF82CF17CFD35B00157387 /* Icon-72.png in Resources */,
 				52D511DB17F06C6400362403 /* Default-Landscape@2x~ipad.png in Resources */,
 				52D511D017F06C6400362403 /* Hero_Jump_Loop.atlas in Resources */,
+				52DF2C5E18099AE9003F0EDD /* room24x6_1_02.tmx in Resources */,
+				52DF2C5B18099AE9003F0EDD /* room24x6_2_01.tmx in Resources */,
+				52DF2C6218099AE9003F0EDD /* room12x6_3_04.tmx in Resources */,
 				DC18B129178C7EA000641A6D /* Main_iPhone.storyboard in Resources */,
 				52D511BD17F06C6400362403 /* LevelTest01.tmx in Resources */,
 				5223C51717F5C2D600DC0DB5 /* goblins.atlas in Resources */,
 				52D511D417F06C6400362403 /* Menu.atlas in Resources */,
+				52DF2C6318099AE9003F0EDD /* room12x6_3_03.tmx in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1613,6 +1715,7 @@
 				DC0C220717CF9C97007FE7B8 /* MyScene.m in Sources */,
 				5231596818017D9A009C8D8D /* Grid.m in Sources */,
 				52058B6817FB2D68006ED51D /* Json.c in Sources */,
+				52DF2C75180AD4C0003F0EDD /* CameraFollowBehavior.m in Sources */,
 				5231598118018D58009C8D8D /* MapNode.m in Sources */,
 				52D511BB17F06C6400362403 /* Debug.m in Sources */,
 				DCEF831817CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,
@@ -1621,6 +1724,7 @@
 				52D5126A17F06CEF00362403 /* KKProVersion.m in Sources */,
 				52058B6017FB2D68006ED51D /* Attachment.c in Sources */,
 				52D5126B17F06CEF00362403 /* KKContactNotificationNode.m in Sources */,
+				52DF2C79180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.m in Sources */,
 				52D5121E17F06C8400362403 /* CBSpineSprite.m in Sources */,
 				52058B6B17FB2D68006ED51D /* SkeletonBounds.c in Sources */,
 				52058B6717FB2D68006ED51D /* extension.c in Sources */,

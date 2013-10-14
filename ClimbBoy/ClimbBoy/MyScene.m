@@ -26,9 +26,10 @@
         myLabel.alpha = 0.3;
 		[self addChild:myLabel];
         
-        _mapNode = [MapNode node];
-        [_mapNode generate];
+        _mapNode = [MapNode MapWithGridSize:CGSizeMake(64, 64)];
+        [_mapNode setScale:0.3];
         [self addChild:_mapNode];
+        [_mapNode generate];
         
         CBButton *generateButton = [CBButton buttonWithTitle:nil
                                                  spriteFrame:[SKSpriteNode spriteNodeWithImageNamed:@"button.png"]
@@ -50,7 +51,7 @@
 - (void)clickRandom:(id)sender
 {
     [_mapNode removeFromParent];
-    _mapNode = [MapNode node];
+    _mapNode = [MapNode MapWithGridSize:CGSizeMake(64, 64)];
     [_mapNode generate];
     [self addChild:_mapNode];
 }

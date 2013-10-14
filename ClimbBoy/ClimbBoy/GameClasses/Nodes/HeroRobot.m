@@ -36,6 +36,20 @@
         }
         
         self.attackColdDownTime = 0;
+        
+//        self.fallSpeedAcceleration = 3000;
+//        self.fallSpeedLimit = 800;
+//        self.jumpAbortVelocity = 500;
+//        self.jumpSpeedInitial = 600;
+//        self.jumpSpeedDeceleration = 800;
+//        self.runSpeedAcceleration = 1200;
+//        self.runSpeedDeceleration = 900;
+//        self.runSpeedLimit = 300;
+//        self.climbUpSpeedLimit = 300;
+//        self.climbDownSpeedLimit = 50;
+//        self.boundingBox = CGSizeMake(32, 52);
+        
+//        [self configurePhysicsBody];
     }
     return self;
 }

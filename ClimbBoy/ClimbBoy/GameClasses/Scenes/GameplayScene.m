@@ -11,6 +11,7 @@
 #import "MapScene.h"
 #import "CBBehaviors.h"
 #import "GameManager.h"
+#import "KKTilemapNode+ClimbBoy.h"
 
 #define VIEW_SIZE_WIDHT 568
 #define VIEW_SIZE_HEIGHT 320
@@ -33,10 +34,15 @@
 
         [HeroRobot loadSharedAssets];
 
-        _tmxFile = tmx;
-        _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
-        [self addChild:_tilemapNode];
+//        _tmxFile = tmx;
+//        _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];
+//        [self addChild:_tilemapNode];
         
+        _mapNode = [MapNode MapWithGridSize:CGSizeMake(64, 64)];
+        [self addChild:_mapNode];
+        _tilemapNode = [KKTilemapNode tilemapWithContentsOfTilemap:_mapNode.mainTilemap];
+        [self addChild:_tilemapNode];
+
         if ([GameManager showsDebugNode]) {
             Debug *debugNode = [Debug sharedDebug];
             [self addChild:debugNode];
@@ -44,6 +50,7 @@
         }
         
         _hud = [KKViewOriginNode node];
+        _hud.zPosition = 20;
         [self addChild:_hud];
         
         //test loading scene
@@ -67,10 +74,17 @@
 //        node.physicsBody.restitution = 0;
 //    }
     
-    SKNode *collisionsLayerPhysics = [_tilemapNode createPhysicsShapesWithObjectLayerNode:[_tilemapNode objectLayerNodeNamed:@"collisions"]];
-    for (SKNode *node in collisionsLayerPhysics.children) {
-        node.physicsBody.restitution = 0;
+    NSArray *collisionsLayers = [_tilemapNode objectsLayerNodeNamed:@"collisions"];
+    for (KKTilemapObjectLayerNode *layer in collisionsLayers)
+    {
+        SKNode *collisionsLayerPhysics = [_tilemapNode createPhysicsShapesWithObjectLayerNode:layer];
+        for (SKNode *node in collisionsLayerPhysics.children) {
+            node.physicsBody.restitution = 0;
+        }
     }
+    
+    [_tilemapNode.tilemap writeToFile:[NSBundle pathForDocumentsFile:@"testWrite.tmx"]];
+    NSLog(@"Documents: %@", [NSBundle pathForDocumentsFile:@"testWrite.tmx"]);
     
     KKTilemapProperties *mapProperties = _tilemapNode.tilemap.properties;
     self.physicsWorld.gravity = CGVectorMake(0, [mapProperties numberForKey:@"physicsGravityY"].floatValue);
@@ -147,6 +161,25 @@
     _debugInfo.text = [NSString stringWithFormat:@"%@, velocity:%04f,%04f",
                          _playerCharacter.activeAnimationKey, _playerCharacter.physicsBody.velocity.dx,
                          _playerCharacter.physicsBody.velocity.dy];
+    
+    CGPoint p = _playerCharacter.position;// [self convertPoint:_playerCharacter.position fromNode:_playerCharacter.parent];
+    _debugInfo.text = [NSString stringWithFormat:@"%@, velocity:%04f,%04f bounds: %f, %f, %f, %f",
+                       _playerCharacter.activeAnimationKey, p.x,p.y, _roomBounds.origin.x, _roomBounds.origin.y, _roomBounds.size.width, _roomBounds.size.height];
+    
+}
+
+-(void)didEvaluateActions
+{
+    [super didEvaluateActions];
+    
+    CGRect bounds = [_mapNode boundsFromMainLayerPosition:_playerCharacter.position];
+    if (!CGRectEqualToRect(bounds, _roomBounds)) {
+        _roomBounds = bounds;
+        KKStayInBoundsBehavior *stayInBoundsBehavior  = [_tilemapNode.mainTileLayerNode behaviorKindOfClass:[KKStayInBoundsBehavior class]];
+        if (stayInBoundsBehavior){
+            stayInBoundsBehavior.bounds = _roomBounds;
+        }
+    }
 }
 
 -(void) createSimpleControls
@@ -175,7 +208,7 @@
                                                    background:[SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"analogue_bg"]]];
     stick.position = CGPointMake(80 , 80);
     stick.radius = 130;
-    [stick setScale:0.3];
+    [stick setScale:0.4];
     [stick setAlpha:0.5];
     stick.delegate = self;
     [_hud addChild:stick];
@@ -223,5 +256,50 @@
     };
     return NO;
 }
+
+//-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//	/* Called when a touch begins */
+//    [super touchesBegan:touches withEvent:event];
+//	
+//	for (UITouch* touch in touches)
+//	{
+//        if ([self hasHUDAtPoint:[touch locationInNode:self]]) {
+//            return;
+//        }
+//        _location = [touch locationInNode:self];
+//        
+//	}
+//	
+//	// (optional) call super implementation to allow KKScene to dispatch touch events
+//	[super touchesBegan:touches withEvent:event];
+//}
+//
+//- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    [super touchesMoved:touches withEvent:event];
+//    
+//    for (UITouch* touch in touches) {
+//        if ([self hasHUDAtPoint:[touch locationInNode:self]]) {
+//            return;
+//        }
+//        CGPoint offset = ccpSub([touch locationInNode:self], _location);
+//        _mapNode.position = ccpAdd(_mapNode.position, offset);
+//        
+//        _location = [touch locationInNode:self];
+//    }
+//}
+
+
+//-(void) didSimulatePhysics
+//{
+//    SKNode* node = _playerCharacter;
+//    SKNode* p = _mapNode;
+//    CGPoint cameraPositionInScene = [self convertPoint:node.position fromNode:p];
+//    CGPoint pos = CGPointMake(p.position.x - cameraPositionInScene.x,
+//                              p.position.y - cameraPositionInScene.y);
+//    p.position = pos;
+//    [super didSimulatePhysics];
+//}
 
 @end

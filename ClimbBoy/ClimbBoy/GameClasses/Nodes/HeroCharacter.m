@@ -25,6 +25,7 @@
 //        _fsm = [[CBHeroCharacterContext alloc]initWithOwner:self];
 //        [_fsm setDebugFlag:NO];
 //        [_fsm enterStartState];
+        
         _placeItemBehavior = [PlaceItemBehavior behavior];
         [self addBehavior:_placeItemBehavior];
         
@@ -42,27 +43,25 @@
 }
 
 #pragma mark - Overridden Methods
-/*
 - (void)configurePhysicsBody {
 //    self.physicsBody = [self physicsBodyWithCircleOfRadius:self.collisionRadius];
-    self.physicsBody = [self physicsBodyWithRectangleOfSize:CGSizeMake(40, 60)];
+    self.physicsBody = [self physicsBodyWithRectangleOfSize:CGSizeMake(32, 45)];
 //    self.physicsBody = [self physicsBodyWithCapsule:self.collisionCapsule];
     self.physicsBody.allowsRotation = NO;
     self.physicsBody.restitution = 0;
     self.physicsBody.mass = 0.05;
 //    self.physicsBody.usesPreciseCollisionDetection = YES;
-//    self.physicsBody.friction = 1;
+    self.physicsBody.friction = 0;
 
     // Our object type for collisions.
-    self.physicsBody.categoryBitMask = CBColliderTypeHero;
+    self.physicsBody.categoryBitMask = kContactCategoryPlayer;
     
     // Collides with these objects.
-    self.physicsBody.collisionBitMask = CBColliderTypeGoblinOrBoss | CBColliderTypeHero | CBColliderTypeWall | CBColliderTypeCave;
+    self.physicsBody.collisionBitMask = ~(kContactCategoryTrigger | kContactCategoryPickupItem);
     
     // We want notifications for colliding with these objects.
-    self.physicsBody.contactTestBitMask = CBColliderTypeGoblinOrBoss | CBColliderTypeWall;
+    self.physicsBody.contactTestBitMask = kContactCategoryWorld | kContactCategoryPlayer | kContactCategoryPickupItem ;
 }
-*/
 
 
 #pragma mark - FSM Action Methods

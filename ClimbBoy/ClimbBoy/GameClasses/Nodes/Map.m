@@ -190,14 +190,7 @@
                     break;
                 }
                 else { //如果房间没有成功创建 说明：1.出口超出map的范围 2.出口所对应的空间不足 无法创建
-                    gate.connectedRoom = room; //增加处理逻辑
-                    
-//                    if (room.parent) {
-//                        Room *parentRoom = room.parent;
-//                        [self removeRoom:room];
-//                        room = parentRoom;
-//                        break;
-//                    }
+                    gate.connectedRoom = room; //增加处理逻辑,暂时标记为自身房间。
                 }
             }
         }
@@ -216,7 +209,11 @@
     }
     
     //8.检查房间的链接状况，并根据房间当前需要替换房间类型。
-    [self detectConnectedRoom];
+//    [self detectConnectedRoom];
+    int iteration = 0;
+    while (![self detectConnectedRoom] && (iteration < 300)) {
+        iteration++;
+    }
 }
 
 - (Room *)randomRoomFromRoom:(Room *)room withGate:(RoomGate *)gate end:(BOOL)isEnd
@@ -332,45 +329,47 @@
                 return newRoom;
             }
         }
-        
-//        for (int i = 0; i < newRoom.gates.count; i++) {
-//            RoomGate *connectGate = [newRoom.gates objectAtIndex:i];
-//            
-//            if (connectGate.direction == requireDirection)
-//            {
-//                //设置新房间的位置
-//                [newRoom setPosition:ccpSub(connectGatePosition, connectGate.cell)];
-//                
-//                if (![self rectIsOutsideBounds:newRoom.bounds])
-//                {
-//                    if (![self isContainVisitedWithRect:newRoom.bounds])
-//                    {
-//                        //标记相连房间
-//                        connectGate.connectedRoom = room;
-//                        gate.connectedRoom = newRoom;
-//                        return newRoom;
-//                    }
-//                }
-//            }
-//        }
+/*
+        for (int i = 0; i < newRoom.gates.count; i++) {
+            RoomGate *connectGate = [newRoom.gates objectAtIndex:i];
+            
+            if (connectGate.direction == requireDirection)
+            {
+                //设置新房间的位置
+                [newRoom setPosition:ccpSub(connectGatePosition, connectGate.cell)];
+                
+                if (![self rectIsOutsideBounds:newRoom.bounds])
+                {
+                    if (![self isContainVisitedWithRect:newRoom.bounds])
+                    {
+                        //标记相连房间
+                        connectGate.connectedRoom = room;
+                        gate.connectedRoom = newRoom;
+                        return newRoom;
+                    }
+                }
+            }
+        }
+ */
         
         [maps removeObjectAtIndex:index];
     }
     
-    //如果房间没有成功创建 说明：1.出口超出map的范围 2.出口所对应的空间不足 无法创建
-    
-    
     return nil;
 }
 
-- (void)detectConnectedRoom
+- (BOOL)detectConnectedRoom
 {
-    NSArray *rooms = [NSArray arrayWithArray:_rooms];
-    for (Room *room in rooms) {
-        for (RoomGate *gate in room.gates) {
+    for (int i = 0; i < _rooms.count; i++) {
+        Room *room = [_rooms objectAtIndex:i];
+        
+        for (int j = 0; j < room.gates.count; j++) {
+            RoomGate *gate = [room.gates objectAtIndex:j];
+            
             if ([gate.connectedRoom isEqual:gate.room]) {
                 NSLog(@"not all connected : %@, %d", room.name, room.depth);
                 
+                BOOL fixed = NO;
                 //尝试替换出入口另一边的相邻房间，使之能够匹配
                 GDirctionType requireDirection = kGDirctionNorth;
                 CGPoint dirOffset = CGPointZero;
@@ -397,21 +396,11 @@
                 //获得相邻房间
                 CGPoint requireGatePoint = ccpAdd([room cellWorldPositionFromGate:gate], dirOffset);
                 Room *adjacentRoom = [self roomFromCell:requireGatePoint];
-                if (!adjacentRoom.isRoot) {
+                if (!adjacentRoom.isRoot)
+                {
                     NSLog(@"adjacentRoom : %@, %d", adjacentRoom.name, adjacentRoom.depth);
-                    
                     NSMutableArray *maps = [NSMutableArray arrayWithArray:[GameManager sharedGameManager].maps];
                     [maps removeObjectAtIndex:0];
-                    
-                    //过滤掉大小不匹配的房间
-                    //                for (int i = 0; i < maps.count; i++) {
-                    //                    NSDictionary *roomData = [NSDictionary dictionaryWithDictionary:[maps objectAtIndex:i]];
-                    //
-                    //                    if ((adjacentRoom.width != [[roomData valueForKey:@"Width"] intValue]) &&
-                    //                        (adjacentRoom.height != [[roomData valueForKey:@"Height"] intValue])) {
-                    //                        [maps removeObjectAtIndex:i];
-                    //                    }
-                    //                }
                     
                     while (maps.count)
                     {
@@ -437,22 +426,22 @@
                         }
                         
                         //匹配方向
-                        NSMutableArray *newGates = [NSMutableArray arrayWithArray:newRoom.gates];
+                        NSMutableArray *unmatchGates = [NSMutableArray arrayWithArray:newRoom.gates];
                         for (RoomGate *adjGate in adjacentRoom.gates) {
                             for (RoomGate *newGate in newRoom.gates) {
                                 if (CGPointEqualToPoint(newGate.cell, adjGate.cell) &&
                                     newGate.direction == adjGate.direction) {
-                                    [newGates removeObject:newGate];
+                                    [unmatchGates removeObject:newGate];
                                 }
                             }
                         }
                         
-                        if (newGates.count != 1) {
+                        if (unmatchGates.count != 1) {
                             [maps removeObjectAtIndex:index];
                             continue;
                         }
                         
-                        RoomGate *addedGate = [newGates firstObject];
+                        RoomGate *addedGate = [unmatchGates firstObject];
                         
                         if (addedGate.direction != requireDirection) {
                             [maps removeObjectAtIndex:index];
@@ -482,21 +471,180 @@
                         addedGate.connectedRoom = room;
                         
                         [_rooms replaceObjectAtIndex:[_rooms indexOfObject:adjacentRoom] withObject:newRoom];
-                        //                    [_rooms removeObject:adjacentRoom];
-                        //                    [_rooms addObject:newRoom];
-                        
-                        
-                        NSLog(@"Replace : %@, %d to %@, %d", adjacentRoom.name, adjacentRoom.depth, newRoom.name, newRoom.depth);
+                        fixed = YES;
+                        NSLog(@"Replace adjacent : %@, %d to %@, %d", adjacentRoom.name, adjacentRoom.depth, newRoom.name, newRoom.depth);
                         break;
                     }
                 }
                 
-                //找不到匹配房间，那么就替换自己
-                NSLog(@"UnFound match room to change: %@, %d", adjacentRoom.name, adjacentRoom.depth);
+                if (!fixed)
+                {
+                    //找不到匹配房间，那么就替换自己
+                    NSLog(@"UnFound match adjacent room to change: %@, %d", adjacentRoom.name, adjacentRoom.depth);
+                    
+                    NSMutableArray *maps = [NSMutableArray arrayWithArray:[GameManager sharedGameManager].maps];
+                    [maps removeObjectAtIndex:0];
+                    
+                    while (maps.count)
+                    {
+                        int index = arc4random()%maps.count;
+                        NSDictionary *roomData = [NSDictionary dictionaryWithDictionary:[maps objectAtIndex:index]];
+                        
+                        //创建新房间
+                        NSString *tmxFile = [roomData valueForKey:@"Tilemap"];
+                        Room* newRoom = [Room roomWithTilemapOfFile:tmxFile parent:room.parent];
+                        [newRoom setPosition:room.position];
+                        
+                        //匹配大小
+                        if (!CGRectEqualToRect(room.bounds, newRoom.bounds)) {
+                            [maps removeObjectAtIndex:index];
+                            continue;
+                        }
+                        
+                        
+                        //匹配数量
+                        if (newRoom.gates.count != room.gates.count - 1) {
+                            [maps removeObjectAtIndex:index];
+                            continue;
+                        }
+                        
+                        //匹配方向
+                        NSMutableArray *unmatchGates = [NSMutableArray arrayWithArray:newRoom.gates];
+                        for (RoomGate *adjGate in room.gates) {
+                            if ([adjGate.connectedRoom isEqual:room]) {
+                                continue;
+                            }
+                            
+                            for (RoomGate *newGate in newRoom.gates) {
+                                if (CGPointEqualToPoint(newGate.cell, adjGate.cell) &&
+                                    newGate.direction == adjGate.direction)
+                                {
+                                    [unmatchGates removeObject:newGate];
+                                }
+                            }
+                        }
+                        
+                        if (unmatchGates.count != 0) {
+                            [maps removeObjectAtIndex:index];
+                            continue;
+                        }
+                        
+                        //替换原来的房间
+                        for (RoomGate *adjGate in room.gates) {
+                            for (RoomGate *newGate in newRoom.gates) {
+                                if (CGPointEqualToPoint(newGate.cell, adjGate.cell) &&
+                                    newGate.direction == adjGate.direction) {
+                                    RoomGate *connectedGate = [self connectedGateFromGate:adjGate];
+                                    connectedGate.connectedRoom = newRoom;
+                                    newGate.connectedRoom = connectedGate.room;
+                                }
+                            }
+                        }
+                        
+//                        gate.connectedRoom = newRoom;
+//                        addedGate.connectedRoom = room;
+                        
+                        [_rooms replaceObjectAtIndex:[_rooms indexOfObject:room] withObject:newRoom];
+                        fixed = YES;
+                        NSLog(@"Replace self : %@, %d to %@, %d", room.name, room.depth, newRoom.name, newRoom.depth);
+                        break;
+                    }
+                }
+                
+                if (!fixed) {
+                    NSLog(@"UnFound match room to fix: %@, %d", room.name, room.depth);
+                }
+                
+                return NO;
             }
         }
     }
+    
+    return YES;
 }
+
+/*
+- (BOOL)replaceRoom:(Room *)room withGateCount:(NSInteger)gateCount gateDirection:(GDirctionType)gateDirection gatePosition:(CGPoint)gatePosition
+{
+    
+    NSMutableArray *maps = [NSMutableArray arrayWithArray:[GameManager sharedGameManager].maps];
+    [maps removeObjectAtIndex:0];
+    
+    while (maps.count)
+    {
+        int index = arc4random()%maps.count;
+        NSDictionary *roomData = [NSDictionary dictionaryWithDictionary:[maps objectAtIndex:index]];
+        
+        //创建新房间
+        NSString *tmxFile = [roomData valueForKey:@"Tilemap"];
+        Room* newRoom = [Room roomWithTilemapOfFile:tmxFile parent:room.parent];
+        [newRoom setPosition:room.position];
+        
+        //匹配大小
+        if (!CGRectEqualToRect(room.bounds, newRoom.bounds)) {
+            [maps removeObjectAtIndex:index];
+            continue;
+        }
+        
+        
+        //匹配数量
+        if (newRoom.gates.count != gateCount) {
+            [maps removeObjectAtIndex:index];
+            continue;
+        }
+        
+        //匹配方向
+        NSMutableArray *newGates = [NSMutableArray arrayWithArray:newRoom.gates];
+        for (RoomGate *gate in room.gates) {
+            for (RoomGate *newGate in newRoom.gates) {
+                if (CGPointEqualToPoint(newGate.cell, gate.cell) &&
+                    newGate.direction == gate.direction) {
+                    [newGates removeObject:newGate];
+                }
+            }
+        }
+        
+        if (newGates.count != 1) {
+            [maps removeObjectAtIndex:index];
+            continue;
+        }
+        
+        RoomGate *addedGate = [newGates firstObject];
+        
+        if (addedGate.direction != gateDirection) {
+            [maps removeObjectAtIndex:index];
+            continue;
+        }
+        
+        //匹配位置
+        if (!CGPointEqualToPoint([newRoom cellWorldPositionFromGate:addedGate], gatePosition)) {
+            [maps removeObjectAtIndex:index];
+            continue;
+        }
+        
+        //替换原来的房间
+        for (RoomGate *adjGate in room.gates) {
+            RoomGate *connectedGate = [self connectedGateFromGate:adjGate];
+            connectedGate.connectedRoom = newRoom;
+            
+            for (RoomGate *newGate in newRoom.gates) {
+                if (CGPointEqualToPoint(newGate.cell, adjGate.cell) &&
+                    newGate.direction == adjGate.direction) {
+                    newGate.connectedRoom = connectedGate.room;
+                }
+            }
+        }
+        
+        gate.connectedRoom = newRoom;
+        addedGate.connectedRoom = room;
+        
+        [_rooms replaceObjectAtIndex:[_rooms indexOfObject:room] withObject:newRoom];
+        return YES;
+    }
+    
+    return NO;
+}
+ */
 
 - (RoomGate *)roomGateFromGatePoint:(CGPoint)point inDirection:(GDirctionType)direction;
 {
