@@ -37,5 +37,7 @@
   <object x="448" y="320" width="320" height="64"/>
   <object x="0" y="320" width="320" height="64"/>
  </objectgroup>
- <objectgroup draworder="topdown" name="game objects" width="12" height="6"/>
+ <objectgroup draworder="topdown" name="game objects" width="12" height="6">
+  <object name="OnSidePlatform1" type="OnSidePlatform" x="320" y="128" width="127" height="5"/>
+ </objectgroup>
 </map>

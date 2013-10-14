@@ -55,6 +55,7 @@
 		524A8DC517F4628300938B0F /* CBControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC417F4628300938B0F /* CBControl.m */; };
 		524A8DC817F469E400938B0F /* CBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC717F469E400938B0F /* CBButton.m */; };
 		528E014517FBF50D00081757 /* PlaceItemBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 528E014417FBF50D00081757 /* PlaceItemBehavior.m */; };
+		52B3C3E5180C3AB900F9B8F3 /* OneSidePlatformBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B3C3E4180C3AB900F9B8F3 /* OneSidePlatformBehavior.m */; };
 		52B6F67717F2AFCA00610CD9 /* GUI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B6F67617F2AFCA00610CD9 /* GUI.atlas */; };
 		52B6F67E17F2CE4D00610CD9 /* MainMenu.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B6F67B17F2CE4D00610CD9 /* MainMenu.atlas */; };
 		52B6F67F17F2CE4D00610CD9 /* MainMenu.json in Resources */ = {isa = PBXBuildFile; fileRef = 52B6F67C17F2CE4D00610CD9 /* MainMenu.json */; };
@@ -334,6 +335,8 @@
 		524A8DC917F47B7000938B0F /* ClimbBoy-ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClimbBoy-ui.h"; sourceTree = "<group>"; };
 		528E014317FBF50D00081757 /* PlaceItemBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceItemBehavior.h; sourceTree = "<group>"; };
 		528E014417FBF50D00081757 /* PlaceItemBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceItemBehavior.m; sourceTree = "<group>"; };
+		52B3C3E3180C3AB900F9B8F3 /* OneSidePlatformBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneSidePlatformBehavior.h; sourceTree = "<group>"; };
+		52B3C3E4180C3AB900F9B8F3 /* OneSidePlatformBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneSidePlatformBehavior.m; sourceTree = "<group>"; };
 		52B6F67617F2AFCA00610CD9 /* GUI.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GUI.atlas; sourceTree = "<group>"; };
 		52B6F67B17F2CE4D00610CD9 /* MainMenu.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MainMenu.atlas; sourceTree = "<group>"; };
 		52B6F67C17F2CE4D00610CD9 /* MainMenu.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainMenu.json; sourceTree = "<group>"; };
@@ -819,6 +822,8 @@
 				52C8294817FD23AA00895460 /* PlaceItemContainerBehavior.m */,
 				52DF2C73180AD4C0003F0EDD /* CameraFollowBehavior.h */,
 				52DF2C74180AD4C0003F0EDD /* CameraFollowBehavior.m */,
+				52B3C3E3180C3AB900F9B8F3 /* OneSidePlatformBehavior.h */,
+				52B3C3E4180C3AB900F9B8F3 /* OneSidePlatformBehavior.m */,
 			);
 			path = Behaviors;
 			sourceTree = "<group>";
@@ -1716,6 +1721,7 @@
 				5231596818017D9A009C8D8D /* Grid.m in Sources */,
 				52058B6817FB2D68006ED51D /* Json.c in Sources */,
 				52DF2C75180AD4C0003F0EDD /* CameraFollowBehavior.m in Sources */,
+				52B3C3E5180C3AB900F9B8F3 /* OneSidePlatformBehavior.m in Sources */,
 				5231598118018D58009C8D8D /* MapNode.m in Sources */,
 				52D511BB17F06C6400362403 /* Debug.m in Sources */,
 				DCEF831817CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,

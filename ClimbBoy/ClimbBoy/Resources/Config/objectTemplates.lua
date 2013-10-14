@@ -277,6 +277,31 @@ local objectTemplates =
             },
         },
     },
+
+    OnSidePlatform =
+    {
+        inheritsFrom = "Image",
+
+        physicsBody =
+        {
+            properties =
+            {
+                categoryBitMask = kContactCategoryTrigger,
+                contactTestBitMask = kContactCategoryPlayer,
+                dynamic = NO,
+                allowsRotation = NO,
+                affectedByGravity = NO,
+                mass = 265535,
+                friction = 1,
+                restitution = 0,
+            },
+        },
+
+        behaviors =
+        {
+            {className = "OneSidePlatformBehavior"},
+        },
+    },
 }
 
 return objectTemplates

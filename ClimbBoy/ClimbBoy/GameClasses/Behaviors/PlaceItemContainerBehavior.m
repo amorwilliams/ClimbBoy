@@ -109,7 +109,7 @@
     emitter.physicsBody.categoryBitMask = kContactCategoryPickupItem;
     emitter.physicsBody.collisionBitMask = kContactCategoryPlayer;
     emitter.physicsBody.dynamic = NO;
-    [self.node.parent addChild:emitter];
+    [self.node.parent.parent addChild:emitter];
     
     PlaceItemBehavior *placeItemBehavior = (PlaceItemBehavior *)[self.node behaviorMemberOfClass:[PlaceItemBehavior class]];
     if (placeItemBehavior) {

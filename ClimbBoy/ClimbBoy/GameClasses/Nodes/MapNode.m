@@ -59,7 +59,8 @@
     _mainTilemap = [KKTilemap tilemapWithOrientation:KKTilemapOrientationOrthogonal mapSize:mapSize gridSize:gridSize];
     
     NSMutableArray *tilemaps = [NSMutableArray array];
-    for (Room *room in _map.rooms) {
+    for (Room *room in _map.rooms)
+    {
         //Read tilemap from tmx
         KKTilemap *tilemap = [KKTilemap tilemapWithContentsOfFile:[NSString stringWithFormat:@"%@.tmx",room.name]];
         [tilemaps addObject:tilemaps];

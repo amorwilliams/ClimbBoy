@@ -11,7 +11,7 @@
 #import "MapScene.h"
 #import "CBBehaviors.h"
 #import "GameManager.h"
-#import "KKTilemapNode+ClimbBoy.h"
+
 
 #define VIEW_SIZE_WIDHT 568
 #define VIEW_SIZE_HEIGHT 320
@@ -111,8 +111,8 @@
     [self addDebugInfoNode];
 
     // remove the curtain
-	[_curtainSprite runAction:[SKAction sequence:@[[SKAction waitForDuration:0.1], [SKAction fadeAlphaTo:0 duration:0.5], [SKAction removeFromParent]]]];
-	_curtainSprite = nil;
+//	[_curtainSprite runAction:[SKAction sequence:@[[SKAction waitForDuration:0.1],
+//                                                   [SKAction fadeAlphaTo:0 duration:0.5]]]];
 }
 
 - (void)willMoveFromView:(SKView *)view {
@@ -166,42 +166,47 @@
     _debugInfo.text = [NSString stringWithFormat:@"%@, velocity:%04f,%04f bounds: %f, %f, %f, %f",
                        _playerCharacter.activeAnimationKey, p.x,p.y, _roomBounds.origin.x, _roomBounds.origin.y, _roomBounds.size.width, _roomBounds.size.height];
     
-}
-
--(void)didEvaluateActions
-{
-    [super didEvaluateActions];
-    
     CGRect bounds = [_mapNode boundsFromMainLayerPosition:_playerCharacter.position];
     if (!CGRectEqualToRect(bounds, _roomBounds)) {
         _roomBounds = bounds;
         KKStayInBoundsBehavior *stayInBoundsBehavior  = [_tilemapNode.mainTileLayerNode behaviorKindOfClass:[KKStayInBoundsBehavior class]];
         if (stayInBoundsBehavior){
             stayInBoundsBehavior.bounds = _roomBounds;
+            _curtainSprite.alpha = 1;
+            [_curtainSprite runAction:[SKAction sequence:@[[SKAction fadeAlphaTo:0 duration:0.1]]]];
         }
     }
+    
+}
+
+-(void)didEvaluateActions
+{
+    [super didEvaluateActions];
+
 }
 
 -(void) createSimpleControls
 {
     // ----------------------------- DPad ----------------------------
 	SKTextureAtlas* atlas = [SKTextureAtlas atlasNamed:@"GUI"];
-//
-//	KKSpriteNode* dpadNode = [KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_directions_background"]];
-//	dpadNode.position = CGPointMake(dpadNode.size.width / 2 + 15, dpadNode.size.height / 2 + 15);
-//	[_hud addChild:dpadNode];
-//	
-//	NSArray* dpadTextures = [NSArray arrayWithObjects:
-//							 [atlas textureNamed:@"button_directions_right"],
-//							 [atlas textureNamed:@"button_directions_left"],
-//							 nil];
-//	KKControlPadBehavior* dpad = [KKControlPadBehavior controlPadBehaviorWithTextures:dpadTextures];
-//	dpad.deadZone = 0;
-//	[dpadNode addBehavior:dpad withKey:@"simple dpad"];
-//    
-//    [_playerCharacter observeNotification:KKControlPadDidChangeDirectionNotification
-//								 selector:@selector(controlPadDidChangeDirection:)
-//								   object:dpadNode];
+
+    /*
+	KKSpriteNode* dpadNode = [KKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"button_directions_background"]];
+	dpadNode.position = CGPointMake(dpadNode.size.width / 2 + 15, dpadNode.size.height / 2 + 15);
+	[_hud addChild:dpadNode];
+	
+	NSArray* dpadTextures = [NSArray arrayWithObjects:
+							 [atlas textureNamed:@"button_directions_right"],
+							 [atlas textureNamed:@"button_directions_left"],
+							 nil];
+	KKControlPadBehavior* dpad = [KKControlPadBehavior controlPadBehaviorWithTextures:dpadTextures];
+	dpad.deadZone = 0;
+	[dpadNode addBehavior:dpad withKey:@"simple dpad"];
+    
+    [_playerCharacter observeNotification:KKControlPadDidChangeDirectionNotification
+								 selector:@selector(controlPadDidChangeDirection:)
+								   object:dpadNode];
+     */
     
     //-------------------------------Joystick-----------------------------------
     CBAnalogueStick *stick = [CBAnalogueStick StickWithHandle:[SKSpriteNode spriteNodeWithTexture:[atlas textureNamed:@"analogue_handle"]]

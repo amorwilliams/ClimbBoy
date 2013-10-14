@@ -11,5 +11,6 @@
 
 // Sprite Kit
 #import "SKNode+CBExtension.h"
+#import "KKTilemapNode+ClimbBoy.h"
 
 #endif
