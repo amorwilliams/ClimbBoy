@@ -269,19 +269,19 @@
 			remoteGlobalIDString = DC484C6A178C418C0067DAA4;
 			remoteInfo = libKoboldKitPro.a;
 		};
-		DCE361B817D22893008F940E /* PBXContainerItemProxy */ = {
+		DCEFA502180C2AB3009B0300 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DC8B560A17CBF10F00F95CBC /* KoboldKitCommunity.xcodeproj */;
+			containerPortal = DCDBA58817E5E52C00796C04 /* OpenGW.xcodeproj */;
 			proxyType = 1;
-			remoteGlobalIDString = DC484C42178C40BB0067DAA4;
-			remoteInfo = KoboldKitCommunity.framework;
+			remoteGlobalIDString = DC484C6A178C418C0067DAA4;
+			remoteInfo = libOpenGW.a;
 		};
-		DCE361BA17D22897008F940E /* PBXContainerItemProxy */ = {
+		DCEFA507180C2AB8009B0300 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DC8B561017CBF10F00F95CBC /* KoboldKitPro.xcodeproj */;
+			containerPortal = DCDBA58817E5E52C00796C04 /* OpenGW.xcodeproj */;
 			proxyType = 1;
 			remoteGlobalIDString = DC484C42178C40BB0067DAA4;
-			remoteInfo = KoboldKitPro.framework;
+			remoteInfo = OpenGW.framework;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -936,8 +936,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				DCE361BB17D22897008F940E /* PBXTargetDependency */,
-				DCE361B917D22893008F940E /* PBXTargetDependency */,
+				DCEFA508180C2AB8009B0300 /* PBXTargetDependency */,
 				DC5AA88D17CD0D770001940A /* PBXTargetDependency */,
 			);
 			name = KoboldKit.framework;
@@ -956,6 +955,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DCEFA503180C2AB3009B0300 /* PBXTargetDependency */,
 				DCE361B717D2288F008F940E /* PBXTargetDependency */,
 				DCE361B117D2288C008F940E /* PBXTargetDependency */,
 				DC5AA88517CD0D6D0001940A /* PBXTargetDependency */,
@@ -1227,15 +1227,15 @@
 			name = libKoboldKitPro.a;
 			targetProxy = DCE361B617D2288F008F940E /* PBXContainerItemProxy */;
 		};
-		DCE361B917D22893008F940E /* PBXTargetDependency */ = {
+		DCEFA503180C2AB3009B0300 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = KoboldKitCommunity.framework;
-			targetProxy = DCE361B817D22893008F940E /* PBXContainerItemProxy */;
+			name = libOpenGW.a;
+			targetProxy = DCEFA502180C2AB3009B0300 /* PBXContainerItemProxy */;
 		};
-		DCE361BB17D22897008F940E /* PBXTargetDependency */ = {
+		DCEFA508180C2AB8009B0300 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = KoboldKitPro.framework;
-			targetProxy = DCE361BA17D22897008F940E /* PBXContainerItemProxy */;
+			name = OpenGW.framework;
+			targetProxy = DCEFA507180C2AB8009B0300 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1278,7 +1278,7 @@
 		DC484C88178C418D0067DAA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1295,7 +1295,7 @@
 		DC484C89178C418D0067DAA4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = KoboldKit;
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PRODUCT_NAME)";

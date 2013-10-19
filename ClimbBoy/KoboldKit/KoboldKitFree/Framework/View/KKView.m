@@ -76,6 +76,7 @@ static BOOL _showsNodeAnchorPoints = NO;
 	[self loadConfig:@"devconfig.lua"];
 	[self loadConfig:@"objectTemplates.lua" inheritProperties:YES];
 	[self loadConfig:@"behaviorTemplates.lua"];
+	[self loadConfig:@"tiledPropertiesMapping.lua"];
 
 	BOOL disableAllDebugLabels = [_model boolForKeyPath:@"devconfig.disableAllDebugLabels"];
 	if (disableAllDebugLabels == NO)
@@ -205,8 +206,8 @@ static BOOL _showsNodeAnchorPoints = NO;
 
 -(void) pushScene:(KKScene*)scene transition:(KKTransition*)transition
 {
-    self.scene.paused = YES;
-	[_sceneStack addObject:scene];
+	self.scene.paused = YES;
+	[_sceneStack addObject:self.scene];
 	
 	transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
 }
@@ -220,11 +221,11 @@ static BOOL _showsNodeAnchorPoints = NO;
 {
 	if (_sceneStack.count > 1)
 	{
+		KKScene* scene = [_sceneStack lastObject];
 		[_sceneStack removeLastObject];
-        KKScene* scene = [_sceneStack lastObject];
-
+		
 		transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
-        scene.paused = NO;
+		scene.paused = NO;
 	}
 }
 
@@ -244,7 +245,7 @@ static BOOL _showsNodeAnchorPoints = NO;
 			[_sceneStack addObject:scene];
 			
 			transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
-            scene.paused = NO;
+			scene.paused = NO;
 		}
 	}
 }
@@ -269,7 +270,7 @@ static BOOL _showsNodeAnchorPoints = NO;
 				[_sceneStack addObject:scene];
 				
 				transition ? [super presentScene:scene transition:transition] : [super presentScene:scene];
-                scene.paused = NO;
+				scene.paused = NO;
 				break;
 			}
 		}
