@@ -11,6 +11,7 @@
 #import "CBMacros.h"
 #import "Debug.h"
 
+
 @implementation BaseCharacter
 //@synthesize node;
 #pragma mark - Initialization
@@ -248,10 +249,6 @@
         {
             animationKey = @"anim_attack";
             [self.characterSprite setAnimationForTrack:0 name:@"stand-attack" loop:NO];
-//            [self.characterSprite queueAnimation:@"stand" loop:YES afterDelay:0.6];
-//            [self runAction:[SKAction waitForDuration:0.6] completion:^{
-//                self.attacking = NO;
-//            }];
             break;
         }
             
@@ -451,6 +448,14 @@ static const float skin = 5;
 #pragma mark - Shared Assets
 + (void)loadSharedAssets {
     // overridden by subclasses
+}
+
+static NSString const *AnimationFrameAssetsKey = @"Animation_Frame_Assets";
+
+- (NSArray *)animationFramesWithState:(CBAnimationState)state
+{
+    NSDictionary *animtionFramsDict = [self.userData objectForKey:AnimationFrameAssetsKey];
+    return [animtionFramsDict objectForKey:[NSString stringWithFormat:@"%d", (int8_t)state]];
 }
 
 - (SKEmitterNode *)damageEmitter {

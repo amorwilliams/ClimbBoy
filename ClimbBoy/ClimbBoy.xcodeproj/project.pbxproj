@@ -54,6 +54,7 @@
 		52315987180268F9009C8D8D /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315986180268F9009C8D8D /* Room.m */; };
 		524A8DC517F4628300938B0F /* CBControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC417F4628300938B0F /* CBControl.m */; };
 		524A8DC817F469E400938B0F /* CBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC717F469E400938B0F /* CBButton.m */; };
+		5261B44D1814DEBC00E73ED3 /* CBAnimationCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5261B44C1814DEBC00E73ED3 /* CBAnimationCache.m */; };
 		528E014517FBF50D00081757 /* PlaceItemBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 528E014417FBF50D00081757 /* PlaceItemBehavior.m */; };
 		52B3C3E5180C3AB900F9B8F3 /* OneSidePlatformBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B3C3E4180C3AB900F9B8F3 /* OneSidePlatformBehavior.m */; };
 		52B6F67717F2AFCA00610CD9 /* GUI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B6F67617F2AFCA00610CD9 /* GUI.atlas */; };
@@ -333,6 +334,9 @@
 		524A8DC617F469E400938B0F /* CBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBButton.h; sourceTree = "<group>"; };
 		524A8DC717F469E400938B0F /* CBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBButton.m; sourceTree = "<group>"; };
 		524A8DC917F47B7000938B0F /* ClimbBoy-ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClimbBoy-ui.h"; sourceTree = "<group>"; };
+		5261B44B1814DEBC00E73ED3 /* CBAnimationCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAnimationCache.h; sourceTree = "<group>"; };
+		5261B44C1814DEBC00E73ED3 /* CBAnimationCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAnimationCache.m; sourceTree = "<group>"; };
+		5261B44F1814E46400E73ED3 /* Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		528E014317FBF50D00081757 /* PlaceItemBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceItemBehavior.h; sourceTree = "<group>"; };
 		528E014417FBF50D00081757 /* PlaceItemBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceItemBehavior.m; sourceTree = "<group>"; };
 		52B3C3E3180C3AB900F9B8F3 /* OneSidePlatformBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneSidePlatformBehavior.h; sourceTree = "<group>"; };
@@ -895,6 +899,9 @@
 				52D5117817F06C6400362403 /* CBGraphicsUtilities.m */,
 				52D5117917F06C6400362403 /* Debug.h */,
 				52D5117A17F06C6400362403 /* Debug.m */,
+				5261B44B1814DEBC00E73ED3 /* CBAnimationCache.h */,
+				5261B44C1814DEBC00E73ED3 /* CBAnimationCache.m */,
+				5261B44F1814E46400E73ED3 /* Utilities.h */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1727,6 +1734,7 @@
 				DCEF831817CFDE9500157387 /* RemoveSpaceshipBehavior.m in Sources */,
 				52D5127C17F0979A00362403 /* HeroCharacter.m in Sources */,
 				52058B5C17FB2D68006ED51D /* AnimationState.c in Sources */,
+				5261B44D1814DEBC00E73ED3 /* CBAnimationCache.m in Sources */,
 				52D5126A17F06CEF00362403 /* KKProVersion.m in Sources */,
 				52058B6017FB2D68006ED51D /* Attachment.c in Sources */,
 				52D5126B17F06CEF00362403 /* KKContactNotificationNode.m in Sources */,

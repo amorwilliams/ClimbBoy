@@ -101,35 +101,5 @@
 
     });
 }
-
-static NSArray *sSharedIdleAnimationFrames = nil;
-- (NSArray *)idleAnimationFrames {
-    return sSharedIdleAnimationFrames;
-}
-
-static NSArray *sSharedRunAnimationFrames = nil;
-- (NSArray *)runAnimationFrames {
-    return sSharedRunAnimationFrames;
-}
-
-static NSArray *sSharedJumpStartAnimationFrames = nil;
-- (NSArray *)jumpStartAnimationFrames {
-    return sSharedJumpStartAnimationFrames;
-}
-
-static NSArray *sSharedJumpLoopAnimationFrames = nil;
-- (NSArray *)jumpLoopAnimationFrames {
-    return sSharedJumpLoopAnimationFrames;
-}
-
-static NSArray *sSharedLandAnimationFrames = nil;
-- (NSArray *)landAnimationFrames {
-    return sSharedLandAnimationFrames;
-}
-
-static NSArray *sSharedClimbAnimationFrames = nil;
-- (NSArray *)climbAnimationFrames {
-    return sSharedClimbAnimationFrames;
-}
- */
+*/
 @end
