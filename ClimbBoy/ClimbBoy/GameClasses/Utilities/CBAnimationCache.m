@@ -51,10 +51,16 @@ DEFINE_SINGLETON_FOR_CLASS(CBAnimationCache)
 	[_animations removeObjectForKey:name];
 }
 
-- (void)addAnimationsWithAtlas:(NSString *)atlasName fileBaseName:(NSString *)baseName name:(NSString *)name
+- (NSArray *)animationByName:(NSString *)name
+{
+    return [_animations objectForKey:name];
+}
+
+- (NSArray*)addAnimationsWithAtlas:(NSString *)atlasName fileBaseName:(NSString *)baseName
 {
     NSArray *animations = CBLoadFramesFromAtlas(atlasName, baseName);
-    [self addAnimation:animations name:name];
+    [self addAnimation:animations name:atlasName];
+    return animations;
 }
 
 @end

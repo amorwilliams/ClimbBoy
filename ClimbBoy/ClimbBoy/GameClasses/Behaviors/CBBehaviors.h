@@ -10,7 +10,8 @@
 #define ClimbBoy_CBBehaviors_h
 
 #import "FlipBySpeedBehavior.h"
-//#import "CharacterAnimatorBehavior.h"
+#import "CharacterAnimatorBehavior.h"
+#import "CharacterSpineBehavior.h"
 #import "CharacterPhysicsBehavior.h"
 #import "PlaceItemBehavior.h"
 #import "PlaceItemContainerBehavior.h"

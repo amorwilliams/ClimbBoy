@@ -17,20 +17,17 @@
 @implementation HeroCharacter
 
 #pragma mark - Initialization
-- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite
+- (id)initWithSpineSprite:(CBSpineSprite *)sprite
 {
-    self = [super initWithSpineSprite:spineSprite];
+    self = [super initWithSpineSprite:sprite];
     if (self) {
         
 //        _fsm = [[CBHeroCharacterContext alloc]initWithOwner:self];
 //        [_fsm setDebugFlag:NO];
 //        [_fsm enterStartState];
         
-        _placeItemBehavior = [PlaceItemBehavior behavior];
-        [self addBehavior:_placeItemBehavior];
-        
-        _placeItemContainerBehavior = [PlaceItemContainerBehavior behavior];
-        [self addBehavior:_placeItemContainerBehavior];
+        [self addBehavior:[PlaceItemBehavior behavior]];        
+        [self addBehavior:[PlaceItemContainerBehavior behavior]];
     }
     return self;
 }

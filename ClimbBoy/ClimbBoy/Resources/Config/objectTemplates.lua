@@ -131,7 +131,7 @@ local objectTemplates =
 				affectedByGravity = YES,
 				categoryBitMask = kContactCategoryPlayer,
 				contactTestBitMask = kContactCategoryWorld + kContactCategoryPlayer + kContactCategoryPickupItem,
-				collisionBitMask = kGameObjectCollisionBitMask,
+				collisionBitMask = kGameObjectCollisionBitMask - kContactCategoryEnemy,
 			},
 		},
 		
@@ -148,6 +148,51 @@ local objectTemplates =
 		actions =
 		{
 			-- not yet, coming soon
+		},
+	},
+
+	Skull =
+	{
+		-- create an instance of this class (class must inherit from SKNode or its subclasses)
+		className = "Skull",
+
+        properties =
+        {
+            fallSpeedAcceleration = 3000,    -- how fast player accelerates when falling down
+            fallSpeedLimit = 800,			-- max falling speed
+            jumpAbortVelocity = 500,		-- the (max) upwards velocity forcibly set when jump is aborted
+            jumpSpeedInitial = 600,         -- how fast the player initially moves upwards when jumping is initiated
+            jumpSpeedDeceleration = 800,	-- how fast upwards motion (caused by jumping) decelerates
+            runSpeedAcceleration = 1200,		-- how fast player accelerates sideways (0 = instant)
+            runSpeedDeceleration = 900,		-- how fast player decelerates sideways (0 = instant)
+            runSpeedLimit = 300,			-- max sideways running speed
+            boundingBox = "{32, 52}",
+            zPosition = 10,
+            --anchorPoint = "{0.5, 0.3}",
+
+            --_defaultImage = "dummy_stickman.png",
+        },
+
+		physicsBody =
+		{
+			properties =
+			{
+				allowsRotation = NO,
+				mass = 0.1,
+				restitution = 0,
+				linearDamping = 0,
+				angularDamping = 0,
+				friction = 0,
+				affectedByGravity = YES,
+				categoryBitMask = kContactCategoryEnemy,
+				contactTestBitMask = kContactCategoryWorld + kContactCategoryPlayer,
+				collisionBitMask = kGameObjectCollisionBitMask - kContactCategoryPlayer,
+			},
+		},
+		
+        behaviors =
+		{
+			
 		},
 	},
 

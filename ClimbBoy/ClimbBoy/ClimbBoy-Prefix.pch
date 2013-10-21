@@ -10,4 +10,7 @@
 	#import <KoboldKitCommunity/KoboldKitCommunity.h>
 	#import <KoboldKitExternal/KoboldKitExternal.h>
     #import "KKPro.h"
+
+    #import "Utilities.h"
+    #import "CBBehaviors.h"
 #endif

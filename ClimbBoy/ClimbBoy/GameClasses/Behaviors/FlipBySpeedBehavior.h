@@ -12,6 +12,6 @@
 {
 }
 
-@property (atomic, weak) KKNode *targetSpriteNode;
+@property (atomic, weak) SKNode *targetSpriteNode;
 
 @end

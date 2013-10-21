@@ -8,16 +8,12 @@
 
 #import "BaseCharacter.h"
 #import "ClimbBoy-ui.h"
-#import "CBBehaviors.h"
-
 
 @interface HeroCharacter : BaseCharacter
 {
     CGVector _currentControlPadDirection;
     __weak CBButton* _jumpButton;
     
-    PlaceItemBehavior *_placeItemBehavior;
-    PlaceItemContainerBehavior *_placeItemContainerBehavior;
 }
 @property (nonatomic) CGFloat climbUpSpeedLimit;
 @property (nonatomic) CGFloat climbDownSpeedLimit;

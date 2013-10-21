@@ -8,11 +8,6 @@
 
 #import "CharacterAnimatorBehavior.h"
 
-@interface CharacterAnimatorBehavior ()
-@property (atomic, weak)BaseCharacter *character;
-
-@end
-
 @implementation CharacterAnimatorBehavior
 
 - (void)didJoinController {
@@ -32,7 +27,7 @@
 #pragma mark - Loop Update
 -(void)update:(NSTimeInterval)currentTime {
     if (self.isAnimated) {
-//        [self resolveRequestedAnimation];
+        [self resolveRequestedAnimation];
     }
 }
 
@@ -42,7 +37,6 @@
 }
 
 #pragma mark - Animation
-/*
 - (void)resolveRequestedAnimation {
     // Determine the animation we want to play.
     NSString *animationKey = nil;
@@ -54,47 +48,47 @@
         default:
         case CBAnimationStateIdle:
             animationKey = @"anim_idle";
-            animationFrames = [_character idleAnimationFrames];
+            animationFrames = [_character animationFramesWithState:animationState];
             break;
             
         case CBAnimationStateWalk:
             animationKey = @"anim_walk";
-            animationFrames = [_character walkAnimationFrames];
+            animationFrames = [_character animationFramesWithState:animationState];
             break;
             
         case CBAnimationStateRun:
             animationKey = @"anim_run";
-            animationFrames = [_character runAnimationFrames];
+            animationFrames = [_character animationFramesWithState:animationState];
             break;
             
         case CBAnimationStateJump:
             animationKey = @"anim_jumpLoop";
-            animationFrames = [_character jumpStartAnimationFrames];
+            animationFrames = [_character animationFramesWithState:animationState];
             break;
             
         case CBAnimationStateFall:
             animationKey = @"anim_fall";
-            animationFrames = [_character jumpLoopAnimationFrames];
+            animationFrames = [_character animationFramesWithState:animationState];
             break;
             
         case CBAnimationStateClimb:
             animationKey = @"anim_climb";
-            animationFrames = [_character climbAnimationFrames];
+            animationFrames = [_character animationFramesWithState:animationState];
             break;
             
         case CBAnimationStateAttack:
             animationKey = @"anim_attack";
-            animationFrames = [_character attackAnimationFrames];
+            animationFrames = [_character animationFramesWithState:animationState];
             break;
             
         case CBAnimationStateGetHit:
             animationKey = @"anim_gethit";
-            animationFrames = [_character getHitAnimationFrames];
+            animationFrames = [_character animationFramesWithState:animationState];
             break;
             
         case CBAnimationStateDeath:
             animationKey = @"anim_death";
-            animationFrames = [_character deathAnimationFrames];
+            animationFrames = [_character animationFramesWithState:animationState];
             break;
     }
     
@@ -102,19 +96,19 @@
         [self fireAnimationForState:animationState usingTextures:animationFrames withKey:animationKey];
     }
     
-//    if (_character.isDying) {
-//        self.requestedAnimation = CBAnimationStateDeath;
-//    }else if (_character.isClimbing) {
-//        self.requestedAnimation = CBAnimationStateClimb;
-//    }else if (_character.isJumping){
-//        self.requestedAnimation = CBAnimationStateJump;
-//    }else{
-//        if(fabsf(_character.physicsBody.velocity.dx) > 50){
-//            self.requestedAnimation = CBAnimationStateRun;
-//        }else{
-//            self.requestedAnimation = CBAnimationStateIdle;
-//        }
-//    }
+    if (_character.isDying) {
+        self.requestedAnimation = CBAnimationStateDeath;
+    }else if (_character.isClimbing) {
+        self.requestedAnimation = CBAnimationStateClimb;
+    }else if (_character.isJumping){
+        self.requestedAnimation = CBAnimationStateJump;
+    }else{
+        if(fabsf(_character.physicsBody.velocity.dx) > 50){
+            self.requestedAnimation = CBAnimationStateRun;
+        }else{
+            self.requestedAnimation = CBAnimationStateIdle;
+        }
+    }
 }
 
 - (void)fireAnimationForState:(CBAnimationState)animationState usingTextures:(NSArray *)frames withKey:(NSString *)key {
@@ -134,10 +128,11 @@
 }
 
 - (void)animationHasCompleted:(CBAnimationState)animationState {
-    [(id<CharacterAnimatorDelegate>)_character animationHasCompleted:animationState];
+    if ([_character respondsToSelector:@selector(animationHasCompleted:)]) {
+        [_character performSelector:@selector(animationHasCompleted:) withObject:[NSNumber numberWithInt:animationState]];
+    }
     
     self.activeAnimationKey = nil;
 }
-*/
 
 @end

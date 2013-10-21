@@ -11,6 +11,7 @@
 #import "MapScene.h"
 #import "CBBehaviors.h"
 #import "GameManager.h"
+#import "Skull.h"
 
 
 #define VIEW_SIZE_WIDHT 568
@@ -33,6 +34,7 @@
 		[self addChild:_curtainSprite];
 
         [HeroRobot loadSharedAssets];
+        [Skull loadSharedAssets];
 
 //        _tmxFile = tmx;
 //        _tilemapNode = [KKTilemapNode tilemapWithContentsOfFile:_tmxFile];

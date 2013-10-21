@@ -7,7 +7,6 @@
 //
 #import <SpriteKit/SpriteKit.h>
 #import "CBCategories.h"
-#import "CBBehaviors.h"
 #import "spine-spirte-kit.h"
 #import "CBMacros.h"
 #import "Entity.h"
@@ -64,9 +63,11 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
     
     __weak SKNode *_platformNode;
     CGFloat _platformOffsetX;
+    
+    KKBehavior *_animatorBehavior;
 }
 /* 保存角色的贴图 */
-@property (nonatomic) CBSpineSprite *characterSprite;
+@property (nonatomic) SKNode *characterSprite;
 /* 角色碰撞的半径 */
 //@property (nonatomic) CBCapsule collisionCapsule;
 @property (nonatomic) CGSize boundingBox;
@@ -83,10 +84,10 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
 
 /* Animation */
 //@property (nonatomic) CharacterAnimatorBehavior *animatorBehavior;
-@property (atomic, getter = isAnimated) BOOL animated;
-@property (atomic) CGFloat animationSpeed;
-@property (atomic) NSString *activeAnimationKey;
-@property (atomic) CBAnimationState requestedAnimation;
+//@property (atomic, getter = isAnimated) BOOL animated;
+//@property (atomic) CGFloat animationSpeed;
+@property (nonatomic) NSString *activeAnimationKey;
+//@property (atomic) CBAnimationState requestedAnimation;
 
 /* States */
 @property (nonatomic, getter = isDying) BOOL dying;
@@ -117,7 +118,7 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
 + (void) loadSharedAssets;
 
 /* Initialize a standard sprite. */
-- (id) initWithSpineSprite:(CBSpineSprite *)spineSprite;
+- (id) initWithSpineSprite:(SKNode *)sprite;
 
 /* Reset a character for reuse. */
 - (void) reset;
@@ -160,5 +161,8 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
 - (void) moveTowards:(CGPoint)position withTimeInterval:(NSTimeInterval)timeInterval;
 - (void) moveInDirection:(CGPoint)direction withTimeInterval:(NSTimeInterval)timeInterval;
 - (void) climb:(CBMoveDirection)direction withTimeInterval:(NSTimeInterval)timeInterval;
+
+- (NSArray *) animationFramesWithState:(CBAnimationState)state;
+- (void) loadAnimationFrames:(NSArray*)animation state:(CBAnimationState)state;
 
 @end

@@ -54,6 +54,7 @@
 		52315987180268F9009C8D8D /* Room.m in Sources */ = {isa = PBXBuildFile; fileRef = 52315986180268F9009C8D8D /* Room.m */; };
 		524A8DC517F4628300938B0F /* CBControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC417F4628300938B0F /* CBControl.m */; };
 		524A8DC817F469E400938B0F /* CBButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 524A8DC717F469E400938B0F /* CBButton.m */; };
+		524EC7101815542500B23195 /* CharacterAnimatorBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 524EC70F1815542500B23195 /* CharacterAnimatorBehavior.m */; };
 		5261B44D1814DEBC00E73ED3 /* CBAnimationCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 5261B44C1814DEBC00E73ED3 /* CBAnimationCache.m */; };
 		528E014517FBF50D00081757 /* PlaceItemBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 528E014417FBF50D00081757 /* PlaceItemBehavior.m */; };
 		52B3C3E5180C3AB900F9B8F3 /* OneSidePlatformBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B3C3E4180C3AB900F9B8F3 /* OneSidePlatformBehavior.m */; };
@@ -146,6 +147,8 @@
 		52DF2C75180AD4C0003F0EDD /* CameraFollowBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DF2C74180AD4C0003F0EDD /* CameraFollowBehavior.m */; };
 		52DF2C79180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.m in Sources */ = {isa = PBXBuildFile; fileRef = 52DF2C78180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.m */; };
 		52F3935517F6ADFA00D9A07E /* CharacterPhysicsBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F3935417F6ADFA00D9A07E /* CharacterPhysicsBehavior.m */; };
+		52F650AF1815580C006F8BBA /* CharacterSpineBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F650AE1815580C006F8BBA /* CharacterSpineBehavior.m */; };
+		52F650B2181565B5006F8BBA /* Skull.m in Sources */ = {isa = PBXBuildFile; fileRef = 52F650B1181565B5006F8BBA /* Skull.m */; };
 		52FE6A4A17F411DA00804E7A /* Level01.tmx in Resources */ = {isa = PBXBuildFile; fileRef = 52FE6A4817F411DA00804E7A /* Level01.tmx */; };
 		52FE6A4E17F41A2D00804E7A /* Tileset_64x64.png in Resources */ = {isa = PBXBuildFile; fileRef = 52FE6A4D17F41A2D00804E7A /* Tileset_64x64.png */; };
 		DC042A83178C5A06009FDBF8 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */; };
@@ -307,6 +310,7 @@
 		5223C51117F5C2D600DC0DB5 /* spine.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = spine.atlas; sourceTree = "<group>"; };
 		5223C51217F5C2D600DC0DB5 /* spineboy.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spineboy.atlas; sourceTree = "<group>"; };
 		5223C51317F5C2D600DC0DB5 /* spineboy.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spineboy.json; sourceTree = "<group>"; };
+		522AFC45181502D70087B6AF /* CharacterAnimatorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterAnimatorDelegate.h; sourceTree = "<group>"; };
 		522BF0E217F810C800BDDD2B /* Build.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Build.xcconfig; sourceTree = "<group>"; };
 		522BF0E317F81FFD00BDDD2B /* CBScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBScene.h; sourceTree = "<group>"; };
 		522BF0E417F81FFD00BDDD2B /* CBScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBScene.m; sourceTree = "<group>"; };
@@ -334,6 +338,8 @@
 		524A8DC617F469E400938B0F /* CBButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBButton.h; sourceTree = "<group>"; };
 		524A8DC717F469E400938B0F /* CBButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBButton.m; sourceTree = "<group>"; };
 		524A8DC917F47B7000938B0F /* ClimbBoy-ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ClimbBoy-ui.h"; sourceTree = "<group>"; };
+		524EC70E1815542500B23195 /* CharacterAnimatorBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterAnimatorBehavior.h; sourceTree = "<group>"; };
+		524EC70F1815542500B23195 /* CharacterAnimatorBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterAnimatorBehavior.m; sourceTree = "<group>"; };
 		5261B44B1814DEBC00E73ED3 /* CBAnimationCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAnimationCache.h; sourceTree = "<group>"; };
 		5261B44C1814DEBC00E73ED3 /* CBAnimationCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAnimationCache.m; sourceTree = "<group>"; };
 		5261B44F1814E46400E73ED3 /* Utilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
@@ -478,6 +484,10 @@
 		52DF2C78180AE96D003F0EDD /* KKTilemapNode+ClimbBoy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KKTilemapNode+ClimbBoy.m"; sourceTree = "<group>"; };
 		52F3935317F6ADFA00D9A07E /* CharacterPhysicsBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterPhysicsBehavior.h; sourceTree = "<group>"; };
 		52F3935417F6ADFA00D9A07E /* CharacterPhysicsBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterPhysicsBehavior.m; sourceTree = "<group>"; };
+		52F650AD1815580C006F8BBA /* CharacterSpineBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharacterSpineBehavior.h; sourceTree = "<group>"; };
+		52F650AE1815580C006F8BBA /* CharacterSpineBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CharacterSpineBehavior.m; sourceTree = "<group>"; };
+		52F650B0181565B5006F8BBA /* Skull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Skull.h; sourceTree = "<group>"; };
+		52F650B1181565B5006F8BBA /* Skull.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Skull.m; sourceTree = "<group>"; };
 		52FE6A4817F411DA00804E7A /* Level01.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Level01.tmx; sourceTree = "<group>"; };
 		52FE6A4D17F41A2D00804E7A /* Tileset_64x64.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tileset_64x64.png; sourceTree = "<group>"; };
 		DC042A82178C5A06009FDBF8 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
@@ -778,6 +788,19 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		5261B4531814FDA300E73ED3 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				524EC70E1815542500B23195 /* CharacterAnimatorBehavior.h */,
+				524EC70F1815542500B23195 /* CharacterAnimatorBehavior.m */,
+				52D5114E17F06C6400362403 /* FlipBySpeedBehavior.h */,
+				52D5114F17F06C6400362403 /* FlipBySpeedBehavior.m */,
+				52F650AD1815580C006F8BBA /* CharacterSpineBehavior.h */,
+				52F650AE1815580C006F8BBA /* CharacterSpineBehavior.m */,
+			);
+			name = Nodes;
+			sourceTree = "<group>";
+		};
 		52B6F66517F2AF8E00610CD9 /* Spine */ = {
 			isa = PBXGroup;
 			children = (
@@ -816,8 +839,7 @@
 			isa = PBXGroup;
 			children = (
 				52D5114B17F06C6400362403 /* CBBehaviors.h */,
-				52D5114E17F06C6400362403 /* FlipBySpeedBehavior.h */,
-				52D5114F17F06C6400362403 /* FlipBySpeedBehavior.m */,
+				5261B4531814FDA300E73ED3 /* Nodes */,
 				52F3935317F6ADFA00D9A07E /* CharacterPhysicsBehavior.h */,
 				52F3935417F6ADFA00D9A07E /* CharacterPhysicsBehavior.m */,
 				528E014317FBF50D00081757 /* PlaceItemBehavior.h */,
@@ -863,6 +885,7 @@
 		52D5116517F06C6400362403 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				522AFC45181502D70087B6AF /* CharacterAnimatorDelegate.h */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1238,6 +1261,8 @@
 				52D5127917F0979A00362403 /* HeroRobot.m */,
 				52058B1D17FAE6D3006ED51D /* Enemy.h */,
 				52058B1E17FAE6D3006ED51D /* Enemy.m */,
+				52F650B0181565B5006F8BBA /* Skull.h */,
+				52F650B1181565B5006F8BBA /* Skull.m */,
 			);
 			name = CharacterNodes;
 			sourceTree = "<group>";
@@ -1695,8 +1720,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				52315987180268F9009C8D8D /* Room.m in Sources */,
-				52058B6E17FB2D68006ED51D /* Skin.c in Sources */,
 				52D511B317F06C6400362403 /* CBMyScene.m in Sources */,
+				52058B6E17FB2D68006ED51D /* Skin.c in Sources */,
+				524EC7101815542500B23195 /* CharacterAnimatorBehavior.m in Sources */,
 				52058B6617FB2D68006ED51D /* EventData.c in Sources */,
 				52D511B817F06C6400362403 /* MenuScene.m in Sources */,
 				52D5122117F06C8400362403 /* spine-spirte-kit.m in Sources */,
@@ -1749,6 +1775,7 @@
 				52058B6917FB2D68006ED51D /* RegionAttachment.c in Sources */,
 				52058B5D17FB2D68006ED51D /* AnimationStateData.c in Sources */,
 				DCD7A28D178C7526004A0467 /* main.m in Sources */,
+				52F650AF1815580C006F8BBA /* CharacterSpineBehavior.m in Sources */,
 				52D5126717F06CEF00362403 /* SKNode+KoboldKitPro.m in Sources */,
 				52D5126317F06CEF00362403 /* KKPickupItemBehavior.m in Sources */,
 				52058B6F17FB2D68006ED51D /* Slot.c in Sources */,
@@ -1761,6 +1788,7 @@
 				52D5126417F06CEF00362403 /* KKFollowPathBehavior.m in Sources */,
 				52D5126817F06CEF00362403 /* KKEntity.m in Sources */,
 				52D5126117F06CEF00362403 /* KKItemCollectorBehavior.m in Sources */,
+				52F650B2181565B5006F8BBA /* Skull.m in Sources */,
 				524A8DC817F469E400938B0F /* CBButton.m in Sources */,
 				52058B5F17FB2D68006ED51D /* AtlasAttachmentLoader.c in Sources */,
 				522BF0E817F8299E00BDDD2B /* Entity.m in Sources */,

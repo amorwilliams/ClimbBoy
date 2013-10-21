@@ -10,4 +10,18 @@
 
 @implementation Enemy
 
+- (id)initWithSpineSprite:(KKNode *)sprite
+{
+    self = [super initWithSpineSprite:sprite];
+    if (self) {
+        
+    }
+    return self;
+}
+
+- (void)didMoveToParent
+{
+    [super didMoveToParent];
+}
+
 @end

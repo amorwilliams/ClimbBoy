@@ -86,5 +86,10 @@
     <property name="FollowPath.pathName" value="path1"/>
    </properties>
   </object>
+  <object name="skull1" type="Skull" x="128" y="576" width="32" height="45"/>
+  <object name="skull1" type="Skull" x="640" y="576" width="32" height="45"/>
+  <object name="skull1" type="Skull" x="1408" y="448" width="32" height="45"/>
+  <object name="skull1" type="Skull" x="128" y="192" width="32" height="45"/>
+  <object name="skull1" type="Skull" x="1072" y="106" width="32" height="45"/>
  </objectgroup>
 </map>

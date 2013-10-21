@@ -15,11 +15,12 @@
 @implementation BaseCharacter
 //@synthesize node;
 #pragma mark - Initialization
-- (id)initWithSpineSprite:(CBSpineSprite *)spineSprite
+- (id)initWithSpineSprite:(SKNode *)sprite
 {
     if (self = [super init]) {
-        self.characterSprite = spineSprite;
-
+        self.characterSprite = sprite;
+        self.userData = [NSMutableDictionary dictionaryWithCapacity:2];
+        
         _health = 100.0f;
         _attackColdDownTime = 1.0;
         
@@ -37,6 +38,12 @@
 - (void)didMoveToParent {
     [self observeSceneEvents];
     [self.kkScene addPhysicsContactEventsObserver:self];
+    
+    if ([self.characterSprite isKindOfClass:[CBSpineSprite class]]) {
+        [self addBehavior:[CharacterSpineBehavior behavior]];
+    }else{
+        [self addBehavior:[CharacterAnimatorBehavior behavior]];
+    }
     
     FlipBySpeedBehavior *flipBehavior = [FlipBySpeedBehavior behavior];
     flipBehavior.targetSpriteNode = self.characterSprite;
@@ -198,75 +205,23 @@
 
 - (void)runAnimation:(CBAnimationState)animationState
 {
-    if (animationState != self.requestedAnimation)
-    {
-        self.requestedAnimation = animationState;
-        [self resolveRequestedAnimation];
+    if ([self.characterSprite isKindOfClass:[CBSpineSprite class]]) {
+        CharacterSpineBehavior *spineBehavior = [self behaviorKindOfClass:[CharacterSpineBehavior class]];
+        [spineBehavior setRequestedAnimation:animationState];
+    }else{
+        CharacterAnimatorBehavior *animatorBehavior = [self behaviorKindOfClass:[CharacterAnimatorBehavior class]];
+        [animatorBehavior setRequestedAnimation:animationState];
     }
 }
 
-- (void)resolveRequestedAnimation {
-    // Determine the animation we want to play.
-    NSString *animationKey = nil;
-//    NSArray *animationFrames = nil;
-    CBAnimationState animationState = self.requestedAnimation;
-    
-    switch (animationState) {
-            
-        default:
-        case CBAnimationStateIdle:
-            animationKey = @"anim_idle";
-            [self.characterSprite setAnimationForTrack:0 name:@"stand" loop:YES];
-            break;
-            
-        case CBAnimationStateWalk:
-            animationKey = @"anim_walk";
-            [self.characterSprite setAnimationForTrack:0 name:@"walk" loop:YES];
-            break;
-            
-        case CBAnimationStateRun:
-            animationKey = @"anim_run";
-            [self.characterSprite setAnimationForTrack:0 name:@"run" loop:YES];
-            break;
-            
-        case CBAnimationStateJump:
-            animationKey = @"anim_jumpLoop";
-            [self.characterSprite setAnimationForTrack:0 name:@"jump-loop" loop:YES];
-//            [self.characterSprite queueAnimation:@"jump-loop" loop:YES afterDelay:0.5];
-            break;
-            
-        case CBAnimationStateFall:
-            animationKey = @"anim_fall";
-            [self.characterSprite setAnimationForTrack:0 name:@"fall-loop" loop:YES];
-            break;
-            
-        case CBAnimationStateClimb:
-            animationKey = @"anim_climb";
-            [self.characterSprite setAnimationForTrack:0 name:@"jump-loop" loop:YES];
-            break;
-            
-        case CBAnimationStateAttack:
-        {
-            animationKey = @"anim_attack";
-            [self.characterSprite setAnimationForTrack:0 name:@"stand-attack" loop:NO];
-            break;
-        }
-            
-        case CBAnimationStateGetHit:
-            animationKey = @"anim_hit";
-            [self.characterSprite setAnimationForTrack:0 name:@"hit" loop:NO];
-            [self.characterSprite addAnimationForTrack:0 name:@"stand" loop:YES afterDelay:0.6];
-            break;
-            
-        case CBAnimationStateDeath:
-            animationKey = @"anim_death";
-            [self.characterSprite setAnimationForTrack:0 name:@"die" loop:NO];
-            break;
-    }
-    
-    if (animationKey) {
-//        [self fireAnimationForState:animationState usingTextures:animationFrames withKey:animationKey];
-        self.activeAnimationKey = animationKey;
+- (NSString *)activeAnimationKey
+{
+    if ([self.characterSprite isKindOfClass:[CBSpineSprite class]]) {
+        CharacterSpineBehavior *spineBehavior = [self behaviorKindOfClass:[CharacterSpineBehavior class]];
+        return spineBehavior.activeAnimationKey;
+    }else{
+        CharacterAnimatorBehavior *animatorBehavior = [self behaviorKindOfClass:[CharacterAnimatorBehavior class]];
+        return animatorBehavior.activeAnimationKey;
     }
 }
 
@@ -454,8 +409,19 @@ static NSString const *AnimationFrameAssetsKey = @"Animation_Frame_Assets";
 
 - (NSArray *)animationFramesWithState:(CBAnimationState)state
 {
-    NSDictionary *animtionFramsDict = [self.userData objectForKey:AnimationFrameAssetsKey];
+    NSMutableDictionary *animtionFramsDict = [self.userData objectForKey:AnimationFrameAssetsKey];
     return [animtionFramsDict objectForKey:[NSString stringWithFormat:@"%d", (int8_t)state]];
+}
+
+- (void)loadAnimationFrames:(NSArray*)animation state:(CBAnimationState)state
+{
+    NSMutableDictionary *animtionFramsDict = [self.userData objectForKey:AnimationFrameAssetsKey];
+    if (!animtionFramsDict) {
+        animtionFramsDict = [NSMutableDictionary dictionaryWithCapacity:10];
+        [self.userData setObject:animtionFramsDict forKey:AnimationFrameAssetsKey];
+    }
+
+    [animtionFramsDict setObject:animation forKey:[NSString stringWithFormat:@"%d", (int8_t)state]];
 }
 
 - (SKEmitterNode *)damageEmitter {

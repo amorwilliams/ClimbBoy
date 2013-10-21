@@ -35,7 +35,7 @@ DEFINE_SINGLETON_FOR_HEADER(CBAnimationCache)
 
 /** Adds an animation from atlas by animation file name
  */
--(void)addAnimationsWithAtlas:(NSString*)atlasName fileBaseName:(NSString *)baseName name:(NSString *)name;
+-(NSArray*)addAnimationsWithAtlas:(NSString*)atlasName fileBaseName:(NSString *)baseName;
 
 /** Adds an animation from a plist file.
  Make sure that the frames were previously loaded in the CCSpriteFrameCache.
