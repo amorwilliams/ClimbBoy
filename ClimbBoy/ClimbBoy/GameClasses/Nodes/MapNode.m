@@ -37,16 +37,16 @@
 //    [_map addRoom:randomRoom];
     
     
-    int roomCount = 0;
+    NSInteger roomCount = 0;
 //    while (roomCount < 15 || roomCount > 30) {
         _map = [Map dungeonWithWidth:20 height:20];
-        _map.maxDepth = 6;
+        _map.maxDepth = 1;
         Room *newRoom = [Room roomWithTilemapOfFile:@"room_root.tmx" parent:nil];
         [newRoom setPosition:CGPointMake(0, 0)];
         [_map addRoom:newRoom];
         [_map generateWithRootRoom:newRoom];
         roomCount = _map.rooms.count;
-        NSLog(@"rooms count: %d", roomCount);
+        NSLog(@"rooms count: %ld", (long)roomCount);
 //    }
     
     NSLog(@"%@", [_map description]);
@@ -84,6 +84,8 @@
                 for (int tilePosY = 0; tilePosY < layer.size.height ; tilePosY++) {
                     for (int tilePosX = 0; tilePosX < layer.size.width; tilePosX++) {
                         gid_t gid = [layer tileGidWithFlagsAt:CGPointMake(tilePosX, tilePosY)];
+                        
+//                        NSAssert(tilemap.highestGid >= (gid & KKTilemapTileFlipMask), @"gid %d, x:%d y:%d", gid, tilePosX, tilePosY);
                         
                         int tilePosXInOffset = tilePosX + room.position.x * kCell_Width;
                         int tilePosYInOffset = tilePosY + (_map.height - room.position.y - room.height) * kCell_Height;

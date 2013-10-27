@@ -69,7 +69,11 @@
     
     if (![self cellWithPoint:point]) {
         _grid[(int)point.x][(int)point.y] = YES;
+#if TARGET_OS_IPHONE
         [_visitedCells addObject:[NSValue valueWithCGPoint:point]];
+#else
+        [_visitedCells addObject:[NSValue valueWithPoint:point]];
+#endif
     }
 }
 
@@ -79,7 +83,11 @@
     
     if (![self cellWithPoint:point]) {
         _grid[(int)point.x][(int)point.y] = NO;
+#if TARGET_OS_IPHONE
         [_visitedCells removeObject:[NSValue valueWithCGPoint:point]];
+#else
+        [_visitedCells removeObject:[NSValue valueWithPoint:point]];
+#endif
     }
 }
 

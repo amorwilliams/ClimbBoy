@@ -16,7 +16,6 @@
 
 @property (atomic, readonly) int index;
 @property (atomic, readonly) NSDictionary *level;
-@property (atomic, readonly) KKScene *nextScene;
 
 + (KKScene *)sceneWithWithSize:(CGSize)size level:(NSDictionary *)level index:(int)index;
 - (id)initWithSize:(CGSize)size level:(NSDictionary *)level index:(int)index;

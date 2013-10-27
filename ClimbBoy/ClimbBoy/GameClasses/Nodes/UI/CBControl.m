@@ -178,7 +178,7 @@
 
 - (void) mouseDragged:(NSEvent *)event
 {
-    if ([self containsPoint:[event locationInNode:self.scnene]])
+    if ([self containsPoint:[event locationInNode:self.scene]])
     {
         if (!_touchInside)
         {

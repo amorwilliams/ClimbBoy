@@ -41,9 +41,7 @@
 //        [self addChild:_tilemapNode];
         
         _mapNode = [MapNode MapWithGridSize:CGSizeMake(64, 64)];
-        [self addChild:_mapNode];
         _tilemapNode = [KKTilemapNode tilemapWithContentsOfTilemap:_mapNode.mainTilemap];
-        [self addChild:_tilemapNode];
 
         if ([GameManager showsDebugNode]) {
             Debug *debugNode = [Debug sharedDebug];
@@ -71,6 +69,9 @@
 - (void)didMoveToView:(SKView *)view {
     [super didMoveToView:view];
     
+    [self addChild:_mapNode];
+    [self addChild:_tilemapNode];
+
 //    SKNode *mainLayerPhysics = [self.tilemapNode createPhysicsShapesWithTileLayerNode:self.tilemapNode.mainTileLayerNode];
 //    for (SKNode *node in mainLayerPhysics.children) {
 //        node.physicsBody.restitution = 0;
@@ -128,7 +129,7 @@
 //    _debugInfo.verticalAlignmentMode = SKLabelVerticalAlignmentModeTop;
     _debugInfo.text = @"Hello, World!";
     _debugInfo.fontSize = 15;
-    _debugInfo.color = [UIColor blackColor];
+    _debugInfo.color = [SKColor blackColor];
     _debugInfo.position = CGPointMake( 30, self.frame.size.height - 40);
     [_hud addChild:_debugInfo];
     

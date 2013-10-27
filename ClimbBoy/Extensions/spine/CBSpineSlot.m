@@ -106,7 +106,11 @@
 }
 #else
 - (NSColor *)color {
+    if (_attachmentNode) {
+        return _attachmentNode.color;
+    }
     
+    return nil;
 }
 #endif
 

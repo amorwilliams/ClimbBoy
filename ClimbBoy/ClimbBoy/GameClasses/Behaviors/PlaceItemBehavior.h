@@ -21,7 +21,7 @@
 }
 
 @property (nonatomic, weak) SKNode *item;
-@property (nonatomic) int trackedTouch;
+@property (nonatomic) NSUInteger trackedTouch;
 @property (nonatomic) CGFloat placeRange;
 @property (nonatomic, readonly) CGPoint placePoint;
 @property (nonatomic, readonly) CGVector placePointNormal;

@@ -12,16 +12,12 @@
 
 - (id)init
 {
-    self = [super init];
+//    SKSpriteNode *sprite = [SKSpriteNode spriteNodeWithTexture: [[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Idle"] firstObject]];
+    self = [super initWithSpineSprite:[SKSpriteNode spriteNodeWithImageNamed:@"hero_idle_0001.png"]];
     if (self) {
-        SKTexture *firstTexture = [[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Idle"] firstObject];
-        
-        if(self = [super initWithSpineSprite:[SKSpriteNode spriteNodeWithTexture:firstTexture]]){
-            [self.characterSprite setScale:0.5];
-            [self loadAnimationFrames:[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Idle"] state:CBAnimationStateIdle];
-            [self loadAnimationFrames:[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Run"] state:CBAnimationStateRun];
-
-        }
+        [self.characterSprite setScale:0.6];
+        [self loadAnimationFrames:[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Idle"] state:CBAnimationStateIdle];
+        [self loadAnimationFrames:[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Run"] state:CBAnimationStateRun];
     }
     return self;
 }

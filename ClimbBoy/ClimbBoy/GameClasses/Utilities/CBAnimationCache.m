@@ -13,22 +13,21 @@
 
 #pragma mark CCAnimationCache - Alloc, Init & Dealloc
 
-static NSMutableDictionary *_animations;
-
 DEFINE_SINGLETON_FOR_CLASS(CBAnimationCache)
 
-+ (void)purgeSharedAnimationCache
+- (void)purgeSharedAnimationCache
 {
-    [_animations removeAllObjects];
+    [ _animations removeAllObjects];
 }
 
--(id) init
+- (id)init
 {
-	if( (self=[super init]) ) {
-		_animations = [[NSMutableDictionary alloc] initWithCapacity: 20];
-	}
-    
-	return self;
+    self = [super init];
+    if (self) {
+        _animations = [[NSMutableDictionary alloc] initWithCapacity: 20];
+
+    }
+    return self;
 }
 
 #pragma mark CCAnimationCache - load/get/del

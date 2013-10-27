@@ -20,7 +20,7 @@ NSArray *CBLoadFramesFromAtlas(NSString *atlasName, NSString *baseFileName) {
         [frames addObject:texture];
     }
     
-    NSLog(@"%@ : %d", atlasName, frames.count);
+    NSLog(@"%@ : %lu", atlasName, (unsigned long)frames.count);
     
     return frames;
 }

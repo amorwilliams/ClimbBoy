@@ -11,13 +11,14 @@
 
 @interface CBAnimationCache : NSObject
 {
+    NSMutableDictionary *_animations;
 }
 
 DEFINE_SINGLETON_FOR_HEADER(CBAnimationCache)
 
 /** Purges the cache. It releases all the CCAnimation objects and the shared instance.
  */
-+(void)purgeSharedAnimationCache;
+-(void)purgeSharedAnimationCache;
 
 /** Adds a CCAnimation with a name.
  */

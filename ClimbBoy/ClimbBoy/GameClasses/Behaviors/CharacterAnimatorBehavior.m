@@ -102,6 +102,8 @@
         self.requestedAnimation = CBAnimationStateClimb;
     }else if (_character.isJumping){
         self.requestedAnimation = CBAnimationStateJump;
+    }else if (_character.isFalling){
+        self.requestedAnimation = CBAnimationStateFall;
     }else{
         if(fabsf(_character.physicsBody.velocity.dx) > 50){
             self.requestedAnimation = CBAnimationStateRun;

@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 macbookpro. All rights reserved.
 //
 
+#import <SpriteKit/SpriteKit.h>
+
 /** Capsule for collision shape **/
 struct CBCapsule {
     CGFloat radius;
@@ -17,10 +19,6 @@ static inline CBCapsule CBCapsuleMake(CGFloat radius, CGFloat height)
 {
     CBCapsule capsule; capsule.radius = radius; capsule.height = height; return capsule;
 }
-
-#import <UIKit/UIKit.h>
-#import <SpriteKit/SpriteKit.h>
-
 
 @interface SKNode (CBExtension)
 

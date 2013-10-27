@@ -18,7 +18,7 @@
    eJy1ks0KwkAMhEdBD+pJvdjWHqwKWvTu70Hoe/j+T+GE7mIMa6voBj5CM+mkNCkAlKRQlIGa1kLZvitMyBTxYgDc2/wXP85o8ud8bMmoQR863vV4fW7qM5Kg/odZoMfrqSMLeMj8G+pd7Iy2weuubE+bLjFG3P3G8Nf38E//AzmSk8tC8qV/h3RJj/QDem6yhL8Njb0D/21nPHd5cbWr6lubLCH3lyrkeUUqw/KD2t5k4QHtBhJb
   </data>
  </layer>
- <layer name="objects" width="24" height="12">
+ <layer name="objects" width="24" height="12" visible="0">
   <data encoding="base64" compression="zlib">
    eJxjYBg5gIMKZghQwQx8QIKO5rPjYBMrDwP6QKyOxXx8QJ9IdejqaR0+ClDaDYjdkbAHFrWkpCd+ypwFD19cQJxC83HFByzeKTUfFwAAdrcDbg==
   </data>

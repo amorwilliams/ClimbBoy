@@ -34,8 +34,21 @@
             [self.characterSprite setScale:0.2];
             self.characterSprite.position = ccp(0, -25);
         }
+//
+//        SKTexture *firstTexture = [[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Idle"] firstObject];
+//        
+//        if(self = [super initWithSpineSprite:[SKSpriteNode spriteNodeWithTexture:firstTexture]]){
+//            [self.characterSprite setScale:0.6];
+//            [self loadAnimationFrames:[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Idle"] state:CBAnimationStateIdle];
+//            [self loadAnimationFrames:[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Run"] state:CBAnimationStateRun];
+//            [self loadAnimationFrames:[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Jump_Loop"] state:CBAnimationStateJump];
+//            [self loadAnimationFrames:[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Jump_Loop"] state:CBAnimationStateFall];
+//            [self loadAnimationFrames:[[CBAnimationCache sharedCBAnimationCache] animationByName:@"Hero_Climb_Loop"] state:CBAnimationStateClimb];
+//            
+//        }
         
         self.attackColdDownTime = 0;
+
         
 //        self.fallSpeedAcceleration = 3000;
 //        self.fallSpeedLimit = 800;
@@ -85,21 +98,12 @@
 }
 
 #pragma mark - Shared Assets
-/*
 + (void)loadSharedAssets {
-    [super loadSharedAssets];
-    
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        
-        sSharedIdleAnimationFrames = CBLoadFramesFromAtlas(@"Hero_Idle", @"hero_idle_");
-        sSharedRunAnimationFrames = CBLoadFramesFromAtlas(@"Hero_Run", @"hero_run_");
-        sSharedJumpStartAnimationFrames = CBLoadFramesFromAtlas(@"Hero_Jump_Start", @"hero_jump_start_");
-        sSharedJumpLoopAnimationFrames = CBLoadFramesFromAtlas(@"Hero_Jump_Loop", @"hero_jump_loop_");
-        sSharedLandAnimationFrames = CBLoadFramesFromAtlas(@"Hero_Jump_Land_Long", @"hero_jump_land_long_");
-        sSharedClimbAnimationFrames = CBLoadFramesFromAtlas(@"Hero_Climb_Loop", @"hero_climb_loop_");
-
-    });
+    [[CBAnimationCache sharedCBAnimationCache] addAnimationsWithAtlas:@"Hero_Idle" fileBaseName:@"hero_idle_"];
+    [[CBAnimationCache sharedCBAnimationCache] addAnimationsWithAtlas:@"Hero_Run" fileBaseName:@"hero_run_"];
+    [[CBAnimationCache sharedCBAnimationCache] addAnimationsWithAtlas:@"Hero_Jump_Start" fileBaseName:@"hero_jump_start_"];
+    [[CBAnimationCache sharedCBAnimationCache] addAnimationsWithAtlas:@"Hero_Jump_Loop" fileBaseName:@"hero_jump_loop_"];
+    [[CBAnimationCache sharedCBAnimationCache] addAnimationsWithAtlas:@"Hero_Jump_Land_Long" fileBaseName:@"hero_jump_land_long_"];
+    [[CBAnimationCache sharedCBAnimationCache] addAnimationsWithAtlas:@"Hero_Climb_Loop" fileBaseName:@"hero_climb_loop_"];
 }
-*/
 @end

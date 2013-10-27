@@ -67,7 +67,7 @@ static inline float IncrementTowards(float n, float target, float a, NSTimeInter
     KKBehavior *_animatorBehavior;
 }
 /* 保存角色的贴图 */
-@property (nonatomic) SKNode *characterSprite;
+@property (atomic) SKNode *characterSprite;
 /* 角色碰撞的半径 */
 //@property (nonatomic) CBCapsule collisionCapsule;
 @property (nonatomic) CGSize boundingBox;

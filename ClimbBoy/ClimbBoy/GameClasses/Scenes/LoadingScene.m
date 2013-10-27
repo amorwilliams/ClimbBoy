@@ -62,17 +62,17 @@ static dispatch_queue_t loadingQueue = NULL;
         @autoreleasepool {
             NSString *levelName = [_level objectForKey:@"Tilemap"];
             NSLog(@"load level file name: %@", levelName);
-            _nextScene = [GameplayScene sceneWithSize:self.size tmxFile:levelName];
+            SKScene *nextScene = [GameplayScene sceneWithSize:self.size tmxFile:levelName];
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self startMap];
+                [self startMap:nextScene];
             });
         }
     });
 }
 
-- (void)startMap {
-    [self.kkView presentScene:_nextScene transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:1]];
+- (void)startMap:(SKScene *)scene {
+    [self.kkView presentScene:scene transition:[SKTransition fadeWithColor:[SKColor blackColor] duration:1]];
 }
 
 @end

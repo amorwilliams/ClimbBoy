@@ -26,7 +26,7 @@ DEFINE_SINGLETON_FOR_HEADER(Debug)
 + (void) drawRayStart:(CGPoint)start dirction:(CGVector)dir color:(SKColor *)color;
 
 + (void) drawParabolaStart:(CGPoint)start end:(CGPoint)end controlPoint1:(CGPoint)cp1 controlPoint2:(CGPoint)cp2;
-+ (void) drawParabolaStart:(CGPoint)start end:(CGPoint)end controlPoint1:(CGPoint)cp1 controlPoint2:(CGPoint)cp2 color:(UIColor *)color;
++ (void) drawParabolaStart:(CGPoint)start end:(CGPoint)end controlPoint1:(CGPoint)cp1 controlPoint2:(CGPoint)cp2 color:(SKColor *)color;
 
 
 @end

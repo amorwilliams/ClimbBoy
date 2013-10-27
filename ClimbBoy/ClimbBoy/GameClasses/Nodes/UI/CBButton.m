@@ -248,7 +248,7 @@ static NSString* const ScaleActionKey = @"CBButtonB:ScaleAction";
 
 #pragma mark Properties
 
-- (void) setScale:(float)scale
+- (void) setScale:(CGFloat)scale
 {
     _originalScaleX = _originalScaleY = scale;
     [super setScale:scale];

@@ -40,7 +40,7 @@ DEFINE_SINGLETON_FOR_CLASS(GameManager)
                                           format:&format
                                           errorDescription:&errorDesc];
     if (!temp) {
-        NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
+        NSLog(@"Error reading plist: %@, format: %lu", errorDesc, format);
     }
     
     self.maps = [NSArray arrayWithArray:[temp objectForKey:@"Maps"]];

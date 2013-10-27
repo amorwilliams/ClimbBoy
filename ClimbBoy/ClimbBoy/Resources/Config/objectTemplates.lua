@@ -106,7 +106,7 @@ local objectTemplates =
             jumpAbortVelocity = 500,		-- the (max) upwards velocity forcibly set when jump is aborted
             jumpSpeedInitial = 600,         -- how fast the player initially moves upwards when jumping is initiated
             jumpSpeedDeceleration = 800,	-- how fast upwards motion (caused by jumping) decelerates
-            runSpeedAcceleration = 1200,		-- how fast player accelerates sideways (0 = instant)
+            runSpeedAcceleration = 1200,	-- how fast player accelerates sideways (0 = instant)
             runSpeedDeceleration = 900,		-- how fast player decelerates sideways (0 = instant)
             runSpeedLimit = 300,			-- max sideways running speed
             climbUpSpeedLimit = 300,

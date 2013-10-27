@@ -98,7 +98,7 @@ DEFINE_SINGLETON_FOR_CLASS(Debug)
     [[Debug sharedDebug] drawParabolaStart:start end:end controlPoint1:(CGPoint)cp1 controlPoint2:(CGPoint)cp2 color:[SKColor blueColor]];
 }
 
-+ (void)drawParabolaStart:(CGPoint)start end:(CGPoint)end controlPoint1:(CGPoint)cp1 controlPoint2:(CGPoint)cp2 color:(UIColor *)color
++ (void)drawParabolaStart:(CGPoint)start end:(CGPoint)end controlPoint1:(CGPoint)cp1 controlPoint2:(CGPoint)cp2 color:(SKColor *)color
 {
     [[Debug sharedDebug] drawParabolaStart:start end:end controlPoint1:(CGPoint)cp1 controlPoint2:(CGPoint)cp2 color:color];
 }

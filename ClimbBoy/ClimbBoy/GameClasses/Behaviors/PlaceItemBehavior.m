@@ -141,7 +141,7 @@
 		{
             if (_trackedTouch)
             {
-                NSLog(@"ALERT: pad already tracking touch: %x (new touch: %p)", _trackedTouch, touch);
+                NSLog(@"ALERT: pad already tracking touch: %lx (new touch: %p)", (unsigned long)_trackedTouch, touch);
             }
             else
             {
