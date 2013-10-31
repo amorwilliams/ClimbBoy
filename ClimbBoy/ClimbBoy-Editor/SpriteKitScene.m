@@ -31,7 +31,6 @@ static SpriteKitScene* sharedSpriteKitScene;
         
         [_stageBgLayer setSize:CGSizeMake(400, 400)];
         _stageBgLayer.position = CGPointZero;
-       
     }
     return self;
 }
@@ -79,7 +78,7 @@ static SpriteKitScene* sharedSpriteKitScene;
     
     // Black content layer
     _stageBgLayer = [SKSpriteNode spriteNodeWithColor:[SKColor blackColor] size:CGSizeZero];
-    _stageBgLayer.anchorPoint = ccp(0.5,0.5);
+    _stageBgLayer.anchorPoint = ccp(0,0);
 //    _stageBgLayer.ignoreAnchorPointForPosition = NO;
     [self addChild:_stageBgLayer];
     
@@ -216,6 +215,47 @@ static SpriteKitScene* sharedSpriteKitScene;
 
 
 #pragma mark Stage properties
+- (void) setStageSize: (CGSize) size centeredOrigin:(BOOL)centeredOrigin
+{
+    _stageBgLayer.size = size;
+    if (centeredOrigin) _contentLayer.position = ccp(size.width/2, size.height/2);
+    else _contentLayer.position = ccp(0,0);
+    
+//    [self setStageBorder:stageBorderType];
+    
+    
+//    if (renderedScene)
+//    {
+//        [self removeChild:renderedScene cleanup:YES];
+//        renderedScene = NULL;
+//    }
+    
+//    if (size.width > 0 && size.height > 0 && size.width <= 1024 && size.height <= 1024)
+//    {
+//        // Use a new autorelease pool
+//        // Otherwise, two successive calls to the running method (_cmd) cause a crash!
+//        NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+//        
+//        renderedScene = [CCRenderTexture renderTextureWithWidth:size.width height:size.height];
+//        renderedScene.anchorPoint = ccp(0.5f,0.5f);
+//        [self addChild:renderedScene];
+//        
+//        [pool drain];
+//    }
+    
+    
+}
+
+- (CGSize) stageSize
+{
+    return _stageBgLayer.size;
+}
+
+- (BOOL) centeredOrigin
+{
+    return (_contentLayer.position.x != 0);
+}
+
 
 - (void)setStageZoom:(CGFloat)zoom
 {
@@ -227,6 +267,22 @@ static SpriteKitScene* sharedSpriteKitScene;
     [_borderDevice setScale:zoom];
     
     _stageZoom = zoom;
+}
+
+#pragma mark Replacing content
+
+- (void) replaceRootNodeWith:(SKNode *)node
+{
+//    CCBGlobals* g = [CCBGlobals globals];
+    
+    [_rootNode removeFromParent];
+    
+    self.rootNode = node;
+//    g.rootNode = node;
+    
+    if (!node) return;
+    
+    [_contentLayer addChild:node];
 }
 
 #pragma mark Handle mouse input
@@ -262,7 +318,7 @@ static SpriteKitScene* sharedSpriteKitScene;
 //    if (!appDelegate.hasOpenedDocument) return;
     
     CGPoint pos = [theEvent locationInNode:self];
-    
+//    NSPoint posRaw = [theEvent locationInWindow];
     _mousePos = pos;
     
 //    NSLog(@"%@", NSStringFromPoint(pos));
@@ -336,8 +392,8 @@ static SpriteKitScene* sharedSpriteKitScene;
 
     // Update rulers
     _origin = ccpAdd(stageCenter, ccpMult(_contentLayer.position,_stageZoom));
-    _origin.x -= _stageBgLayer.size.width/2 * _stageZoom;
-    _origin.y -= _stageBgLayer.size.height/2 * _stageZoom;
+//    _origin.x -= _stageBgLayer.size.width/2 * _stageZoom;
+//    _origin.y -= _stageBgLayer.size.height/2 * _stageZoom;
     
     [_rulerLayer updateWithSize:_winSize stageOrigin:_origin zoom:_stageZoom];
     [_rulerLayer updateMousePos:_mousePos];

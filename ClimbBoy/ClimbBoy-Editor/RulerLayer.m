@@ -62,6 +62,7 @@
         lblY.text = @"0";
         lblY.fontSize = 9;
         lblY.fontColor = [SKColor blackColor];
+        lblY.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeRight;
         lblY.position = ccp(82,3);
         lblY.zPosition = 2;
         lblY.hidden = YES;

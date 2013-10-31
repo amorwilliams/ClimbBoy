@@ -217,6 +217,9 @@
 		52A3465A181A6364006F5F9B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDD2DAD1769FD0A00F307CD /* CoreGraphics.framework */; };
 		52A3465B181A6364006F5F9B /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCDD2DB11769FD0A00F307CD /* SpriteKit.framework */; };
 		52A3465E181A65AE006F5F9B /* KoboldKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC8B563217CBF16700F95CBC /* KoboldKit.framework */; };
+		52AACBB01822951E00158C4D /* NewDocWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AACBAE1822951E00158C4D /* NewDocWindowController.m */; };
+		52AACBB11822951E00158C4D /* NewDocWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52AACBAF1822951E00158C4D /* NewDocWindow.xib */; };
+		52AACBB41822990F00158C4D /* MainWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 52AACBB31822990F00158C4D /* MainWindow.m */; };
 		52B3C3E5180C3AB900F9B8F3 /* OneSidePlatformBehavior.m in Sources */ = {isa = PBXBuildFile; fileRef = 52B3C3E4180C3AB900F9B8F3 /* OneSidePlatformBehavior.m */; };
 		52B6F67717F2AFCA00610CD9 /* GUI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B6F67617F2AFCA00610CD9 /* GUI.atlas */; };
 		52B6F67E17F2CE4D00610CD9 /* MainMenu.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 52B6F67B17F2CE4D00610CD9 /* MainMenu.atlas */; };
@@ -652,6 +655,11 @@
 		52A34641181A6176006F5F9B /* ClimbBoy-EditorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClimbBoy-EditorTests-Info.plist"; sourceTree = "<group>"; };
 		52A34643181A6176006F5F9B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		52A34645181A6176006F5F9B /* ClimbBoy_EditorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClimbBoy_EditorTests.m; sourceTree = "<group>"; };
+		52AACBAD1822951E00158C4D /* NewDocWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewDocWindowController.h; sourceTree = "<group>"; };
+		52AACBAE1822951E00158C4D /* NewDocWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewDocWindowController.m; sourceTree = "<group>"; };
+		52AACBAF1822951E00158C4D /* NewDocWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewDocWindow.xib; sourceTree = "<group>"; };
+		52AACBB21822990F00158C4D /* MainWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainWindow.h; sourceTree = "<group>"; };
+		52AACBB31822990F00158C4D /* MainWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainWindow.m; sourceTree = "<group>"; };
 		52B3C3E3180C3AB900F9B8F3 /* OneSidePlatformBehavior.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneSidePlatformBehavior.h; sourceTree = "<group>"; };
 		52B3C3E4180C3AB900F9B8F3 /* OneSidePlatformBehavior.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneSidePlatformBehavior.m; sourceTree = "<group>"; };
 		52B6F67617F2AFCA00610CD9 /* GUI.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GUI.atlas; sourceTree = "<group>"; };
@@ -1262,6 +1270,7 @@
 		52A34622181A6176006F5F9B /* ClimbBoy-Editor */ = {
 			isa = PBXGroup;
 			children = (
+				52AACBAC182294EE00158C4D /* Dialogs */,
 				52C2C49E181D4295005A44AF /* Rulers, Guides */,
 				52C2C494181CE131005A44AF /* SpriteKitScene.h */,
 				52C2C495181CE131005A44AF /* SpriteKitScene.m */,
@@ -1270,6 +1279,8 @@
 				52A3462E181A6176006F5F9B /* AppDelegate.h */,
 				52A3462F181A6176006F5F9B /* AppDelegate.m */,
 				52A34631181A6176006F5F9B /* MainMenu.xib */,
+				52AACBB21822990F00158C4D /* MainWindow.h */,
+				52AACBB31822990F00158C4D /* MainWindow.m */,
 				52A3464D181A6223006F5F9B /* Resources */,
 				52A34623181A6176006F5F9B /* Supporting Files */,
 			);
@@ -1315,6 +1326,16 @@
 				52A34634181A6176006F5F9B /* Images.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		52AACBAC182294EE00158C4D /* Dialogs */ = {
+			isa = PBXGroup;
+			children = (
+				52AACBAD1822951E00158C4D /* NewDocWindowController.h */,
+				52AACBAE1822951E00158C4D /* NewDocWindowController.m */,
+				52AACBAF1822951E00158C4D /* NewDocWindow.xib */,
+			);
+			name = Dialogs;
 			sourceTree = "<group>";
 		};
 		52B6F66517F2AF8E00610CD9 /* Spine */ = {
@@ -2394,6 +2415,7 @@
 				52C05C3D181D459300E621EC /* header-bg.png in Resources */,
 				52C05C1E181D459300E621EC /* seq-scaleslide-bg.png in Resources */,
 				52C05C65181D45E200E621EC /* notes-close-down.png in Resources */,
+				52AACBB11822951E00158C4D /* NewDocWindow.xib in Resources */,
 				52C05C0A181D459300E621EC /* TB_play.png in Resources */,
 				52C05C25181D459300E621EC /* seq-btn-stepforward.png in Resources */,
 				52C05BFC181D459300E621EC /* editor-warning.png in Resources */,
@@ -2606,8 +2628,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				52A34630181A6176006F5F9B /* AppDelegate.m in Sources */,
+				52AACBB01822951E00158C4D /* NewDocWindowController.m in Sources */,
 				52C2C496181CE131005A44AF /* SpriteKitScene.m in Sources */,
 				52C2C49A181CFE4F005A44AF /* SpritKitView.m in Sources */,
+				52AACBB41822990F00158C4D /* MainWindow.m in Sources */,
 				52A34629181A6176006F5F9B /* main.m in Sources */,
 				52C2C49D181D428A005A44AF /* RulerLayer.m in Sources */,
 			);

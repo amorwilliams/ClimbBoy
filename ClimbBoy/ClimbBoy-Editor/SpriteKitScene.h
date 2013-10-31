@@ -35,7 +35,6 @@
     int _currentMouseTransform;
     BOOL _isMouseTransforming;
     BOOL _isPanning;
-    CGPoint _scrollOffset;
     CGPoint _panningStartScrollOffset;
     
     // Origin position in screen coordinates
@@ -49,10 +48,20 @@
     
     int _currentTool;
 }
+@property (nonatomic,assign) SKNode *rootNode;
+@property (nonatomic,assign) CGPoint scrollOffset;
 
 @property (nonatomic) CGFloat stageZoom;
 
 + (SpriteKitScene*) spriteKitScene;
+
+- (void) setStageSize: (CGSize) size centeredOrigin:(BOOL)centeredOrigin;
+- (CGSize) stageSize;
+- (BOOL) centeredOrigin;
+- (void) setStageBorder:(int)type;
+- (int) stageBorder;
+
+- (void) replaceRootNodeWith:(SKNode *)node;
 
 - (CGPoint) convertToDocSpace:(CGPoint)viewPt;
 - (CGPoint) convertToViewSpace:(CGPoint)docPt;

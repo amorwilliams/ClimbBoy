@@ -40,7 +40,7 @@
     NSInteger roomCount = 0;
 //    while (roomCount < 15 || roomCount > 30) {
         _map = [Map dungeonWithWidth:20 height:20];
-        _map.maxDepth = 1;
+        _map.maxDepth = 6;
         Room *newRoom = [Room roomWithTilemapOfFile:@"room_root.tmx" parent:nil];
         [newRoom setPosition:CGPointMake(0, 0)];
         [_map addRoom:newRoom];

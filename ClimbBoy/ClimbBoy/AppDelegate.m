@@ -72,4 +72,12 @@
 
 #endif
 
+- (IBAction)zoomInView:(id)sender {
+}
+
+- (IBAction)zoomOutView:(id)sender {
+}
+
+- (IBAction)resetView:(id)sender {
+}
 @end
